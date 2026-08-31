@@ -12,6 +12,7 @@ Plataforma multiagente governada por contratos para produção documental cinema
 - `core/provider-validation`: validação por prompt de capabilities, limites, mappings, adaptações e execution plans sem executar jobs.
 - `core/image-generation`: Reference Pack, calibração por classe de asset, jobs, QC visual multidimensional, hard fails e Start Frame Registry sem gerar assets reais.
 - `core/video-generation`: Motion Manifest, calibração por movimento, jobs idempotentes, Motion QC, continuity comparison e retries causais sem gerar vídeos reais.
+- `core/audio-generation`: narração compilada, SoundBible, cues licenciados, mix plan, Audio QC e retries causais sem renderizar áudio real.
 - `core/control-plane`: execução governada, idempotência, retomada e observabilidade.
 - `agents/strategy` e `agents/editorial`: Topic Scout, Topic Greenlight, Research Integrity, Documentary Script Compiler e Script QC.
 - `providers/editorial`: interfaces e mocks determinísticos.
@@ -29,6 +30,7 @@ Topic Scout -> Topic Greenlight -> Research Integrity
 -> Provider Capability Validation -> PROVIDER_PLAN_APPROVED | HUMAN_REQUIRED | BLOCKED
 -> Image Generation & Visual QC -> START_FRAMES_APPROVED | IMAGE_NEEDS_REVIEW | IMAGE_BLOCKED
 -> Video Generation & Motion QC -> VIDEO_BATCH_APPROVED | NEEDS_MOTION_REVISION | BLOCKED
+-> Narration, Sound Design & Audio QC -> AUDIO_APPROVED | HUMAN_REVIEW | BLOCKED
 ```
 
 O cenário executável está coberto em `tests/editorial-pipeline.test.ts`. Ele cria/reutiliza o projeto, abre uma run, valida cada tarefa e resultado, registra cinco artefatos, cria checkpoints antes/depois de cada agente e aplica `CREATED -> TOPIC_APPROVED -> SCRIPT_APPROVED` apenas pela state machine.
@@ -58,4 +60,4 @@ pnpm build
 
 Não há geração real de imagem, vídeo, voz ou áudio; browser automation; assembly; provider externo; fila; banco durável ou UI operacional. A persistência em memória é deliberada para o bootstrap e pode ser substituída pelas interfaces existentes.
 
-Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/prompt-pack-compiler.md`, `docs/provider-capability-validation.md`, `docs/image-generation.md`, `docs/contracts/image-generation-contracts.md` e `docs/runbooks/image-generation-pipeline.md`.
+Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/prompt-pack-compiler.md`, `docs/provider-capability-validation.md`, `docs/image-generation.md`, `docs/contracts/image-generation-contracts.md` e `docs/runbooks/image-generation-pipeline.md`, `docs/audio-generation.md`, `docs/contracts/audio-generation-contracts.md` e `docs/runbooks/audio-generation-pipeline.md`.

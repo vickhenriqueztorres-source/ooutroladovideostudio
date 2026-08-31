@@ -5,6 +5,7 @@ export * from "./prompt-pack"
 export * from "./provider-capability"
 export * from "./image-generation"
 export * from "./video-generation"
+export * from "./audio-generation"
 import { projectStates, recordStatuses } from "../contracts"
 
 const id = z.string().min(1)

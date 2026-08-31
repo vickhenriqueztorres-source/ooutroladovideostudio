@@ -1,0 +1,3 @@
+import type{AudioCue,MixPlan}from"../contracts/audio-generation"
+function tc(seconds:number){const h=Math.floor(seconds/3600),m=Math.floor(seconds%3600/60),s=(seconds%60).toFixed(3).padStart(6,"0");return`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${s}`}
+export function buildMixPlan(cues:AudioCue[]):MixPlan{return{narrationBus:{priority:1,targetGainDb:-3},musicBus:{duckUnderNarrationDb:-5},sfxBus:{duckUnderNarrationDb:-3},ambienceBus:{duckUnderNarrationDb:-6},silenceCues:cues.filter(c=>c.type==="SILENCE").map(c=>tc(c.startSec)),masterPolicy:{integratedLufsTarget:-16,truePeakMaxDbtp:-1,loudnessRangeTargetLu:11,normalization:"twoPass"},analysisPerformed:false}}
