@@ -34,7 +34,7 @@ describe("packaging control plane",()=>{
   it("salva checkpoint imutável",()=>{
     const s=setup()
     s.cp.execute(s.input)
-    expect(s.checkpoints.listByRun(s.input.runId)[0]).toBeDefined()
+    expect(s.checkpoints.listByRun(s.input.runId)).toHaveLength(9)
   })
 
   it("sanitiza logs",()=>{

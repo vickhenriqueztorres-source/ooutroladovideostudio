@@ -14,6 +14,8 @@ outputs/fern-editing-study/videos/
 tmp/
 temp/
 .cache/
+.next/
+*.tsbuildinfo
 node_modules/
 __pycache__/
 *.pyc

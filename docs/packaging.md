@@ -1,21 +1,60 @@
-# Packaging & Metadata QC
+# Packaging & Distribution Agent
 
-O módulo `core/packaging` consome exclusivamente um `MasterApprovalReceipt` válido, o `AssemblyPack` em `DELIVERY_APPROVED` e o `RenderManifest` em `RENDERED`. Ele recompute os hashes do receipt a partir dos artefatos recebidos e rejeita qualquer divergência antes de compilar metadados.
+O módulo `core/packaging` implementa o Prompt 11 do BRECHA. Ele só aceita um `AssemblyPack` em `DELIVERY_APPROVED`, um `MasterApprovalReceipt` íntegro e um `RenderManifest` renderizado. O agente compila um pacote de publicação sem modificar o master e sem publicar em plataforma externa.
 
-## Contrato de entrada
-O receipt é a única chave que destrava a fase. Ele precisa declarar `state: MASTER_APPROVED`, `nextAgent: PACKAGING_AGENT`, lista de bloqueios vazia e os hashes de timeline, render manifest, captions, evidência e relatório de QC. Hash divergente em timeline, captions, evidência ou QC é tratado como `ASSEMBLY_PACK_MUTATED`; divergência isolada do manifest é `MASTER_RECEIPT_HASH_MISMATCH`.
+## Fluxo governado
 
-## Garantias
-- títulos declaram explicitamente os claims que sustentam, e claims `UNSUPPORTED` ou `UNCERTAIN` sem linguagem condicional aprovada bloqueiam a seleção;
-- números presentes em título ou descrição precisam existir no corpus de captions aprovado;
-- padrões sensacionalistas configurados bloqueiam o candidato;
-- o overlay da thumbnail é derivado do título selecionado, nunca redigido livremente;
-- evidência sintética nunca é apresentada como registro real, e evidência real não verificada bloqueia a thumbnail;
-- capítulos derivam da timeline compilada, exigem início em zero, ordem crescente e cobertura integral da duração;
-- disclosure de fontes exige fonte verificada; disclosure sintético é obrigatório quando existe reconstrução, dramatização, interface fictícia ou gráfico explicativo;
-- idioma dos metadados precisa coincidir com o idioma das captions;
-- bloqueios críticos prevalecem sobre o score agregado, inclusive com `qcThreshold` igual a zero;
-- o `metadataHash` é determinístico, permitindo reprodução e comparação entre revisões.
+```text
+MASTER_APPROVED
+→ PACKAGING_INPUT_VALIDATED
+→ THUMBNAIL_GENERATED
+→ TITLE_COMPILED
+→ DESCRIPTION_COMPILED
+→ TAGS_GENERATED
+→ CHAPTERS_RESOLVED
+→ SHORTS_PLANNED
+→ POLICY_VALIDATED
+→ MANIFEST_BUILT
+→ HUMAN_SELECTION_REQUIRED
+→ DELIVERY_APPROVED
+```
 
-## Publicação
-O agente nunca publica. Com metadados aprovados o estado governado avança apenas `MASTER_APPROVED → PACKAGING_READY`. Sem `publishApproval` explícito o pack registra o aviso `PUBLISH_APPROVAL_MISSING`, mantém `publishAuthorized: false` e aponta `nextAgent: HUMAN_REVIEW`. Somente com aprovação humana registrada o próximo passo passa a ser `PUBLISH_AGENT`.
+O estado global avança de `MASTER_APPROVED` para `PACKAGING_READY` quando o pacote editorial passa nos gates. `DELIVERY_APPROVED` exige seleção humana registrada de uma combinação válida de título e thumbnail. O agente nunca aplica `PUBLISHED`.
+
+## Entradas obrigatórias
+
+- receipt e `AssemblyPack` aprovados, sem divergência de hashes;
+- `topicProfile`, com palavra-chave, hook e promessa;
+- `channelProfile`, com CTA, hashtags e paleta BRECHA;
+- políticas de YouTube e das plataformas secundárias solicitadas;
+- estratégia de distribuição manual ou agendada;
+- claims, fontes e Evidence Matrix;
+- exatamente três conceitos de thumbnail: `MECHANISM`, `CONSEQUENCE` e `FINAL_HANDOFF`;
+- três opções de título sustentadas por claims.
+
+## Pacote A/B/C
+
+Cada conceito de thumbnail precisa representar uma hipótese editorial diferente, usar somente evidência presente no episódio e registrar SHA-256 da base, da imagem final e da prévia mobile. A headline possui de uma a cinco palavras, safe area válida, contraste mínimo, aderência à paleta e CTR estimado acima do gate configurado.
+
+Cada título é pareado com uma thumbnail. O título contém a palavra-chave nos primeiros 40 caracteres, não repete a headline, respeita o limite da plataforma e não pode introduzir número ou claim ausente das captions e evidências aprovadas.
+
+`metadata.recommendedSelection` registra:
+
+- título principal recomendado;
+- thumbnail recomendada, ID e headline;
+- combinação exata de publicação inicial;
+- alternativas A/B/C para teste.
+
+## Distribuição
+
+O pacote inclui descrição com hook nas duas primeiras linhas, contexto, capítulos, fontes, CTA e hashtags; tags primárias, secundárias e long-tail; três a cinco cortes verticais de 15–60 segundos; validação específica para YouTube, TikTok e Instagram; e `publishingManifest` com paths e hashes do master e da thumbnail.
+
+Os paths em `outputs/` são apenas referências no manifest. O agente mock não escreve, sobrescreve ou publica arquivos.
+
+## Aprovação humana
+
+Sem `publishApproval`, o resultado é `PACKAGING_READY`, `deliveryStatus: HUMAN_SELECTION_REQUIRED`, manifest `READY_FOR_REVIEW`, `publishAuthorized: false` e `nextAgent: HUMAN_REVIEW`.
+
+Uma aprovação válida registra `approvedBy`, `approvedAt`, `selectedTitleId` e `selectedThumbnailId`. Os IDs precisam formar um par A/B/C aprovado. Só então o resultado recebe `deliveryStatus: DELIVERY_APPROVED`, manifest `READY_FOR_PUBLISH` e handoff para `PUBLISH_AGENT`; nenhum upload é executado.
+
+Consulte `docs/contracts/packaging-contracts.md` e `docs/runbooks/packaging-pipeline.md`.

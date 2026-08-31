@@ -19,6 +19,13 @@ export function validatePackagingInput(i:PackagingInput):PackagingBlockingError[
   if(mismatched.length)errors.push(mismatched.length===1&&mismatched[0]==="renderManifestHash"?"MASTER_RECEIPT_HASH_MISMATCH":"ASSEMBLY_PACK_MUTATED")
   if(i.language!==i.assemblyPack.captionTrack.language)errors.push("LOCALIZATION_MISMATCH")
   if(!i.sources.some(s=>s.verified))errors.push("DESCRIPTION_SOURCE_MISSING")
+  if(!i.topicProfile?.primaryKeyword||!i.topicProfile?.hook||!i.topicProfile?.promise)errors.push("TOPIC_PROFILE_MISSING")
+  if(!i.channelProfile?.channelName||!i.channelProfile?.defaultCta||!i.channelProfile?.palette?.length)errors.push("CHANNEL_PROFILE_MISSING")
+  if(!i.platformPolicies?.youtube)errors.push("PLATFORM_POLICIES_MISSING")
+  if(!i.distributionStrategy?.primaryPlatform)errors.push("DISTRIBUTION_STRATEGY_MISSING")
+  if(i.distributionStrategy?.publishMode==="scheduled"&&!i.distributionStrategy.scheduledTime)errors.push("DISTRIBUTION_STRATEGY_MISSING")
+  if(i.distributionStrategy?.secondaryPlatforms.includes("tiktok")&&!i.platformPolicies?.tiktok)errors.push("PLATFORM_POLICIES_MISSING")
+  if(i.distributionStrategy?.secondaryPlatforms.includes("instagram")&&!i.platformPolicies?.instagram)errors.push("PLATFORM_POLICIES_MISSING")
   return [...new Set(errors)]
 }
 

@@ -15,8 +15,8 @@ export class PackagingControlPlane{
     const project=this.projects.getById(input.projectId)
     if(project.state!=="MASTER_APPROVED")throw new Error("PACKAGING_INVALID_PROJECT_STATE")
     const pack=runPackaging(input,this.adapter)
-    this.checkpoints.save({projectId:input.projectId,runId:input.runId,snapshot:pack.checkpoint,recoverable:true,final:pack.status==="PACKAGING_READY",cause:pack.checkpoint.stage,metadata:{packagingPackId:pack.packagingPackId,inputHash:key}})
-    this.logger.log({level:pack.status==="BLOCKED"?"error":"info",event:"packaging.completed",projectId:input.projectId,runId:input.runId,data:{packagingPackId:pack.packagingPackId,status:pack.status,titleCandidates:pack.metadata.titleCandidates.length,chapters:pack.metadata.chapters.length,publishAuthorized:pack.publishAuthorized}})
+    for(const checkpoint of pack.checkpointTrail)this.checkpoints.save({projectId:input.projectId,runId:input.runId,snapshot:checkpoint,recoverable:true,final:checkpoint.stage==="DELIVERY_APPROVED",cause:checkpoint.stage,metadata:{packagingPackId:pack.packagingPackId,inputHash:key}})
+    this.logger.log({level:pack.status==="BLOCKED"?"error":"info",event:"packaging.completed",projectId:input.projectId,runId:input.runId,data:{packagingPackId:pack.packagingPackId,status:pack.status,deliveryStatus:pack.deliveryStatus,titleCandidates:pack.metadata.titleCandidates.length,thumbnailOptions:pack.metadata.thumbnailOptions.length,chapters:pack.metadata.chapters.length,shortsCuts:pack.metadata.shortsCuts.cutCount,publishAuthorized:pack.publishAuthorized}})
     if(pack.status==="PACKAGING_READY"){
       this.sm.apply({id:`packaging-${key.slice(7,19)}`,...governance({projectId:project.id,runId:input.runId,status:"completed"}),from:project.state,to:"PACKAGING_READY",reason:"Metadata bundle approved for publish review"})
       this.projects.update(project.id,{state:"PACKAGING_READY"})

@@ -14,6 +14,7 @@ Plataforma multiagente governada por contratos para produção documental cinema
 - `core/video-generation`: Motion Manifest, calibração por movimento, jobs idempotentes, Motion QC, continuity comparison e retries causais sem gerar vídeos reais.
 - `core/audio-generation`: narração compilada, SoundBible, cues licenciados, mix plan, Audio QC e retries causais sem renderizar áudio real.
 - `core/final-assembly`: timeline determinística, resolução de assets aprovados, sync, captions, representação, preview/final manifests e Assembly QC sem escrever MP4 real.
+- `core/packaging`: três conceitos A/B/C de thumbnail, títulos pareados, descrição, SEO, capítulos, Shorts, políticas de plataforma, manifest de publicação e seleção humana obrigatória.
 - `core/control-plane`: execução governada, idempotência, retomada e observabilidade.
 - `agents/strategy` e `agents/editorial`: Topic Scout, Topic Greenlight, Research Integrity, Documentary Script Compiler e Script QC.
 - `providers/editorial`: interfaces e mocks determinísticos.
@@ -33,6 +34,7 @@ Topic Scout -> Topic Greenlight -> Research Integrity
 -> Video Generation & Motion QC -> VIDEO_BATCH_APPROVED | NEEDS_MOTION_REVISION | BLOCKED
 -> Narration, Sound Design & Audio QC -> AUDIO_APPROVED | HUMAN_REVIEW | BLOCKED
 -> Final Assembly & Render QC -> MASTER_APPROVED | HUMAN_REVIEW | BLOCKED
+-> Packaging & Distribution -> PACKAGING_READY | HUMAN_SELECTION_REQUIRED | DELIVERY_APPROVED | BLOCKED
 ```
 
 O cenário executável está coberto em `tests/editorial-pipeline.test.ts`. Ele cria/reutiliza o projeto, abre uma run, valida cada tarefa e resultado, registra cinco artefatos, cria checkpoints antes/depois de cada agente e aplica `CREATED -> TOPIC_APPROVED -> SCRIPT_APPROVED` apenas pela state machine.
@@ -56,10 +58,11 @@ pnpm build
 - providers mock determinísticos sem URLs ou fatos inventados;
 - pipeline idempotente e retomável por checkpoint;
 - logs estruturados para início, validação, QC, checkpoint, transição, bloqueio e conclusão;
+- Packaging Prompt 11 com manifest determinístico, políticas por plataforma e gate humano sem publicação automática;
 - fixtures positiva e negativa explicitamente marcadas como MOCK.
 
 ## Limites desta fase
 
 Não há geração real de imagem, vídeo, voz, áudio ou MP4; browser automation; provider externo; fila; banco durável ou UI operacional. O assembly atual produz somente metadados e hashes determinísticos. A persistência em memória é deliberada para o bootstrap e pode ser substituída pelas interfaces existentes.
 
-Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/prompt-pack-compiler.md`, `docs/provider-capability-validation.md`, `docs/image-generation.md`, `docs/contracts/image-generation-contracts.md` e `docs/runbooks/image-generation-pipeline.md`, `docs/audio-generation.md`, `docs/contracts/audio-generation-contracts.md` e `docs/runbooks/audio-generation-pipeline.md`, `docs/final-assembly.md`, `docs/contracts/final-assembly-contracts.md` e `docs/runbooks/final-assembly-pipeline.md`.
+Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/prompt-pack-compiler.md`, `docs/provider-capability-validation.md`, `docs/image-generation.md`, `docs/audio-generation.md`, `docs/final-assembly.md`, `docs/packaging.md` e os respectivos contratos e runbooks em `docs/contracts` e `docs/runbooks`.

@@ -14,7 +14,9 @@ describe("packaging agent",()=>{
     const pack=run()
     expect(pack.status).toBe("PACKAGING_READY")
     expect(pack.blockingErrors).toEqual([])
-    expect(pack.metadata.selectedTitleId).toBe("TTL-1")
+    expect(pack.metadata.selectedTitleId).toBe("TITLE-1")
+    expect(pack.metadata.thumbnailOptions).toHaveLength(3)
+    expect(pack.metadata.recommendedSelection.alternatives).toHaveLength(3)
   })
 
   it("não autoriza publicação sem aprovação explícita",()=>{
@@ -25,9 +27,11 @@ describe("packaging agent",()=>{
   })
 
   it("autoriza publish agent apenas com aprovação humana",()=>{
-    const pack=run(i=>{i.publishApproval={approvedBy:"editor-chefe",approvedAt:"2026-01-03T00:00:00.000Z"}})
+    const pack=run(i=>{i.publishApproval={approvedBy:"editor-chefe",approvedAt:"2026-01-03T00:00:00.000Z",selectedTitleId:"TITLE-1",selectedThumbnailId:"THUMB-A"}})
     expect(pack.publishAuthorized).toBe(true)
     expect(pack.nextAgent).toBe("PUBLISH_AGENT")
+    expect(pack.deliveryStatus).toBe("DELIVERY_APPROVED")
+    expect(pack.metadata.publishingManifest.status).toBe("READY_FOR_PUBLISH")
   })
 
   it("bloqueia receipt sem MASTER_APPROVED",()=>{
@@ -112,7 +116,7 @@ describe("packaging agent",()=>{
     const pack=run()
     const total=pack.metadata.chapters.reduce((sum,c)=>sum+(c.endSec-c.startSec),0)
     expect(pack.metadata.chapters[0].startSec).toBe(0)
-    expect(total).toBeCloseTo(6,2)
+    expect(total).toBeCloseTo(validPackagingInput().assemblyPack.timelineCompilation.durationSeconds,2)
   })
 
   it("bloqueia capítulo com timestamp inválido",()=>{
@@ -152,8 +156,41 @@ describe("packaging agent",()=>{
 
   it("registra checkpoint no estágio da falha",()=>{
     const blocked=run(i=>{i.titleSeeds=[{text:"Brecha",claimIds:["CLM-1"]}]})
-    expect(blocked.checkpoint.stage).toBe("RECEIPT_VERIFIED")
-    expect(run().checkpoint.stage).toBe("PACKAGING_READY")
+    expect(blocked.checkpoint.stage).toBe("THUMBNAIL_GENERATED")
+    expect(run().checkpoint.stage).toBe("MANIFEST_BUILT")
+  })
+
+  it("gera três conceitos editoriais distintos e legíveis em mobile",()=>{
+    const pack=run()
+    expect(pack.metadata.thumbnailOptions.map(t=>t.role)).toEqual(["MECHANISM","CONSEQUENCE","FINAL_HANDOFF"])
+    expect(pack.metadata.thumbnailOptions.every(t=>t.legibilityScore>=.8&&t.safeAreaValid)).toBe(true)
+    expect(pack.metadata.thumbnailOptions.every(t=>t.lineage.baseImageHash&&t.lineage.finalImageHash&&t.lineage.mobilePreviewHash)).toBe(true)
+  })
+
+  it("bloqueia conceitos de thumbnail que não são realmente distintos",()=>{
+    const pack=run(i=>{i.thumbnailConcepts=i.thumbnailConcepts.map(c=>({...c,concept:"Mesmo conceito"}))})
+    expect(pack.blockingErrors).toContain("THUMBNAIL_CONCEPTS_NOT_DISTINCT")
+  })
+
+  it("bloqueia CTR estimado abaixo do gate",()=>{
+    const pack=run(()=>{},new MockPackagingAdapter(7.2,true,.05))
+    expect(pack.blockingErrors).toContain("THUMBNAIL_CTR_BELOW_TARGET")
+  })
+
+  it("compila SEO, capítulos, Shorts e políticas por plataforma",()=>{
+    const pack=run()
+    expect(pack.metadata.tagBundle.status).toBe("APPROVED")
+    expect(pack.metadata.tagBundle.primaryTags).toContain("brecha")
+    expect(pack.metadata.shortsCuts.cutCount).toBeGreaterThanOrEqual(3)
+    expect(pack.metadata.shortsCuts.cuts.every(c=>c.durationSec>=15&&c.durationSec<=60&&c.format==="9:16")).toBe(true)
+    expect(pack.metadata.policyValidation.status).toBe("APPROVED")
+    expect(pack.metadata.publishingManifest.status).toBe("READY_FOR_REVIEW")
+  })
+
+  it("exige seleção humana pareada entre título e thumbnail",()=>{
+    const pack=run(i=>{i.publishApproval={approvedBy:"editor",approvedAt:"2026-01-03T00:00:00.000Z",selectedTitleId:"TITLE-1",selectedThumbnailId:"THUMB-B"}})
+    expect(pack.blockingErrors).toContain("HUMAN_SELECTION_INVALID")
+    expect(pack.publishAuthorized).toBe(false)
   })
 
   it("nenhum score substitui bloqueio crítico",()=>{
