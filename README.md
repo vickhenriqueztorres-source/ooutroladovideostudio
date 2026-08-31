@@ -1,42 +1,45 @@
-# BRECHA
+# BRECHA Platform
 
-Projeto estratégico e visual de um canal brasileiro de documentários sobre golpes, fraudes digitais e defesa cotidiana.
+Fundação do control plane para uma plataforma multiagente de produção documental cinematográfica. O sistema governa projetos por contratos versionados, estado explícito, registries de artefatos e checkpoints recuperáveis, sem acoplar lógica de negócio a runtimes ou providers.
 
-> **Toda fraude começa por uma brecha.**
+## Arquitetura
 
-## Conceito
+- `core/contracts` e `core/schemas`: contratos compartilhados e validação Zod.
+- `core/state-machine`: estados e transições permitidas do pipeline.
+- `core/registry`: registries em memória para projetos, runs, artefatos e checkpoints.
+- `core/checkpoints`: snapshots imutáveis e metadata de recuperação.
+- `core/control-plane`: criação, despacho governado, logs e checkpoints.
+- `agents`: pontos de extensão e `MockAgent` da fundação.
+- `providers`: interfaces para drivers LLM, imagem, vídeo, áudio e browser.
+- `runtimes`: adaptadores para ambientes de execução; o core desconhece cada runtime.
+- `apps`: superfícies futuras de API, console e worker.
+- `outputs`: acervo estratégico, visual e de pesquisa do BRECHA.
 
-BRECHA reconstrói como uma fraude entra na vida real, revela o mecanismo escondido e identifica o momento em que a corrente ainda poderia ser interrompida.
+## Comandos
 
-A linguagem combina:
+```bash
+pnpm install
+pnpm test
+pnpm typecheck
+pnpm build
+```
 
-- reconstruções cinematográficas produzidas com IA;
-- evidências, documentos e imagens reais;
-- sistemas, mapas e interfaces animados em Remotion/3D;
-- uma identidade baseada na fenda coral entre a superfície e o mecanismo oculto.
+## Implementado nesta fase
 
-## Documentos principais
+- dez contratos base com `schemaVersion` e campos de governança;
+- schemas Zod validáveis em runtime;
+- state machine global com transições explícitas e função pura;
+- registries em memória com criação, atualização, leitura, listagem e proteção contra duplicidade;
+- checkpoint manager com snapshots, recuperação, flags e causa;
+- logger estruturado em memória;
+- interfaces `Agent`, `RuntimeAdapter`, `ProviderAdapter`, `CheckpointStore`, `Registry`, `StateMachine` e `Logger`;
+- control plane mínimo com projeto, run, `MockAgent`, checkpoints antes/depois e estado final;
+- testes de contratos, estado, registries, checkpoints e happy path.
 
-- [`outputs/brecha-brand-bible-v1.md`](outputs/brecha-brand-bible-v1.md) — posicionamento, identidade, voz e sistema editorial.
-- [`outputs/brecha-pesquisa-avancada-montagem.md`](outputs/brecha-pesquisa-avancada-montagem.md) — montagem, seleção de cenas, ritmo e estrutura dos episódios.
-- [`outputs/plano-modelagem-canal-defesa-digital-br.md`](outputs/plano-modelagem-canal-defesa-digital-br.md) — plano de modelagem e operação do canal.
-- [`outputs/benchmark-edicao-defesa-digital.md`](outputs/benchmark-edicao-defesa-digital.md) — benchmark de canais e formatos de edição.
-- [`outputs/fern-editing-study/fern-edicao-extraida.md`](outputs/fern-editing-study/fern-edicao-extraida.md) — engenharia de edição extraída de três episódios do fern.
+A memória foi escolhida para o bootstrap por manter testes determinísticos e o núcleo livre de I/O. As interfaces permitem adicionar stores duráveis sem alterar os consumidores.
 
-## Identidade e cenas
+## Fora do escopo
 
-- [`outputs/brecha-youtube-branding/`](outputs/brecha-youtube-branding/) — foto de perfil, banner e prompts.
-- [`outputs/brecha-cenas-exemplo-v1/`](outputs/brecha-cenas-exemplo-v1/) — cinco style frames de um episódio-conceito.
-- [`outputs/brecha-montagem-referencias/`](outputs/brecha-montagem-referencias/) — folhas de contato e métricas das referências estudadas.
+Ainda não há providers reais, geração de imagem/vídeo/voz, assembly, filas, persistência durável, UI operacional, agentes criativos finais ou adaptadores concretos para Codex, Antigravity, Claude Code e OpenRouter. Esses ambientes serão conectados exclusivamente por adaptadores.
 
-## Regra editorial
-
-> **IA representa. Evidência confirma.**
-
-Reconstruções geradas ou dramatizadas devem ser identificadas. Cenas sintéticas nunca substituem fontes, documentos ou registros apresentados como prova.
-
-## Materiais de referência
-
-Frames de vídeos de terceiros presentes nas pastas de benchmark são mantidos exclusivamente para estudo interno de montagem. Não são ativos de publicação do canal e não devem ser reutilizados em vídeos ou peças comerciais.
-
-Downloads integrais, arquivos temporários e aproximadamente 1 GB de materiais de trabalho estão excluídos do repositório pelo `.gitignore`.
+Consulte [`docs/architecture.md`](docs/architecture.md) para invariantes e fluxo de execução.

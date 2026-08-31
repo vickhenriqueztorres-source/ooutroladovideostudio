@@ -1,3 +1,9 @@
+packages:
+  - "apps/*"
+  - "core/*"
+  - "agents/*"
+  - "providers/*"
+  - "runtimes/*"
 minimumReleaseAgeExclude:
-  - '@next/*'
+  - "@next/*"
   - next
