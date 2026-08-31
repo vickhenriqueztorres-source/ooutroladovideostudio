@@ -2,6 +2,7 @@ import { z } from "zod"
 export * from "./editorial"
 export * from "./edit-blueprint"
 export * from "./prompt-pack"
+export * from "./provider-capability"
 import { projectStates, recordStatuses } from "../contracts"
 
 const id = z.string().min(1)

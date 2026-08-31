@@ -9,6 +9,7 @@ Plataforma multiagente governada por contratos para produção documental cinema
 - `core/editorial`: políticas puras de duração, budget e Script QC.
 - `core/edit-timeline`: compiler determinístico de sequences, shots, assets, continuidade, transições, som, budget, dependências e Edit QC.
 - `core/prompt-pack`: compiler provider-agnostic de prompt units, referências, boundaries factuais, specs, capabilities, dependências, budget e Prompt QC.
+- `core/provider-validation`: validação por prompt de capabilities, limites, mappings, adaptações e execution plans sem executar jobs.
 - `core/control-plane`: execução governada, idempotência, retomada e observabilidade.
 - `agents/strategy` e `agents/editorial`: Topic Scout, Topic Greenlight, Research Integrity, Documentary Script Compiler e Script QC.
 - `providers/editorial`: interfaces e mocks determinísticos.
@@ -23,6 +24,7 @@ Topic Scout -> Topic Greenlight -> Research Integrity
 -> SCRIPT_APPROVED | HUMAN_REQUIRED | BLOCKED
 -> Edit Timeline Compiler -> Edit QC -> EDIT_BLUEPRINT_APPROVED | NEEDS_REVISION | BLOCKED
 -> Prompt Pack Compiler -> Prompt Pack QC -> PROMPT_PACK_APPROVED | NEEDS_REVISION | BLOCKED
+-> Provider Capability Validation -> PROVIDER_PLAN_APPROVED | HUMAN_REQUIRED | BLOCKED
 ```
 
 O cenário executável está coberto em `tests/editorial-pipeline.test.ts`. Ele cria/reutiliza o projeto, abre uma run, valida cada tarefa e resultado, registra cinco artefatos, cria checkpoints antes/depois de cada agente e aplica `CREATED -> TOPIC_APPROVED -> SCRIPT_APPROVED` apenas pela state machine.
@@ -52,4 +54,4 @@ pnpm build
 
 Não há geração real de imagem, vídeo, voz ou áudio; browser automation; assembly; provider externo; fila; banco durável ou UI operacional. A persistência em memória é deliberada para o bootstrap e pode ser substituída pelas interfaces existentes.
 
-Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/prompt-pack-compiler.md`, `docs/contracts/prompt-pack-contracts.md` e `docs/runbooks/prompt-pack-pipeline.md`.
+Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/prompt-pack-compiler.md`, `docs/provider-capability-validation.md`, `docs/contracts/provider-capability-contracts.md` e `docs/runbooks/provider-capability-pipeline.md`.

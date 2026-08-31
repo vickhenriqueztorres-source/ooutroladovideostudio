@@ -1,0 +1,2 @@
+import type{ProviderValidationResult}from"../contracts/provider-capability"
+export function assertProviderValidationQC(r:ProviderValidationResult){if(r.status==="READY"&&r.validationQC.blockingErrors.length)throw new Error("PROVIDER_VALIDATION_QC_FAILED");if(r.providerExecutionPlan?.jobs.some(j=>!j.idempotencyKey||!j.preflightChecks.length||!j.postflightChecks.length))throw new Error("PROVIDER_EXECUTION_PLAN_UNSAFE");return r.validationQC}

@@ -1,12 +1,13 @@
 export * from "./editorial"
 export * from "./edit-blueprint"
 export * from "./prompt-pack"
+export * from "./provider-capability"
 
 export const SCHEMA_VERSION = "1.0.0" as const
 
 export const projectStates = [
   "CREATED", "TOPIC_APPROVED", "SCRIPT_APPROVED", "EDIT_BLUEPRINT_APPROVED",
-  "PROMPT_PACK_APPROVED", "REFERENCES_APPROVED", "START_FRAMES_APPROVED",
+  "PROMPT_PACK_APPROVED", "PROVIDER_PLAN_APPROVED", "REFERENCES_APPROVED", "START_FRAMES_APPROVED",
   "VIDEO_BATCH_RUNNING", "VIDEO_BATCH_APPROVED", "AUDIO_APPROVED", "ASSEMBLY_READY",
   "MASTER_APPROVED", "PACKAGING_READY", "PUBLISHED", "HUMAN_REQUIRED", "BLOCKED",
   "FAILED", "CANCELLED",
