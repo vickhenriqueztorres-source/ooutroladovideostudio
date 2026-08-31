@@ -5,6 +5,7 @@ export * from "./provider-capability"
 export * from "./image-generation"
 export * from "./video-generation"
 export * from "./audio-generation"
+export * from "./final-assembly"
 
 export const SCHEMA_VERSION = "1.0.0" as const
 

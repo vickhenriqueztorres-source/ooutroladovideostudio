@@ -1,0 +1,4 @@
+import type{AssemblyBlockingError,FinalAssemblyInput,SyncFinding,TimelineCompilation}from"../contracts/final-assembly"
+export function verifySync(i:FinalAssemblyInput,t:TimelineCompilation){const findings:SyncFinding[]=[];const errors:AssemblyBlockingError[]=[];for(const n of i.approvedAudioPack.narration){const b=t.blocks.find(x=>n.startSec>=x.startSec&&n.endSec<=x.endSec);const delta=b?0:Math.min(...t.blocks.map(x=>Math.abs(x.startSec-n.startSec)));findings.push({assetId:n.segmentId,blockId:n.blockId,expectedStartSec:b?.startSec??n.startSec,actualStartSec:n.startSec,deltaSeconds:delta,valid:!!b});if(!b)errors.push("SYNC_REVISION_REQUIRED")}
+for(const c of i.approvedAudioPack.cues){const b=t.blocks.find(x=>c.startSec>=x.startSec&&c.startSec+c.durationSec<=x.endSec);if(!b)errors.push("SYNC_REVISION_REQUIRED")}
+return{findings,errors:[...new Set(errors)]}}

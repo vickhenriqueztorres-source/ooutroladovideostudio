@@ -5,6 +5,7 @@ export * from "./provider-validation"
 export * from "./image-generation"
 export * from "./video-generation"
 export * from "./audio-generation"
+export * from "./final-assembly"
 
 import { randomUUID } from "node:crypto"
 import type { Agent, Logger, RuntimeAdapter } from "../interfaces"
