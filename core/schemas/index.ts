@@ -7,6 +7,7 @@ export * from "./image-generation"
 export * from "./video-generation"
 export * from "./audio-generation"
 export * from "./final-assembly"
+export * from "./packaging"
 import { projectStates, recordStatuses } from "../contracts"
 
 const id = z.string().min(1)

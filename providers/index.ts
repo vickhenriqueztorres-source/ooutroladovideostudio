@@ -6,4 +6,5 @@ export * from "./image"
 export * from "./video"
 export * from "./audio"
 export * from "./assembly"
+export * from "./packaging"
 // Provider drivers are intentionally implemented in later phases.
