@@ -2,6 +2,7 @@ export * from "./editorial"
 export * from "./edit-timeline"
 export * from "./prompt-pack"
 export * from "./provider-validation"
+export * from "./image-generation"
 
 import { randomUUID } from "node:crypto"
 import type { Agent, Logger, RuntimeAdapter } from "../interfaces"

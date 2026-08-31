@@ -3,6 +3,7 @@ export * from "./editorial"
 export * from "./edit-blueprint"
 export * from "./prompt-pack"
 export * from "./provider-capability"
+export * from "./image-generation"
 import { projectStates, recordStatuses } from "../contracts"
 
 const id = z.string().min(1)
