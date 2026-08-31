@@ -1,0 +1,6 @@
+import type{AgentTask,VideoGenerationInput}from"../../core/contracts"
+import{AgentResultSchema}from"../../core/schemas"
+import type{Agent}from"../../core/interfaces"
+import{runVideoAgent,type VideoProviderAdapter}from"../../core"
+import{MockVideoProviderAdapter}from"../../providers/video"
+export class VideoGenerationAgent implements Agent{readonly id="video-generation";constructor(private readonly adapter:VideoProviderAdapter=new MockVideoProviderAdapter()){}async execute(task:AgentTask){const pack=runVideoAgent(task.input as VideoGenerationInput,this.adapter),now=new Date().toISOString(),completed=pack.status==="APPROVED_FOR_ASSEMBLY";return AgentResultSchema.parse({schemaVersion:task.schemaVersion,projectId:task.projectId,runId:task.runId,status:completed?"completed":pack.status==="BLOCKED"?"failed":"completed",warnings:pack.warnings,blockingErrors:pack.blockingErrors,createdAt:now,updatedAt:now,sourceVersions:[{source:this.id,version:"1.0.0"}],artifactIds:pack.generatedClips.map(c=>c.clipId),checkpointRef:null,nextAgent:completed?"narration-agent":pack.nextAgent==="PROVIDER_JOB_ORCHESTRATOR"?"provider-job-orchestrator":null,id:`result-${task.id}`,taskId:task.id,agentId:this.id,requestedTransition:completed?"VIDEO_BATCH_APPROVED":null,output:pack})}}

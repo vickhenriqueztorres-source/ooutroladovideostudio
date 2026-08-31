@@ -1,0 +1,4 @@
+import type{MotionManifest,VideoProviderRegistryEntry}from"../contracts"
+import{motionClass}from"./motion"
+export function validateVideoCalibration(provider:VideoProviderRegistryEntry,manifest:MotionManifest){if(!provider.authorized)return"VIDEO_PROVIDER_UNAUTHORIZED";const c=provider.calibration;if(!c||c.status!=="APPROVED")return"NEEDS_PROVIDER_CALIBRATION";if(c.provider!==provider.provider||c.runtime!==provider.runtime||c.adapterVersion!==provider.adapterVersion)return"NEEDS_PROVIDER_CALIBRATION";const kind=motionClass(manifest);if(!c.approvedFor.includes(kind)||c.blockedFor.includes(kind))return"MOTION_VETO_11";if(Math.min(c.identityScore,c.geometryScore,c.lightingScore,c.motionFidelityScore,c.endStateScore)<.8)return"MOTION_VETO_11";return undefined}
+export function providersMixed(entries:VideoProviderRegistryEntry[]){const active=entries.filter(x=>x.authorized);return new Set(active.map(x=>`${x.provider}:${x.runtime}:${x.adapterVersion}`)).size>1}

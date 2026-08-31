@@ -11,6 +11,7 @@ Plataforma multiagente governada por contratos para produção documental cinema
 - `core/prompt-pack`: compiler provider-agnostic de prompt units, referências, boundaries factuais, specs, capabilities, dependências, budget e Prompt QC.
 - `core/provider-validation`: validação por prompt de capabilities, limites, mappings, adaptações e execution plans sem executar jobs.
 - `core/image-generation`: Reference Pack, calibração por classe de asset, jobs, QC visual multidimensional, hard fails e Start Frame Registry sem gerar assets reais.
+- `core/video-generation`: Motion Manifest, calibração por movimento, jobs idempotentes, Motion QC, continuity comparison e retries causais sem gerar vídeos reais.
 - `core/control-plane`: execução governada, idempotência, retomada e observabilidade.
 - `agents/strategy` e `agents/editorial`: Topic Scout, Topic Greenlight, Research Integrity, Documentary Script Compiler e Script QC.
 - `providers/editorial`: interfaces e mocks determinísticos.
@@ -27,6 +28,7 @@ Topic Scout -> Topic Greenlight -> Research Integrity
 -> Prompt Pack Compiler -> Prompt Pack QC -> PROMPT_PACK_APPROVED | NEEDS_REVISION | BLOCKED
 -> Provider Capability Validation -> PROVIDER_PLAN_APPROVED | HUMAN_REQUIRED | BLOCKED
 -> Image Generation & Visual QC -> START_FRAMES_APPROVED | IMAGE_NEEDS_REVIEW | IMAGE_BLOCKED
+-> Video Generation & Motion QC -> VIDEO_BATCH_APPROVED | NEEDS_MOTION_REVISION | BLOCKED
 ```
 
 O cenário executável está coberto em `tests/editorial-pipeline.test.ts`. Ele cria/reutiliza o projeto, abre uma run, valida cada tarefa e resultado, registra cinco artefatos, cria checkpoints antes/depois de cada agente e aplica `CREATED -> TOPIC_APPROVED -> SCRIPT_APPROVED` apenas pela state machine.

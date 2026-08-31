@@ -1,0 +1,4 @@
+import{createHash}from"node:crypto"
+import type{ContinuityComparisonSet,GeneratedVideoClip,MotionManifest,StartFrameRegistryEntry}from"../contracts"
+export const videoHash=(v:unknown)=>createHash("sha256").update(JSON.stringify(v)).digest("hex")
+export function compareContinuity(clip:GeneratedVideoClip,frame:StartFrameRegistryEntry,manifest:MotionManifest):ContinuityComparisonSet{const firstFrameMatch=clip.firstFrameHash===frame.sha256,lastFrameMatch=clip.motionQC.endingStateAccuracy>=.8;return{comparisonId:`cmp-${videoHash([clip.clipId,frame.sha256,manifest.endingState]).slice(0,16)}`,shotId:clip.shotId,startFrameHash:frame.sha256,firstFrameHash:clip.firstFrameHash,lastFrameHash:clip.lastFrameHash,firstFrameMatch,lastFrameMatch,driftDetected:!firstFrameMatch||!lastFrameMatch||clip.motionVetos.some(v=>["MOTION_VETO_01","MOTION_VETO_02","MOTION_VETO_03"].includes(v)),checks:["faceIdentity","deviceGeometry","lightingDirection","palette","composition","endingState"]}}

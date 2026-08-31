@@ -3,6 +3,7 @@ export * from "./edit-blueprint"
 export * from "./prompt-pack"
 export * from "./provider-capability"
 export * from "./image-generation"
+export * from "./video-generation"
 
 export const SCHEMA_VERSION = "1.0.0" as const
 
