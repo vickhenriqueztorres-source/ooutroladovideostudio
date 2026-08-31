@@ -1,15 +1,26 @@
-# v0 sandbox internal files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-.snowflake/
-.v0-trash/
-.vercel/
+# Arquivos de trabalho locais e downloads de referência
+work/
+outputs/fern-editing-study/videos/
 
-# Environment variables
-.env*.local
+# Mídia de vídeo/áudio não destinada ao repositório
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav
+*.mp3
 
-# Common ignores
-node_modules
-.next/
+# Temporários e caches
+tmp/
+temp/
+.cache/
+node_modules/
+__pycache__/
+*.pyc
+*.log
+
+# Sistema e editores
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
