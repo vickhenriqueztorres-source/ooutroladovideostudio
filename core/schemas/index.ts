@@ -1,4 +1,5 @@
 import { z } from "zod"
+export * from "./editorial"
 import { projectStates, recordStatuses } from "../contracts"
 
 const id = z.string().min(1)

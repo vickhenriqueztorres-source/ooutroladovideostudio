@@ -1,3 +1,5 @@
+export * from "./editorial"
+
 export const SCHEMA_VERSION = "1.0.0" as const
 
 export const projectStates = [

@@ -1,3 +1,5 @@
+export * from "./editorial"
+
 import { randomUUID } from "node:crypto"
 import type { Agent, Logger, RuntimeAdapter } from "../interfaces"
 import type { AgentTask, ProjectRecord, RunRecord } from "../contracts"

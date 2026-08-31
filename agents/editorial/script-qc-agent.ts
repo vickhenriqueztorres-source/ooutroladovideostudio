@@ -1,0 +1,5 @@
+import type { AgentTask,ProductionConstraints,ScriptPackage } from "../../core/contracts"
+import { evaluateScript } from "../../core/editorial"
+import { ProductionConstraintsSchema,ScriptPackageSchema } from "../../core/schemas/editorial"
+import { createEditorialResult } from "../strategy/editorial-agents"
+export class ScriptQCAgent {readonly id="script-qc";async execute(task:AgentTask){const raw=task.input as {script:ScriptPackage;constraints:ProductionConstraints};const script=ScriptPackageSchema.parse(raw.script) as ScriptPackage;const constraints=ProductionConstraintsSchema.parse(raw.constraints) as ProductionConstraints;const qc=evaluateScript(script,constraints);const output:ScriptPackage={...script,narrationWordCount:script.beats.map(b=>b.narration.trim().split(/\s+/).length).reduce((a,b)=>a+b,0),qc,status:qc.decision==="SCRIPT_APPROVED"?"SCRIPT_APPROVED":qc.decision==="NEEDS_RESEARCH"?"NEEDS_RESEARCH":qc.decision==="BLOCKED"?"BLOCKED":"NEEDS_REVISION",blockingErrors:qc.decision==="SCRIPT_APPROVED"?[]:qc.blockingReasons};return createEditorialResult(task,ScriptPackageSchema.parse(output),qc.decision==="SCRIPT_APPROVED"?"completed":"failed")}}

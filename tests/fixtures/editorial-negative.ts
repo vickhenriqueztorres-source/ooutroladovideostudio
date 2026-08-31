@@ -1,0 +1,3 @@
+import type { ScriptPackage } from "../../core/contracts"
+import { scriptPackage } from "./editorial-positive"
+export function negativeScriptPackage():ScriptPackage{const p=scriptPackage("run-negative");p.evidenceMatrix={...p.evidenceMatrix,status:"NEEDS_RESEARCH",claims:[{claimId:"claim-unsupported",claimText:"Uma alegação sem suporte",classification:"UNSUPPORTED",sourceRefs:[],sourceQuality:"MISSING",supportLevel:0,contradictions:[],allowedWording:"Não usar",forbiddenWording:"Afirmar como fato",visualTreatment:"NONE",status:"REMOVE"}]};p.beats[1].claimIds=["claim-unsupported"];p.openLoops[0]={...p.openLoops[0],status:"OPEN",closedAtBeatId:undefined,answerClaimIds:[]};p.beats[0].assetRequests[0].budgetUnits=99;return p}

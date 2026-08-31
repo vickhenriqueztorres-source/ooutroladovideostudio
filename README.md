@@ -1,19 +1,27 @@
 # BRECHA Platform
 
-Fundação do control plane para uma plataforma multiagente de produção documental cinematográfica. O sistema governa projetos por contratos versionados, estado explícito, registries de artefatos e checkpoints recuperáveis, sem acoplar lógica de negócio a runtimes ou providers.
+Plataforma multiagente governada por contratos para produção documental cinematográfica. O core usa estado explícito, registries, artefatos e checkpoints recuperáveis sem conhecer Codex, Antigravity, Claude Code, OpenRouter ou qualquer provider.
 
 ## Arquitetura
 
-- `core/contracts` e `core/schemas`: contratos compartilhados e validação Zod.
-- `core/state-machine`: estados e transições permitidas do pipeline.
-- `core/registry`: registries em memória para projetos, runs, artefatos e checkpoints.
-- `core/checkpoints`: snapshots imutáveis e metadata de recuperação.
-- `core/control-plane`: criação, despacho governado, logs e checkpoints.
-- `agents`: pontos de extensão e `MockAgent` da fundação.
-- `providers`: interfaces para drivers LLM, imagem, vídeo, áudio e browser.
-- `runtimes`: adaptadores para ambientes de execução; o core desconhece cada runtime.
-- `apps`: superfícies futuras de API, console e worker.
-- `outputs`: acervo estratégico, visual e de pesquisa do BRECHA.
+- `core/contracts` e `core/schemas`: contratos base e editoriais validados por Zod.
+- `core/state-machine`: única autoridade para transições globais.
+- `core/editorial`: políticas puras de duração, budget e Script QC.
+- `core/control-plane`: execução governada, idempotência, retomada e observabilidade.
+- `agents/strategy` e `agents/editorial`: Topic Scout, Topic Greenlight, Research Integrity, Documentary Script Compiler e Script QC.
+- `providers/editorial`: interfaces e mocks determinísticos.
+- `core/registry` e `core/checkpoints`: persistência inicial em memória.
+- `outputs`: acervo original do BRECHA, preservado sem alterações.
+
+## Pipeline editorial mock
+
+```text
+Topic Scout -> Topic Greenlight -> Research Integrity
+-> Documentary Script Compiler -> Script QC
+-> SCRIPT_APPROVED | HUMAN_REQUIRED | BLOCKED
+```
+
+O cenário executável está coberto em `tests/editorial-pipeline.test.ts`. Ele cria/reutiliza o projeto, abre uma run, valida cada tarefa e resultado, registra cinco artefatos, cria checkpoints antes/depois de cada agente e aplica `CREATED -> TOPIC_APPROVED -> SCRIPT_APPROVED` apenas pela state machine.
 
 ## Comandos
 
@@ -24,22 +32,20 @@ pnpm typecheck
 pnpm build
 ```
 
-## Implementado nesta fase
+## Implementado
 
-- dez contratos base com `schemaVersion` e campos de governança;
-- schemas Zod validáveis em runtime;
-- state machine global com transições explícitas e função pura;
-- registries em memória com criação, atualização, leitura, listagem e proteção contra duplicidade;
-- checkpoint manager com snapshots, recuperação, flags e causa;
-- logger estruturado em memória;
-- interfaces `Agent`, `RuntimeAdapter`, `ProviderAdapter`, `CheckpointStore`, `Registry`, `StateMachine` e `Logger`;
-- control plane mínimo com projeto, run, `MockAgent`, checkpoints antes/depois e estado final;
-- testes de contratos, estado, registries, checkpoints e happy path.
+- contratos base compatíveis e contratos editoriais com unions discriminadas;
+- Evidence Matrix com `VERIFIED`, `INFERRED`, `UNCERTAIN` e `UNSUPPORTED`;
+- roteiro audiovisual com beats, evidências, loops, visual jobs, assets, budget, som e continuidade;
+- estimativa configurável de narração e tolerância de runtime;
+- gates de confiança, integridade factual, payoff, filmabilidade e budget;
+- providers mock determinísticos sem URLs ou fatos inventados;
+- pipeline idempotente e retomável por checkpoint;
+- logs estruturados para início, validação, QC, checkpoint, transição, bloqueio e conclusão;
+- fixtures positiva e negativa explicitamente marcadas como MOCK.
 
-A memória foi escolhida para o bootstrap por manter testes determinísticos e o núcleo livre de I/O. As interfaces permitem adicionar stores duráveis sem alterar os consumidores.
+## Limites desta fase
 
-## Fora do escopo
+Não há geração real de imagem, vídeo, voz ou áudio; browser automation; assembly; Edit Timeline Compiler; provider externo; fila; banco durável ou UI operacional. A persistência em memória é deliberada para o bootstrap e pode ser substituída pelas interfaces existentes.
 
-Ainda não há providers reais, geração de imagem/vídeo/voz, assembly, filas, persistência durável, UI operacional, agentes criativos finais ou adaptadores concretos para Codex, Antigravity, Claude Code e OpenRouter. Esses ambientes serão conectados exclusivamente por adaptadores.
-
-Consulte [`docs/architecture.md`](docs/architecture.md) para invariantes e fluxo de execução.
+Consulte `docs/editorial-pipeline.md`, `docs/contracts/editorial-contracts.md` e `docs/runbooks/editorial-pipeline.md`.
