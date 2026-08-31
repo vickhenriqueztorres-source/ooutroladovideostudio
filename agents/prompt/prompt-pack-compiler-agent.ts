@@ -1,0 +1,5 @@
+import type{AgentTask,EditBlueprint}from"../../core/contracts"
+import{AgentResultSchema,editBlueprintSchema}from"../../core/schemas"
+import type{Agent}from"../../core/interfaces"
+import{MockPromptPackCompiler}from"../../providers/prompt"
+export class PromptPackCompilerAgent implements Agent{readonly id="prompt-pack-compiler";constructor(private readonly compiler=new MockPromptPackCompiler()){}async execute(task:AgentTask){const input=editBlueprintSchema.parse(task.input)as EditBlueprint;const pack=this.compiler.compile(input),now=new Date().toISOString();return AgentResultSchema.parse({schemaVersion:task.schemaVersion,projectId:task.projectId,runId:task.runId,status:pack.status==="PROMPT_PACK_APPROVED"?"completed":"failed",warnings:pack.warnings,blockingErrors:pack.blockingErrors,createdAt:now,updatedAt:now,sourceVersions:[{source:this.id,version:"1.0.0"}],artifactIds:[],checkpointRef:null,nextAgent:pack.status==="PROMPT_PACK_APPROVED"?"provider-capability-validator":null,id:`result-${task.id}`,taskId:task.id,agentId:this.id,requestedTransition:pack.status==="PROMPT_PACK_APPROVED"?"PROMPT_PACK_APPROVED":null,output:pack})}}

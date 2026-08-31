@@ -1,5 +1,6 @@
 export * from "./editorial"
 export * from "./edit-blueprint"
+export * from "./prompt-pack"
 
 export const SCHEMA_VERSION = "1.0.0" as const
 
