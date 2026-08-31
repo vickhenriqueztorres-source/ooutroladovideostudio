@@ -1,4 +1,5 @@
 export * from "./editorial"
+export * from "./edit-timeline"
 
 import { randomUUID } from "node:crypto"
 import type { Agent, Logger, RuntimeAdapter } from "../interfaces"

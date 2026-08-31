@@ -1,5 +1,6 @@
 import { z } from "zod"
 export * from "./editorial"
+export * from "./edit-blueprint"
 import { projectStates, recordStatuses } from "../contracts"
 
 const id = z.string().min(1)

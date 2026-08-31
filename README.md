@@ -7,6 +7,7 @@ Plataforma multiagente governada por contratos para produção documental cinema
 - `core/contracts` e `core/schemas`: contratos base e editoriais validados por Zod.
 - `core/state-machine`: única autoridade para transições globais.
 - `core/editorial`: políticas puras de duração, budget e Script QC.
+- `core/edit-timeline`: compiler determinístico de sequences, shots, assets, continuidade, transições, som, budget, dependências e Edit QC.
 - `core/control-plane`: execução governada, idempotência, retomada e observabilidade.
 - `agents/strategy` e `agents/editorial`: Topic Scout, Topic Greenlight, Research Integrity, Documentary Script Compiler e Script QC.
 - `providers/editorial`: interfaces e mocks determinísticos.
@@ -19,6 +20,7 @@ Plataforma multiagente governada por contratos para produção documental cinema
 Topic Scout -> Topic Greenlight -> Research Integrity
 -> Documentary Script Compiler -> Script QC
 -> SCRIPT_APPROVED | HUMAN_REQUIRED | BLOCKED
+-> Edit Timeline Compiler -> Edit QC -> EDIT_BLUEPRINT_APPROVED | NEEDS_REVISION | BLOCKED
 ```
 
 O cenário executável está coberto em `tests/editorial-pipeline.test.ts`. Ele cria/reutiliza o projeto, abre uma run, valida cada tarefa e resultado, registra cinco artefatos, cria checkpoints antes/depois de cada agente e aplica `CREATED -> TOPIC_APPROVED -> SCRIPT_APPROVED` apenas pela state machine.
@@ -46,6 +48,6 @@ pnpm build
 
 ## Limites desta fase
 
-Não há geração real de imagem, vídeo, voz ou áudio; browser automation; assembly; Edit Timeline Compiler; provider externo; fila; banco durável ou UI operacional. A persistência em memória é deliberada para o bootstrap e pode ser substituída pelas interfaces existentes.
+Não há geração real de imagem, vídeo, voz ou áudio; browser automation; assembly; provider externo; fila; banco durável ou UI operacional. A persistência em memória é deliberada para o bootstrap e pode ser substituída pelas interfaces existentes.
 
-Consulte `docs/editorial-pipeline.md`, `docs/contracts/editorial-contracts.md` e `docs/runbooks/editorial-pipeline.md`.
+Consulte `docs/editorial-pipeline.md`, `docs/edit-timeline-compiler.md`, `docs/contracts/edit-blueprint-contracts.md` e `docs/runbooks/edit-timeline-pipeline.md`.
