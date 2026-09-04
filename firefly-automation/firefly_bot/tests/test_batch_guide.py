@@ -13,7 +13,7 @@ from firefly_bot.config import Config
 from firefly_bot.job_store import GuideValidationError, JobStore
 from firefly_bot.main import build_parser
 from firefly_bot.selectors import ACTION_SELECTORS
-from firefly_bot.worker import Worker
+from firefly_bot.worker import MODEL_PICKER_OPTIONS, Worker
 
 
 def _make_pair(base: Path, name: str, suffix: str = ".png") -> Path:
@@ -145,6 +145,39 @@ def test_auto_discover_skips_image_without_prompt(tmp_path: Path) -> None:
     job = store.list_jobs()[0]
     assert job.name == "com_prompt"
     assert job.prompt == "Anime com_prompt"
+    assert job.model == "Kling 2.5 Turbo"
+    assert job.resolution == "1080p"
+    assert job.aspect_ratio == "16:9"
+    assert job.duration_seconds == 5
+    assert job.generate_audio is False
+
+
+def test_kling_25_turbo_requires_first_frame(tmp_path: Path) -> None:
+    guide = tmp_path / "guia.json"
+    guide.write_text(
+        json.dumps(
+            {
+                "model": "Kling 2.5 Turbo",
+                "resolution": "1080p",
+                "aspect_ratio": "16:9",
+                "duration_seconds": 5,
+                "items": [{"name": "sem-frame", "prompt": "physical action"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    store = JobStore(tmp_path / "queue.db")
+    store.initialize()
+
+    with pytest.raises(GuideValidationError, match="primeiro quadro"):
+        store.feed_from_guide(guide, tmp_path)
+
+
+def test_kling_25_turbo_uses_exact_firefly_model_value() -> None:
+    assert MODEL_PICKER_OPTIONS["kling 2.5 turbo"] == (
+        "ugs:video:kling@kling_v2_5_turbo_pro_i2v",
+        "Kling 2.5 Turbo",
+    )
 
 
 def test_guide_rejects_path_traversal(tmp_path: Path) -> None:
@@ -372,6 +405,14 @@ def _worker_with_locators(
             "model_dropdown_trigger",
             "model_option_kling3",
             "kling:firefly:colligo:v3direct",
+        ),
+        (
+            "_configure_resolution",
+            "1080p",
+            "resolution_dropdown",
+            "resolution_dropdown_trigger",
+            "resolution_option_1080p",
+            "1080p",
         ),
         (
             "_configure_aspect_ratio",

@@ -47,7 +47,7 @@ function main(): void {
   });
   const prepared = new HslFireflyGenerationRuntime().prepare(startFrames.handoffs, path.join(outputRoot, 'firefly'));
   const modelCounts = startFrames.handoffs.reduce<Record<string, number>>((counts, handoff) => {
-    const model = handoff.requested_model || 'Kling 3.0';
+    const model = handoff.requested_model || 'Firefly Video';
     counts[model] = (counts[model] || 0) + 1;
     return counts;
   }, {});

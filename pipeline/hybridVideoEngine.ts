@@ -11,7 +11,9 @@ import { Logger } from '../event-hub/logger';
 import { AgentTelemetryAdapter } from '../adapters/agentTelemetryAdapter';
 import { ProductionSafetyGuard } from '../config/productionSafetyGuard';
 import { buildFireflyPrompt } from '../contracts/buildFireflyPrompt';
-import { IDENTITY_SUFFIX, GLOBAL_NEGATIVE } from '../config/visualIdentity';
+import {materializeFireflyDispatchPackage} from './fireflyDispatchPackage';
+import {FIREFLY_GENERATION_PROFILE} from '../config/fireflyGenerationConfig';
+import {VisualAssetClass} from '../contracts/sceneVisualContract';
 
 export interface HybridSceneInput {
   scene_id: string;
@@ -21,6 +23,7 @@ export interface HybridSceneInput {
   voiceover_text: string;
   visual_subject: string;
   take_type: 'KEYFRAME_DOSSIER' | 'CINEMATIC_TAKE';
+  visual_asset_class?: VisualAssetClass;
   integrated_text?: string;
   callout_main?: string;
   callout_sub?: string;
@@ -163,6 +166,7 @@ export class HybridVideoEngine {
         sceneId: sc.scene_id,
         name: sc.name,
         takeType: isDossier ? 'KEYFRAME_DOSSIER' : 'CINEMATIC_TAKE',
+        visualAssetClass: sc.visual_asset_class || (isDossier ? 'MOTION_IMAGE' : 'VIDEO'),
         integratedText: sc.integrated_text,
         prompt: promptMaster,
         negativePrompt: negativePrompt
@@ -255,10 +259,11 @@ export class HybridVideoEngine {
 
         Logger.info('HybridVideoEngine', `  🔥 [${sc.scene_id}] PENDING_FIREFLY (${matchResult.reason}). ENFILEIRANDO GERAÇÃO ON-DEMAND NO FIREFLY.`);
         
-        this.ensureStartFrameExists(startFramePath, promptMaster, sc.scene_id);
-        fs.copyFileSync(startFramePath, pubStartFramePath);
-
-        this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE');
+        if (FIREFLY_GENERATION_PROFILE.requires_first_frame) {
+          this.ensureStartFrameExists(startFramePath, promptMaster, sc.scene_id);
+          fs.copyFileSync(startFramePath, pubStartFramePath);
+          this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE');
+        }
 
         fireflyPendingScenes.push({
           scene: sc,
@@ -296,54 +301,38 @@ export class HybridVideoEngine {
     if (fireflyPendingScenes.length > 0) {
       Logger.info('HybridVideoEngine', `\n🚀 Disparando Firefly Bot para ${fireflyPendingScenes.length} cenas sob demanda...`);
 
-      const fireflyGuideItems = fireflyPendingScenes.map((item) => ({
-        name: item.scene.scene_id,
-        sceneId: item.scene.scene_id,
-        takeType: 'CINEMATIC_TAKE',
-        prompt: item.prompt,
-        negativePrompt: item.negativePrompt,
-        image: path.basename(item.startFramePath),
-        duration_seconds: 5,
-        resolution: '1080p',
-        aspect_ratio: '16:9'
-      }));
+      const dispatchPackage = materializeFireflyDispatchPackage({
+        runDirectory,
+        scenes: fireflyPendingScenes.map((item) => ({
+          sceneId: item.scene.scene_id,
+          prompt: item.prompt,
+          startFramePath: item.startFramePath
+        }))
+      });
 
-      const guideJsonPath = path.join(runDirectory, 'firefly-production-guide.json');
-      fs.writeFileSync(guideJsonPath, JSON.stringify({
-        schema: 'ool.firefly.production-guide.v1',
-        model: 'Kling 3.0',
-        items: fireflyGuideItems
-      }, null, 2), 'utf8');
-
-      const firefly = new FireflyAdapter();
+      const firefly = new FireflyAdapter(
+        undefined,
+        path.join(runDirectory, 'firefly-runtime')
+      );
       await firefly.initialize();
 
-      let completedJobs: Array<{ name: string; output_path: string; origin: 'firefly_real' | 'fallback_kenburns' }> = [];
+      let completedJobs: Array<{ name: string; output_path: string; origin: 'firefly_real' }> = [];
 
       try {
-        const fireflyResult = await firefly.feedGuideAndRun(runId, guideJsonPath);
+        const fireflyResult = await firefly.feedGuideAndRun(runId, dispatchPackage.guidePath);
         completedJobs = fireflyResult.completedJobs.map(job => ({
           name: job.name,
           output_path: job.output_path,
           origin: 'firefly_real' as const
         }));
       } catch (err: any) {
-        Logger.warn('HybridVideoEngine', `⚠️ Firefly Bot encontrou exceção: ${err.message}. Aplicando fallback determinístico Remotion 2.5D.`);
-        
-        // Em caso de falha de conexão no bot, aplica fallback determinístico Remotion 2.5D
-        for (const pending of fireflyPendingScenes) {
-          sceneOutcomes[pending.scene.scene_id] = {
-            action: 'KEYFRAME_DOSSIER_2.5D',
-            startFramePath: pending.startFramePath,
-            takeOrigin: 'dossier_25d',
-            reason: `FALLBACK_REMOTION_PARALLAX: Geração on-demand indisponível (${err.message}). Fallback determinístico Remotion 2.5D registrado.`
-          };
-          availableMedia[pending.scene.scene_id] = {
-            hasVideo: false,
-            hasImage: true,
-            isDossier: true
-          };
-        }
+        throw new Error(`FIREFLY_REQUIRED_GENERATION_FAILED:${runId}:${err.message}`);
+      }
+
+      const completedNames = new Set(completedJobs.map((job) => job.name));
+      const missingJobs = dispatchPackage.jobNames.filter((name) => !completedNames.has(name));
+      if (missingJobs.length > 0) {
+        throw new Error(`FIREFLY_REQUIRED_JOBS_INCOMPLETE:${missingJobs.join(',')}`);
       }
 
       // Distribui e auto-ingere os vídeos gerados
@@ -357,6 +346,19 @@ export class HybridVideoEngine {
             fs.copyFileSync(job.output_path, targetVideo);
           }
           fs.copyFileSync(targetVideo, pubVideo);
+
+          execSync(`ffmpeg -y -ss 00:00:01 -i "${targetVideo}" -frames:v 1 -q:v 2 "${pending.startFramePath}"`, {stdio: 'ignore'});
+          fs.copyFileSync(pending.startFramePath, path.join(pending.pubSceneDir, 'firefly_start_frame.png'));
+          this.writeStartFrameReceipt(
+            pending.sceneDir,
+            pending.pubSceneDir,
+            pending.scene.scene_id,
+            pending.prompt,
+            pending.startFramePath,
+            'CINEMATIC_TAKE',
+            'adobe_firefly'
+          );
+          this.writeVideoReceipt(pending.sceneDir, pending.pubSceneDir, pending.scene.scene_id, targetVideo, job.output_path);
 
           sceneOutcomes[job.name] = {
             action: 'DISPATCH_FIREFLY_ON_DEMAND',
@@ -446,7 +448,8 @@ export class HybridVideoEngine {
     sceneId: string,
     prompt: string,
     startFramePath: string,
-    takeType: 'KEYFRAME_DOSSIER' | 'CINEMATIC_TAKE'
+    takeType: 'KEYFRAME_DOSSIER' | 'CINEMATIC_TAKE',
+    sourceSystem: 'openai_imagegen' | 'adobe_firefly' | 'bank' = 'openai_imagegen'
   ): void {
     const frameBuf = fs.readFileSync(startFramePath);
     const frameSha = crypto.createHash('sha256').update(frameBuf).digest('hex');
@@ -454,18 +457,54 @@ export class HybridVideoEngine {
     const receipt = {
       sceneId,
       prompt,
-      generator: 'chatgpt-image-bot',
-      model: 'DALL-E 3 (35mm Cyber-Industrial Engine)',
+      sourceSystem,
+      provider: sourceSystem,
+      generator: sourceSystem === 'adobe_firefly'
+        ? 'frame_extracted_from_firefly_video'
+        : 'OpenAI Image Generation',
+      model: sourceSystem === 'adobe_firefly' ? FIREFLY_GENERATION_PROFILE.model : 'OpenAI Image Generation',
       sha256: frameSha,
       aspectRatio: '16:9',
       width: 1920,
       height: 1080,
       takeType,
+      peoplePolicy: ['person', 'people', 'human', 'worker', 'operator', 'hands', 'face', 'body', 'human silhouette']
+        .every((term) => prompt.toLowerCase().includes(term))
+        ? 'FORBIDDEN'
+        : 'CONTEXTUAL',
       timestamp: new Date().toISOString()
     };
 
     fs.writeFileSync(path.join(sceneDir, 'start_frame_receipt.json'), JSON.stringify(receipt, null, 2), 'utf8');
     fs.writeFileSync(path.join(pubSceneDir, 'start_frame_receipt.json'), JSON.stringify(receipt, null, 2), 'utf8');
+  }
+
+  private writeVideoReceipt(
+    sceneDir: string,
+    pubSceneDir: string,
+    sceneId: string,
+    videoPath: string,
+    sourceOutput: string
+  ): void {
+    const bytes = fs.readFileSync(videoPath);
+    const probe = PipelineContractGate.probeMedia(videoPath);
+    const receipt = {
+      schema: 'hsl.video.provenance.v2',
+      sourceSystem: 'adobe_firefly',
+      model: FIREFLY_GENERATION_PROFILE.model,
+      fps: FIREFLY_GENERATION_PROFILE.fps,
+      sceneId,
+      sourceOutput,
+      sha256: crypto.createHash('sha256').update(bytes).digest('hex'),
+      durationSeconds: probe.duration,
+      width: probe.width,
+      height: probe.height,
+      codec: probe.codec,
+      productionUse: 'APPROVED_PHYSICAL_VIDEO_TAKE',
+      timestamp: new Date().toISOString()
+    };
+    fs.writeFileSync(path.join(sceneDir, 'firefly_take_receipt.json'), JSON.stringify(receipt, null, 2), 'utf8');
+    fs.writeFileSync(path.join(pubSceneDir, 'firefly_take_receipt.json'), JSON.stringify(receipt, null, 2), 'utf8');
   }
 
   private hashString(str: string): number {

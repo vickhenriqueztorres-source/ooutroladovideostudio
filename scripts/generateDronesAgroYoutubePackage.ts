@@ -11,48 +11,50 @@ const outputRoot = path.join(runRoot, 'postproduction', 'youtube-package');
 const finalVideoPath = path.join(runRoot, 'final_master_field_cut.mp4');
 
 const fontDisplay = 'Bebas Neue';
-const fontBold = 'Arial';
-const fontMono = 'Bahnschrift';
 
 const variants: Record<VariantId, {
   role: 'MECHANISM' | 'CONSEQUENCE' | 'FINAL_HANDOFF';
   title: string;
   headlineLines: string[];
-  subheadline: string;
   baseImagePath: string;
   textSide: 'LEFT' | 'RIGHT';
+  headlineY: number;
   concept: string;
   visualConflict: string;
+  imagePrompt: string;
 }> = {
   A: {
     role: 'MECHANISM',
-    title: 'Como drones agrícolas pulverizam soja sozinhos à noite',
-    headlineLines: ['GOTAS', 'NO ESCURO'],
-    subheadline: 'BICO CENTRIFUGO // FOLHA REAL',
-    baseImagePath: path.join(repoRoot, 'assets', 'visual_identity', 'documentary-field-v4', 'physical-evidence.png'),
+    title: 'O sistema que mantém um drone de 100 kg na rota',
+    headlineLines: ['ELE', 'ENXERGA?'],
+    baseImagePath: path.join(repoRoot, 'assets', 'youtube', 'drones-agro', 'v3', 'sensor-base.png'),
     textSide: 'LEFT',
-    concept: 'Macro de bico pulverizador em operação real, revelando a gota como evidência física.',
-    visualConflict: 'A precisão invisível da pulverização precisa aparecer no detalhe material, não em interface futurista.'
+    headlineY: 700,
+    concept: 'Sensor frontal e antena RTK em primeiro plano, com o drone ocupando quase todo o quadro.',
+    visualConflict: 'A máquina voa no escuro; o sensor físico precisa explicar como ela percebe a rota.',
+    imagePrompt: 'Drone agrícola comercial enorme em voo noturno, sensor frontal e antena RTK nítidos, câmera baixa entre as fileiras, fotografia documental realista.'
   },
   B: {
     role: 'CONSEQUENCE',
-    title: 'O que impede um drone de 100 kg de bater em fios no campo',
+    title: 'O que impede um drone agrícola de bater nos fios',
     headlineLines: ['SEM', 'PILOTO'],
-    subheadline: 'RTK + SENSORES EM CAMPO',
-    baseImagePath: path.join(repoRoot, 'assets', 'visual_identity', 'documentary-field-v4', 'field-reportage.png'),
-    textSide: 'LEFT',
-    concept: 'Drone agrícola comercial sendo preparado de noite, com baterias, tanque e gerador visíveis.',
-    visualConflict: 'A promessa visual é risco operacional: uma máquina pesada trabalha perto de obstáculos sem operador no ar.'
+    baseImagePath: path.join(repoRoot, 'assets', 'youtube', 'drones-agro', 'v3', 'wires-base.png'),
+    textSide: 'RIGHT',
+    headlineY: 1130,
+    concept: 'Drone e cabo de alta tensão gigantes disputando o mesmo plano, com o poste visível na borda.',
+    visualConflict: 'O cabo cruza a trajetória aparente e transforma a autonomia em risco físico imediato.',
+    imagePrompt: 'Drone agrícola enorme em voo baixo, cabo rural grosso cruzando o primeiro plano perto das hélices, perspectiva comprimida e documental, sem colisão.'
   },
   C: {
     role: 'FINAL_HANDOFF',
-    title: 'Por dentro da operação noturna que transforma lavoura em rota de precisão',
-    headlineLines: ['1 HECTARE', 'SOZINHO'],
-    subheadline: 'ROTA CENTIMETRICA NA LAVOURA',
-    baseImagePath: path.join(repoRoot, 'assets', 'visual_identity', 'documentary-field-v4', 'operational-scale.png'),
-    textSide: 'RIGHT',
-    concept: 'Escala operacional da lavoura no fim da noite, mostrando a rota como consequência concreta.',
-    visualConflict: 'A escala torna o mecanismo compreensível: o hectare deixa de ser paisagem e vira trajeto controlado.'
+    title: 'Como drones agrícolas pulverizam cada fileira à noite',
+    headlineLines: ['100 KG', 'SOZINHO'],
+    baseImagePath: path.join(repoRoot, 'assets', 'youtube', 'drones-agro', 'v3', 'mass-base.png'),
+    textSide: 'LEFT',
+    headlineY: 670,
+    concept: 'Octocóptero visto de baixo, enorme sobre as folhas, com tanque, oito hélices e pulverização visíveis.',
+    visualConflict: 'O peso e a proximidade tornam concreta a escala da máquina que executa a operação sem piloto.',
+    imagePrompt: 'Drone agrícola de grande porte passando diretamente sobre a câmera a 2,5 metros, pulverização e folhas reagindo ao downwash, campo noturno realista.'
   }
 };
 
@@ -116,9 +118,11 @@ function drawText(text: string, x: string, y: number, size: number, color: strin
     `fontsize=${size}`,
     'line_spacing=12',
     `fontcolor=${color}`,
-    'shadowcolor=black@0.75',
-    'shadowx=10',
-    'shadowy=10'
+    'borderw=7',
+    'bordercolor=black@0.72',
+    'shadowcolor=black@0.85',
+    'shadowx=14',
+    'shadowy=14'
   ].join(':');
 }
 
@@ -136,32 +140,24 @@ function renderThumbnail(id: VariantId) {
   const mainOut = path.join(thumbnailDir, `thumbnail-${id}.png`);
   const mobileOut = path.join(thumbnailDir, `thumbnail-${id}-mobile-320x180.png`);
   const textLeft = variant.textSide === 'LEFT';
-  const panel = textLeft
-    ? 'drawbox=x=0:y=0:w=1680:h=2160:color=black@0.58:t=fill'
-    : 'drawbox=x=2160:y=0:w=1680:h=2160:color=black@0.58:t=fill';
-  const lineX = textLeft ? '260' : '2380';
-  const textX = textLeft ? '260' : '2380';
-  const brandX = textLeft ? '260' : '2380';
-  const markerX = textLeft ? 260 : 2380;
-  const headlineY = variant.headlineLines.length === 1 ? 760 : 650;
+  const textX = textLeft ? '220' : '2200';
+  const markerX = textLeft ? 220 : 2200;
   const filters = [
     'scale=3840:2160:force_original_aspect_ratio=increase',
     'crop=3840:2160',
-    'eq=contrast=1.10:brightness=-0.035:saturation=0.88',
-    'unsharp=5:5:0.55:3:3:0.25',
-    'vignette=PI/5',
-    'drawbox=x=0:y=0:w=3840:h=2160:color=black@0.10:t=fill',
-    panel,
-    `drawbox=x=${markerX}:y=520:w=520:h=12:color=0xFF5500@0.95:t=fill`,
-    `drawbox=x=${markerX}:y=1860:w=900:h=3:color=0x00F0FF@0.65:t=fill`,
-    drawText('O OUTRO LADO', brandX, 150, 64, '0xF4F4F0', fontBold),
-    drawText('DOCUMENTARIO DE CAMPO', brandX, 230, 34, '0x00F0FF', fontMono),
+    'eq=contrast=1.16:brightness=0.018:saturation=0.98:gamma=1.08',
+    'unsharp=5:5:0.82:3:3:0.34',
+    `drawbox=x=${markerX}:y=${variant.headlineY - 100}:w=230:h=16:color=0xFF5500@0.98:t=fill`,
     ...variant.headlineLines.map((line, index) =>
-      drawText(line, textX, headlineY + index * 300, index === variant.headlineLines.length - 1 ? 268 : 250, index === variant.headlineLines.length - 1 ? '0xFF5500' : '0xF4F4F0')
+      drawText(
+        line,
+        textX,
+        variant.headlineY + index * 350,
+        index === variant.headlineLines.length - 1 ? 344 : 320,
+        index === variant.headlineLines.length - 1 ? '0xFF5500' : '0xF4F4F0'
+      )
     ),
-    drawText(variant.subheadline, textX, 1510, 54, '0x00F0FF', fontMono),
-    drawText('INVESTIGAR // REVELAR // COMPREENDER', textX, 1815, 38, '0xF4F4F0', fontMono),
-    'noise=alls=6:allf=t+u'
+    'noise=alls=3:allf=t+u'
   ].join(',');
 
   run('ffmpeg', ['-y', '-hide_banner', '-loglevel', 'error', '-i', copiedBase, '-vf', filters, '-frames:v', '1', mainOut]);
@@ -178,8 +174,8 @@ function main() {
     {variant_id: 'B', role: variants.B.role, title: variants.B.title, search_intent: 'SUGGESTED'},
     {variant_id: 'C', role: variants.C.role, title: variants.C.title, search_intent: 'BROWSE_AND_SEARCH'}
   ];
-  const recommended = variants.A;
-  const recommendedVariant: VariantId = 'A';
+  const recommended = variants.C;
+  const recommendedVariant: VariantId = 'C';
 
   const renders = (['A', 'B', 'C'] as VariantId[]).map((id) => {
     const concept = {
@@ -199,8 +195,8 @@ function main() {
         'O vídeo entrega drone agrícola, baterias, gerador, tanque, telemetria discreta e evidência macro.'
       ],
       base_image_path: path.resolve(variants[id].baseImagePath),
-      image_prompt: 'Base extracted from approved field-documentary cut or approved field visual identity. Text rendered locally.',
-      negative_prompt: 'No futuristic HUD, hologram, generic stock look, clickbait face, fake document, oversized black bar, neon-dominant sci-fi interface.'
+      image_prompt: variants[id].imagePrompt,
+      negative_prompt: 'No futuristic HUD, hologram, generic stock look, clickbait face, fake document, black text panel, neon-dominant sci-fi interface.'
     };
     writeJson(path.join(outputRoot, 'concepts', `thumbnail-${id}-concept.json`), concept);
     return {id, ...renderThumbnail(id), concept};

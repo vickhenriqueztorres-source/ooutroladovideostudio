@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import {buildFireflyPrompt} from '../contracts/buildFireflyPrompt';
 
 type ShotPlanItem = {
   shot_id: string;
@@ -15,11 +16,6 @@ type ShotPlan = {
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
-}
-
-function safeDuration(seconds: number | undefined): number {
-  const rounded = Math.ceil(Number(seconds || 5));
-  return Math.max(4, Math.min(8, rounded));
 }
 
 function main(): void {
@@ -41,30 +37,38 @@ function main(): void {
     }
     const imageName = `${item.shot_id}.png`;
     fs.copyFileSync(item.candidate_path, path.join(imagesDir, imageName));
+    const prompt = buildFireflyPrompt({
+      sceneId: item.shot_id,
+      visualSubject: `${item.motion_prompt}. One continuous five-second present-day documentary take with visible physical motion`,
+      visual_must_include: ['commercial traffic signal hardware', 'real roadway operation', item.motion_prompt],
+      visual_must_not: ['invented signal hardware', 'unrelated vehicles appearing suddenly'],
+      required_category: 'documentary_physical_motion',
+      domainTags: ['traffic-control', 'present-day-roadway', 'public-infrastructure'],
+      targetSeconds: 5
+    });
     return {
       name: `${item.shot_id}_TAKE_01`,
       image: imageName,
-      prompt: [
-        item.motion_prompt,
-        'Cinematic 35mm industrial documentary motion, wet asphalt reflections, carbon-black shadows, sodium-vapor orange only on critical signal flow, laser-cyan telemetry only as restrained x-ray evidence.',
-        'Preserve the first frame composition, no titles, no readable text, no logos, no presenter, no identifiable human faces, no morphing, no extra vehicles appearing suddenly, stable camera motion, realistic rain and practical lighting.'
-      ].join(' '),
-      model: 'Kling 3.0',
-      resolution: '720p',
+      prompt: prompt.prompt,
+      model: 'Firefly Video',
+      resolution: '1080p',
       aspect_ratio: '16:9',
-      duration_seconds: safeDuration(item.planned_duration_seconds),
-      generate_audio: false
+      duration_seconds: 5,
+      generate_audio: false,
+      use_first_frame: false,
+      input_mode: 'text_to_video_with_staged_reference'
     };
   });
 
   const guide = {
     batch_name: 'OOL-EP06-SEMAFORO_firefly_video',
     source_run: 'OOL-EP06-SEMAFORO',
-    model: 'Kling 3.0',
-    resolution: '720p',
+    model: 'Firefly Video',
+    resolution: '1080p',
     aspect_ratio: '16:9',
-    duration_seconds: 6,
+    duration_seconds: 5,
     generate_audio: false,
+    use_first_frame: false,
     items
   };
 

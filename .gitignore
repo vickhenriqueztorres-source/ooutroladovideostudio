@@ -54,3 +54,18 @@ firefly-automation/.venv/
 firefly-automation/.claude/
 *.lock
 __pycache__/
+
+# Secrets & Local Credentials
+config/client_secret.json
+config/token.json
+*.pem
+*.key
+
+# Temporary previews, scratch and local agent tools
+preview_*.png
+.pytest_tmp/
+.codex/
+.emdash.json
+test_dalle_one.ts
+test_gen_frame.ts
+chatgpt-image-bot/queue_*.jsonl

@@ -30,4 +30,5 @@ export interface HslEpisodeRenderProps {
   readonly soundFxVolume?: number;
   readonly showGlobalOverlays?: boolean;
   readonly showHybridTextOverlay?: boolean;
+  readonly showMasterStopwatch?: boolean;
 }

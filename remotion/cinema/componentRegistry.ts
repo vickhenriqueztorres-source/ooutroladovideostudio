@@ -40,10 +40,12 @@ export const SCENE_COMPONENT_REGISTRY: Record<string, React.ComponentType<any>> 
   SmartphoneBankingMockup: DocumentaryComponents.SmartphoneBankingMockup,
   VlfSubmarineAntennaTrace: DocumentaryComponents.VlfSubmarineAntennaTrace,
   FieldDocumentaryScene: DocumentaryComponents.FieldDocumentaryScene,
+  EnergyInfrastructureExplainerScene: DocumentaryComponents.EnergyInfrastructureExplainerScene,
   DroneAgroMatterScene: DocumentaryComponents.DroneAgroMatterScene,
   DroneAgroEvidenceScene: DocumentaryComponents.DroneAgroEvidenceScene,
   DroneAgroRouteMapScene: DocumentaryComponents.DroneAgroRouteMapScene,
-  DroneAgroTechnicalRevealScene: DocumentaryComponents.DroneAgroTechnicalRevealScene
+  DroneAgroTechnicalRevealScene: DocumentaryComponents.DroneAgroTechnicalRevealScene,
+  MilkDocumentaryScene: DocumentaryComponents.MilkDocumentaryScene,
 };
 
 /**

@@ -1,7 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { spawnSync } from 'child_process';
-import { resolveFireflyRoot, getFireflyPythonExec } from '../config/fireflySessionLive';
+import {
+  resolveFireflyRoot,
+  getFireflyPythonExec,
+  isFireflySessionLive,
+  resolveFireflyProfileCandidates
+} from '../config/fireflySessionLive';
+import {FIREFLY_GENERATION_PROFILE as profile} from '../config/fireflyGenerationConfig';
 
 interface CheckItem {
   id: string;
@@ -113,7 +119,8 @@ export async function runFireflyDoctor(): Promise<boolean> {
   }
 
   // 4. Chrome Profile
-  const profileDir = process.env.FIREFLY_CHROME_PROFILE_DIR || path.join(root, 'data', 'chrome_profile');
+  const profileCandidates = resolveFireflyProfileCandidates(root);
+  const profileDir = profileCandidates[0] || process.env.FIREFLY_CHROME_PROFILE_DIR || path.join(root, 'data', 'chrome_profile');
   const defaultProfile = path.join(profileDir, 'Default');
   if (fs.existsSync(profileDir) && fs.existsSync(defaultProfile)) {
     checks.push({
@@ -141,39 +148,28 @@ export async function runFireflyDoctor(): Promise<boolean> {
 
   // 5. Probe de Sessão Real
   if (pyExec && fs.existsSync(pyExec)) {
-    console.log('⏳ Executando probe de sessão via Chrome headless...');
-    const probeRun = spawnSync(pyExec, ['-m', 'firefly_bot.main', '--probe-session'], {
-      cwd: root,
-      encoding: 'utf-8',
-      timeout: 60000
-    });
+    console.log('⏳ Executando probe de sessão nos perfis Chrome salvos...');
+    const session = await isFireflySessionLive(root);
+    const probeJson: any = session.details;
 
-    const probeOutput = probeRun.stdout || probeRun.stderr || '';
-    let probeJson: any = null;
-    try {
-      const s = probeOutput.indexOf('{');
-      const e = probeOutput.lastIndexOf('}');
-      if (s !== -1 && e !== -1) {
-        probeJson = JSON.parse(probeOutput.substring(s, e + 1));
-      } else {
-        probeJson = JSON.parse(probeOutput.trim());
-      }
-    } catch {}
-
-    if (probeJson && probeJson.authenticated === true && probeJson.production_ui_ready === true) {
+    if (session.live && probeJson?.production_ui_ready === true) {
       checks.push({
         id: 'PRODUCTION_UI_READY',
-        name: 'Firefly Video pronto para produção',
+        name: `${profile.model} pronto para producao`,
         passed: true,
-        details: `${probeJson.reason}; modelo=${probeJson.model}; duração=${probeJson.duration_seconds}s`
+        details: `${probeJson.reason}; modelo=${profile.model}; resolucao=${profile.resolution}; proporcao=${profile.aspect_ratio}; fps=${profile.fps}; duracao=${profile.duration_seconds}s; seed=vazio; perfil=${session.userProfilePath}`
       });
     } else {
+      const reason = session.reason || 'FIREFLY_SESSION_DEAD: Deslogado ou compositor indisponível';
+      const profileLocked = /ProcessSingleton|profile is already in use|Lock file|Acesso negado/i.test(reason);
       checks.push({
         id: 'PRODUCTION_UI_READY',
-        name: 'Firefly Video pronto para produção',
+        name: `${profile.model} pronto para producao`,
         passed: false,
-        details: probeJson?.reason || 'FIREFLY_SESSION_DEAD: Deslogado ou compositor indisponível',
-        fixInstruction: 'Execute login_firefly.bat, clique em "Fazer logon" no Chrome e pressione ENTER no terminal para salvar a sessão.'
+        details: reason,
+        fixInstruction: profileLocked
+          ? 'Feche qualquer Chrome/worker usando o profile salvo do Firefly e rode npm run firefly:doctor novamente; não refaça login enquanto o profile estiver bloqueado.'
+          : 'Execute login_firefly.bat, clique em "Fazer logon" no Chrome e pressione ENTER no terminal para salvar a sessão.'
       });
     }
   } else {
@@ -187,6 +183,13 @@ export async function runFireflyDoctor(): Promise<boolean> {
   }
 
   // Relatório formatado
+  checks.push({
+    id: 'INPUT_MODE',
+    name: 'Modo de entrada da produção',
+    passed: profile.requires_first_frame,
+    details: 'image-to-video com primeiro quadro obrigatorio, conforme exigencia do Kling 2.5 Turbo'
+  });
+
   console.log('\n──────────────────────────────────────────────────────────────────────');
   console.log('📋 CHECKLIST DE CONFORMIDADE');
   console.log('──────────────────────────────────────────────────────────────────────');
@@ -209,7 +212,7 @@ export async function runFireflyDoctor(): Promise<boolean> {
   console.log('──────────────────────────────────────────────────────────────────────\n');
 
   if (allPassed) {
-    console.log('\x1b[32m[FIREFLY_DOCTOR_OK] Todos os pré-requisitos do Firefly estão 100% OPERACIONAIS.\x1b[0m\n');
+    console.log('\x1b[32m[FIREFLY_DOCTOR_OK] Perfil Kling 2.5 Turbo image-to-video pronto. Use npm run firefly:canary somente com autorizacao de creditos.\x1b[0m\n');
   } else {
     console.log('\x1b[31m[FIREFLY_DOCTOR_FAIL] Corrija os itens [FAIL] acima antes de rodar produções com Firefly.\x1b[0m\n');
   }

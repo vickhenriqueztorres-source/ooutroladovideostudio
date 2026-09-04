@@ -319,7 +319,11 @@ export class PipelineContractGate {
     }
 
     const editPackagePath = path.join(runDir, 'editorial', 'execution', 'documentary-edit-package.json');
-    const fireflyGuidePath = path.join(runDir, 'firefly-production-guide.json');
+    const fireflyGuideCandidates = [
+      path.join(runDir, 'firefly-production-guide.json'),
+      path.join(runDir, 'firefly', 'firefly-production-guide.json'),
+    ];
+    const fireflyGuidePath = fireflyGuideCandidates.find((candidate) => fs.existsSync(candidate));
 
     interface SceneItem {
       sceneId: string;
@@ -339,7 +343,7 @@ export class PipelineContractGate {
     const candidatePackagePaths = [
       editPackagePath,
       path.join(runDir, 'edit_package.json'),
-      path.join(runDir, 'editorial', 'execution', 'edit_package.json')
+      path.join(runDir, 'editorial', 'execution', 'edit_package.json'),
     ];
     const foundPkgPath = candidatePackagePaths.find(p => fs.existsSync(p));
 
@@ -357,7 +361,7 @@ export class PipelineContractGate {
           reason: `EDIT_PACKAGE_CORRUPTED: ${err.message}`
         });
       }
-    } else if (fs.existsSync(fireflyGuidePath)) {
+    } else if (fireflyGuidePath && fs.existsSync(fireflyGuidePath)) {
       try {
         const guide = JSON.parse(fs.readFileSync(fireflyGuidePath, 'utf8'));
         scenes = (guide.items || []).map((item: any) => {
@@ -943,7 +947,9 @@ export class PipelineContractGate {
               const sceneCategory = (scene as any).required_category || (scene as any).category || contractScene?.required_category;
               return (scene as any).takeType === 'KEYFRAME_DOSSIER' ||
                 (scene as any).take_type === 'KEYFRAME_DOSSIER' ||
-                ['evidence', 'maps', 'reveal'].includes(String(sceneCategory || '').toLowerCase());
+                (scene as any).visualMode === 'dossier' ||
+                contractScene?.take_type === 'KEYFRAME_DOSSIER' ||
+                contractScene?.visualMode === 'dossier';
             }).length;
             const expectedTemporalTakes = scenes.length - expectedDossiers;
             if (

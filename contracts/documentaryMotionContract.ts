@@ -24,6 +24,26 @@ export const NormalizedPointSchema = z.object({
   y: z.number().min(0).max(1),
 });
 
+const MotionAnchorBindingSchema = z.object({
+  mediaSha256: z.string().regex(/^(?:sha256_)?[a-f0-9]{64}$/i, 'MOTION_MEDIA_SHA256_INVALID'),
+  trackingMethod: z.enum(['manual_keyframes', 'planar_track', 'object_track']),
+  confidence: z.number().min(0.65).max(1),
+  keyframes: z.array(z.object({
+    atSeconds: z.number().min(0),
+    point: NormalizedPointSchema,
+  })).min(2).max(24),
+}).superRefine((binding, ctx) => {
+  for (let index = 1; index < binding.keyframes.length; index++) {
+    if (binding.keyframes[index].atSeconds <= binding.keyframes[index - 1].atSeconds) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'MOTION_TRACK_KEYFRAMES_NOT_ORDERED',
+        path: ['keyframes', index, 'atSeconds'],
+      });
+    }
+  }
+});
+
 const commonShape = {
   id: z.string().min(1),
   startSeconds: z.number().min(0),
@@ -32,6 +52,7 @@ const commonShape = {
   colorRole: DocumentaryMotionColorRoleSchema.optional().default('neutral'),
   source: z.string().min(2).max(180).optional(),
   verifiedData: z.boolean().optional().default(false),
+  binding: MotionAnchorBindingSchema.optional(),
 };
 
 const FieldMarkerSchema = z.object({
@@ -197,6 +218,23 @@ const SOURCE_REQUIRED_TYPES = new Set([
 ]);
 
 export const DocumentaryMotionRecipeSchema = rawRecipeSchema.superRefine((recipe, ctx) => {
+  if (['field_marker', 'evidence_freeze', 'risk_marker'].includes(recipe.type) && !recipe.binding) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: `MOTION_PHYSICAL_BINDING_REQUIRED:${recipe.id}:${recipe.type}`,
+      path: ['binding'],
+    });
+  }
+  if (recipe.binding) {
+    const lastKeyframe = recipe.binding.keyframes[recipe.binding.keyframes.length - 1];
+    if (lastKeyframe.atSeconds > recipe.durationSeconds + 0.001) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `MOTION_TRACK_OUTSIDE_RECIPE:${recipe.id}`,
+        path: ['binding', 'keyframes'],
+      });
+    }
+  }
   if (SOURCE_REQUIRED_TYPES.has(recipe.type) && !recipe.source?.trim()) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,

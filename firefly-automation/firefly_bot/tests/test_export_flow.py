@@ -19,7 +19,7 @@ from firefly_bot.export_flow import (
     wait_for_filesystem_candidate,
 )
 from firefly_bot.job_store import JobStore
-from firefly_bot.worker import WORKER_SUCCESS, Worker
+from firefly_bot.worker import WORKER_SUCCESS, Worker, validate_kling_25_output
 
 
 class _Locator:
@@ -83,9 +83,42 @@ def _validated(path: Path) -> ValidatedDownload:
         width=720,
         height=1280,
         duration_seconds=5.0,
+        fps=24.0,
         codec="h264",
         ffprobe={},
     )
+
+
+def test_kling_25_output_must_match_approved_profile(tmp_path: Path) -> None:
+    class _Job:
+        model = "Kling 2.5 Turbo"
+
+    valid = ValidatedDownload(
+        path=tmp_path / "valid.mp4",
+        file_size_bytes=123456,
+        sha256="a" * 64,
+        width=1920,
+        height=1080,
+        duration_seconds=5.0,
+        fps=24.0,
+        codec="h264",
+        ffprobe={},
+    )
+    validate_kling_25_output(_Job(), valid)  # type: ignore[arg-type]
+
+    invalid = ValidatedDownload(
+        path=tmp_path / "invalid.mp4",
+        file_size_bytes=valid.file_size_bytes,
+        sha256=valid.sha256,
+        width=1280,
+        height=720,
+        duration_seconds=7.0,
+        fps=30.0,
+        codec=valid.codec,
+        ffprobe={},
+    )
+    with pytest.raises(Exception, match="KLING_25_PROFILE_MISMATCH"):
+        validate_kling_25_output(_Job(), invalid)  # type: ignore[arg-type]
 
 
 def test_expect_download_event_path_passes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

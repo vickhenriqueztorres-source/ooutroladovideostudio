@@ -93,7 +93,7 @@ test('complete editorial and cinematic chain produces approved execution contrac
   assert.equal(coverage.cinematic_coverage_policy.status, 'CINEMATIC_COVERAGE_QA_PASS');
   assert.ok(coverage.cinematic_coverage_policy.generated_ratio >= .7);
   assert.ok(coverage.cinematic_coverage_policy.remotion_ratio <= .22);
-  assert.ok(coverage.generation_strategy_distribution.KLING_CINEMATIC > 0);
+  assert.ok(coverage.generation_strategy_distribution.FIREFLY_CINEMATIC > 0);
   assert.ok((coverage.generation_strategy_distribution.VEO_MOTION_GRAPHIC || 0) + (coverage.generation_strategy_distribution.VEO_REMOTION_HYBRID || 0) > 0);
 });
 

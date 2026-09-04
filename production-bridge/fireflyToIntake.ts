@@ -29,7 +29,7 @@ export interface HslGeneratedAssetIntakeItem {
   width: number;
   height: number;
   generation_origin: 'MISSION_CONTROL_FIREFLY_KLING' | 'MISSION_CONTROL_FIREFLY_VEO';
-  model: 'Kling 3.0' | 'Veo 3.1 Fast' | 'Veo 3.1' | 'Firefly Video';
+  model: 'Kling 2.5 Turbo' | 'Kling 3.0' | 'Veo 3.1 Fast' | 'Veo 3.1' | 'Firefly Video';
   generate_audio_requested: boolean;
   native_audio_status: HslNativeAudioStatus;
   native_audio: Readonly<{
@@ -59,6 +59,10 @@ export interface HslGeneratedAssetIntakeManifest {
 
 export type HslKlingAssetIntakeItem = HslGeneratedAssetIntakeItem;
 export type HslKlingAssetIntakeManifest = HslGeneratedAssetIntakeManifest;
+
+function isKlingModel(model: HslGeneratedAssetIntakeItem['model']): boolean {
+  return model === 'Kling 2.5 Turbo' || model === 'Kling 3.0';
+}
 
 function parseShotAndTake(jobName: string): { shotId: string; takeId: string } {
   const takeMarker = jobName.lastIndexOf('_TAKE_');
@@ -109,7 +113,7 @@ export class FireflyToIntakeBridge {
 
       const videoPath = path.resolve(job.output_path);
       if (!fs.existsSync(videoPath)) {
-        throw new Error(`KLING_ASSET_NOT_FOUND: ${videoPath}`);
+        throw new Error(`GENERATED_ASSET_NOT_FOUND: ${videoPath}`);
       }
 
       const validation = validateVideoWithFfprobe(videoPath);
@@ -118,10 +122,11 @@ export class FireflyToIntakeBridge {
       }
 
       const { shotId, takeId } = parseShotAndTake(job.name);
-      const model = lineage.model === 'Firefly Video' ? 'Firefly Video'
+      const model = lineage.model === 'Kling 2.5 Turbo' ? 'Kling 2.5 Turbo'
+        : lineage.model === 'Firefly Video' ? 'Firefly Video'
         : lineage.model === 'Veo 3.1' ? 'Veo 3.1'
           : lineage.model === 'Veo 3.1 Fast' ? 'Veo 3.1 Fast' : 'Kling 3.0';
-      const isGeneratedProvider = model !== 'Kling 3.0';
+      const isGeneratedProvider = !isKlingModel(model);
       const requestedAudio = Boolean(lineage.generate_audio && isGeneratedProvider);
       const audioTechnicallyValid = validation.has_audio &&
         (validation.audio_sample_rate || 0) >= 44100 && (validation.audio_channels || 0) >= 1;
@@ -168,7 +173,7 @@ export class FireflyToIntakeBridge {
     });
 
     const manifest: HslGeneratedAssetIntakeManifest = {
-      status: items.some((item) => item.model !== 'Kling 3.0')
+      status: items.some((item) => !isKlingModel(item.model))
         ? 'HSL_GENERATED_ASSET_INTAKE_READY' : 'HSL_KLING_ASSET_INTAKE_READY',
       production_id: productionId,
       generated_at: new Date().toISOString(),

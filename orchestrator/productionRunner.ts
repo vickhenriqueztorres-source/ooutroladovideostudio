@@ -18,13 +18,11 @@ import {HslFireflyGenerationRuntime} from '../production/hslFireflyGenerationRun
 
 export class ProductionRunner {
   private hslAdapter: HiddenSystemsLabAdapter;
-  private fireflyAdapter: FireflyAdapter;
   private builderAdapter: AntigravityAdapter;
   private reviewerAdapter: CodexAdapter;
 
   constructor() {
     this.hslAdapter = new HiddenSystemsLabAdapter();
-    this.fireflyAdapter = new FireflyAdapter();
     this.builderAdapter = new AntigravityAdapter();
     this.reviewerAdapter = new CodexAdapter();
   }
@@ -32,7 +30,6 @@ export class ProductionRunner {
   public async initialize(): Promise<void> {
     ProductionSafetyGuard.assertSafeForProduction();
     await this.hslAdapter.initialize();
-    await this.fireflyAdapter.initialize();
     await this.builderAdapter.initialize();
     await this.reviewerAdapter.initialize();
   }
@@ -69,7 +66,7 @@ export class ProductionRunner {
       if (!sourceFramesDirectory || !approvalManifestPath) {
         throw new Error('HSL_START_FRAME_INPUTS_REQUIRED: set HSL_START_FRAME_SOURCE_DIR and HSL_START_FRAME_APPROVAL_MANIFEST');
       }
-      const prodDir = path.join('C:\\B2-AI-STUDIO\\productions', productionId);
+      const prodDir = path.join(process.cwd(), 'runs', productionId);
       const startFrames = new HslStartFrameRuntime().run({
         productionId,
         executionPlanPath: execution.executionPlanPath,
@@ -88,7 +85,9 @@ export class ProductionRunner {
 
       // Step 5: Executar geração de vídeos no Firefly
       sm.transitionTo('FIREFLY_GENERATION_RUNNING');
-      const fireflyResult = await fireflyRuntime.dispatch(productionId, prepared, this.fireflyAdapter);
+      const fireflyAdapter = new FireflyAdapter(undefined, path.join(prodDir, 'firefly-runtime'));
+      await fireflyAdapter.initialize();
+      const fireflyResult = await fireflyRuntime.dispatch(productionId, prepared, fireflyAdapter);
 
       // Step 6: Conclusão do Firefly
       sm.transitionTo('FIREFLY_GENERATION_COMPLETED');

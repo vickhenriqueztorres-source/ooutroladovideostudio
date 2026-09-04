@@ -86,3 +86,13 @@ Antes de produzir takes, executar pnpm firefly:doctor ou npm run firefly:doctor.
 - Voice ID: iP95p4xoKVk53GoZ742B.
 - Modelo: eleven_multilingual_v2.
 - Tom: moderno, intimo, sobrio e autoritario, aproximadamente 146 WPM.
+
+## 10. Orquestracao Codex e Emdash
+
+- Emdash gerencia tarefas, branches, worktrees e terminais; o pipeline TypeScript continua sendo a autoridade de producao.
+- Agentes Codex especializados vivem em `.codex/agents/`. Use agentes paralelos para exploracao, arquitetura, testes e mudancas independentes.
+- Nunca paralelizar duas escritas sobre o mesmo modulo, a mesma run, `runs/`, `public/editorial/execution/`, perfis de navegador ou recursos de render compartilhados.
+- Producao real e serial: primeiro `npm run firefly:doctor`, depois `npm run produce:episode -- --episode=<slug> --dry-run`, e somente entao uma run autorizada.
+- Firefly, ElevenLabs, dispatch pago, selecao final e publicacao exigem autorizacao humana explicita. Nenhum agente pode fabricar aprovacao ou converter falha em DONE.
+- Worktrees devem ficar fora do OneDrive. Elas partem de commits e nao incluem automaticamente alteracoes locais ainda nao commitadas.
+- O guia operacional completo esta em `docs/EMDASH_ORCHESTRATION.md`.

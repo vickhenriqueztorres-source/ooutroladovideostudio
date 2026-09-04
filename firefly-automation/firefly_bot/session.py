@@ -130,9 +130,15 @@ async def probe_session(config: Config) -> dict[str, Any]:
                         "profile_dir": str(profile_dir),
                     }
 
+                production_ui_ready = "/generate/video" in page.url.lower()
                 return {
                     "authenticated": True,
-                    "reason": "Sessão autenticada ativa no Adobe Firefly",
+                    "production_ui_ready": production_ui_ready,
+                    "reason": (
+                        "Sessão autenticada e compositor de vídeo acessível no Adobe Firefly"
+                        if production_ui_ready
+                        else "Sessão autenticada, mas compositor de vídeo indisponível"
+                    ),
                     "profile_dir": str(profile_dir),
                 }
             finally:

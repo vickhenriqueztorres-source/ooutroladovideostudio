@@ -33,3 +33,5 @@ export * from './FlowMeterPulserSchematicHUD';
 export * from './FlowDiscrepancyHUD';
 export * from './DroneAgroSpecializedScenes';
 export * from './FieldDocumentaryScene';
+export * from './EnergyInfrastructureExplainerScene';
+export * from './MilkDocumentaryScene';

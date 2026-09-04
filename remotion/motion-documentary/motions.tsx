@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {
   DocumentaryMotionRecipe,
   DocumentaryMotionZone,
@@ -17,6 +17,7 @@ import {
   polylinePath,
   px,
   SourceLine,
+  trackedPoint,
 } from './primitives';
 import {colorForRole, DOCUMENTARY_MOTION_TOKENS, zoneStyle} from './tokens';
 
@@ -34,14 +35,16 @@ function labelAnchor(zone: DocumentaryMotionZone): NormalizedPoint {
 
 export const FieldMarkerMotion: React.FC<MotionProps<'field_marker'>> = ({recipe, durationInFrames}) => {
   const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
   const opacity = motionEnvelope(frame, durationInFrames);
   const progress = drawProgress(frame, durationInFrames);
   const target = labelAnchor(recipe.zone);
+  const anchor = trackedPoint(recipe.binding, recipe.anchor, frame, fps);
   return (
     <AbsoluteFill style={{pointerEvents: 'none', opacity}}>
       <OverlaySvg>
-        <MarkerRing point={recipe.anchor} progress={progress} role={recipe.colorRole} />
-        <LeaderLine from={recipe.anchor} to={target} progress={progress} role={recipe.colorRole} />
+        <MarkerRing point={anchor} progress={progress} role={recipe.colorRole} />
+        <LeaderLine from={anchor} to={target} progress={progress} role={recipe.colorRole} />
       </OverlaySvg>
       <div style={zoneStyle(recipe.zone)}>
         <MotionPanel opacity={opacity} role={recipe.colorRole} compact>
@@ -55,14 +58,16 @@ export const FieldMarkerMotion: React.FC<MotionProps<'field_marker'>> = ({recipe
 
 export const EvidenceFreezeMotion: React.FC<MotionProps<'evidence_freeze'>> = ({recipe, durationInFrames}) => {
   const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
   const opacity = motionEnvelope(frame, durationInFrames);
   const progress = drawProgress(frame, durationInFrames);
   const target = labelAnchor(recipe.zone);
+  const anchor = trackedPoint(recipe.binding, recipe.anchor, frame, fps);
   return (
     <AbsoluteFill style={{pointerEvents: 'none', opacity, border: `2px solid rgba(244,244,240,${opacity * 0.36})`, boxSizing: 'border-box'}}>
       <OverlaySvg>
-        <MarkerRing point={recipe.anchor} progress={progress} role="evidence" radius={24} />
-        <LeaderLine from={recipe.anchor} to={target} progress={progress} role="evidence" />
+        <MarkerRing point={anchor} progress={progress} role="evidence" radius={24} />
+        <LeaderLine from={anchor} to={target} progress={progress} role="evidence" />
       </OverlaySvg>
       <div style={zoneStyle(recipe.zone)}>
         <MotionPanel opacity={opacity} role="evidence" compact>
@@ -331,14 +336,16 @@ export const AreaOutlineMotion: React.FC<MotionProps<'area_outline'>> = ({recipe
 
 export const RiskMarkerMotion: React.FC<MotionProps<'risk_marker'>> = ({recipe, durationInFrames}) => {
   const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
   const opacity = motionEnvelope(frame, durationInFrames);
   const progress = drawProgress(frame, durationInFrames);
   const target = labelAnchor(recipe.zone);
+  const anchor = trackedPoint(recipe.binding, recipe.anchor, frame, fps);
   return (
     <AbsoluteFill style={{pointerEvents: 'none', opacity}}>
       <OverlaySvg>
-        <MarkerRing point={recipe.anchor} progress={progress} role="risk" radius={22} />
-        <LeaderLine from={recipe.anchor} to={target} progress={progress} role="risk" dashed />
+        <MarkerRing point={anchor} progress={progress} role="risk" radius={22} />
+        <LeaderLine from={anchor} to={target} progress={progress} role="risk" dashed />
       </OverlaySvg>
       <div style={zoneStyle(recipe.zone)}>
         <MotionPanel opacity={opacity} role="risk" compact>

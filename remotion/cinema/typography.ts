@@ -85,3 +85,6 @@ export const TYPOGRAPHY_PRESETS: Record<string, TypographyPreset> = {
     textTransform: 'uppercase'
   }
 };
+
+export { HSL_THUMBNAIL_TYPOGRAPHY } from '../../spec/hsl-spec';
+

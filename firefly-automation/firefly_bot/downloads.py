@@ -23,6 +23,7 @@ class ValidatedDownload:
     width: int
     height: int
     duration_seconds: float
+    fps: float
     codec: str
     ffprobe: dict[str, object]
 
@@ -95,16 +96,28 @@ def _ffprobe(path: Path) -> dict[str, object]:
     codec = str(stream.get("codec_name") or "")
     fmt = payload.get("format") if isinstance(payload.get("format"), dict) else {}
     duration = float(fmt.get("duration") or stream.get("duration") or 0)
+    raw_fps = str(stream.get("avg_frame_rate") or stream.get("r_frame_rate") or "0")
+    try:
+        numerator, denominator = raw_fps.split("/", maxsplit=1)
+        fps = float(numerator) / float(denominator)
+    except (ValueError, ZeroDivisionError):
+        try:
+            fps = float(raw_fps)
+        except ValueError:
+            fps = 0.0
     if width <= 0 or height <= 0:
         raise DownloadValidationError("FAILED_MEDIA_VALIDATION: invalid dimensions")
     if duration <= 0:
         raise DownloadValidationError("FAILED_MEDIA_VALIDATION: invalid duration")
+    if fps <= 0:
+        raise DownloadValidationError("FAILED_MEDIA_VALIDATION: invalid frame rate")
     if not codec:
         raise DownloadValidationError("FAILED_MEDIA_VALIDATION: missing codec")
     payload["_validated_video"] = {
         "width": width,
         "height": height,
         "duration_seconds": duration,
+        "fps": fps,
         "codec": codec,
         "video_stream_count": len(video_streams),
     }
@@ -153,6 +166,7 @@ def validate_and_move_download(
         width=int(validated["width"]),
         height=int(validated["height"]),
         duration_seconds=float(validated["duration_seconds"]),
+        fps=float(validated["fps"]),
         codec=str(validated["codec"]),
         ffprobe=ffprobe_payload,
     )

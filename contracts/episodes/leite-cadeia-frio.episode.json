@@ -1,0 +1,46 @@
+{
+  "episodeId": "leite-cadeia-frio",
+  "title": "Por que o leite não estraga antes de chegar à sua geladeira?",
+  "theme": "A corrida física de um litro de leite contra tempo, temperatura e contaminação",
+  "domainTags": [
+    "milk",
+    "dairy-farm",
+    "cold-chain",
+    "pasteurization",
+    "uht",
+    "aseptic-packaging",
+    "food-safety",
+    "brazil"
+  ],
+  "targetDurationSeconds": 360,
+  "minDurationRatio": 0.9,
+  "minScenes": 50,
+  "requiredStages": [
+    "narration",
+    "visuals",
+    "sfx",
+    "music",
+    "mix",
+    "thumbnail",
+    "render",
+    "cinematic_grade"
+  ],
+  "voiceProfile": "ElevenLabs Chris iP95p4xoKVk53GoZ742B",
+  "musicMood": "field documentary cold-chain restrained mechanical pulse",
+  "sfxDensity": "narrative sparse",
+  "visualMix": {
+    "targetPercentages": {
+      "realisticImages": 40,
+      "videos": 30,
+      "motionGraphics": 15,
+      "motionImages": 15
+    },
+    "plannedCounts": {
+      "realisticImages": 20,
+      "videos": 15,
+      "motionGraphics": 8,
+      "motionImages": 7
+    }
+  },
+  "startFramePeoplePolicy": "FORBIDDEN"
+}

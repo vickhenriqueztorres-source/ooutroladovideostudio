@@ -30,7 +30,13 @@ export interface RunManifestData {
   createdAt: string;
   updatedAt: string;
   overallStatus: 'RUNNING' | 'COMPLETED' | 'FAILED';
-  stages: Record<PipelineStage, StageRecord>;
+  status?: 'RUNNING' | 'DONE' | 'FAILED';
+  stages: Record<string, StageRecord>;
+  render?: { engine: 'CinematicEpisode'; compositionId: string; outputPath: string };
+  fireflyFailed?: boolean;
+  generatedVideos?: number;
+  bankClips?: number;
+  fallbackRemotion?: number;
   assetInventory: Record<string, {
     sizeBytes: number;
     sha256?: string;
@@ -71,6 +77,7 @@ export class RunManifest {
       runId,
       createdAt: now,
       updatedAt: now,
+      status: 'RUNNING',
       overallStatus: 'RUNNING',
       stages: {
         PREPRODUCTION: { status: 'PENDING' },
@@ -167,8 +174,42 @@ export class RunManifest {
 
   public setOverallStatus(status: 'RUNNING' | 'COMPLETED' | 'FAILED'): void {
     this.data.overallStatus = status;
+    this.data.status = status === 'COMPLETED' ? 'DONE' : status;
     this.data.updatedAt = new Date().toISOString();
     this.save();
+  }
+
+  public finalizeProduction(input: {
+    compositionId: string;
+    outputPath: string;
+    generatedVideos: number;
+    bankClips: number;
+    fallbackRemotion: number;
+  }): void {
+    if (input.fallbackRemotion !== 0) {
+      throw new Error(`RUN_MANIFEST_FALLBACK_FORBIDDEN:${input.fallbackRemotion}`);
+    }
+    this.data.generatedVideos = input.generatedVideos;
+    this.data.bankClips = input.bankClips;
+    this.data.fallbackRemotion = input.fallbackRemotion;
+    this.data.fireflyFailed = false;
+    this.data.render = {
+      engine: 'CinematicEpisode',
+      compositionId: input.compositionId,
+      outputPath: input.outputPath
+    };
+    this.data.stages.visuals = {
+      status: 'DONE',
+      itemCount: input.generatedVideos + input.bankClips,
+      completedAt: new Date().toISOString()
+    };
+    this.data.stages.render = {
+      status: 'DONE',
+      itemCount: 1,
+      completedAt: new Date().toISOString(),
+      metadata: {engine: 'CinematicEpisode', compositionId: input.compositionId}
+    };
+    this.setOverallStatus('COMPLETED');
   }
 
   public getData(): RunManifestData {

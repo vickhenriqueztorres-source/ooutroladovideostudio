@@ -4,6 +4,7 @@ import crypto from 'crypto';
 import { spawnSync } from 'child_process';
 import { OnDemandVideoJob, VideoCatalogEntry } from './types';
 import { VideoRepositoryMatcher } from './videoRepositoryMatcher';
+import {FIREFLY_GENERATION_PROFILE as profile} from '../../config/fireflyGenerationConfig';
 
 export class OnDemandVideoDispatcher {
   private static readonly REPO_PATH = path.join(process.cwd(), 'assets', 'video_repository');
@@ -22,18 +23,50 @@ export class OnDemandVideoDispatcher {
       fs.mkdirSync(guideDir, { recursive: true });
     }
 
-    const items = jobs.map((job) => ({
-      name: `${job.sceneId}_${job.shotId}`,
-      prompt: job.prompt,
-      motion: 'slow_push_in',
-      camera_movement: 'Cinematic push in 35mm chiaroscuro',
-      duration_seconds: job.durationSeconds || 8.0,
-      aspect_ratio: job.aspectRatio || '16:9',
-      category: job.targetCategory || 'infrastructure',
-      tags: job.tags || []
-    }));
+    const imagesDir = path.join(guideDir, 'firefly-start-frames');
+    if (profile.requires_first_frame) fs.mkdirSync(imagesDir, {recursive: true});
 
-    fs.writeFileSync(guidePath, JSON.stringify({ items, createdAt: new Date().toISOString() }, null, 2), 'utf8');
+    const items = jobs.map((job) => {
+      let imageName: string | undefined;
+      if (profile.requires_first_frame) {
+        if (!job.startFramePath || !fs.existsSync(job.startFramePath)) {
+          throw new Error(`ON_DEMAND_FIREFLY_START_FRAME_REQUIRED:${job.sceneId}_${job.shotId}`);
+        }
+        imageName = `${job.sceneId}_${job.shotId}${path.extname(job.startFramePath) || '.png'}`;
+        fs.copyFileSync(job.startFramePath, path.join(imagesDir, imageName));
+      }
+      return {
+        name: `${job.sceneId}_${job.shotId}`,
+        prompt: job.prompt,
+        image: imageName,
+        use_first_frame: profile.requires_first_frame,
+        input_mode: profile.requires_first_frame ? 'image_to_video' : 'text_to_video',
+        motion: 'documentary_observational_motion',
+        camera_movement: 'Subtle handheld documentary camera movement anchored to the real subject',
+        model: profile.model,
+        resolution: profile.resolution,
+        aspect_ratio: profile.aspect_ratio,
+        fps: profile.fps,
+        duration_seconds: profile.duration_seconds,
+        generate_audio: profile.generate_audio,
+        category: job.targetCategory || 'infrastructure',
+        tags: job.tags || []
+      };
+    });
+
+    fs.writeFileSync(guidePath, JSON.stringify({
+      schema: 'ool.firefly.production-guide.v3',
+      model: profile.model,
+      resolution: profile.resolution,
+      aspect_ratio: profile.aspect_ratio,
+      fps: profile.fps,
+      duration_seconds: profile.duration_seconds,
+      generate_audio: profile.generate_audio,
+      use_first_frame: profile.requires_first_frame,
+      images_directory: profile.requires_first_frame ? imagesDir : undefined,
+      items,
+      createdAt: new Date().toISOString()
+    }, null, 2), 'utf8');
     return guidePath;
   }
 
@@ -115,11 +148,11 @@ export class OnDemandVideoDispatcher {
       filename: filename.replace(/\\/g, '/'),
       tags: options.tags,
       description: options.description,
-      durationSeconds: options.durationSeconds || 8.0,
-      fps: 30,
+      durationSeconds: options.durationSeconds || profile.duration_seconds,
+      fps: profile.fps,
       resolution: '1920x1080',
-      colorTone: 'Chiaroscuro / Sodium Amber',
-      recommendedMotion: options.recommendedMotion || 'slow_push_in',
+      colorTone: 'Documentario de campo investigativo / Rec.709 natural',
+      recommendedMotion: options.recommendedMotion || 'cinematic_drift',
       sha256,
       provenance: 'firefly_ai',
       qaStatus: 'quarantined',

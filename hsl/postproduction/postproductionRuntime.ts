@@ -316,7 +316,8 @@ export class HslPostproductionRuntime {
       scenes: renderScenes, narrationSrc: `hsl-runs/${input.productionId}/narration-leveled.wav`,
       soundFxSrc: `hsl-runs/${input.productionId}/soundfx-bed.wav`, soundFxVolume: 1,
       showGlobalOverlays: process.env.HSL_SHOW_GLOBAL_OVERLAYS === 'true',
-      showHybridTextOverlay: process.env.HSL_SHOW_HYBRID_TEXT_OVERLAY !== 'false'
+      showHybridTextOverlay: process.env.HSL_SHOW_HYBRID_TEXT_OVERLAY === 'true',
+      showMasterStopwatch: process.env.HSL_SHOW_MASTER_STOPWATCH === 'true'
     };
     const propsPath = path.join(outputRoot, 'remotion-props.json');
     writeJson(propsPath, props);

@@ -183,8 +183,11 @@ export class FireflyAdapter extends BaseAdapter {
 
       const customEnv = {
         ...process.env,
-        FIREFLY_CHROME_PROFILE_DIR: process.env.FIREFLY_CHROME_PROFILE_DIR || path.join(this.fireflyPath, 'data', 'chrome_profile'),
+        FIREFLY_CHROME_PROFILE_DIR: sessionCheck.userProfilePath
+          || process.env.FIREFLY_CHROME_PROFILE_DIR
+          || path.join(this.fireflyPath, 'data', 'chrome_profile'),
         FIREFLY_ALLOW_CREDIT_SPEND: 'true',
+        FIREFLY_ALLOW_TEXT_TO_VIDEO: 'true',
         PYTHONUNBUFFERED: '1'
       };
 
@@ -335,6 +338,12 @@ export class FireflyAdapter extends BaseAdapter {
             Logger.warn(this.name, 'Worker do Firefly saiu apos falha de infra; reiniciando para continuar jobs pendentes.');
             startWorkerProc();
           }
+        }
+
+        const workerState = runWorker as ChildProcess | null;
+        if (!allDone && (!workerState || workerState.exitCode !== null || workerState.killed)) {
+          Logger.info(this.name, 'Lote Firefly concluído; iniciando o próximo lote pendente da mesma fila.');
+          startWorkerProc();
         }
 
         if (allDone && (completedJobs.length + failedInfraJobs.size) === jobNames.length) {

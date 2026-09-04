@@ -222,6 +222,58 @@ export const HSL_REQUIRED_PACKAGING_ARTIFACTS = [
   'youtube-metadata.json'
 ] as const;
 
+/**
+ * ══════════════════════════════════════════════════════════════════════════════
+ * 📜 ESPECIFICAÇÃO CANÔNICA DE TIPOGRAFIA PARA THUMBNAILS 4K (3840x2160)
+ * ══════════════════════════════════════════════════════════════════════════════
+ * Regra Inviolável de Identidade Visual (Documentário de Campo 35mm):
+ * - Laranja #FF5500 puro, opaco e sólido.
+ * - PROIBIDO qualquer efeito de neon, glow, halo, blur decorativo ou visual cyberpunk.
+ * - Sombra estritamente sólida/direcional de chiaroscuro (drop shadow preto profundo).
+ * - Escala dominante para legibilidade imediata em feeds mobile (<100ms de reconhecimento).
+ */
+export const HSL_THUMBNAIL_TYPOGRAPHY = {
+  FONTS: {
+    HEADLINE: "'Bebas Neue', 'Impact', 'Arial Black', sans-serif",
+    TELEMETRY: "'JetBrains Mono', 'Fira Code', monospace",
+    EDITORIAL: "'Inter', sans-serif"
+  },
+  SCALES: {
+    // Escala dinâmica em pixels para o canvas 3840x2160
+    SHORT_LINE_MAX_FONT_SIZE: 540,   // Linhas com <= 8 caracteres
+    MEDIUM_LINE_FONT_SIZE: 490,      // Linhas com 9 a 11 caracteres
+    LONG_LINE_FONT_SIZE: 430,        // Linhas com 12 a 14 caracteres
+    EXTENDED_LINE_FONT_SIZE: 380,    // Linhas com > 14 caracteres
+    MULTI_LINE_CAP_FONT_SIZE: 360,   // Mais de 2 linhas na headline
+    SUBHEADLINE_FONT_SIZE: 62,       // Pill de contexto / subheadline
+    CATEGORY_BADGE_FONT_SIZE: 34,    // Selo superior de auditoria
+    EVIDENCE_LABEL_FONT_SIZE: 32     // Rótulo técnico de evidência
+  },
+  METRICS: {
+    LINE_HEIGHT: 0.86,
+    SCALE_Y: 1.10,
+    LETTER_SPACING_HEADLINE: 2,
+    LETTER_SPACING_TELEMETRY: 3
+  },
+  COLORS: {
+    PRIMARY_TEXT: '#FFFFFF',
+    ACCENT_TEXT: HSL_COLOR_TOKENS.SODIUM_ORANGE,       // #FF5500 puro e sólido (ZERO NEON)
+    TELEMETRY_TEXT: HSL_COLOR_TOKENS.LASER_CYAN,       // #00F0FF puro e sólido (ZERO NEON)
+    BACKGROUND_DARK: HSL_COLOR_TOKENS.CARBON_BLACK     // #060709
+  },
+  SHADOWS: {
+    // Sombra de corte preto sólido para separação ótica profunda em chiaroscuro 35mm (ZERO NEON)
+    SOLID_DROP_SHADOW: '0 16px 50px rgba(0,0,0,1), 0 4px 16px rgba(0,0,0,0.95), 4px 4px 0px rgba(0,0,0,0.9)',
+    SOLID_PILL_SHADOW: '0 14px 40px rgba(0,0,0,0.95)',
+    SOLID_BAR_SHADOW: '0 8px 24px rgba(0,0,0,0.9)'
+  },
+  ACCENT_BAR: {
+    WIDTH: 320,
+    HEIGHT: 14,
+    COLOR: HSL_COLOR_TOKENS.SODIUM_ORANGE
+  }
+} as const;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 5. GOVERNANÇA DE MOTION GRAPHICS (PRD: FR-03, FR-07)
 // ─────────────────────────────────────────────────────────────────────────────

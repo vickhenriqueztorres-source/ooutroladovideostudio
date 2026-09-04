@@ -1,0 +1,182 @@
+{
+  "N100_001": {
+    "audioDuration": 7.2,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8,
+    "frames": 240
+  },
+  "N100_002": {
+    "audioDuration": 6.97,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.8,
+    "frames": 234
+  },
+  "N100_003": {
+    "audioDuration": 6.83,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.6,
+    "frames": 228
+  },
+  "N100_004": {
+    "audioDuration": 7.89,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.7,
+    "frames": 261
+  },
+  "N100_005": {
+    "audioDuration": 8.08,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.9,
+    "frames": 267
+  },
+  "N100_006": {
+    "audioDuration": 9.52,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.3,
+    "frames": 309
+  },
+  "N100_007": {
+    "audioDuration": 8.36,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.2,
+    "frames": 276
+  },
+  "N100_008": {
+    "audioDuration": 9.06,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.9,
+    "frames": 297
+  },
+  "N100_009": {
+    "audioDuration": 8.36,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.2,
+    "frames": 276
+  },
+  "N100_010": {
+    "audioDuration": 8.31,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.1,
+    "frames": 273
+  },
+  "N100_011": {
+    "audioDuration": 6.5,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.3,
+    "frames": 219
+  },
+  "N100_012": {
+    "audioDuration": 10.08,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.9,
+    "frames": 327
+  },
+  "N100_013": {
+    "audioDuration": 7.48,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.3,
+    "frames": 249
+  },
+  "N100_014": {
+    "audioDuration": 7.89,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.7,
+    "frames": 261
+  },
+  "N100_015": {
+    "audioDuration": 7.01,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.8,
+    "frames": 234
+  },
+  "N100_016": {
+    "audioDuration": 10.22,
+    "breathSeconds": 0.8,
+    "sceneDuration": 11,
+    "frames": 330
+  },
+  "N100_017": {
+    "audioDuration": 10.08,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.9,
+    "frames": 327
+  },
+  "N100_018": {
+    "audioDuration": 9.01,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.8,
+    "frames": 294
+  },
+  "N100_019": {
+    "audioDuration": 8.73,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.5,
+    "frames": 285
+  },
+  "N100_020": {
+    "audioDuration": 6.32,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.1,
+    "frames": 213
+  },
+  "N100_021": {
+    "audioDuration": 8.5,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.3,
+    "frames": 279
+  },
+  "N100_022": {
+    "audioDuration": 6.97,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.8,
+    "frames": 234
+  },
+  "N100_023": {
+    "audioDuration": 7.15,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8,
+    "frames": 240
+  },
+  "N100_024": {
+    "audioDuration": 11.84,
+    "breathSeconds": 0.8,
+    "sceneDuration": 12.6,
+    "frames": 378
+  },
+  "N100_025": {
+    "audioDuration": 8.64,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.4,
+    "frames": 282
+  },
+  "N100_026": {
+    "audioDuration": 8.78,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.6,
+    "frames": 288
+  },
+  "N100_027": {
+    "audioDuration": 8.5,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.3,
+    "frames": 279
+  },
+  "N100_028": {
+    "audioDuration": 10.54,
+    "breathSeconds": 0.8,
+    "sceneDuration": 11.3,
+    "frames": 339
+  },
+  "N100_029": {
+    "audioDuration": 8.73,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.5,
+    "frames": 285
+  },
+  "N100_030": {
+    "audioDuration": 9.66,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.5,
+    "frames": 315
+  }
+}

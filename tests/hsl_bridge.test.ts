@@ -21,7 +21,7 @@ function fixture(): {handoff: HslGenerationHandoff; guidePath: string} {
   fs.writeFileSync(framePath, PNG_1X1);
   const packagePath = path.join(root, 'GENERATION_PACKAGE.json');
   fs.writeFileSync(packagePath, JSON.stringify({
-    status: 'GENERATION_PACKAGE_READY_FOR_KLING',
+    status: 'GENERATION_PACKAGE_READY_FOR_FIREFLY',
     shot_id: 'HSL_004',
     start_frame_path: framePath,
     start_frame_sha256: sha(framePath),
@@ -30,7 +30,7 @@ function fixture(): {handoff: HslGenerationHandoff; guidePath: string} {
     motion_change: 'Fuel begins moving through the pipe network',
     end_state: 'The highlighted route reaches the storage manifold',
     generation_duration_seconds: 5,
-    supported_duration_seconds: [5, 10],
+    supported_duration_seconds: [5],
     resolution: '1080p',
     aspect_ratio: '16:9'
   }, null, 2));
@@ -53,6 +53,8 @@ function fixture(): {handoff: HslGenerationHandoff; guidePath: string} {
       evidence_status: 'illustrative',
       ai_disclosure_required: true,
       on_screen_label: 'AI VISUALIZATION',
+      generation_strategy: 'FIREFLY_CINEMATIC',
+      requested_model: 'Kling 2.5 Turbo',
       created_at: '2026-08-19T00:00:00.000Z'
     }
   };
@@ -66,6 +68,11 @@ test('HSL handoff preserves 16:9 start-frame lineage and disclosure', () => {
   assert.equal(guide.resolution, '1080p');
   assert.equal(guide.ai_disclosure_required, true);
   assert.equal(guide.on_screen_label, 'AI VISUALIZATION');
+  assert.equal(guide.model, 'Kling 2.5 Turbo');
+  assert.equal(guide.fps, 24);
+  assert.equal(guide.duration_seconds, 5);
+  assert.equal(guide.use_first_frame, true);
+  assert.doesNotMatch(guide.items[0].prompt, /provided first frame/i);
   assert.equal(sha(receipt.copied_start_frame_path), handoff.start_frame_sha256);
 });
 

@@ -6,31 +6,13 @@ import {
 import {
   DRONES_AGRO_TIMELINE_CONTRACT,
   EPISODE_DRONES_AGRO_FPS,
-  EPISODE_DRONES_AGRO_TOTAL_FRAMES,
 } from './episodeDronesAgroTimelineData';
 
-const FIELD_IMAGES = [
-  'assets/visual_identity/documentary-field-v4/observational-field.png',
-  'assets/visual_identity/documentary-field-v4/field-reportage.png',
-  'assets/visual_identity/documentary-field-v4/physical-evidence.png',
-  'assets/visual_identity/documentary-field-v4/operational-scale.png',
-] as const;
-
-const FIELD_MODES = ['row_walk', 'lateral_track', 'macro_rack', 'slow_crane'] as const;
-
-const EVIDENCE_LABELS = [
-  'CAMERA ENTRE AS FILEIRAS',
-  'OPERACAO REAL',
-  'EVIDENCIA MACRO',
-  'ESCALA DA LAVOURA',
-] as const;
-
-export const EPISODE_DRONES_AGRO_FIELD_TOTAL_FRAMES = EPISODE_DRONES_AGRO_TOTAL_FRAMES;
-
 export function buildDronesAgroFieldTimelineContract(): TimelineContractInput {
-  return {
+  const contract: TimelineContractInput = {
     ...DRONES_AGRO_TIMELINE_CONTRACT,
     episodeId: 'drones-agro',
+    motionLanguage: 'documentary-field-v4',
     fps: EPISODE_DRONES_AGRO_FPS,
     hudWindows: [],
     audio: {
@@ -42,41 +24,33 @@ export function buildDronesAgroFieldTimelineContract(): TimelineContractInput {
       duckedVolume: 0.11,
     },
     scenes: DRONES_AGRO_TIMELINE_CONTRACT.scenes.map((scene, index) => {
-      const group = index % FIELD_IMAGES.length;
-      const isMacro = group === 2;
-      const isScale = group === 3;
-      const callout = scene.callout
-        ? {
-            ...scene.callout,
-            categoryText: isMacro
-              ? 'EVIDENCIA DE CAMPO'
-              : isScale
-                ? 'ESCALA OPERACIONAL'
-                : 'MATERIA OBSERVACIONAL',
-            position: scene.callout.position === 'center' ? 'bottom_left' : scene.callout.position,
-          }
-        : undefined;
-
+      if (!scene.mediaFile) throw new Error(`DRONES_AGRO_TEMPORAL_TAKE_REQUIRED:${scene.id}`);
+      const keepCallout = index % 4 === 2;
       return {
         ...scene,
         component: 'FieldDocumentaryScene',
         take_type: 'CINEMATIC_TAKE' as const,
-        mediaFile: undefined,
-        camera: FIELD_MODES[group] === 'slow_crane' ? 'pullOut' : FIELD_MODES[group] === 'lateral_track' ? 'panRight' : 'drift',
-        transition: scene.transition === 'cut' || scene.transition === 'hardCut' ? 'crossfade' : scene.transition,
-        callout,
+        mediaFile: scene.mediaFile,
+        camera: 'static' as const,
+        transition: [5, 11, 16, 21].includes(index) ? 'dipToBlack' as const : 'cut' as const,
+        callout: keepCallout && scene.callout
+          ? {...scene.callout, startSeconds: 0.55, durationSeconds: 1.65, position: 'bottom_left' as const}
+          : undefined,
+        motionRecipes: [],
         props: {
           sceneId: scene.id,
-          imageSrc: FIELD_IMAGES[group],
-          fieldMode: FIELD_MODES[group],
-          evidenceLabel: EVIDENCE_LABELS[group],
+          mediaPath: scene.mediaFile,
           durationInFrames: Math.round(scene.durationSeconds * EPISODE_DRONES_AGRO_FPS),
         },
       };
     }),
   };
+  parseAndCalculateTimeline(contract);
+  return contract;
 }
 
 export const DRONES_AGRO_FIELD_TIMELINE_CONTRACT: TimelineContractInput = buildDronesAgroFieldTimelineContract();
 export const EPISODE_DRONES_AGRO_FIELD_CALCULATED_TIMELINE: CalculatedTimeline =
   parseAndCalculateTimeline(DRONES_AGRO_FIELD_TIMELINE_CONTRACT);
+export const EPISODE_DRONES_AGRO_FIELD_TOTAL_FRAMES =
+  EPISODE_DRONES_AGRO_FIELD_CALCULATED_TIMELINE.totalDurationFrames;

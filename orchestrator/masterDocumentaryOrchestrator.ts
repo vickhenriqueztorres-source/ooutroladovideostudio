@@ -16,6 +16,8 @@ import { RunManifest } from '../pipeline/runManifest';
 import { ArtifactRegistry } from '../pipeline/artifactRegistry';
 import { RemotionCompiler } from '../remotion/remotionCompiler';
 import { DescriptionAndSeoPlanner } from '../packaging-agent/planner/description-seo-planner';
+import { buildFireflyPrompt } from '../contracts/buildFireflyPrompt';
+import { materializeFireflyDispatchPackage } from '../pipeline/fireflyDispatchPackage';
 
 export interface DocumentaryEpisodeBrief {
   episodeId: string; // ex: 'OOL_002_CABOS'
@@ -55,7 +57,6 @@ export class MasterDocumentaryOrchestrator {
   private readonly name = 'MasterDocumentaryOrchestrator';
   private readonly editorAgent = new DocumentaryEditorAgent();
   private readonly startFrameGen = new StartFrameGenerator();
-  private readonly fireflyAdapter = new FireflyAdapter();
   private readonly soundPlanner = new SoundDesignPlanner();
   private readonly thumbnailPlanner = new ThumbnailPlanner();
   private readonly titlePlanner = new TitlePlanner();
@@ -152,55 +153,44 @@ export class MasterDocumentaryOrchestrator {
     Logger.info(this.name, `[ETAPA 3/8] Compilando guia oficial do Firefly Video Automation...`);
     const fireflyItems = flatScenes.map((s, idx) => {
       const frameResult = generatedFrames[idx];
-      const motionPrompt = this.editorAgent.generateFireflyMotionPrompt('industrial_xray');
       return {
-        name: `${brief.episodeId}_${s.sceneId}`,
-        image: path.resolve(frameResult.filePath),
-        prompt: motionPrompt,
-        model: 'Kling 3.0',
-        resolution: '720p',
-        aspect_ratio: '16:9',
-        duration_seconds: 5,
-        generate_audio: false
+        sceneId: `${brief.episodeId}_${s.sceneId}`,
+        startFramePath: frameResult.filePath,
+        prompt: buildFireflyPrompt({
+          scene_id: s.sceneId,
+          visual_subject: s.visualSubject,
+          visual_must_include: [s.visualSubject, brief.systemBeingAnalyzed, brief.objectOrFlow],
+          visual_must_not: [
+            `unrelated substitute for ${s.visualSubject}`,
+            `fictional version of ${brief.systemBeingAnalyzed}`
+          ],
+          required_category: 'matter',
+          domainTags: [brief.theme, brief.systemBeingAnalyzed],
+          take_type: 'CINEMATIC_TAKE'
+        }).prompt
       };
     });
-
-    const masterGuidePath = path.join(prodDir, 'firefly-production-guide.json');
-    fs.writeFileSync(
-      masterGuidePath,
-      JSON.stringify(
-        {
-          schema: 'hsl.firefly.multi-provider-guide.v2',
-          model: 'Kling 3.0',
-          resolution: '720p',
-          aspect_ratio: '16:9',
-          duration_seconds: 5,
-          generate_audio: false,
-          items: fireflyItems
-        },
-        null,
-        2
-      ),
-      'utf8'
-    );
+    const dispatchPackage = materializeFireflyDispatchPackage({
+      runDirectory: prodDir,
+      scenes: fireflyItems
+    });
+    const masterGuidePath = dispatchPackage.guidePath;
     Logger.info(this.name, `Guia Firefly criada em: ${masterGuidePath}`);
 
     // ─────────────────────────────────────────────────────────────
     // ETAPA 4: Ativação Obrigatória do Firefly Bot
     // ─────────────────────────────────────────────────────────────
     Logger.info(this.name, `[ETAPA 4/8] Executando Firefly Bot real...`);
-    let hasExecutedFirefly = false;
-    try {
-      await this.fireflyAdapter.initialize();
-      // Alimenta a guia no banco SQLite wal do bot
-      const feedResult = await this.fireflyAdapter.feedGuideAndRunReal(brief.episodeId, masterGuidePath);
-      hasExecutedFirefly = feedResult.success || feedResult.completedJobs.length > 0;
-    } catch (err: any) {
-      Logger.warn(this.name, `Aviso na execução do Firefly Worker: ${err.message}. Criando takes locais de vídeo com animação Ken Burns cinematográfica.`);
-      hasExecutedFirefly = true; // Fallback auditado de vídeo gerado
+    const fireflyAdapter = new FireflyAdapter(undefined, path.join(prodDir, 'firefly-runtime'));
+    await fireflyAdapter.initialize();
+    const feedResult = await fireflyAdapter.feedGuideAndRunReal(brief.episodeId, masterGuidePath);
+    if (!feedResult.success || feedResult.completedJobs.length !== fireflyItems.length) {
+      throw new Error(
+        `FIREFLY_REQUIRED_JOBS_INCOMPLETE:${feedResult.completedJobs.length}/${fireflyItems.length}`
+      );
     }
-
-    ProductionSafetyGuard.assertFireflyMandatory(hasExecutedFirefly, brief.episodeId);
+    ProductionSafetyGuard.assertFireflyMandatory(true, brief.episodeId);
+    const completedByName = new Map(feedResult.completedJobs.map((job) => [job.name, job.output_path]));
 
     // Garantir que cada cena tenha um MP4 correspondente para o Remotion
     for (const sc of flatScenes) {
@@ -208,14 +198,13 @@ export class MasterDocumentaryOrchestrator {
       const videoTakePath = path.join(scenePublicDir, 'firefly_take.mp4');
       const startFramePath = path.join(scenePublicDir, 'firefly_start_frame.png');
 
-      if (!fs.existsSync(videoTakePath) && fs.existsSync(startFramePath)) {
-        // Gera um vídeo 720p/1080p MP4 de 5 segundos a partir do start frame com movimento suave
-        const ffmpegCmd = `ffmpeg -y -loop 1 -i "${startFramePath}" -c:v libx264 -t 5 -pix_fmt yuv420p -vf "scale=1280:720" "${videoTakePath}"`;
-        try {
-          execSync(ffmpegCmd, { stdio: 'ignore' });
-        } catch (e) {
-          // Fallback silencioso
-        }
+      const generatedPath = completedByName.get(`${brief.episodeId}_${sc.sceneId}`);
+      if (!generatedPath || !fs.existsSync(generatedPath)) {
+        throw new Error(`FIREFLY_SCENE_OUTPUT_MISSING:${sc.sceneId}`);
+      }
+      fs.copyFileSync(generatedPath, videoTakePath);
+      if (!fs.existsSync(startFramePath)) {
+        throw new Error(`START_FRAME_PUBLIC_COPY_MISSING:${sc.sceneId}`);
       }
     }
 
@@ -232,12 +221,9 @@ export class MasterDocumentaryOrchestrator {
 import os, sys, json, time
 import urllib.request
 
-API_KEYS = [
-    "sk_0ec1f2e9fc8cf807f6687a417578beaaefb28cba0cb41b80",
-    "sk_45c79defa2fcb2ca405843dc26b1fa7ad1bb0b691cf2fa13",
-    "sk_a918e026c233a750355a9104d8b75aefac3dda68249bd447",
-    "sk_4e1e236ebcbb440102e1c940f72b03613714f4451eb0b186"
-]
+API_KEYS = [key.strip() for key in os.environ.get("ELEVENLABS_API_KEYS", os.environ.get("ELEVENLABS_API_KEY", "")).split(",") if key.strip()]
+if not API_KEYS:
+    raise RuntimeError("ELEVENLABS_API_KEY_REQUIRED")
 VOICE_CHRIS = "iP95p4xoKVk53GoZ742B"
 MODEL_ID = "eleven_multilingual_v2"
 

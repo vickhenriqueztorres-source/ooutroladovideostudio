@@ -1,0 +1,30 @@
+{
+  "episodeId": "energia-ia-data-centers",
+  "title": "Quanta Energia Custa Uma Resposta da IA?",
+  "theme": "A cadeia física entre uma pergunta para IA e a infraestrutura elétrica que sustenta seu cálculo",
+  "domainTags": [
+    "artificial-intelligence",
+    "data-center",
+    "gpu",
+    "electricity",
+    "cooling",
+    "power-grid",
+    "brazil"
+  ],
+  "targetDurationSeconds": 303.2,
+  "minDurationRatio": 0.9,
+  "minScenes": 75,
+  "requiredStages": [
+    "narration",
+    "visuals",
+    "sfx",
+    "music",
+    "mix",
+    "thumbnail",
+    "render",
+    "cinematic_grade"
+  ],
+  "voiceProfile": "ElevenLabs Chris iP95p4xoKVk53GoZ742B",
+  "musicMood": "field documentary electrical infrastructure restrained",
+  "sfxDensity": "narrative sparse"
+}

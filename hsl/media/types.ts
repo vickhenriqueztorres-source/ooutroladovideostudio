@@ -114,6 +114,7 @@ export interface OnDemandVideoJob {
   sceneId: string;
   shotId: string;
   prompt: string;
+  startFramePath?: string;
   durationSeconds: number;
   aspectRatio: string;
   outputRelativePath: string;

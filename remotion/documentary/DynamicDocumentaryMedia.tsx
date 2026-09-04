@@ -36,12 +36,19 @@ export const DynamicDocumentaryMedia: React.FC<DynamicDocumentaryMediaProps> = (
   isDossierTake = false,
   dossierTag
 }) => {
-  const isDossier = isDossierTake;
-  const hasVideo = !isDossier;
+  const mediaInfo = availableMedia[sceneId];
+  const isDossier = isDossierTake || mediaInfo?.isDossier === true;
+  const hasVideo = !isDossier && Boolean(mediaInfo?.hasVideo);
   const episodeFolder = sceneId.startsWith('AGRO')
     ? 'drones-agro'
     : sceneId.startsWith('GPS')
     ? 'gps-tempo'
+    : sceneId.startsWith('N100')
+    ? 'nota-100-reais'
+    : sceneId.startsWith('DC')
+    ? 'energia-ia-data-centers'
+    : sceneId.startsWith('MILK')
+    ? 'leite-cadeia-frio'
     : 'gasolina-adulterada';
 
   const videoSrc = mediaPath || `episodes/${episodeFolder}/takes/${sceneId}.mp4`;

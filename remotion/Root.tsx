@@ -12,12 +12,19 @@ import {EPISODE_GASOLINA_TOTAL_FRAMES} from './episodeGasolinaTimelineData';
 import {EpisodeGps} from './EpisodeGps';
 import {EPISODE_GPS_TOTAL_FRAMES} from './episodeGpsTimelineData';
 import {EpisodeDronesAgro} from './EpisodeDronesAgro';
-import {EPISODE_DRONES_AGRO_TOTAL_FRAMES} from './episodeDronesAgroTimelineData';
 import {EpisodeDronesAgroFieldCut} from './EpisodeDronesAgroFieldCut';
 import {EPISODE_DRONES_AGRO_FIELD_TOTAL_FRAMES} from './episodeDronesAgroFieldTimelineData';
 import {EpisodeDronesAgroNoturnos} from './EpisodeDronesAgroNoturnos';
 import {EPISODE_DRONES_AGRO_NOTURNOS_TOTAL_FRAMES} from './episodeDronesAgroNoturnosTimelineData';
+import {EpisodeEnergiaIaDataCenters} from './EpisodeEnergiaIaDataCenters';
+import {EPISODE_ENERGIA_IA_TOTAL_FRAMES} from './episodeEnergiaIaDataCentersTimelineData';
+import {EpisodeNota100} from './EpisodeNota100';
+import {EPISODE_NOTA_100_TOTAL_FRAMES} from './episodeNota100TimelineData';
 import {HslThumbnail, HslThumbnailProps} from './HslThumbnail';
+import {
+  FieldDocumentaryThumbnail,
+  FieldDocumentaryThumbnailProps,
+} from './FieldDocumentaryThumbnail';
 import {HslEpisodeRenderProps} from './types';
 
 import {HSL_FPS, HSL_VIDEO_RESOLUTION} from '../spec/hsl-spec';
@@ -25,6 +32,9 @@ import {EPISODE_01_TIMELINE_TOTAL_FRAMES} from './episode01TimelineData';
 import {EPISODE_02_TOTAL_FRAMES} from './episode02TimelineData';
 import {EPISODE_04_TOTAL_FRAMES} from './episode04TimelineData';
 import {EPISODE_05_TOTAL_FRAMES} from './episode05TimelineData';
+import {MilkProceduralTake, MilkProceduralTakeProps} from './MilkProceduralTake';
+import {EpisodeMilk} from './EpisodeMilk';
+import {EPISODE_MILK_TOTAL_FRAMES, MILK_FPS} from './episodeMilkTimelineData';
 import {
   DOCUMENTARY_MOTION_SHOWCASE_FRAMES,
   DocumentaryMotionLibraryShowcase,
@@ -42,7 +52,37 @@ const thumbnailDefaults: HslThumbnailProps = {
   role: 'MECHANISM'
 };
 
+const fieldThumbnailDefaults: FieldDocumentaryThumbnailProps = {
+  baseImageSrc: 'identity/logo.png',
+  headlineLines: ['O OUTRO', 'LADO'],
+  textSide: 'LEFT',
+};
+
+const milkProceduralDefaults: MilkProceduralTakeProps = {
+  imageSrc: 'identity/logo.png',
+  sceneId: 'LEITE_PREVIEW',
+  chapterTitle: 'CADEIA DO LEITE',
+  mode: 'EVIDENCE',
+};
+
 export const RemotionRoot: React.FC = () => <>
+  <Composition
+    id="EpisodeMilk"
+    component={EpisodeMilk}
+    durationInFrames={EPISODE_MILK_TOTAL_FRAMES}
+    fps={MILK_FPS}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="MilkProceduralTake"
+    component={MilkProceduralTake}
+    durationInFrames={120}
+    fps={24}
+    width={1920}
+    height={1080}
+    defaultProps={milkProceduralDefaults}
+  />
   <Composition
     id="DocumentaryMotionLibrary"
     component={DocumentaryMotionLibraryShowcase}
@@ -110,7 +150,7 @@ export const RemotionRoot: React.FC = () => <>
   <Composition
     id="EpisodeDronesAgro"
     component={EpisodeDronesAgro}
-    durationInFrames={EPISODE_DRONES_AGRO_TOTAL_FRAMES}
+    durationInFrames={EPISODE_DRONES_AGRO_FIELD_TOTAL_FRAMES}
     fps={HSL_FPS}
     width={HSL_VIDEO_RESOLUTION.WIDTH}
     height={HSL_VIDEO_RESOLUTION.HEIGHT}
@@ -130,6 +170,22 @@ export const RemotionRoot: React.FC = () => <>
     fps={HSL_FPS}
     width={HSL_VIDEO_RESOLUTION.WIDTH}
     height={HSL_VIDEO_RESOLUTION.HEIGHT}
+  />
+  <Composition
+    id="EpisodeEnergiaIaDataCenters"
+    component={EpisodeEnergiaIaDataCenters}
+    durationInFrames={EPISODE_ENERGIA_IA_TOTAL_FRAMES}
+    fps={HSL_FPS}
+    width={HSL_VIDEO_RESOLUTION.WIDTH}
+    height={HSL_VIDEO_RESOLUTION.HEIGHT}
+  />
+  <Composition
+    id="EpisodeNota100"
+    component={EpisodeNota100}
+    durationInFrames={EPISODE_NOTA_100_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
   />
   <Composition
     id="HslEpisode"
@@ -155,5 +211,14 @@ export const RemotionRoot: React.FC = () => <>
     width={3840}
     height={2160}
     defaultProps={thumbnailDefaults}
+  />
+  <Composition
+    id="FieldDocumentaryThumbnail"
+    component={FieldDocumentaryThumbnail}
+    durationInFrames={1}
+    fps={30}
+    width={3840}
+    height={2160}
+    defaultProps={fieldThumbnailDefaults}
   />
   </>;

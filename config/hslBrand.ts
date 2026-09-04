@@ -1,3 +1,5 @@
+import { HSL_THUMBNAIL_TYPOGRAPHY } from '../spec/hsl-spec';
+
 export const HSL_BRAND = {
   name: 'O Outro Lado',
   shortName: 'O Outro Lado',
@@ -11,6 +13,7 @@ export const HSL_BRAND = {
     render: { width: 1920, height: 1080, fps: 30 },
     safeMarginPx1080: 64
   },
+  thumbnailTypography: HSL_THUMBNAIL_TYPOGRAPHY,
   colors: {
     background: '#060709', // Neutral deep black for natural negative space
     surface: 'rgba(255, 255, 255, 0.05)',

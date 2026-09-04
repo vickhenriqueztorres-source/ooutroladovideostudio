@@ -30,15 +30,15 @@
       },
       "model": {
         "type": "string",
-        "default": "Kling 3.0"
+        "default": "Firefly Video"
       },
       "resolution": {
         "type": "string",
-        "default": "720p"
+        "default": "1080p"
       },
       "aspect_ratio": {
         "type": "string",
-        "default": "9:16"
+        "default": "16:9"
       },
       "duration_seconds": {
         "type": "integer",

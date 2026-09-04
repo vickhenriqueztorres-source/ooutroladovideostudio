@@ -16,13 +16,13 @@ import {assertOfficialHslNarrationConfig, HSL_OFFICIAL_PRODUCTION_RULES} from '.
 const roots: string[] = [];
 after(() => roots.forEach((root) => fs.rmSync(root, {recursive: true, force: true})));
 
-test('motion router preserves Kling while selecting Veo hybrid for exact explanatory flow', () => {
+test('motion router selects Firefly Video while preserving Veo hybrid for exact explanatory flow', () => {
   const router = new MotionRouteDirectorAgent();
   const physical = router.run({
     visualMode: 'generated_ai', visualFunction: 'scale', narrativeFunction: 'establish_facility',
     visualSubject: 'wide airport refinery at dawn', variant: 'ESTABLISH'
   });
-  assert.equal(physical.generation_strategy, 'KLING_CINEMATIC');
+  assert.equal(physical.generation_strategy, 'FIREFLY_CINEMATIC');
   const explanatory = router.run({
     visualMode: 'generated_ai', visualFunction: 'invisible_process', narrativeFunction: 'trace_route',
     visualSubject: 'map showing refinery terminal airport flow', variant: 'PROCESS'
@@ -43,22 +43,22 @@ test('motion router promotes an explicitly approved Remotion shot to Veo hybrid'
   assert.equal(route.requires_exact_overlay, true);
 });
 
-test('motion router promotes physical editorial beats to Kling without text overlays', () => {
+test('motion router promotes physical editorial beats to Firefly without text overlays', () => {
   const route = new MotionRouteDirectorAgent().run({
     visualMode: 'remotion', visualFunction: null, narrativeFunction: 'show_consequence',
     visualSubject: 'baggage carts crossing a wet airport apron at night', variant: 'CONSEQUENCE',
     promoteRemotion: true, promotionTarget: 'KLING', promoteWithExactOverlay: false
   });
-  assert.equal(route.generation_strategy, 'KLING_CINEMATIC');
+  assert.equal(route.generation_strategy, 'FIREFLY_CINEMATIC');
   assert.equal(route.requires_exact_overlay, false);
 });
 
-test('motion router can preserve an existing generated shot on Kling', () => {
+test('motion router redirects an old Kling request to Firefly Video', () => {
   const route = new MotionRouteDirectorAgent().run({
     visualMode: 'generated_ai', visualFunction: 'invisible_process', narrativeFunction: 'trace_route',
     visualSubject: 'airport fuel route map', variant: 'PROCESS', forceKling: true
   });
-  assert.equal(route.generation_strategy, 'KLING_CINEMATIC');
+  assert.equal(route.generation_strategy, 'FIREFLY_CINEMATIC');
   assert.equal(route.audio_strategy, 'KENNEY_DESIGNED');
 });
 
@@ -72,7 +72,7 @@ test('Veo director creates a bounded first-frame and native-audio contract', () 
   assert.equal(contract.generate_audio, true);
   assert.equal(contract.beats.length, 4);
   assert.match(contract.provider_prompt, /exact first frame/i);
-  assert.match(contract.provider_prompt, /photoreal infrastructure/i);
+  assert.match(contract.provider_prompt, /real photographed environment/i);
   assert.match(contract.provider_prompt, /not a flat diagram/i);
   assert.match(contract.provider_prompt, /No dialogue/i);
 });
@@ -100,20 +100,24 @@ test('start-frame QA rejects flat diagram templates and accepts premium photogra
   assert.ok(reference.visual_analysis.texture_bucket_ratio >= .022);
 });
 
-test('official HSL production rules lock narration to Voicebox Echo', () => {
-  assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.narrationProvider, 'voicebox');
-  assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.officialVoiceName, 'Echo');
+test('official HSL production rules lock narration to ElevenLabs Chris', () => {
+  assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.narrationProvider, 'elevenlabs');
+  assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.officialVoiceName, 'Chris');
+  assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.elevenLabsVoiceId, 'iP95p4xoKVk53GoZ742B');
+  assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.elevenLabsModelId, 'eleven_multilingual_v2');
   assert.equal(HSL_OFFICIAL_PRODUCTION_RULES.voiceboxPresetVoiceId, 'am_echo');
   assert.doesNotThrow(() => assertOfficialHslNarrationConfig({
-    HSL_NARRATION_PROVIDER: 'voicebox',
-    HSL_OFFICIAL_VOICE_NAME: 'Echo',
-    HSL_VOICEBOX_PRESET_VOICE_ID: 'am_echo'
+    HSL_NARRATION_PROVIDER: 'elevenlabs',
+    ELEVENLABS_VOICE_NAME: 'Chris',
+    ELEVENLABS_VOICE_ID: 'iP95p4xoKVk53GoZ742B',
+    ELEVENLABS_MODEL_ID: 'eleven_multilingual_v2'
   } as NodeJS.ProcessEnv));
   assert.throws(() => assertOfficialHslNarrationConfig({
-    HSL_NARRATION_PROVIDER: 'elevenlabs',
-    HSL_OFFICIAL_VOICE_NAME: 'Echo',
-    HSL_VOICEBOX_PRESET_VOICE_ID: 'am_echo'
-  } as NodeJS.ProcessEnv), /HSL_OFFICIAL_VOICEBOX_REQUIRED/);
+    HSL_NARRATION_PROVIDER: 'voicebox',
+    ELEVENLABS_VOICE_NAME: 'Chris',
+    ELEVENLABS_VOICE_ID: 'iP95p4xoKVk53GoZ742B',
+    ELEVENLABS_MODEL_ID: 'eleven_multilingual_v2'
+  } as NodeJS.ProcessEnv), /HSL_OFFICIAL_ELEVENLABS_REQUIRED/);
 });
 
 test('premium start-frame agent writes the complete approved package', () => {

@@ -1,0 +1,29 @@
+{
+  "episodeId": "leite-cadeia-frio",
+  "checkedAt": "2026-09-01",
+  "sources": [
+    {
+      "authority": "Ministério da Agricultura e Pecuária — IN 76/2018, texto consolidado",
+      "supports": [
+        "recepção, conservação e qualidade microbiológica do leite cru refrigerado"
+      ],
+      "url": "https://www.gov.br/agricultura/pt-br/assuntos/inspecao/produtos-animal/legislacao/IN762018RTIQLeite.pdf"
+    },
+    {
+      "authority": "RIISPOA — Decreto 9.013/2017, com alterações",
+      "supports": [
+        "pasteurização rápida a 72–75 °C por 15–20 s",
+        "UHT a 130–150 °C por 2–4 s",
+        "envase asséptico"
+      ],
+      "url": "https://www.rj.gov.br/agricultura/sites/default/files/2022-07/RIISPOA.pdf"
+    },
+    {
+      "authority": "MAPA — Manual de inspeção do leite e derivados",
+      "supports": [
+        "inspeção e controles de processo do leite e derivados"
+      ],
+      "url": "https://wikisda.agricultura.gov.br/Inspe%C3%A7%C3%A3o-Animal/Produto-Origem-Animal/manual_leite"
+    }
+  ]
+}

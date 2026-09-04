@@ -53,3 +53,27 @@ test('narrative function wins when a propagation scene mentions its originating 
   });
   assert.equal(design.template, 'DELAY_PROPAGATION');
 });
+
+test('agricultural drone mechanisms use field-specific evidence language', () => {
+  const lidar = buildMotionDesign({
+    narrativeFunction: 'explain_navigation',
+    visualSubject: 'LiDAR measures the terrain profile under an agricultural drone',
+    variant: 'PROCESS'
+  });
+  const downwash = buildMotionDesign({
+    narrativeFunction: 'explain_downwash',
+    visualSubject: 'Downwash carries microdroplets toward the underside of the leaf',
+    variant: 'PROCESS'
+  });
+  assert.equal(lidar.template, 'FLOW_MAP');
+  assert.equal(downwash.template, 'PROCESS_CUTAWAY');
+  assert.doesNotMatch([lidar, downwash].flatMap((design) => [design.eyebrow, design.headline, ...design.stages]).join(' '), /HIDDEN SYSTEM|INPUT|CONTROL|OUTPUT/);
+});
+
+test('unknown subjects preserve factual language and templates use distinct cue timing', () => {
+  const unknown = buildMotionDesign({narrativeFunction: 'observe', visualSubject: 'Valve, pressure gauge, outlet pipe', variant: 'PROCESS'});
+  const route = buildMotionDesign({narrativeFunction: 'reverse_map', visualSubject: 'The complete map resets at refinery production and begins moving forward', variant: 'PROCESS'});
+  assert.deepEqual(unknown.stages, ['Valve', 'pressure gauge', 'outlet pipe']);
+  assert.doesNotMatch([unknown.eyebrow, ...unknown.stages].join(' '), /HIDDEN SYSTEM|INPUT|CONTROL|OUTPUT/);
+  assert.notDeepEqual(unknown.beats.map((beat) => beat.at_percent), route.beats.map((beat) => beat.at_percent));
+});

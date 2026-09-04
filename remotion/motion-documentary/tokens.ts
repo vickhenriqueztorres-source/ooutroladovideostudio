@@ -12,8 +12,8 @@ export const DOCUMENTARY_MOTION_TOKENS = Object.freeze({
     evidence: '#FF5500',
     telemetry: '#00F0FF',
     line: 'rgba(244,244,240,0.78)',
-    panel: 'rgba(6,7,9,0.58)',
-    panelSoft: 'rgba(6,7,9,0.36)',
+    panel: 'rgba(6,7,9,0.18)',
+    panelSoft: 'rgba(6,7,9,0.10)',
   }),
   typography: Object.freeze({
     editorial: "'Inter', 'Helvetica Neue', Arial, sans-serif",
@@ -24,9 +24,9 @@ export const DOCUMENTARY_MOTION_TOKENS = Object.freeze({
     value: 46,
   }),
   timing: Object.freeze({
-    enterFrames: 8,
-    exitFrames: 6,
-    lineDrawFrames: 12,
+    enterFrames: 10,
+    exitFrames: 8,
+    lineDrawFrames: 16,
   }),
   geometry: Object.freeze({
     markerRadius: 18,

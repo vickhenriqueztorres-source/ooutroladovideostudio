@@ -30,5 +30,24 @@
       "mass": 0.8,
       "stiffness": 100
     }
+  },
+  "thumbnail": {
+    "fonts": {
+      "headline": "Bebas Neue, Impact, Arial Black, sans-serif",
+      "telemetry": "JetBrains Mono, monospace"
+    },
+    "scales": {
+      "shortLine": 540,
+      "mediumLine": 490,
+      "longLine": 430,
+      "extendedLine": 380,
+      "multiLineCap": 360,
+      "subheadline": 62,
+      "categoryBadge": 34
+    },
+    "effects": {
+      "neonGlow": "none",
+      "shadow": "0 16px 50px rgba(0,0,0,1), 0 4px 16px rgba(0,0,0,0.95), 4px 4px 0px rgba(0,0,0,0.9)"
+    }
   }
 }

@@ -2,11 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { Logger } from '../event-hub/logger';
-import {adaptKlingProviderPrompt} from './klingProviderPromptAdapter';
+import {adaptFireflyVideoPrompt} from './fireflyVideoPromptAdapter';
 import {adaptVeoProviderPrompt} from './veoProviderPromptAdapter';
 import {HslAudioStrategy, HslGenerationStrategy} from '../hsl/motion/generatedMotion';
+import {FIREFLY_GENERATION_PROFILE as profile} from '../config/fireflyGenerationConfig';
 
-export interface KlingMotionPackageItem {
+export interface GenerationMotionPackageItem {
   shot_id: string;
   take_id?: string;
   prompt?: string;
@@ -26,8 +27,11 @@ export interface FireflyGuideItem {
   model: string;
   resolution: string;
   aspect_ratio: string;
+  fps?: number;
   duration_seconds: number;
   generate_audio?: boolean;
+  use_first_frame?: boolean;
+  input_mode?: string;
 }
 
 export interface HslGenerationHandoff {
@@ -50,7 +54,7 @@ export interface HslGenerationHandoff {
   created_at: string;
   generation_strategy?: HslGenerationStrategy;
   audio_strategy?: HslAudioStrategy;
-  requested_model?: 'Kling 3.0' | 'Veo 3.1 Fast';
+  requested_model?: 'Kling 2.5 Turbo' | 'Firefly Video' | 'Kling 3.0' | 'Veo 3.1 Fast';
   generate_audio?: boolean;
   premium_start_frame_package_path?: string;
 }
@@ -107,27 +111,50 @@ export class MotionToFireflyBridge {
         throw new Error(`START_FRAME_REQUIRED: ${shotName} has no physical start frame`);
       }
       fs.copyFileSync(origImagePath, destImagePath);
+      const providerPrompt = adaptFireflyVideoPrompt({
+        shotId: shotName,
+        motionPrompt: String(promptText),
+        startState: item.start_state,
+        motionChange: item.motion_change,
+        endState: item.end_state,
+        cameraMotion: item.camera_motion
+      });
 
       return {
         name: `${shotName}_${takeName}`,
-        prompt: promptText,
+        prompt: providerPrompt.provider_prompt,
         image_path: destImageName, // Exigido pelo Firefly JobStore dentro da pasta imagens/
-        model: item.model || 'Kling 3.0',
-        resolution: item.resolution || '1080p',
-        aspect_ratio: item.aspect_ratio || '16:9',
-        duration_seconds: item.generation_duration_seconds || item.duration_seconds || 5
+        model: profile.model,
+        resolution: profile.resolution,
+        aspect_ratio: profile.aspect_ratio,
+        fps: profile.fps,
+        duration_seconds: profile.duration_seconds,
+        generate_audio: profile.generate_audio,
+        use_first_frame: profile.requires_first_frame,
+        input_mode: 'image_to_video'
       };
     });
 
     const fireflyOutputFormat = {
-      model: "Kling 3.0",
-      resolution: "1080p",
-      aspect_ratio: "16:9",
-      duration_seconds: 5,
+      model: profile.model,
+      resolution: profile.resolution,
+      aspect_ratio: profile.aspect_ratio,
+      fps: profile.fps,
+      duration_seconds: profile.duration_seconds,
+      generate_audio: profile.generate_audio,
+      use_first_frame: profile.requires_first_frame,
       items: fireflyGuide.map(item => ({
         name: item.name,
         image: item.image_path,
-        prompt: item.prompt
+        prompt: item.prompt,
+        model: profile.model,
+        resolution: profile.resolution,
+        aspect_ratio: profile.aspect_ratio,
+        fps: profile.fps,
+        duration_seconds: profile.duration_seconds,
+        generate_audio: profile.generate_audio,
+        use_first_frame: profile.requires_first_frame,
+        input_mode: 'image_to_video'
       }))
     };
 
@@ -165,7 +192,7 @@ export class MotionToFireflyBridge {
     }
 
     const motionData = JSON.parse(fs.readFileSync(handoff.motion_package_path, 'utf-8'));
-    if (!['GENERATION_PACKAGE_READY_FOR_KLING', 'GENERATION_PACKAGE_READY_FOR_VEO'].includes(motionData.status)) {
+    if (!['GENERATION_PACKAGE_READY_FOR_FIREFLY', 'GENERATION_PACKAGE_READY_FOR_KLING', 'GENERATION_PACKAGE_READY_FOR_VEO'].includes(motionData.status)) {
       throw new Error('MOTION_PACKAGE_SCHEMA_INVALID: status is not ready');
     }
     if (motionData.shot_id !== handoff.shot_id || motionData.start_frame_sha256 !== handoff.start_frame_sha256) {
@@ -198,14 +225,13 @@ export class MotionToFireflyBridge {
     const isVeo = motionData.status === 'GENERATION_PACKAGE_READY_FOR_VEO' || handoff.requested_model === 'Veo 3.1 Fast';
     const providerPrompt = isVeo
       ? adaptVeoProviderPrompt(handoff.shot_id, String(motionData.motion_prompt || ''))
-      : adaptKlingProviderPrompt(handoff.production_id, {
-        shot_id: handoff.shot_id,
-        motion_prompt: String(motionData.motion_prompt || ''),
-        generation_duration_seconds: duration,
-        start_state: String(motionData.start_state || ''),
-        motion_change: String(motionData.motion_change || ''),
-        end_state: String(motionData.end_state || ''),
-        camera_motion: String(motionData.camera_motion || '')
+      : adaptFireflyVideoPrompt({
+        shotId: handoff.shot_id,
+        motionPrompt: String(motionData.motion_prompt || ''),
+        startState: String(motionData.start_state || ''),
+        motionChange: String(motionData.motion_change || ''),
+        endState: String(motionData.end_state || ''),
+        cameraMotion: String(motionData.camera_motion || '')
       });
     if (providerPrompt.semantic_intent_validation.status !== 'PASS') {
       throw new Error(`PROVIDER_PROMPT_SEMANTIC_DRIFT:${providerPrompt.semantic_intent_validation.errors.join(',')}`);
@@ -217,11 +243,14 @@ export class MotionToFireflyBridge {
       name: `${handoff.shot_id}_${takeName}`,
       prompt: providerPrompt.provider_prompt,
       image_path: copiedStartFrameName,
-      model: isVeo ? 'Veo 3.1 Fast' : 'Kling 3.0',
-      resolution: String(motionData.resolution || '1080p'),
-      aspect_ratio: String(motionData.aspect_ratio || '16:9'),
-      duration_seconds: duration,
-      generate_audio: Boolean(isVeo && motionData.generate_audio)
+      model: isVeo ? 'Veo 3.1 Fast' : profile.model,
+      resolution: isVeo ? String(motionData.resolution || profile.resolution) : profile.resolution,
+      aspect_ratio: isVeo ? String(motionData.aspect_ratio || profile.aspect_ratio) : profile.aspect_ratio,
+      fps: isVeo ? undefined : profile.fps,
+      duration_seconds: isVeo ? duration : profile.duration_seconds,
+      generate_audio: Boolean(isVeo && motionData.generate_audio),
+      use_first_frame: true,
+      input_mode: 'image_to_video'
     };
     if (!guideItem.prompt.trim()) {
       throw new Error('MOTION_PACKAGE_SCHEMA_INVALID: empty motion prompt');
@@ -231,7 +260,11 @@ export class MotionToFireflyBridge {
       model: guideItem.model,
       resolution: guideItem.resolution,
       aspect_ratio: guideItem.aspect_ratio,
+      fps: guideItem.fps,
       duration_seconds: guideItem.duration_seconds,
+      generate_audio: guideItem.generate_audio || false,
+      use_first_frame: guideItem.use_first_frame === true,
+      input_mode: guideItem.input_mode,
       source_production_id: handoff.production_id,
       source_run_id: handoff.run_id,
       source_shot_id: handoff.shot_id,
@@ -256,8 +289,11 @@ export class MotionToFireflyBridge {
         ,model: guideItem.model
         ,resolution: guideItem.resolution
         ,aspect_ratio: guideItem.aspect_ratio
+        ,fps: guideItem.fps
         ,duration_seconds: guideItem.duration_seconds
         ,generate_audio: guideItem.generate_audio || false
+        ,use_first_frame: guideItem.use_first_frame === true
+        ,input_mode: guideItem.input_mode
       }]
     };
 

@@ -1,0 +1,2404 @@
+[
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "Você escreve uma frase. Em outro lugar, máquinas começam a aquecer.",
+    "visualSubject": "present-day laptop sending a short AI question from a modest home desk",
+    "visual_must_include": [
+      "present-day laptop sending a short AI question from a modest home desk",
+      "finger presses enter while the screen remains unreadable and the camera holds beside the keyboard"
+    ],
+    "visual_must_not": [
+      "luxury office advertisement with a smiling user",
+      "substituting present-day laptop sending a short AI question from a modest home desk with an abstract glowing AI symbol",
+      "static showroom pose instead of finger presses enter while the screen remains unreadable and the camera holds beside the keyboard"
+    ],
+    "title": "UMA FRASE",
+    "subtitle": "a viagem começa fora da tela",
+    "sceneId": "EIA_001",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "O clique vira pacotes elétricos atravessando cabos, roteadores e cidades.",
+    "visualSubject": "fiber router cabinet in a real Brazilian telecom room carrying active network traffic",
+    "visual_must_include": [
+      "fiber router cabinet in a real Brazilian telecom room carrying active network traffic",
+      "status lights blink irregularly while a technician hand closes the cabinet"
+    ],
+    "visual_must_not": [
+      "decorative transparent internet globe",
+      "substituting fiber router cabinet in a real Brazilian telecom room carrying active network traffic with an abstract glowing AI symbol",
+      "static showroom pose instead of status lights blink irregularly while a technician hand closes the cabinet"
+    ],
+    "sceneId": "EIA_002",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "maps",
+    "voiceover": "A rota não aponta para uma nuvem. Aponta para um prédio.",
+    "visualSubject": "slow elevated view approaching a contemporary data center campus beside a Brazilian transmission corridor",
+    "visual_must_include": [
+      "slow elevated view approaching a contemporary data center campus beside a Brazilian transmission corridor",
+      "camera descends toward the physical utility entrance and fenced buildings"
+    ],
+    "visual_must_not": [
+      "fantasy cloud city above the horizon",
+      "substituting slow elevated view approaching a contemporary data center campus beside a Brazilian transmission corridor with an abstract glowing AI symbol",
+      "static showroom pose instead of camera descends toward the physical utility entrance and fenced buildings"
+    ],
+    "sceneId": "EIA_003",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "Por fora, o data center parece apenas um galpão muito vigiado.",
+    "visualSubject": "ground-level exterior of a present-day commercial data center with security fence and utility yard",
+    "visual_must_include": [
+      "ground-level exterior of a present-day commercial data center with security fence and utility yard",
+      "service vehicle crosses the foreground under ordinary daylight"
+    ],
+    "visual_must_not": [
+      "secret underground bunker entrance",
+      "substituting ground-level exterior of a present-day commercial data center with security fence and utility yard with an abstract glowing AI symbol",
+      "static showroom pose instead of service vehicle crosses the foreground under ordinary daylight"
+    ],
+    "sceneId": "EIA_004",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "Por dentro, corredores inteiros aguardam perguntas como a sua.",
+    "visualSubject": "real occupied server hall with modern black racks and neutral white work lighting",
+    "visual_must_include": [
+      "real occupied server hall with modern black racks and neutral white work lighting",
+      "camera walks slowly down the aisle while cooling fans visibly spin"
+    ],
+    "visual_must_not": [
+      "empty blue neon server showroom",
+      "substituting real occupied server hall with modern black racks and neutral white work lighting with an abstract glowing AI symbol",
+      "static showroom pose instead of camera walks slowly down the aisle while cooling fans visibly spin"
+    ],
+    "sceneId": "EIA_005",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "evidence",
+    "voiceover": "Cada rack reúne servidores, fontes, placas e cabos de rede.",
+    "visualSubject": "macro documentary view of real server trays, power supplies and labeled network cables",
+    "visual_must_include": [
+      "macro documentary view of real server trays, power supplies and labeled network cables",
+      "rack focus moves from cable connectors to spinning server fans"
+    ],
+    "visual_must_not": [
+      "unconnected decorative cables arranged for advertising",
+      "substituting macro documentary view of real server trays, power supplies and labeled network cables with an abstract glowing AI symbol",
+      "static showroom pose instead of rack focus moves from cable connectors to spinning server fans"
+    ],
+    "sceneId": "EIA_006",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "O pedido chega a uma fila compartilhada com milhares de outros.",
+    "visualSubject": "operations technician hands monitoring a real job queue on an ordinary data center console",
+    "visual_must_include": [
+      "operations technician hands monitoring a real job queue on an ordinary data center console",
+      "cursor advances through rows while the operator remains out of frame"
+    ],
+    "visual_must_not": [
+      "readable customer prompts or private data",
+      "substituting operations technician hands monitoring a real job queue on an ordinary data center console with an abstract glowing AI symbol",
+      "static showroom pose instead of cursor advances through rows while the operator remains out of frame"
+    ],
+    "sceneId": "EIA_007",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "evidence",
+    "voiceover": "O sistema separa tokens, contexto e instruções antes do cálculo.",
+    "visualSubject": "close physical view of server activity indicators beside an out-of-focus tokenization console",
+    "visual_must_include": [
+      "close physical view of server activity indicators beside an out-of-focus tokenization console",
+      "camera racks focus between the monitor edge and network activity lights"
+    ],
+    "visual_must_not": [
+      "floating words orbiting a digital brain",
+      "substituting close physical view of server activity indicators beside an out-of-focus tokenization console with an abstract glowing AI symbol",
+      "static showroom pose instead of camera racks focus between the monitor edge and network activity lights"
+    ],
+    "sceneId": "EIA_008",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "Então uma GPU recebe matrizes, pesos e números em alta velocidade.",
+    "visualSubject": "real current-generation data center GPU server being serviced on an antistatic bench",
+    "visual_must_include": [
+      "real current-generation data center GPU server being serviced on an antistatic bench",
+      "technician gloved hands slide the dense accelerator tray into place"
+    ],
+    "visual_must_not": [
+      "consumer gaming computer with rainbow lights",
+      "substituting real current-generation data center GPU server being serviced on an antistatic bench with an abstract glowing AI symbol",
+      "static showroom pose instead of technician gloved hands slide the dense accelerator tray into place"
+    ],
+    "sceneId": "EIA_009",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "evidence",
+    "voiceover": "A resposta nasce de bilhões de multiplicações feitas em paralelo.",
+    "visualSubject": "macro shot across real accelerator board heat spreaders and dense memory packages",
+    "visual_must_include": [
+      "macro shot across real accelerator board heat spreaders and dense memory packages",
+      "focus travels along the board as cooling airflow disturbs a small inspection tag"
+    ],
+    "visual_must_not": [
+      "imaginary quantum processor floating in darkness",
+      "substituting macro shot across real accelerator board heat spreaders and dense memory packages with an abstract glowing AI symbol",
+      "static showroom pose instead of focus travels along the board as cooling airflow disturbs a small inspection tag"
+    ],
+    "sceneId": "EIA_010",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "reveal",
+    "voiceover": "Mas energia por pergunta não é um número universal e fixo.",
+    "visualSubject": "real rack power meter beside operating AI servers in a measured laboratory aisle",
+    "visual_must_include": [
+      "real rack power meter beside operating AI servers in a measured laboratory aisle",
+      "meter changes subtly while the live rack remains fully visible"
+    ],
+    "visual_must_not": [
+      "large fake electricity price printed over the frame",
+      "substituting real rack power meter beside operating AI servers in a measured laboratory aisle with an abstract glowing AI symbol",
+      "static showroom pose instead of meter changes subtly while the live rack remains fully visible"
+    ],
+    "sceneId": "EIA_011",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "Ela muda com modelo, tokens, lote, hardware e ocupação.",
+    "visualSubject": "two different real server racks operating at visibly different utilization levels",
+    "visual_must_include": [
+      "two different real server racks operating at visibly different utilization levels",
+      "camera tracks laterally between the quieter rack and the heavily ventilated rack"
+    ],
+    "visual_must_not": [
+      "identical duplicated server racks with synchronized lights",
+      "substituting two different real server racks operating at visibly different utilization levels with an abstract glowing AI symbol",
+      "static showroom pose instead of camera tracks laterally between the quieter rack and the heavily ventilated rack"
+    ],
+    "sceneId": "EIA_012",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH1",
+    "chapterTitle": "A PERGUNTA SAI DA TELA",
+    "required_category": "matter",
+    "voiceover": "Para entender o custo, precisamos seguir o calor que sobra.",
+    "visualSubject": "technician hand holds a thermal camera toward the rear of an operating rack",
+    "visual_must_include": [
+      "technician hand holds a thermal camera toward the rear of an operating rack",
+      "hot exhaust pattern shifts as the camera moves behind the server aisle"
+    ],
+    "visual_must_not": [
+      "red laser beam scanning an imaginary machine",
+      "substituting technician hand holds a thermal camera toward the rear of an operating rack with an abstract glowing AI symbol",
+      "static showroom pose instead of hot exhaust pattern shifts as the camera moves behind the server aisle"
+    ],
+    "sceneId": "EIA_013",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "A GPU recebe eletricidade pela fonte instalada dentro do servidor.",
+    "visualSubject": "open real GPU server showing redundant power supplies feeding accelerator boards",
+    "visual_must_include": [
+      "open real GPU server showing redundant power supplies feeding accelerator boards",
+      "cooling fans rotate while a gloved hand checks a power connector"
+    ],
+    "visual_must_not": [
+      "desktop computer power supply on a gaming table",
+      "substituting open real GPU server showing redundant power supplies feeding accelerator boards with an abstract glowing AI symbol",
+      "static showroom pose instead of cooling fans rotate while a gloved hand checks a power connector"
+    ],
+    "sceneId": "EIA_014",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "evidence",
+    "voiceover": "Uma H100 pode chegar a setecentos watts em formato SXM.",
+    "visualSubject": "real NVIDIA-class SXM accelerator module on an engineering inspection bench without visible brand text",
+    "visual_must_include": [
+      "real NVIDIA-class SXM accelerator module on an engineering inspection bench without visible brand text",
+      "macro camera circles the module heat spreader and electrical contacts"
+    ],
+    "visual_must_not": [
+      "oversized fictional chip labeled 700 watts",
+      "substituting real NVIDIA-class SXM accelerator module on an engineering inspection bench without visible brand text with an abstract glowing AI symbol",
+      "static showroom pose instead of macro camera circles the module heat spreader and electrical contacts"
+    ],
+    "sceneId": "EIA_015",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "Sistemas completos reúnem oito aceleradores trabalhando no mesmo chassi.",
+    "visualSubject": "real eight-accelerator enterprise GPU chassis partially opened in a service bay",
+    "visual_must_include": [
+      "real eight-accelerator enterprise GPU chassis partially opened in a service bay",
+      "technician slides the heavy chassis rail while internal fans remain moving"
+    ],
+    "visual_must_not": [
+      "single consumer graphics card in a glass case",
+      "substituting real eight-accelerator enterprise GPU chassis partially opened in a service bay with an abstract glowing AI symbol",
+      "static showroom pose instead of technician slides the heavy chassis rail while internal fans remain moving"
+    ],
+    "sceneId": "EIA_016",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "evidence",
+    "voiceover": "Some processadores, memória, rede, fontes e ventiladores ao cálculo.",
+    "visualSubject": "close side view inside a running enterprise server showing CPU heatsinks memory and fans",
+    "visual_must_include": [
+      "close side view inside a running enterprise server showing CPU heatsinks memory and fans",
+      "rack focus steps from memory banks to fan wall to network cards"
+    ],
+    "visual_must_not": [
+      "exploded CGI parts suspended in air",
+      "substituting close side view inside a running enterprise server showing CPU heatsinks memory and fans with an abstract glowing AI symbol",
+      "static showroom pose instead of rack focus steps from memory banks to fan wall to network cards"
+    ],
+    "sceneId": "EIA_017",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "Agora multiplique o servidor por dezenas dentro de cada rack.",
+    "visualSubject": "loaded AI rack with dense server trays and thick rear power cables",
+    "visual_must_include": [
+      "loaded AI rack with dense server trays and thick rear power cables",
+      "camera tilts slowly from lower power strips to the topmost servers"
+    ],
+    "visual_must_not": [
+      "mostly empty rack with decorative blue lights",
+      "substituting loaded AI rack with dense server trays and thick rear power cables with an abstract glowing AI symbol",
+      "static showroom pose instead of camera tilts slowly from lower power strips to the topmost servers"
+    ],
+    "sceneId": "EIA_018",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "reveal",
+    "voiceover": "Racks atuais de IA podem alcançar cento e vinte quilowatts.",
+    "visualSubject": "real high-density liquid-cooled AI rack connected to industrial power distribution",
+    "visual_must_include": [
+      "real high-density liquid-cooled AI rack connected to industrial power distribution",
+      "camera holds wide enough to show the full rack and physical feeder cables"
+    ],
+    "visual_must_not": [
+      "fictional one megawatt label painted on the rack",
+      "substituting real high-density liquid-cooled AI rack connected to industrial power distribution with an abstract glowing AI symbol",
+      "static showroom pose instead of camera holds wide enough to show the full rack and physical feeder cables"
+    ],
+    "sceneId": "EIA_019",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "Essa potência entra por barramentos de cobre grossos e protegidos.",
+    "visualSubject": "real overhead copper busway feeding a modern data center row",
+    "visual_must_include": [
+      "real overhead copper busway feeding a modern data center row",
+      "camera follows the busway toward a visible rack tap box"
+    ],
+    "visual_must_not": [
+      "exposed unsafe household wiring above servers",
+      "substituting real overhead copper busway feeding a modern data center row with an abstract glowing AI symbol",
+      "static showroom pose instead of camera follows the busway toward a visible rack tap box"
+    ],
+    "sceneId": "EIA_020",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "evidence",
+    "voiceover": "Dentro da PDU, tensão e corrente são medidas continuamente.",
+    "visualSubject": "open industrial power distribution unit with real breakers meters and insulated busbars",
+    "visual_must_include": [
+      "open industrial power distribution unit with real breakers meters and insulated busbars",
+      "indicator needles and status lamps move subtly during inspection"
+    ],
+    "visual_must_not": [
+      "unprotected hands touching energized copper",
+      "substituting open industrial power distribution unit with real breakers meters and insulated busbars with an abstract glowing AI symbol",
+      "static showroom pose instead of indicator needles and status lamps move subtly during inspection"
+    ],
+    "sceneId": "EIA_021",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "Fontes convertem a corrente e também perdem energia como calor.",
+    "visualSubject": "rear of operating servers with hot-swappable power supplies and strong airflow",
+    "visual_must_include": [
+      "rear of operating servers with hot-swappable power supplies and strong airflow",
+      "thin paper inspection strip flutters in the exhaust stream"
+    ],
+    "visual_must_not": [
+      "smoke or flames coming from healthy equipment",
+      "substituting rear of operating servers with hot-swappable power supplies and strong airflow with an abstract glowing AI symbol",
+      "static showroom pose instead of thin paper inspection strip flutters in the exhaust stream"
+    ],
+    "sceneId": "EIA_022",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "evidence",
+    "voiceover": "O chip usa parte. O restante aquece silício, cobre e ar.",
+    "visualSubject": "thermal inspection of a real accelerator cold plate and adjacent power components",
+    "visual_must_include": [
+      "thermal inspection of a real accelerator cold plate and adjacent power components",
+      "focus shifts from warm copper fitting to temperature sensor probe"
+    ],
+    "visual_must_not": [
+      "lava glowing inside the processor",
+      "substituting thermal inspection of a real accelerator cold plate and adjacent power components with an abstract glowing AI symbol",
+      "static showroom pose instead of focus shifts from warm copper fitting to temperature sensor probe"
+    ],
+    "sceneId": "EIA_023",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "Quase toda eletricidade consumida termina como calor no edifício.",
+    "visualSubject": "wide rear hot aisle of operating racks with visible containment doors",
+    "visual_must_include": [
+      "wide rear hot aisle of operating racks with visible containment doors",
+      "heat shimmer and moving fan exhaust remain physically subtle and plausible"
+    ],
+    "visual_must_not": [
+      "dense theatrical fog filling the aisle",
+      "substituting wide rear hot aisle of operating racks with visible containment doors with an abstract glowing AI symbol",
+      "static showroom pose instead of heat shimmer and moving fan exhaust remain physically subtle and plausible"
+    ],
+    "sceneId": "EIA_024",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "maps",
+    "voiceover": "A pergunta já ocupa um ponto mensurável na planta elétrica.",
+    "visualSubject": "real printed single-line electrical diagram held beside the corresponding switchgear room",
+    "visual_must_include": [
+      "real printed single-line electrical diagram held beside the corresponding switchgear room",
+      "camera pans from the paper route to the physical feeder cabinet"
+    ],
+    "visual_must_not": [
+      "glowing three-dimensional schematic floating over equipment",
+      "substituting real printed single-line electrical diagram held beside the corresponding switchgear room with an abstract glowing AI symbol",
+      "static showroom pose instead of camera pans from the paper route to the physical feeder cabinet"
+    ],
+    "sceneId": "EIA_025",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH2",
+    "chapterTitle": "O CHIP VIRA CALOR",
+    "required_category": "matter",
+    "voiceover": "E antes de responder, o prédio precisa remover esse calor.",
+    "visualSubject": "data center operator opens the door to a real mechanical cooling gallery",
+    "visual_must_include": [
+      "data center operator opens the door to a real mechanical cooling gallery",
+      "camera follows from server corridor into pumps and insulated pipes"
+    ],
+    "visual_must_not": [
+      "spacecraft engine room behind the server aisle",
+      "substituting data center operator opens the door to a real mechanical cooling gallery with an abstract glowing AI symbol",
+      "static showroom pose instead of camera follows from server corridor into pumps and insulated pipes"
+    ],
+    "sceneId": "EIA_026",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "Ventiladores puxam ar frio pela frente de cada servidor.",
+    "visualSubject": "front cold aisle of real servers with perforated floor and neutral lighting",
+    "visual_must_include": [
+      "front cold aisle of real servers with perforated floor and neutral lighting",
+      "airflow ribbons move gently toward spinning intake fans"
+    ],
+    "visual_must_not": [
+      "frozen mist pouring from server fronts",
+      "substituting front cold aisle of real servers with perforated floor and neutral lighting with an abstract glowing AI symbol",
+      "static showroom pose instead of airflow ribbons move gently toward spinning intake fans"
+    ],
+    "sceneId": "EIA_027",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "evidence",
+    "voiceover": "Sensores comparam entrada, saída, pressão e umidade do corredor.",
+    "visualSubject": "real environmental sensors mounted at three heights on a server rack",
+    "visual_must_include": [
+      "real environmental sensors mounted at three heights on a server rack",
+      "technician probe moves between lower and upper measurement points"
+    ],
+    "visual_must_not": [
+      "floating digital thermometer graphics",
+      "substituting real environmental sensors mounted at three heights on a server rack with an abstract glowing AI symbol",
+      "static showroom pose instead of technician probe moves between lower and upper measurement points"
+    ],
+    "sceneId": "EIA_028",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "No corredor quente, o ar retorna dezenas de graus acima.",
+    "visualSubject": "contained hot aisle behind active racks with practical white service lights",
+    "visual_must_include": [
+      "contained hot aisle behind active racks with practical white service lights",
+      "camera walks against the visible movement of exhaust airflow"
+    ],
+    "visual_must_not": [
+      "orange neon tunnel with no equipment detail",
+      "substituting contained hot aisle behind active racks with practical white service lights with an abstract glowing AI symbol",
+      "static showroom pose instead of camera walks against the visible movement of exhaust airflow"
+    ],
+    "sceneId": "EIA_029",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "Unidades de tratamento devolvem esse ar à temperatura planejada.",
+    "visualSubject": "real computer room air handler with filters coils and access panels",
+    "visual_must_include": [
+      "real computer room air handler with filters coils and access panels",
+      "maintenance worker hands replace a filter while the blower runs"
+    ],
+    "visual_must_not": [
+      "domestic wall air conditioner cooling a server rack",
+      "substituting real computer room air handler with filters coils and access panels with an abstract glowing AI symbol",
+      "static showroom pose instead of maintenance worker hands replace a filter while the blower runs"
+    ],
+    "sceneId": "EIA_030",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "evidence",
+    "voiceover": "Em alta densidade, líquido chega mais perto dos chips.",
+    "visualSubject": "macro shot of real liquid-cooling hoses and quick-disconnect fittings on an AI server",
+    "visual_must_include": [
+      "macro shot of real liquid-cooling hoses and quick-disconnect fittings on an AI server",
+      "coolant pulses subtly through a transparent inspection segment"
+    ],
+    "visual_must_not": [
+      "bright blue fantasy liquid glowing inside tubes",
+      "substituting macro shot of real liquid-cooling hoses and quick-disconnect fittings on an AI server with an abstract glowing AI symbol",
+      "static showroom pose instead of coolant pulses subtly through a transparent inspection segment"
+    ],
+    "sceneId": "EIA_031",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "Cold plates encostam no processador e carregam calor para fora.",
+    "visualSubject": "real copper cold plate being installed onto an accelerator module",
+    "visual_must_include": [
+      "real copper cold plate being installed onto an accelerator module",
+      "gloved hands torque mounting screws in a precise sequence"
+    ],
+    "visual_must_not": [
+      "ice block placed directly on electronics",
+      "substituting real copper cold plate being installed onto an accelerator module with an abstract glowing AI symbol",
+      "static showroom pose instead of gloved hands torque mounting screws in a precise sequence"
+    ],
+    "sceneId": "EIA_032",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "evidence",
+    "voiceover": "Bombas mantêm vazão enquanto trocadores separam circuitos de água.",
+    "visualSubject": "industrial coolant distribution unit with pumps gauges and plate heat exchanger",
+    "visual_must_include": [
+      "industrial coolant distribution unit with pumps gauges and plate heat exchanger",
+      "pump coupling spins and analog gauge needle settles under load"
+    ],
+    "visual_must_not": [
+      "transparent CGI water cycle animation",
+      "substituting industrial coolant distribution unit with pumps gauges and plate heat exchanger with an abstract glowing AI symbol",
+      "static showroom pose instead of pump coupling spins and analog gauge needle settles under load"
+    ],
+    "sceneId": "EIA_033",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "Do salão, tubulações seguem até chillers no pátio mecânico.",
+    "visualSubject": "insulated data center cooling pipes leaving the server building toward real chillers",
+    "visual_must_include": [
+      "insulated data center cooling pipes leaving the server building toward real chillers",
+      "tracking camera follows pipe supports through a service corridor"
+    ],
+    "visual_must_not": [
+      "steam pipes in an unrelated oil refinery",
+      "substituting insulated data center cooling pipes leaving the server building toward real chillers with an abstract glowing AI symbol",
+      "static showroom pose instead of tracking camera follows pipe supports through a service corridor"
+    ],
+    "sceneId": "EIA_034",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "maps",
+    "voiceover": "O circuito forma outra rede, paralela à rede de dados.",
+    "visualSubject": "elevated documentary view of a real data center mechanical yard and pipe routes",
+    "visual_must_include": [
+      "elevated documentary view of a real data center mechanical yard and pipe routes",
+      "camera rises slowly to reveal chillers pumps and cooling towers together"
+    ],
+    "visual_must_not": [
+      "abstract glowing circuit board landscape",
+      "substituting elevated documentary view of a real data center mechanical yard and pipe routes with an abstract glowing AI symbol",
+      "static showroom pose instead of camera rises slowly to reveal chillers pumps and cooling towers together"
+    ],
+    "sceneId": "EIA_035",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "Torres de resfriamento descarregam calor para o ar exterior.",
+    "visualSubject": "present-day cooling towers operating in a real data center utility yard",
+    "visual_must_include": [
+      "present-day cooling towers operating in a real data center utility yard",
+      "fans rotate and genuine water vapor drifts with the local wind"
+    ],
+    "visual_must_not": [
+      "factory smokestacks emitting dark pollution",
+      "substituting present-day cooling towers operating in a real data center utility yard with an abstract glowing AI symbol",
+      "static showroom pose instead of fans rotate and genuine water vapor drifts with the local wind"
+    ],
+    "sceneId": "EIA_036",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "evidence",
+    "voiceover": "Parte dos sistemas também consome água para ganhar eficiência.",
+    "visualSubject": "real cooling tower basin with makeup water valve and treatment instruments",
+    "visual_must_include": [
+      "real cooling tower basin with makeup water valve and treatment instruments",
+      "water ripples while a technician samples the basin without showing a face"
+    ],
+    "visual_must_not": [
+      "clean drinking glass used as industrial evidence",
+      "substituting real cooling tower basin with makeup water valve and treatment instruments with an abstract glowing AI symbol",
+      "static showroom pose instead of water ripples while a technician samples the basin without showing a face"
+    ],
+    "sceneId": "EIA_037",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "reveal",
+    "voiceover": "Refrigeração pode representar de sete a trinta por cento.",
+    "visualSubject": "real data center energy dashboard beside visible cooling pumps in operation",
+    "visual_must_include": [
+      "real data center energy dashboard beside visible cooling pumps in operation",
+      "camera keeps the pumps dominant while the dashboard remains partially legible"
+    ],
+    "visual_must_not": [
+      "full-screen infographic replacing the equipment",
+      "substituting real data center energy dashboard beside visible cooling pumps in operation with an abstract glowing AI symbol",
+      "static showroom pose instead of camera keeps the pumps dominant while the dashboard remains partially legible"
+    ],
+    "sceneId": "EIA_038",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH3",
+    "chapterTitle": "A FÁBRICA DE FRIO",
+    "required_category": "matter",
+    "voiceover": "Economizar no chip não resolve um projeto térmico mal dimensionado.",
+    "visualSubject": "maintenance team seen from behind inspecting an undersized cooling manifold in a real server room",
+    "visual_must_include": [
+      "maintenance team seen from behind inspecting an undersized cooling manifold in a real server room",
+      "one worker points from flow meter to the loaded rack"
+    ],
+    "visual_must_not": [
+      "dramatic emergency scene with flashing red sirens",
+      "substituting maintenance team seen from behind inspecting an undersized cooling manifold in a real server room with an abstract glowing AI symbol",
+      "static showroom pose instead of one worker points from flow meter to the loaded rack"
+    ],
+    "sceneId": "EIA_039",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "matter",
+    "voiceover": "Antes do rack, a energia atravessa quadros, UPS e transformadores.",
+    "visualSubject": "real medium-voltage switchgear corridor inside a contemporary data center",
+    "visual_must_include": [
+      "real medium-voltage switchgear corridor inside a contemporary data center",
+      "camera tracks past closed labeled cabinets and practical status lamps"
+    ],
+    "visual_must_not": [
+      "open dangerous switchgear with electrical arcs",
+      "substituting real medium-voltage switchgear corridor inside a contemporary data center with an abstract glowing AI symbol",
+      "static showroom pose instead of camera tracks past closed labeled cabinets and practical status lamps"
+    ],
+    "sceneId": "EIA_040",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "evidence",
+    "voiceover": "A UPS sustenta a carga durante qualquer interrupção instantânea.",
+    "visualSubject": "real modular UPS cabinets and battery strings in a protected electrical room",
+    "visual_must_include": [
+      "real modular UPS cabinets and battery strings in a protected electrical room",
+      "cooling fans run while an operator hand checks a status panel"
+    ],
+    "visual_must_not": [
+      "small consumer power strip pretending to be a UPS",
+      "substituting real modular UPS cabinets and battery strings in a protected electrical room with an abstract glowing AI symbol",
+      "static showroom pose instead of cooling fans run while an operator hand checks a status panel"
+    ],
+    "sceneId": "EIA_041",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "matter",
+    "voiceover": "Baterias cobrem segundos até geradores assumirem o edifício inteiro.",
+    "visualSubject": "industrial standby generators beside a data center with real fuel and exhaust systems",
+    "visual_must_include": [
+      "industrial standby generators beside a data center with real fuel and exhaust systems",
+      "one generator starts and louvers open during a scheduled test"
+    ],
+    "visual_must_not": [
+      "portable camping generator powering server racks",
+      "substituting industrial standby generators beside a data center with real fuel and exhaust systems with an abstract glowing AI symbol",
+      "static showroom pose instead of one generator starts and louvers open during a scheduled test"
+    ],
+    "sceneId": "EIA_042",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "matter",
+    "voiceover": "Chaves de transferência movem a carga sem desligar os servidores.",
+    "visualSubject": "real automatic transfer switch cabinet during supervised maintenance",
+    "visual_must_include": [
+      "real automatic transfer switch cabinet during supervised maintenance",
+      "mechanical indicator changes position while equipment remains enclosed"
+    ],
+    "visual_must_not": [
+      "knife switch operated by bare hands",
+      "substituting real automatic transfer switch cabinet during supervised maintenance with an abstract glowing AI symbol",
+      "static showroom pose instead of mechanical indicator changes position while equipment remains enclosed"
+    ],
+    "sceneId": "EIA_043",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "maps",
+    "voiceover": "Duas alimentações independentes reduzem o risco de uma falha única.",
+    "visualSubject": "wide aerial view showing two real utility feeders entering a data center campus",
+    "visual_must_include": [
+      "wide aerial view showing two real utility feeders entering a data center campus",
+      "camera moves laterally until both substations and the campus are visible"
+    ],
+    "visual_must_not": [
+      "two glowing lines drawn across a fictional city",
+      "substituting wide aerial view showing two real utility feeders entering a data center campus with an abstract glowing AI symbol",
+      "static showroom pose instead of camera moves laterally until both substations and the campus are visible"
+    ],
+    "sceneId": "EIA_044",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "matter",
+    "voiceover": "Na subestação, transformadores abaixam tensão para uso interno.",
+    "visualSubject": "working electrical substation serving a present-day data center in daylight",
+    "visual_must_include": [
+      "working electrical substation serving a present-day data center in daylight",
+      "camera passes a real power transformer with cooling fans turning"
+    ],
+    "visual_must_not": [
+      "tiny decorative transformer inside an office",
+      "substituting working electrical substation serving a present-day data center in daylight with an abstract glowing AI symbol",
+      "static showroom pose instead of camera passes a real power transformer with cooling fans turning"
+    ],
+    "sceneId": "EIA_045",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "evidence",
+    "voiceover": "Proteções observam corrente, temperatura, pressão e qualidade do óleo.",
+    "visualSubject": "macro documentary view of transformer gauges bushings and protection relays",
+    "visual_must_include": [
+      "macro documentary view of transformer gauges bushings and protection relays",
+      "focus moves between oil temperature gauge and relay cabinet window"
+    ],
+    "visual_must_not": [
+      "sparking damaged transformer presented as normal operation",
+      "substituting macro documentary view of transformer gauges bushings and protection relays with an abstract glowing AI symbol",
+      "static showroom pose instead of focus moves between oil temperature gauge and relay cabinet window"
+    ],
+    "sceneId": "EIA_046",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "maps",
+    "voiceover": "Depois vem a linha de transmissão, compartilhada com toda região.",
+    "visualSubject": "real high-voltage transmission corridor crossing an inhabited Brazilian region",
+    "visual_must_include": [
+      "real high-voltage transmission corridor crossing an inhabited Brazilian region",
+      "elevated camera follows pylons toward distant city and industrial loads"
+    ],
+    "visual_must_not": [
+      "isolated tower against an empty fantasy desert",
+      "substituting real high-voltage transmission corridor crossing an inhabited Brazilian region with an abstract glowing AI symbol",
+      "static showroom pose instead of elevated camera follows pylons toward distant city and industrial loads"
+    ],
+    "sceneId": "EIA_047",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "reveal",
+    "voiceover": "A rede precisa entregar potência firme exatamente onde o prédio nasce.",
+    "visualSubject": "survey crew seen from behind marking a real substation expansion site beside transmission lines",
+    "visual_must_include": [
+      "survey crew seen from behind marking a real substation expansion site beside transmission lines",
+      "camera pans from ground stakes to the constrained transformer bay"
+    ],
+    "visual_must_not": [
+      "finished futuristic megacity replacing the construction site",
+      "substituting survey crew seen from behind marking a real substation expansion site beside transmission lines with an abstract glowing AI symbol",
+      "static showroom pose instead of camera pans from ground stakes to the constrained transformer bay"
+    ],
+    "sceneId": "EIA_048",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "matter",
+    "voiceover": "Sem conexão aprovada, servidores comprados permanecem desligados em caixas.",
+    "visualSubject": "real warehouse receiving unopened enterprise server crates beside an unfinished electrical room",
+    "visual_must_include": [
+      "real warehouse receiving unopened enterprise server crates beside an unfinished electrical room",
+      "forklift stops while electricians continue work in the background"
+    ],
+    "visual_must_not": [
+      "abandoned dusty computers from the nineteen nineties",
+      "substituting real warehouse receiving unopened enterprise server crates beside an unfinished electrical room with an abstract glowing AI symbol",
+      "static showroom pose instead of forklift stops while electricians continue work in the background"
+    ],
+    "sceneId": "EIA_049",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "evidence",
+    "voiceover": "Transformadores grandes podem exigir anos entre pedido e entrega.",
+    "visualSubject": "heavy power transformer transported slowly on a specialized multi-axle trailer",
+    "visual_must_include": [
+      "heavy power transformer transported slowly on a specialized multi-axle trailer",
+      "camera observes the convoy negotiating a real industrial access road"
+    ],
+    "visual_must_not": [
+      "small household transformer delivered by van",
+      "substituting heavy power transformer transported slowly on a specialized multi-axle trailer with an abstract glowing AI symbol",
+      "static showroom pose instead of camera observes the convoy negotiating a real industrial access road"
+    ],
+    "sceneId": "EIA_050",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH4",
+    "chapterTitle": "ANTES DO RACK, A REDE",
+    "required_category": "maps",
+    "voiceover": "Por isso, capacidade anunciada não significa capacidade imediatamente disponível.",
+    "visualSubject": "real regional grid control map displayed on a physical operations wall without readable secrets",
+    "visual_must_include": [
+      "real regional grid control map displayed on a physical operations wall without readable secrets",
+      "operator silhouettes remain peripheral while the camera studies constrained corridors"
+    ],
+    "visual_must_not": [
+      "financial growth chart occupying the whole screen",
+      "substituting real regional grid control map displayed on a physical operations wall without readable secrets with an abstract glowing AI symbol",
+      "static showroom pose instead of operator silhouettes remain peripheral while the camera studies constrained corridors"
+    ],
+    "sceneId": "EIA_051",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "maps",
+    "voiceover": "No Brasil, pedidos de conexão crescem ao redor dos grandes centros.",
+    "visualSubject": "slow aerial survey of present-day data center construction near a Brazilian metropolitan power corridor",
+    "visual_must_include": [
+      "slow aerial survey of present-day data center construction near a Brazilian metropolitan power corridor",
+      "camera reveals substations roads and occupied neighborhoods in one spatial relationship"
+    ],
+    "visual_must_not": [
+      "generic North American desert data center campus",
+      "substituting slow aerial survey of present-day data center construction near a Brazilian metropolitan power corridor with an abstract glowing AI symbol",
+      "static showroom pose instead of camera reveals substations roads and occupied neighborhoods in one spatial relationship"
+    ],
+    "sceneId": "EIA_052",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "reveal",
+    "voiceover": "A EPE projeta salto de cinquenta e três para mil megawatts.",
+    "visualSubject": "real Brazilian power planning document open beside a control room map",
+    "visual_must_include": [
+      "real Brazilian power planning document open beside a control room map",
+      "page is turned by a hand while the physical grid display remains visible"
+    ],
+    "visual_must_not": [
+      "invented government seal or fabricated table",
+      "substituting real Brazilian power planning document open beside a control room map with an abstract glowing AI symbol",
+      "static showroom pose instead of page is turned by a hand while the physical grid display remains visible"
+    ],
+    "sceneId": "EIA_053",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "matter",
+    "voiceover": "O intervalo vai de dois mil e vinte e cinco a vinte e nove.",
+    "visualSubject": "real utility planners seen from behind comparing dated substation construction schedules",
+    "visual_must_include": [
+      "real utility planners seen from behind comparing dated substation construction schedules",
+      "hands move paper milestones across a large worktable"
+    ],
+    "visual_must_not": [
+      "corporate team posing and smiling for camera",
+      "substituting real utility planners seen from behind comparing dated substation construction schedules with an abstract glowing AI symbol",
+      "static showroom pose instead of hands move paper milestones across a large worktable"
+    ],
+    "sceneId": "EIA_054",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "maps",
+    "voiceover": "Isso concentra muita carga nova em poucos pontos do sistema.",
+    "visualSubject": "aerial view of transmission lines converging on a dense Brazilian industrial and data center zone",
+    "visual_must_include": [
+      "aerial view of transmission lines converging on a dense Brazilian industrial and data center zone",
+      "camera pulls sideways to expose the limited number of incoming corridors"
+    ],
+    "visual_must_not": [
+      "nationwide electric grid rendered as neon web",
+      "substituting aerial view of transmission lines converging on a dense Brazilian industrial and data center zone with an abstract glowing AI symbol",
+      "static showroom pose instead of camera pulls sideways to expose the limited number of incoming corridors"
+    ],
+    "sceneId": "EIA_055",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "matter",
+    "voiceover": "Novas linhas exigem licenciamento, terreno, torres, cabos e tempo.",
+    "visualSubject": "real transmission line construction crew working from a tower foundation without visible faces",
+    "visual_must_include": [
+      "real transmission line construction crew working from a tower foundation without visible faces",
+      "crane lifts a steel section while workers guide it from the ground"
+    ],
+    "visual_must_not": [
+      "instant time-lapse city transformation",
+      "substituting real transmission line construction crew working from a tower foundation without visible faces with an abstract glowing AI symbol",
+      "static showroom pose instead of crane lifts a steel section while workers guide it from the ground"
+    ],
+    "sceneId": "EIA_056",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "evidence",
+    "voiceover": "Cabos e equipamentos também enfrentam filas industriais de fabricação.",
+    "visualSubject": "real high-voltage cable factory floor with reels moving through production",
+    "visual_must_include": [
+      "real high-voltage cable factory floor with reels moving through production",
+      "camera tracks alongside a heavy cable reel and inspection station"
+    ],
+    "visual_must_not": [
+      "small electronics assembly line making phone chargers",
+      "substituting real high-voltage cable factory floor with reels moving through production with an abstract glowing AI symbol",
+      "static showroom pose instead of camera tracks alongside a heavy cable reel and inspection station"
+    ],
+    "sceneId": "EIA_057",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "matter",
+    "voiceover": "Enquanto isso, o data center continua pedindo operação ininterrupta.",
+    "visualSubject": "real data center night shift viewed from behind in a restrained operations room",
+    "visual_must_include": [
+      "real data center night shift viewed from behind in a restrained operations room",
+      "operators monitor ordinary screens while equipment hum remains visible through glass"
+    ],
+    "visual_must_not": [
+      "dramatic command center with giant holographic wall",
+      "substituting real data center night shift viewed from behind in a restrained operations room with an abstract glowing AI symbol",
+      "static showroom pose instead of operators monitor ordinary screens while equipment hum remains visible through glass"
+    ],
+    "sceneId": "EIA_058",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "maps",
+    "voiceover": "Solar e eólica ajudam, mas variam ao longo do dia.",
+    "visualSubject": "real Brazilian solar farm and wind turbines connected to visible substations",
+    "visual_must_include": [
+      "real Brazilian solar farm and wind turbines connected to visible substations",
+      "cloud shadows move across panels while turbine speed changes naturally"
+    ],
+    "visual_must_not": [
+      "perfect weather with all generators synchronized",
+      "substituting real Brazilian solar farm and wind turbines connected to visible substations with an abstract glowing AI symbol",
+      "static showroom pose instead of cloud shadows move across panels while turbine speed changes naturally"
+    ],
+    "sceneId": "EIA_059",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "matter",
+    "voiceover": "Hidrelétricas oferecem flexibilidade, porém transmissão continua sendo física.",
+    "visualSubject": "real hydroelectric switchyard sending power into long-distance transmission lines",
+    "visual_must_include": [
+      "real hydroelectric switchyard sending power into long-distance transmission lines",
+      "camera follows conductors away from the generating station"
+    ],
+    "visual_must_not": [
+      "waterfall landscape with no electrical infrastructure",
+      "substituting real hydroelectric switchyard sending power into long-distance transmission lines with an abstract glowing AI symbol",
+      "static showroom pose instead of camera follows conductors away from the generating station"
+    ],
+    "sceneId": "EIA_060",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "reveal",
+    "voiceover": "Estudo aponta vinte e seis a quarenta e cinco gigawatts.",
+    "visualSubject": "printed Brazilian data center infrastructure study beside real construction plans and electrical drawings",
+    "visual_must_include": [
+      "printed Brazilian data center infrastructure study beside real construction plans and electrical drawings",
+      "camera settles on highlighted capacity range without replacing the documents"
+    ],
+    "visual_must_not": [
+      "glossy investor presentation on a stage",
+      "substituting printed Brazilian data center infrastructure study beside real construction plans and electrical drawings with an abstract glowing AI symbol",
+      "static showroom pose instead of camera settles on highlighted capacity range without replacing the documents"
+    ],
+    "sceneId": "EIA_061",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "maps",
+    "voiceover": "O cenário depende justamente de rede, licenciamento e coordenação.",
+    "visualSubject": "real planning table combining cadastral map substation drawing and construction schedule",
+    "visual_must_include": [
+      "real planning table combining cadastral map substation drawing and construction schedule",
+      "hands align the three physical documents into one route"
+    ],
+    "visual_must_not": [
+      "fictional satellite control interface",
+      "substituting real planning table combining cadastral map substation drawing and construction schedule with an abstract glowing AI symbol",
+      "static showroom pose instead of hands align the three physical documents into one route"
+    ],
+    "sceneId": "EIA_062",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH5",
+    "chapterTitle": "O LIMITE APARECE NO BRASIL",
+    "required_category": "matter",
+    "voiceover": "A corrida por IA virou também uma corrida por conexão.",
+    "visualSubject": "data center construction and substation expansion occurring side by side",
+    "visual_must_include": [
+      "data center construction and substation expansion occurring side by side",
+      "tracking shot keeps electricians and server building equally visible"
+    ],
+    "visual_must_not": [
+      "chip fabrication cleanroom unrelated to grid connection",
+      "substituting data center construction and substation expansion occurring side by side with an abstract glowing AI symbol",
+      "static showroom pose instead of tracking shot keeps electricians and server building equally visible"
+    ],
+    "sceneId": "EIA_063",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "reveal",
+    "voiceover": "Então, quanto custa energeticamente uma única resposta da inteligência artificial?",
+    "visualSubject": "real clamp power meter measuring an active AI server feeder during a controlled test",
+    "visual_must_include": [
+      "real clamp power meter measuring an active AI server feeder during a controlled test",
+      "technician hand records the changing reading on paper"
+    ],
+    "visual_must_not": [
+      "fixed universal watt-hour answer printed into the image",
+      "substituting real clamp power meter measuring an active AI server feeder during a controlled test with an abstract glowing AI symbol",
+      "static showroom pose instead of technician hand records the changing reading on paper"
+    ],
+    "sceneId": "EIA_064",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "evidence",
+    "voiceover": "Sem modelo, tamanho e infraestrutura, qualquer número isolado engana.",
+    "visualSubject": "two real power measurement setups testing different enterprise AI servers",
+    "visual_must_include": [
+      "two real power measurement setups testing different enterprise AI servers",
+      "camera compares both meters while the hardware stays in the same frame"
+    ],
+    "visual_must_not": [
+      "one unlabeled meter disconnected from any server",
+      "substituting two real power measurement setups testing different enterprise AI servers with an abstract glowing AI symbol",
+      "static showroom pose instead of camera compares both meters while the hardware stays in the same frame"
+    ],
+    "sceneId": "EIA_065",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "Perguntas curtas podem compartilhar processamento com várias outras solicitações.",
+    "visualSubject": "real batch-processing server rack during ordinary production operation",
+    "visual_must_include": [
+      "real batch-processing server rack during ordinary production operation",
+      "activity lights rise in grouped bursts rather than one uniform rhythm"
+    ],
+    "visual_must_not": [
+      "people represented as glowing avatars inside servers",
+      "substituting real batch-processing server rack during ordinary production operation with an abstract glowing AI symbol",
+      "static showroom pose instead of activity lights rise in grouped bursts rather than one uniform rhythm"
+    ],
+    "sceneId": "EIA_066",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.1,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "Respostas longas mantêm memória, rede e aceleradores ativos por mais tempo.",
+    "visualSubject": "rear view of AI servers sustaining a longer computational workload",
+    "visual_must_include": [
+      "rear view of AI servers sustaining a longer computational workload",
+      "fan speed gradually increases while power supplies remain stable"
+    ],
+    "visual_must_not": [
+      "clock graphics covering the entire rack",
+      "substituting rear view of AI servers sustaining a longer computational workload with an abstract glowing AI symbol",
+      "static showroom pose instead of fan speed gradually increases while power supplies remain stable"
+    ],
+    "sceneId": "EIA_067",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "evidence",
+    "voiceover": "O PUE adiciona refrigeração, distribuição e perdas ao consumo computacional.",
+    "visualSubject": "real facility power meter and IT rack meter photographed together in an operating data center",
+    "visual_must_include": [
+      "real facility power meter and IT rack meter photographed together in an operating data center",
+      "camera racks focus between facility input and rack measurement"
+    ],
+    "visual_must_not": [
+      "equation floating in front of empty darkness",
+      "substituting real facility power meter and IT rack meter photographed together in an operating data center with an abstract glowing AI symbol",
+      "static showroom pose instead of camera racks focus between facility input and rack measurement"
+    ],
+    "sceneId": "EIA_068",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "maps",
+    "voiceover": "A mesma pergunta muda de impacto conforme local e horário.",
+    "visualSubject": "real regional dispatch map beside changing daytime renewable generation conditions",
+    "visual_must_include": [
+      "real regional dispatch map beside changing daytime renewable generation conditions",
+      "camera transitions physically from map wall to window view of grid infrastructure"
+    ],
+    "visual_must_not": [
+      "world map made from glowing binary digits",
+      "substituting real regional dispatch map beside changing daytime renewable generation conditions with an abstract glowing AI symbol",
+      "static showroom pose instead of camera transitions physically from map wall to window view of grid infrastructure"
+    ],
+    "sceneId": "EIA_069",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.2,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "Operadores podem deslocar cargas flexíveis para momentos menos críticos.",
+    "visualSubject": "real data center scheduler console used by an operator seen from behind",
+    "visual_must_include": [
+      "real data center scheduler console used by an operator seen from behind",
+      "queued maintenance workload moves to a lower-demand time slot"
+    ],
+    "visual_must_not": [
+      "autonomous robot deciding energy policy",
+      "substituting real data center scheduler console used by an operator seen from behind with an abstract glowing AI symbol",
+      "static showroom pose instead of queued maintenance workload moves to a lower-demand time slot"
+    ],
+    "sceneId": "EIA_070",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "Também podem reaproveitar calor e reduzir água onde fizer sentido.",
+    "visualSubject": "real heat recovery pipes leaving a data center toward a neighboring utility plant",
+    "visual_must_include": [
+      "real heat recovery pipes leaving a data center toward a neighboring utility plant",
+      "camera follows insulated pipes across the property boundary"
+    ],
+    "visual_must_not": [
+      "steam used as decorative cinematic atmosphere",
+      "substituting real heat recovery pipes leaving a data center toward a neighboring utility plant with an abstract glowing AI symbol",
+      "static showroom pose instead of camera follows insulated pipes across the property boundary"
+    ],
+    "sceneId": "EIA_071",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "reveal",
+    "voiceover": "Mas eficiência não cria uma subestação onde ela não existe.",
+    "visualSubject": "unfinished real substation bay beside a completed data center building",
+    "visual_must_include": [
+      "unfinished real substation bay beside a completed data center building",
+      "camera holds the empty transformer foundation in the foreground"
+    ],
+    "visual_must_not": [
+      "magical transformer appearing through animation",
+      "substituting unfinished real substation bay beside a completed data center building with an abstract glowing AI symbol",
+      "static showroom pose instead of camera holds the empty transformer foundation in the foreground"
+    ],
+    "sceneId": "EIA_072",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.9,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "Nem encurta sozinho a fabricação de transformadores e cabos.",
+    "visualSubject": "real transformer factory assembly hall with large coils and steel cores",
+    "visual_must_include": [
+      "real transformer factory assembly hall with large coils and steel cores",
+      "overhead crane moves a heavy component through the long production line"
+    ],
+    "visual_must_not": [
+      "small rapid three-dimensional printer making a transformer",
+      "substituting real transformer factory assembly hall with large coils and steel cores with an abstract glowing AI symbol",
+      "static showroom pose instead of overhead crane moves a heavy component through the long production line"
+    ],
+    "sceneId": "EIA_073",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.3,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "O chip responde rápido. A infraestrutura elétrica responde em anos.",
+    "visualSubject": "real GPU server running in foreground with substation construction visible through service window",
+    "visual_must_include": [
+      "real GPU server running in foreground with substation construction visible through service window",
+      "focus shifts from fast server lights to slow civil work outside"
+    ],
+    "visual_must_not": [
+      "split-screen graphic replacing the physical relationship",
+      "substituting real GPU server running in foreground with substation construction visible through service window with an abstract glowing AI symbol",
+      "static showroom pose instead of focus shifts from fast server lights to slow civil work outside"
+    ],
+    "sceneId": "EIA_074",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 3.7,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "chapterId": "CH6",
+    "chapterTitle": "O PREÇO REAL DA RESPOSTA",
+    "required_category": "matter",
+    "voiceover": "O gargalo da IA pode ser a energia disponível no lugar certo.",
+    "visualSubject": "wide present-day data center connected to a real substation at dusk with normal practical lights",
+    "visual_must_include": [
+      "wide present-day data center connected to a real substation at dusk with normal practical lights",
+      "camera retreats slowly to reveal transmission lines and occupied landscape"
+    ],
+    "visual_must_not": [
+      "futuristic skyline or triumphant product advertisement",
+      "substituting wide present-day data center connected to a real substation at dusk with normal practical lights with an abstract glowing AI symbol",
+      "static showroom pose instead of camera retreats slowly to reveal transmission lines and occupied landscape"
+    ],
+    "sceneId": "EIA_075",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 4.5,
+    "episodeId": "energia-ia-data-centers",
+    "domainTags": [
+      "artificial-intelligence",
+      "data-center",
+      "gpu",
+      "electricity",
+      "cooling",
+      "power-grid",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  }
+]

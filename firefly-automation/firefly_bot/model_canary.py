@@ -23,7 +23,16 @@ PROMPT = (
 )
 
 
-def _insert_canary(config: Config, job_id: int, model: str, duration: int, image_path: Path, name: str) -> None:
+def _insert_canary(
+    config: Config,
+    job_id: int,
+    model: str,
+    resolution: str,
+    aspect_ratio: str,
+    duration: int,
+    image_path: Path,
+    name: str,
+) -> None:
     conn = sqlite3.connect(config.db_path)
     try:
         now = time.time()
@@ -34,9 +43,19 @@ def _insert_canary(config: Config, job_id: int, model: str, duration: int, image
                 INSERT INTO jobs (
                     id, prompt, image_path, status, attempts, updated_at, model,
                     resolution, aspect_ratio, duration_seconds, generate_audio, name
-                ) VALUES (?, ?, ?, 'pending', 0, ?, ?, '720p', '16:9', ?, 0, ?)
+                ) VALUES (?, ?, ?, 'pending', 0, ?, ?, ?, ?, ?, 0, ?)
                 """,
-                (job_id, PROMPT, str(image_path.resolve()), now, model, duration, name),
+                (
+                    job_id,
+                    PROMPT,
+                    str(image_path.resolve()),
+                    now,
+                    model,
+                    resolution,
+                    aspect_ratio,
+                    duration,
+                    name,
+                ),
             )
             conn.execute(
                 "UPDATE system_state SET status = ?, reason = NULL, updated_at = ? WHERE singleton = 1",
@@ -63,6 +82,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(prog="python -m firefly_bot.model_canary")
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--model", required=True)
+    parser.add_argument("--resolution", default="1080p")
+    parser.add_argument("--aspect-ratio", default="16:9")
     parser.add_argument("--duration", type=int, default=5)
     parser.add_argument("--image", type=Path, required=True)
     parser.add_argument("--job-id", type=int, default=-9001)
@@ -73,7 +94,16 @@ def main() -> int:
     configure_logging()
     config = Config.from_root(args.root.resolve())
     name = args.name or f"MODEL_CANARY_{args.model.upper().replace(' ', '_').replace('.', '_')}"
-    _insert_canary(config, args.job_id, args.model, args.duration, args.image, name)
+    _insert_canary(
+        config,
+        args.job_id,
+        args.model,
+        args.resolution,
+        args.aspect_ratio,
+        args.duration,
+        args.image,
+        name,
+    )
     logger = logging.getLogger("firefly_bot.model_canary")
     store = JobStore(config.db_path)
     store.initialize()
@@ -82,6 +112,8 @@ def main() -> int:
     result = {
         "schema": "firefly.model-canary.v1",
         "model": args.model,
+        "resolution": args.resolution,
+        "aspect_ratio": args.aspect_ratio,
         "duration_seconds": args.duration,
         "worker_exit_code": exit_code,
         "job": row,

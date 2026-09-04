@@ -1,0 +1,53 @@
+﻿{
+  "episodeId": "nota-100-reais",
+  "topic": "A Física Secreta da Cédula de 100 Reais",
+  "variants": [
+    {
+      "variantId": "VARIANT_A",
+      "profile": "Mecanismo / Assinatura (Corte X-Ray)",
+      "title": "A FÍSICA DA NOTA DE 100: O Que Nenhuma Impressora Consegue Clonar",
+      "headline": "NUNCA FOI PAPEL.",
+      "subheadline": "O SEGREDO QUE NENHUMA GRÁFICA REVELA",
+      "thumbnail4kPath": "public/episodes/nota-100-reais/thumbnails/thumb_variant_a_with_text.png",
+      "thumbnail1080pPath": "public/episodes/nota-100-reais/thumbnails/thumb_variant_a_1280x720.jpg",
+      "testHypothesis": "Polêmica material e quebra de crença: desmente instantaneamente a ilusão popular de que dinheiro é feito de celulose de árvore."
+    },
+    {
+      "variantId": "VARIANT_B",
+      "profile": "Risco / Ponto de Falha (Gargalo Crítico)",
+      "title": "O Teste Secreto Que Destrói a Nota de 100 em 0.1 Segundo",
+      "headline": "1 FALHA: TRITURADA.",
+      "subheadline": "SENSOR DE 850NM // REJEIÇÃO EM 0.1 SEGUNDO",
+      "thumbnail4kPath": "public/episodes/nota-100-reais/thumbnails/thumb_variant_b_with_text.png",
+      "thumbnail1080pPath": "public/episodes/nota-100-reais/thumbnails/thumb_variant_b_1280x720.jpg",
+      "testHypothesis": "Tensão visceral de rejeição bancária: como o Banco Central e os caixas eletrônicos identificam desvios microscópicos e condenam a cédula à destruição."
+    },
+    {
+      "variantId": "VARIANT_C",
+      "profile": "Escala Monumental (Objeto Pequeno vs Máquina Gigante)",
+      "title": "Por Que a Casa da Moeda Precisa de 80 Toneladas Para Fazer Uma Nota?",
+      "headline": "IMPOSSÍVEL DE CLONAR.",
+      "subheadline": "CALCOGRAFIA // 80 TONELADAS DE FORÇA",
+      "thumbnail4kPath": "public/episodes/nota-100-reais/thumbnails/thumb_variant_c_with_text.png",
+      "thumbnail1080pPath": "public/episodes/nota-100-reais/thumbnails/thumb_variant_c_1280x720.jpg",
+      "testHypothesis": "Curiosidade sobre o crime vs tecnologia oficial: desafia a crença de que falsificadores conseguem copiar o relevo tátil forjado sob 80 toneladas."
+    }
+  ],
+  "tags": [
+    "o outro lado",
+    "nota de 100",
+    "como é feito o dinheiro",
+    "casa da moeda do brasil",
+    "banco central",
+    "papel moeda",
+    "falsificação de dinheiro",
+    "calcografia",
+    "segurança bancária",
+    "caixa eletrônico",
+    "documentario investigativo",
+    "denis villeneuve",
+    "engenharia oculta",
+    "tecnologia bancaria",
+    "dinheiro falso vs verdadeiro"
+  ]
+}

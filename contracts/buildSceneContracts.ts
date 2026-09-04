@@ -3,7 +3,8 @@ import {
   SceneVisualContract,
   parseSceneVisualContract,
   AllowedVisualSource,
-  TakeType
+  TakeType,
+  VisualAssetClass
 } from './sceneVisualContract';
 
 export interface RawSceneInput {
@@ -17,7 +18,30 @@ export interface RawSceneInput {
   allowed_sources?: AllowedVisualSource[];
   take_type?: TakeType;
   targetSeconds?: number;
+  chapterId?: string;
+  chapterTitle?: string;
+  visual_asset_class?: VisualAssetClass;
+  canon_category?: 'matter' | 'evidence' | 'maps' | 'reveal';
 }
+
+const NO_PEOPLE_START_FRAME_DENYLIST = [
+  'person',
+  'people',
+  'human',
+  'worker',
+  'operator',
+  'hands',
+  'face',
+  'body',
+  'human silhouette'
+];
+
+const VISUAL_MIX_KEY_BY_CLASS: Record<VisualAssetClass, 'realisticImages' | 'videos' | 'motionGraphics' | 'motionImages'> = {
+  REALISTIC_IMAGE: 'realisticImages',
+  VIDEO: 'videos',
+  MOTION_GRAPHICS: 'motionGraphics',
+  MOTION_IMAGE: 'motionImages'
+};
 
 const GENERIC_FORBIDDEN_WORDS = new Set([
   'industrial',
@@ -148,7 +172,8 @@ export function buildSceneContracts(
 
     const combinedMustNot = Array.from(new Set([
       ...filteredStandardDenylist,
-      ...(sc.visual_must_not || [])
+      ...(sc.visual_must_not || []),
+      ...(episodeContract.startFramePeoplePolicy === 'FORBIDDEN' ? NO_PEOPLE_START_FRAME_DENYLIST : [])
     ]));
 
     if (combinedMustNot.length < 1) {
@@ -173,7 +198,16 @@ export function buildSceneContracts(
     ]));
 
     // 5. take_type & allowed_sources
-    const takeType: TakeType = sc.take_type || 'CINEMATIC_TAKE';
+    const visualAssetClass: VisualAssetClass = sc.visual_asset_class || (
+      sc.take_type === 'KEYFRAME_DOSSIER' ? 'MOTION_IMAGE' : 'VIDEO'
+    );
+    const expectedTakeType: TakeType = visualAssetClass === 'VIDEO' ? 'CINEMATIC_TAKE' : 'KEYFRAME_DOSSIER';
+    if (sc.take_type && sc.take_type !== expectedTakeType) {
+      throw new Error(
+        `VISUAL_ASSET_CLASS_TAKE_TYPE_MISMATCH:${sc.sceneId}:${visualAssetClass}:${sc.take_type}`
+      );
+    }
+    const takeType: TakeType = sc.take_type || expectedTakeType;
     const allowedSources: AllowedVisualSource[] = sc.allowed_sources && sc.allowed_sources.length > 0
       ? sc.allowed_sources
       : (takeType === 'KEYFRAME_DOSSIER' ? ['dossier'] : ['firefly', 'bank']);
@@ -187,12 +221,20 @@ export function buildSceneContracts(
       sceneId: sc.sceneId,
       episodeId: episodeContract.episodeId,
       voiceover: sc.voiceover,
+      chapterId: sc.chapterId,
+      chapterTitle: sc.chapterTitle,
       visual_must_include: validMustInclude,
       visual_must_not: combinedMustNot,
       required_category: category,
       domainTags: mergedDomainTags,
       allowed_sources: allowedSources,
       take_type: takeType,
+      visual_asset_class: visualAssetClass,
+      canon_category: sc.canon_category || (
+        sc.required_category === 'matter' || sc.required_category === 'evidence' || sc.required_category === 'maps' || sc.required_category === 'reveal'
+          ? sc.required_category
+          : undefined
+      ),
       targetSeconds
     };
 
@@ -208,6 +250,29 @@ export function buildSceneContracts(
     throw new Error(
       `SCENE_DURATION_PLAN_SHORT: A soma dos targetSeconds das cenas (${totalTargetSeconds.toFixed(1)}s) é menor que o mínimo exigido pelo contrato (${minAllowedSeconds.toFixed(1)}s / ${episodeContract.targetDurationSeconds}s * ${episodeContract.minDurationRatio}).`
     );
+  }
+
+  if (episodeContract.visualMix) {
+    const actualCounts = {
+      realisticImages: 0,
+      videos: 0,
+      motionGraphics: 0,
+      motionImages: 0
+    };
+    for (const contract of contracts) {
+      const assetClass = contract.visual_asset_class || (
+        contract.take_type === 'KEYFRAME_DOSSIER' ? 'MOTION_IMAGE' : 'VIDEO'
+      );
+      actualCounts[VISUAL_MIX_KEY_BY_CLASS[assetClass]]++;
+    }
+    const planned = episodeContract.visualMix.plannedCounts;
+    for (const key of Object.keys(planned) as Array<keyof typeof planned>) {
+      if (actualCounts[key] !== planned[key]) {
+        throw new Error(
+          `VISUAL_MIX_COUNT_MISMATCH:${key}:planned=${planned[key]}:actual=${actualCounts[key]}`
+        );
+      }
+    }
   }
 
   return contracts;

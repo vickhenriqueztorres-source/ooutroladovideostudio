@@ -17,7 +17,7 @@ export const HSL_OFFICIAL_PRODUCTION_RULES = {
   forbidProceduralPrevisAsProductionFrame: true,
   requireApprovalBoundToContactSheetHash: true,
   forbidAutomaticHumanApproval: true,
-  defaultKlingModel: 'Kling 3.0',
+  defaultFireflyModel: 'Kling 2.5 Turbo',
   defaultVeoModel: 'Veo 3.1 Fast'
 } as const;
 

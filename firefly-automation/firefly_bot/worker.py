@@ -19,6 +19,7 @@ from patchright.async_api import async_playwright
 from .chrome_profile import ChromeProfileBusyError, close_existing_profile_chrome
 from .config import Config
 from .duration_control import DurationController
+from .downloads import DownloadValidationError, ValidatedDownload
 from .export_flow import export_video
 from .human_input import HumanInput
 from .job_store import ConcurrentTransitionError, Job, JobStore
@@ -66,6 +67,23 @@ MODEL_DEFAULT_DURATION_MODELS = {
     "ray3 hdr",
     "ray2",
 }
+
+
+def validate_kling_25_output(job: Job, download: ValidatedDownload) -> None:
+    """Impede que um resultado fora do preset aprovado seja publicado como concluído."""
+    if job.model.casefold() != "kling 2.5 turbo":
+        return
+    errors: list[str] = []
+    if (download.width, download.height) != (1920, 1080):
+        errors.append(f"resolution={download.width}x{download.height}")
+    if abs(download.fps - 24.0) > 0.1:
+        errors.append(f"fps={download.fps:.3f}")
+    if abs(download.duration_seconds - 5.0) > 0.6:
+        errors.append(f"duration={download.duration_seconds:.3f}s")
+    if errors:
+        raise DownloadValidationError(
+            "FAILED_MEDIA_VALIDATION: KLING_25_PROFILE_MISMATCH: " + ", ".join(errors)
+        )
 
 
 class QueuePausedError(RuntimeError):
@@ -471,6 +489,7 @@ class Worker:
             self.logger,
             job.id,
         )
+        validate_kling_25_output(job, validated_download)
         published_path = self._publish_batch_output(validated_download.path, job)
         validation_time = time.time()
         self.store.transition(
@@ -564,6 +583,8 @@ class Worker:
 
     async def _start_generation(self, job: Job, page: object) -> None:
         """Prepara e inicia a geração enquanto esta página detém o primeiro plano."""
+        if job.model.casefold() == "kling 2.5 turbo" and not job.image_path:
+            raise ValueError("KLING_25_FIRST_FRAME_REQUIRED")
         human_input = HumanInput(page)
         self._page = page
         self._human = human_input
@@ -1069,6 +1090,7 @@ class Worker:
                     self.logger,
                     job.id,
                 )
+            validate_kling_25_output(job, validated_download)
             published_path = self._publish_batch_output(validated_download.path, job)
             validation_time = time.time()
             self.store.transition(

@@ -14,6 +14,30 @@ export const REQUIRED_EPISODE_STAGES = [
 export const EpisodeStageSchema = z.enum(REQUIRED_EPISODE_STAGES);
 export type EpisodeStage = z.infer<typeof EpisodeStageSchema>;
 
+export const StartFramePeoplePolicySchema = z.enum(['FORBIDDEN', 'CONTEXTUAL']);
+export type StartFramePeoplePolicy = z.infer<typeof StartFramePeoplePolicySchema>;
+
+export const VisualMixSchema = z.object({
+  targetPercentages: z.object({
+    realisticImages: z.number().min(0).max(100),
+    videos: z.number().min(0).max(100),
+    motionGraphics: z.number().min(0).max(100),
+    motionImages: z.number().min(0).max(100)
+  }).refine(
+    (mix) => Math.abs(
+      mix.realisticImages + mix.videos + mix.motionGraphics + mix.motionImages - 100
+    ) < 0.001,
+    { message: "Os percentuais de 'visualMix.targetPercentages' devem somar 100%." }
+  ),
+  plannedCounts: z.object({
+    realisticImages: z.number().int().nonnegative(),
+    videos: z.number().int().nonnegative(),
+    motionGraphics: z.number().int().nonnegative(),
+    motionImages: z.number().int().nonnegative()
+  })
+});
+export type VisualMix = z.infer<typeof VisualMixSchema>;
+
 export const RawEpisodeContractInputSchema = z.object({
   episodeId: z
     .string()
@@ -71,7 +95,22 @@ export const RawEpisodeContractInputSchema = z.object({
     .string()
     .min(1, "O campo 'sfxDensity' não pode ser vazio."),
 
-  outputDir: z.string().optional()
+  outputDir: z.string().optional(),
+
+  visualMix: VisualMixSchema.optional(),
+
+  startFramePeoplePolicy: StartFramePeoplePolicySchema.default('CONTEXTUAL')
+}).superRefine((data, ctx) => {
+  if (!data.visualMix) return;
+  const counts = data.visualMix.plannedCounts;
+  const total = counts.realisticImages + counts.videos + counts.motionGraphics + counts.motionImages;
+  if (total !== data.minScenes) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['visualMix', 'plannedCounts'],
+      message: `A soma dos plannedCounts (${total}) deve ser igual a minScenes (${data.minScenes}).`
+    });
+  }
 });
 
 export type RawEpisodeContractInput = z.infer<typeof RawEpisodeContractInputSchema>;
@@ -89,6 +128,8 @@ export interface EpisodeContract {
   musicMood: string;
   sfxDensity: string;
   outputDir: string;
+  visualMix?: VisualMix;
+  startFramePeoplePolicy: StartFramePeoplePolicy;
 }
 
 export function parseEpisodeContract(jsonPathOrData: string | unknown): EpisodeContract {
@@ -157,6 +198,8 @@ export function parseEpisodeContract(jsonPathOrData: string | unknown): EpisodeC
     voiceProfile: validData.voiceProfile,
     musicMood: validData.musicMood,
     sfxDensity: validData.sfxDensity,
-    outputDir: expectedOutputDir
+    outputDir: expectedOutputDir,
+    visualMix: validData.visualMix,
+    startFramePeoplePolicy: validData.startFramePeoplePolicy
   };
 }

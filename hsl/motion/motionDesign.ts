@@ -123,6 +123,28 @@ function storyFor(input: HslMotionDesignInput): MotionStory {
     stages: ['ANTENA MIMO', 'SINCRONIA DE FASE', 'BEAM DIRECIONADO', 'DISPOSITIVO'], takeaway: 'DESALINHAMENTO TEMPORAL DERRUBA A REDE MÓVEL', accent: 'blue', preferred: 'STATE_TRANSITION'
   };
 
+  // 4.1 AGRICULTURA DE PRECISAO E DRONES COMERCIAIS
+  if (/downwash|vorticidade|efeito solo|microgota|micro-gota|verso da folha|bico centrifugo|bico centrífugo/.test(value)) return {
+    eyebrow: 'EVIDENCIA AERODINAMICA', headline: 'O FLUXO DAS HELICES MUDA O CAMINHO DAS GOTAS',
+    stages: ['ROTACAO DAS HELICES', 'COLUNA DE AR', 'PENETRACAO NA FOLHAGEM'], takeaway: 'A COBERTURA DEPENDE DO FLUXO OBSERVADO EM CAMPO', accent: 'orange', preferred: 'PROCESS_CUTAWAY'
+  };
+  if (/lidar|radar milimetrico|radar milimétrico|perfil do terreno|sensor de obstaculo|sensor de obstáculo/.test(value)) return {
+    eyebrow: 'LEITURA DO TERRENO', headline: 'O SENSOR MEDE O QUE EXISTE DIANTE DA AERONAVE',
+    stages: ['VARREDURA', 'CONTORNO MEDIDO', 'CORRECAO DE ALTURA'], takeaway: 'A ROTA MUDA A PARTIR DE UMA MEDICAO REAL', accent: 'blue', preferred: 'FLOW_MAP'
+  };
+  if (/bateria|recarga|gerador movel|gerador móvel|estacao movel|estação móvel/.test(value)) return {
+    eyebrow: 'CICLO DE ENERGIA', headline: 'A OPERACAO CONTINUA NA TROCA DE BATERIA',
+    stages: ['POUSO', 'TROCA', 'RECARGA', 'RETOMADA'], takeaway: 'A ESTACAO MOVEL DEFINE O RITMO DA EQUIPE', preferred: 'STATE_TRANSITION'
+  };
+  if (/enxame|rtk|gnss|rede mesh|malha de drones/.test(value)) return {
+    eyebrow: 'COORDENACAO DE CAMPO', headline: 'POSICAO E ROTA SAO COMPARTILHADAS ENTRE AS AERONAVES',
+    stages: ['BASE RTK', 'CORRECAO', 'ROTA INDIVIDUAL', 'AREA COBERTA'], takeaway: 'A PRECISAO APARECE NA GEOMETRIA DAS PASSAGENS', accent: 'blue', preferred: 'FLOW_MAP'
+  };
+  if (/drone agricola|drone agrícola|octocoptero|octocóptero|pulverizacao autonoma|pulverização autônoma/.test(value)) return {
+    eyebrow: 'OPERACAO OBSERVADA', headline: subject,
+    stages: ['DECOLAGEM', 'PASSAGEM SOBRE A CULTURA', 'RETORNO A BASE'], takeaway: 'A ACAO FISICA PERMANECE VISIVEL DURANTE A EXPLICACAO', preferred: 'FLOW_MAP'
+  };
+
   // 4. ENERGIA, REDE ELÉTRICA & SMART GRID
   if (/rede elétrica|rede eletrica|subestação|subestacao|60 hz|transformador|apagão|apagao|grid/.test(value)) return {
     eyebrow: 'SINCRONISMO DE FASE DO GRID', headline: 'TODA A ENERGIA PRECISA OSCILAR NA MESMA FASE',
@@ -240,9 +262,15 @@ function storyFor(input: HslMotionDesignInput): MotionStory {
     eyebrow: 'SYSTEM REFRAME', headline: subject,
     stages: ['VISIBLE EVENT', 'HIDDEN CHAIN', 'OPERATIONAL RESULT'], takeaway: 'THE OUTCOME DEPENDS ON SYNCHRONIZATION', preferred: 'BEFORE_AFTER'
   };
+  const factualStages = subject
+    .split(/\s*(?:->|→|;|,)\s*|\s+(?:then|depois|seguido de)\s+/i)
+    .map((part) => part.trim())
+    .filter((part, index, parts) => part.length >= 3 && parts.indexOf(part) === index)
+    .slice(0, 4);
   return {
-    eyebrow: 'HIDDEN SYSTEM', headline: subject,
-    stages: ['INPUT', 'CONTROL', 'OUTPUT'], takeaway: 'THE RESULT DEPENDS ON THE CONNECTIONS', preferred: 'FLOW_MAP'
+    eyebrow: 'EVIDENCIA DECLARADA', headline: subject,
+    stages: factualStages.length ? factualStages : [subject],
+    takeaway: 'O GRAFISMO DEVE PERMANECER VINCULADO A EVIDENCIA', preferred: 'EVIDENCE_CARD'
   };
 }
 
@@ -266,15 +294,23 @@ export function buildMotionDesign(input: HslMotionDesignInput): HslMotionDesign 
   const story = storyFor(input);
   const headline = story.headline.length > 72 ? `${story.headline.slice(0, 69).trim()}...` : story.headline;
   const stages = story.stages.slice(0, 5).map((stage) => stage.length > 26 ? `${stage.slice(0, 23).trim()}...` : stage);
+  const template = templateFor(story, input.variant);
+  const beatPercents: Record<HslMotionTemplate, readonly [number, number, number, number]> = {
+    FLOW_MAP: [8, 31, 58, 84], BRANCHING_ROUTES: [7, 29, 55, 86], PROCESS_CUTAWAY: [10, 34, 62, 85],
+    STATE_TRANSITION: [9, 36, 64, 87], CAPACITY_VS_AVAILABILITY: [8, 32, 60, 84], BOTTLENECK: [7, 35, 63, 88],
+    PARALLEL_TURNAROUND: [8, 28, 56, 86], DELAY_PROPAGATION: [6, 30, 61, 89], BEFORE_AFTER: [10, 42, 67, 88],
+    EVIDENCE_CARD: [11, 37, 66, 86],
+  };
+  const cues = beatPercents[template];
   return {
-    schema: 'hsl.motion-design.v2', schema_version: '2.0.0', template: templateFor(story, input.variant),
+    schema: 'hsl.motion-design.v2', schema_version: '2.0.0', template,
     accent: story.accent || 'yellow', eyebrow: story.eyebrow, headline, stages, takeaway: story.takeaway,
     direction: story.direction || 'FORWARD', metric: story.metric,
     beats: [
-      {at_percent: 5, text: headline, role: 'QUESTION'},
-      {at_percent: 24, text: stages[0] || 'INPUT', role: 'MECHANISM'},
-      {at_percent: 52, text: stages[Math.min(1, stages.length - 1)] || 'CONTROL', role: 'CHANGE'},
-      {at_percent: 78, text: story.takeaway, role: 'CONSEQUENCE'}
+      {at_percent: cues[0], text: headline, role: 'QUESTION'},
+      {at_percent: cues[1], text: stages[0] || headline, role: 'MECHANISM'},
+      {at_percent: cues[2], text: stages[Math.min(1, stages.length - 1)] || headline, role: 'CHANGE'},
+      {at_percent: cues[3], text: story.takeaway, role: 'CONSEQUENCE'}
     ]
   };
 }

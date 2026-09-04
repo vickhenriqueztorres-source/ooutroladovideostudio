@@ -45,6 +45,12 @@ export function getFireflyPythonExec(fireflyRoot: string): string | null {
   return null;
 }
 
+export function resolveFireflyProfileCandidates(fireflyRoot: string): string[] {
+  const explicit = process.env.FIREFLY_CHROME_PROFILE_DIR;
+  const selected = path.resolve(explicit || path.join(fireflyRoot, 'data', 'chrome_profile'));
+  return fs.existsSync(path.join(selected, 'Default')) ? [selected] : [];
+}
+
 /**
  * Health check REAL do Firefly em 3 camadas obrigatórias:
  * 1. Override de emergência (FIREFLY_SESSION_ACTIVE=1) com warning explícito
@@ -63,7 +69,9 @@ export async function isFireflySessionLive(customRoot?: string): Promise<Firefly
   }
 
   const root = path.resolve(customRoot || resolveFireflyRoot());
-  const profileDir = process.env.FIREFLY_CHROME_PROFILE_DIR || path.join(root, 'data', 'chrome_profile');
+  const explicitProfile = process.env.FIREFLY_CHROME_PROFILE_DIR;
+  const profileCandidates = resolveFireflyProfileCandidates(root);
+  const profileDir = profileCandidates[0] || path.join(root, 'data', 'chrome_profile');
   const dbDir = path.join(root, 'data');
   const dbFile = path.join(dbDir, 'firefly_jobs.db');
 
@@ -94,7 +102,7 @@ export async function isFireflySessionLive(customRoot?: string): Promise<Firefly
     };
   }
 
-  if (!fs.existsSync(profileDir)) {
+  if (profileCandidates.length === 0) {
     return {
       live: false,
       reason: `FIREFLY_PROFILE_NOT_FOUND: data/chrome_profile não encontrado em ${profileDir}`,
@@ -116,48 +124,48 @@ export async function isFireflySessionLive(customRoot?: string): Promise<Firefly
     }
   }
 
-  // Camada B: Probe de sessão real via Chrome headless
-  const probeRun = spawnSync(pythonExec, ['-m', 'firefly_bot.main', '--probe-session'], {
-    cwd: root,
-    encoding: 'utf-8',
-    timeout: 60000
-  });
+  // Camada B: prova somente o perfil que o worker realmente usara. Nunca
+  // aceite sessao de outro projeto como substituta para o perfil local.
+  let lastProbeResult: any = null;
+  let lastProbeOutput = '';
+  for (const candidate of profileCandidates) {
+    const probeRun = spawnSync(pythonExec, ['-m', 'firefly_bot.main', '--probe-session'], {
+      cwd: root,
+      encoding: 'utf-8',
+      timeout: 120000,
+      env: {...process.env, FIREFLY_CHROME_PROFILE_DIR: candidate}
+    });
 
-  const probeOutput = probeRun.stdout || probeRun.stderr || '';
-  let probeResult: any = null;
-
-  try {
-    const jsonStart = probeOutput.indexOf('{');
-    const jsonEnd = probeOutput.lastIndexOf('}');
-    if (jsonStart !== -1 && jsonEnd !== -1) {
-      probeResult = JSON.parse(probeOutput.substring(jsonStart, jsonEnd + 1));
-    } else {
-      probeResult = JSON.parse(probeOutput.trim());
+    const probeOutput = probeRun.stdout || probeRun.stderr || '';
+    lastProbeOutput = probeOutput;
+    try {
+      const jsonStart = probeOutput.indexOf('{');
+      const jsonEnd = probeOutput.lastIndexOf('}');
+      lastProbeResult = jsonStart !== -1 && jsonEnd !== -1
+        ? JSON.parse(probeOutput.substring(jsonStart, jsonEnd + 1))
+        : JSON.parse(probeOutput.trim());
+    } catch {
+      lastProbeResult = null;
     }
-  } catch (parseErr) {
-    return {
-      live: false,
-      reason: `FIREFLY_PROBE_PARSE_ERROR: Saída do probe não é JSON válido (${probeOutput.trim()})`,
-      source: 'probe',
-      userProfilePath: profileDir
-    };
-  }
 
-  if (probeResult && probeResult.authenticated === true) {
-    return {
-      live: true,
-      reason: probeResult.reason || 'Sessão autenticada ativa no Adobe Firefly',
-      source: 'probe',
-      userProfilePath: profileDir,
-      details: probeResult
-    };
+    if (lastProbeResult?.authenticated === true && lastProbeResult?.production_ui_ready === true) {
+      return {
+        live: true,
+        reason: lastProbeResult.reason || 'Sessão autenticada ativa no Adobe Firefly',
+        source: 'probe',
+        userProfilePath: candidate,
+        details: lastProbeResult
+      };
+    }
+
+    if (explicitProfile) break;
   }
 
   return {
     live: false,
-    reason: probeResult?.reason || 'FIREFLY_SESSION_DEAD: Sessão deslogada ou não autenticada no Adobe Firefly',
+    reason: lastProbeResult?.reason || `FIREFLY_PROBE_PARSE_ERROR: ${lastProbeOutput.trim()}`,
     source: 'probe',
     userProfilePath: profileDir,
-    details: probeResult
+    details: lastProbeResult || undefined
   };
 }

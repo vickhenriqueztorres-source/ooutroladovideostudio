@@ -1,0 +1,12 @@
+{
+  "schema": "ool.firefly.generation-profile.v1",
+  "model": "Kling 2.5 Turbo",
+  "model_value": "ugs:video:kling@kling_v2_5_turbo_pro_i2v",
+  "resolution": "1080p",
+  "aspect_ratio": "16:9",
+  "aspect_ratio_label": "Widescreen (16:9)",
+  "fps": 24,
+  "duration_seconds": 5,
+  "requires_first_frame": true,
+  "generate_audio": false
+}

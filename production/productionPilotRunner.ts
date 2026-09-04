@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import {FIREFLY_GENERATION_PROFILE as profile} from '../config/fireflyGenerationConfig';
 import { spawnSync } from 'child_process';
 import Database from 'better-sqlite3';
 import { ProductionSafetyGuard } from '../config/productionSafetyGuard';
 import { validateVideoWithFfprobe } from '../media/mediaValidator';
+import {resolveFireflyRoot} from '../config/fireflySessionLive';
 
 export interface PilotTakeResult {
   take_name: string;
@@ -31,7 +33,7 @@ type FireflyJobRow = {
   output_path: string | null;
 };
 
-const FIREFLY_ROOT = 'C:\\B2-AI-STUDIO\\links\\firefly-automation';
+const FIREFLY_ROOT = resolveFireflyRoot();
 const DEFAULT_PROMPT = 'Industrial documentary reconstruction of aviation fuel moving through refinery tanks, pipelines, airport storage and hydrant infrastructure, precise system geometry, no presenter, no readable text, no logos, no fabricated evidence';
 
 export class ProductionPilotRunner {
@@ -51,13 +53,13 @@ export class ProductionPilotRunner {
       throw new Error('HSL_PILOT_SOURCE_IMAGE_REQUIRED: provide a physical 16:9 start frame');
     }
 
-    const items: Array<{ image: string; prompt: string; name: string }> = [];
+    const items: Array<{ image: string; prompt: string; name: string; use_first_frame: true }> = [];
     for (let production = 1; production <= 5; production++) {
       for (let take = 1; take <= 4; take++) {
         const name = `HSL_PILOT_P${String(production).padStart(2, '0')}_TAKE_${String(take).padStart(2, '0')}`;
         const image = `${name}.png`;
         fs.copyFileSync(sourceImage, path.join(imagesDir, image));
-        items.push({ image, prompt, name });
+        items.push({ image, prompt, name, use_first_frame: true });
       }
     }
 
@@ -66,10 +68,12 @@ export class ProductionPilotRunner {
       guidePath,
       JSON.stringify(
         {
-          model: 'Kling 3.0',
-          resolution: '1080p',
-          aspect_ratio: '16:9',
-          duration_seconds: 5,
+          model: profile.model,
+          resolution: profile.resolution,
+          aspect_ratio: profile.aspect_ratio,
+          fps: profile.fps,
+          duration_seconds: profile.duration_seconds,
+          use_first_frame: profile.requires_first_frame,
           items
         },
         null,
@@ -78,11 +82,12 @@ export class ProductionPilotRunner {
       'utf8'
     );
 
-    this.prepareFireflyQueue(items.map((item) => item.name));
-    this.runFirefly(['-m', 'firefly_bot.main', '--feed-guide', guidePath], path.join(runDir, 'feed_output.txt'));
-    this.runFirefly(['-m', 'firefly_bot.main', '--run'], path.join(runDir, 'worker_output.txt'));
+    const runtimeRoot = path.join(runDir, 'firefly-runtime');
+    fs.mkdirSync(runtimeRoot, {recursive: true});
+    this.runFirefly(['-m', 'firefly_bot.main', '--root', runtimeRoot, '--feed-guide', guidePath], path.join(runDir, 'feed_output.txt'));
+    this.runFirefly(['-m', 'firefly_bot.main', '--root', runtimeRoot, '--run'], path.join(runDir, 'worker_output.txt'));
 
-    const rows = this.readPilotRows(items.map((item) => item.name));
+    const rows = this.readPilotRows(items.map((item) => item.name), runtimeRoot);
     const productions: PilotProductionResult[] = [];
     const ffprobeResults: unknown[] = [];
 
@@ -156,27 +161,17 @@ export class ProductionPilotRunner {
     return fs.existsSync(venvPython) ? venvPython : 'python';
   }
 
-  private static prepareFireflyQueue(pilotNames: string[]): void {
-    const dbPath = path.join(FIREFLY_ROOT, 'data', 'firefly_jobs.db');
-    const db = new Database(dbPath);
-    try {
-      db.prepare("DELETE FROM jobs WHERE status != 'done'").run();
-      for (const name of pilotNames) {
-        const existingOutput = path.join(FIREFLY_ROOT, 'saida', `${name}.mp4`);
-        if (fs.existsSync(existingOutput)) {
-          fs.unlinkSync(existingOutput);
-        }
-      }
-      db.prepare("UPDATE system_state SET status='running', reason=NULL, updated_at=? WHERE singleton=1").run(Date.now() / 1000);
-    } finally {
-      db.close();
-    }
-  }
-
   private static runFirefly(args: string[], outputPath: string): void {
     const result = spawnSync(this.pythonExecutable(), args, {
       cwd: FIREFLY_ROOT,
       encoding: 'utf8',
+      env: {
+        ...process.env,
+        FIREFLY_CHROME_PROFILE_DIR: path.join(FIREFLY_ROOT, 'data', 'chrome_profile'),
+        FIREFLY_ALLOW_CREDIT_SPEND: 'true',
+        FIREFLY_ALLOW_TEXT_TO_VIDEO: profile.requires_first_frame ? 'false' : 'true',
+        PYTHONUNBUFFERED: '1'
+      },
       maxBuffer: 1024 * 1024 * 20
     });
     fs.writeFileSync(outputPath, `${result.stdout || ''}\n${result.stderr || ''}`, 'utf8');
@@ -185,8 +180,8 @@ export class ProductionPilotRunner {
     }
   }
 
-  private static readPilotRows(names: string[]): FireflyJobRow[] {
-    const db = new Database(path.join(FIREFLY_ROOT, 'data', 'firefly_jobs.db'), { readonly: true });
+  private static readPilotRows(names: string[], runtimeRoot: string): FireflyJobRow[] {
+    const db = new Database(path.join(runtimeRoot, 'data', 'firefly_jobs.db'), { readonly: true });
     try {
       const placeholders = names.map(() => '?').join(', ');
       return db.prepare(`SELECT id, name, status, output_path FROM jobs WHERE name IN (${placeholders}) ORDER BY id`).all(...names) as FireflyJobRow[];

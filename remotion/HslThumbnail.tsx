@@ -1,5 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, Img, staticFile } from 'remotion';
+import { HSL_THUMBNAIL_TYPOGRAPHY } from '../spec/hsl-spec';
 
 export interface HslThumbnailProps extends Record<string, unknown> {
   readonly baseImageSrc: string;
@@ -13,81 +14,155 @@ export interface HslThumbnailProps extends Record<string, unknown> {
   readonly coordinates?: string;
   readonly sourcesCount?: number;
   readonly documentsCount?: number;
+
+  // Novos campos semânticos para YouTube High-Conversion
+  readonly mode?: 'thumbnail' | 'brand-board';
+  readonly hideDecorativeHud?: boolean;
+  readonly brandMark?: 'minimal' | 'full' | 'none';
+  readonly format?: string;
+  readonly safeZone?: 'mobile' | 'standard';
+  readonly syntheticLabel?: string;
+  readonly evidenceLabel?: string;
 }
 
 /**
  * THUMBNAIL OFICIAL 4K — O OUTRO LADO (3840x2160)
- * Direção Aprovada: INDUSTRIAL X-RAY (Opção 2)
+ * Direção Aprovada: INDUSTRIAL X-RAY (Documentário Investigativo)
  * Denis Villeneuve 35mm Anamorphic, Laranja Vapor de Sódio (#FF5500),
- * Ciano Laser (#00F0FF), Carbon Black (#060709), Tipografia Bebas/Druk.
+ * Ciano Laser (#00F0FF), Carbon Black (#060709), Tipografia Bebas/Impact.
+ * 
+ * Modo 'thumbnail' (Padrão): Foco absoluto no Objeto 35mm + Headline massiva legível no celular,
+ * sem HUDs decorativos, sem selos gigantes e sem coordenadas distrativas.
  */
 export const HslThumbnail: React.FC<HslThumbnailProps> = ({
   baseImageSrc,
-  headlineLines = ['O QUE', 'ESTÁ POR', 'DENTRO?'],
-  categoryBadge = 'ANÁLISE // O OUTRO LADO',
-  subheadline = 'A VERDADE ESCONDIDA SOB A SUPERFÍCIE.',
+  headlineLines = ['NUNCA FOI', 'PAPEL.'],
+  categoryBadge = 'INVESTIGAÇÃO // O OUTRO LADO',
+  subheadline,
   textSide = 'LEFT',
   accentColor = '#FF5500',
   telemetryColor = '#00F0FF',
-  revealPercentage = 73,
+  revealPercentage = 88,
   coordinates = '22.9042° S, 43.1729° W',
-  sourcesCount = 7,
-  documentsCount = 4
+  mode = 'thumbnail',
+  hideDecorativeHud = true,
+  brandMark = 'minimal',
+  syntheticLabel,
+  evidenceLabel
 }) => {
   const isLeft = textSide === 'LEFT';
+  const isCleanThumbnail = mode === 'thumbnail' || hideDecorativeHud;
+
+  // Cálculo de tamanho dinâmico da headline conectado à spec canônica da raiz (spec/hsl-spec)
+  const maxLineLength = Math.max(...headlineLines.map((l) => l.length), 1);
+  let headlineFontSize: number = HSL_THUMBNAIL_TYPOGRAPHY.SCALES.SHORT_LINE_MAX_FONT_SIZE;
+  if (maxLineLength > 14) {
+    headlineFontSize = HSL_THUMBNAIL_TYPOGRAPHY.SCALES.EXTENDED_LINE_FONT_SIZE;
+  } else if (maxLineLength > 11) {
+    headlineFontSize = HSL_THUMBNAIL_TYPOGRAPHY.SCALES.LONG_LINE_FONT_SIZE;
+  } else if (maxLineLength > 8) {
+    headlineFontSize = HSL_THUMBNAIL_TYPOGRAPHY.SCALES.MEDIUM_LINE_FONT_SIZE;
+  }
+  if (headlineLines.length > 2) {
+    headlineFontSize = Math.min(headlineFontSize, HSL_THUMBNAIL_TYPOGRAPHY.SCALES.MULTI_LINE_CAP_FONT_SIZE);
+  }
 
   return (
-    <AbsoluteFill style={{ backgroundColor: '#060709', color: '#F4F4F0', overflow: 'hidden', fontFamily: "'Inter', sans-serif" }}>
-      {/* 1. Imagem de Fundo 35mm com Tratamento Chiaroscuro */}
+    <AbsoluteFill
+      style={{
+        backgroundColor: HSL_THUMBNAIL_TYPOGRAPHY.COLORS.BACKGROUND_DARK,
+        color: HSL_THUMBNAIL_TYPOGRAPHY.COLORS.PRIMARY_TEXT,
+        overflow: 'hidden',
+        fontFamily: HSL_THUMBNAIL_TYPOGRAPHY.FONTS.EDITORIAL
+      }}
+    >
+      {/* 1. Imagem de Fundo 35mm Chiaroscuro */}
       <Img
         src={staticFile(baseImageSrc)}
         style={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          filter: 'contrast(1.18) brightness(0.82) saturate(1.10)'
+          filter: 'contrast(1.18) brightness(0.88) saturate(1.12)'
         }}
       />
 
-      {/* 2. Gradiente Villeneuve e Iluminação Volumétrica */}
+      {/* 2. Gradiente Direcional Villeneuve para Máximo Contraste Ótico em Chiaroscuro */}
       <AbsoluteFill
         style={{
           background: isLeft
-            ? 'linear-gradient(90deg, rgba(6,7,9,0.96) 0%, rgba(6,7,9,0.88) 38%, rgba(6,7,9,0.35) 65%, rgba(6,7,9,0) 85%)'
-            : 'linear-gradient(270deg, rgba(6,7,9,0.96) 0%, rgba(6,7,9,0.88) 38%, rgba(6,7,9,0.35) 65%, rgba(6,7,9,0) 85%)'
+            ? 'linear-gradient(90deg, rgba(6,7,9,0.95) 0%, rgba(6,7,9,0.86) 34%, rgba(6,7,9,0.30) 60%, rgba(6,7,9,0) 78%)'
+            : 'linear-gradient(270deg, rgba(6,7,9,0.95) 0%, rgba(6,7,9,0.86) 34%, rgba(6,7,9,0.30) 60%, rgba(6,7,9,0) 78%)'
         }}
       />
 
-      {/* 3. Brilho e Névoa Atmosférica Laranja + Ciano */}
+      {/* 3. Cantoneiras Cinematográficas Sutis [ ] */}
+      <div style={{ position: 'absolute', top: 80, left: 80, width: 50, height: 50, borderTop: '3px solid rgba(244,244,240,0.35)', borderLeft: '3px solid rgba(244,244,240,0.35)' }} />
+      <div style={{ position: 'absolute', top: 80, right: 80, width: 50, height: 50, borderTop: '3px solid rgba(244,244,240,0.35)', borderRight: '3px solid rgba(244,244,240,0.35)' }} />
+      <div style={{ position: 'absolute', bottom: 80, left: 80, width: 50, height: 50, borderBottom: '3px solid rgba(244,244,240,0.35)', borderLeft: '3px solid rgba(244,244,240,0.35)' }} />
+      {/* Canto inferior direito deixado livre para não colidir com o timestamp do YouTube */}
+
+      {/* 4. Marca Mínima (Discreta, <5% da tela, sem competir com o sujeito) */}
+      {brandMark === 'minimal' && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 80,
+            left: 100,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 14,
+            fontFamily: HSL_THUMBNAIL_TYPOGRAPHY.FONTS.TELEMETRY,
+            fontSize: HSL_THUMBNAIL_TYPOGRAPHY.SCALES.CATEGORY_BADGE_FONT_SIZE,
+            fontWeight: 800,
+            letterSpacing: HSL_THUMBNAIL_TYPOGRAPHY.METRICS.LETTER_SPACING_TELEMETRY,
+            color: '#F4F4F0',
+            backgroundColor: 'rgba(6,7,9,0.85)',
+            padding: '12px 26px',
+            borderRadius: 6,
+            borderLeft: `6px solid ${HSL_THUMBNAIL_TYPOGRAPHY.COLORS.ACCENT_TEXT}`,
+            border: '1px solid rgba(255,255,255,0.15)',
+            backdropFilter: 'blur(10px)',
+            boxShadow: HSL_THUMBNAIL_TYPOGRAPHY.SHADOWS.SOLID_PILL_SHADOW,
+            zIndex: 10
+          }}
+        >
+          <span>{categoryBadge}</span>
+        </div>
+      )}
+
+      {/* Label de Identificação de Reconstrução Sintética (se aplicável) */}
+      {syntheticLabel && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 80,
+            right: 100,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 28,
+            fontWeight: 700,
+            letterSpacing: 2,
+            color: telemetryColor,
+            backgroundColor: 'rgba(6,7,9,0.85)',
+            padding: '10px 20px',
+            borderRadius: 6,
+            border: `1px solid ${telemetryColor}60`,
+            zIndex: 10
+          }}
+        >
+          SIMULAÇÃO FORENSE // {syntheticLabel}
+        </div>
+      )}
+
+      {/* 6. Bloco Principal da Headline (Ultra-Legível em Telas Grandes e Smartphones) */}
       <div
         style={{
           position: 'absolute',
-          top: '20%',
-          left: isLeft ? '55%' : '15%',
-          width: 1400,
-          height: 1400,
-          borderRadius: '50%',
-          background: `radial-gradient(circle, ${accentColor}25 0%, ${telemetryColor}12 45%, transparent 70%)`,
-          filter: 'blur(80px)',
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* 4. Cantoneiras de Enquadramento Cinematográfico [ ] */}
-      <div style={{ position: 'absolute', top: 90, left: 90, width: 60, height: 60, borderTop: '4px solid rgba(244,244,240,0.4)', borderLeft: '4px solid rgba(244,244,240,0.4)' }} />
-      <div style={{ position: 'absolute', top: 90, right: 90, width: 60, height: 60, borderTop: '4px solid rgba(244,244,240,0.4)', borderRight: '4px solid rgba(244,244,240,0.4)' }} />
-      <div style={{ position: 'absolute', bottom: 90, left: 90, width: 60, height: 60, borderBottom: '4px solid rgba(244,244,240,0.4)', borderLeft: '4px solid rgba(244,244,240,0.4)' }} />
-      <div style={{ position: 'absolute', bottom: 90, right: 90, width: 60, height: 60, borderBottom: '4px solid rgba(244,244,240,0.4)', borderRight: '4px solid rgba(244,244,240,0.4)' }} />
-
-      {/* 5. Bloco Principal da Headline (Industrial X-Ray) */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 240,
-          bottom: 240,
-          left: isLeft ? 180 : undefined,
-          right: isLeft ? undefined : 180,
-          width: 1800,
+          top: 180,
+          bottom: 180,
+          left: isLeft ? 140 : undefined,
+          right: isLeft ? undefined : 140,
+          width: 1750,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -95,27 +170,22 @@ export const HslThumbnail: React.FC<HslThumbnailProps> = ({
           zIndex: 10
         }}
       >
-        {/* Cantoneira superior de caixa de texto */}
-        <div style={{ width: 40, height: 40, borderTop: '3px solid rgba(244,244,240,0.6)', borderLeft: '3px solid rgba(244,244,240,0.6)', marginBottom: 20 }} />
-
-        {/* Linhas da Headline */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, lineHeight: 0.92 }}>
+        {/* Linhas da Headline com Alto Contraste 35mm e Sombra Sólida (ZERO NEON) */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, lineHeight: HSL_THUMBNAIL_TYPOGRAPHY.METRICS.LINE_HEIGHT }}>
           {headlineLines.map((line, idx) => {
             const isLast = idx === headlineLines.length - 1;
             return (
               <span
                 key={idx}
                 style={{
-                  fontFamily: "'Bebas Neue', 'Impact', sans-serif",
-                  fontSize: 270,
+                  fontFamily: HSL_THUMBNAIL_TYPOGRAPHY.FONTS.HEADLINE,
+                  fontSize: headlineFontSize,
                   fontWeight: 900,
-                  letterSpacing: 4,
+                  letterSpacing: HSL_THUMBNAIL_TYPOGRAPHY.METRICS.LETTER_SPACING_HEADLINE,
                   textTransform: 'uppercase',
-                  color: isLast ? accentColor : '#F4F4F0',
-                  textShadow: isLast
-                    ? `0 0 50px ${accentColor}80, 0 10px 40px rgba(0,0,0,0.9)`
-                    : '0 10px 40px rgba(0,0,0,0.9)',
-                  transform: 'scaleY(1.08)'
+                  color: isLast ? HSL_THUMBNAIL_TYPOGRAPHY.COLORS.ACCENT_TEXT : HSL_THUMBNAIL_TYPOGRAPHY.COLORS.PRIMARY_TEXT,
+                  textShadow: HSL_THUMBNAIL_TYPOGRAPHY.SHADOWS.SOLID_DROP_SHADOW,
+                  transform: `scaleY(${HSL_THUMBNAIL_TYPOGRAPHY.METRICS.SCALE_Y})`
                 }}
               >
                 {line}
@@ -124,26 +194,43 @@ export const HslThumbnail: React.FC<HslThumbnailProps> = ({
           })}
         </div>
 
-        {/* Subheadline em Ciano com Barra Decorativa */}
+        {/* Barra de Tensão Laranja Sólida (ZERO NEON) */}
+        <div
+          style={{
+            width: HSL_THUMBNAIL_TYPOGRAPHY.ACCENT_BAR.WIDTH,
+            height: HSL_THUMBNAIL_TYPOGRAPHY.ACCENT_BAR.HEIGHT,
+            marginTop: 36,
+            marginBottom: subheadline ? 0 : 10,
+            backgroundColor: HSL_THUMBNAIL_TYPOGRAPHY.ACCENT_BAR.COLOR,
+            boxShadow: HSL_THUMBNAIL_TYPOGRAPHY.SHADOWS.SOLID_BAR_SHADOW,
+            borderRadius: 2
+          }}
+        />
+
+        {/* Subheadline Técnica em Ciano Laser com Pill Sólido (ZERO NEON) */}
         {subheadline && (
           <div
             style={{
-              marginTop: 40,
-              display: 'flex',
+              marginTop: 28,
+              display: 'inline-flex',
               alignItems: 'center',
-              gap: 20
+              gap: 18,
+              backgroundColor: 'rgba(6,7,9,0.95)',
+              padding: '18px 36px',
+              borderRadius: 8,
+              border: `2px solid ${HSL_THUMBNAIL_TYPOGRAPHY.COLORS.TELEMETRY_TEXT}`,
+              borderLeft: `12px solid ${HSL_THUMBNAIL_TYPOGRAPHY.COLORS.TELEMETRY_TEXT}`,
+              boxShadow: HSL_THUMBNAIL_TYPOGRAPHY.SHADOWS.SOLID_PILL_SHADOW
             }}
           >
-            <div style={{ width: 8, height: 44, backgroundColor: telemetryColor, boxShadow: `0 0 16px ${telemetryColor}` }} />
             <span
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 44,
-                fontWeight: 700,
-                letterSpacing: 3,
-                color: telemetryColor,
-                textTransform: 'uppercase',
-                textShadow: `0 0 20px ${telemetryColor}90`
+                fontFamily: HSL_THUMBNAIL_TYPOGRAPHY.FONTS.TELEMETRY,
+                fontSize: HSL_THUMBNAIL_TYPOGRAPHY.SCALES.SUBHEADLINE_FONT_SIZE,
+                fontWeight: 900,
+                letterSpacing: HSL_THUMBNAIL_TYPOGRAPHY.METRICS.LETTER_SPACING_TELEMETRY,
+                color: HSL_THUMBNAIL_TYPOGRAPHY.COLORS.TELEMETRY_TEXT,
+                textTransform: 'uppercase'
               }}
             >
               {subheadline}
@@ -151,75 +238,61 @@ export const HslThumbnail: React.FC<HslThumbnailProps> = ({
           </div>
         )}
 
-        {/* Cantoneira inferior de caixa de texto */}
-        <div style={{ width: 40, height: 40, borderBottom: '3px solid rgba(244,244,240,0.6)', borderLeft: '3px solid rgba(244,244,240,0.6)', marginTop: 30 }} />
+        {/* Label de Evidência Técnica Opcional */}
+        {evidenceLabel && (
+          <div style={{ marginTop: 24, fontFamily: "'JetBrains Mono', monospace", fontSize: 32, color: '#8A8D9F', letterSpacing: 2 }}>
+            EVIDÊNCIA: {evidenceLabel}
+          </div>
+        )}
       </div>
 
-      {/* 6. Selo Circular de Auditoria Técnica (Canto Inferior Direito) */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 240,
-          right: isLeft ? 260 : undefined,
-          left: isLeft ? undefined : 260,
-          width: 480,
-          height: 480,
-          borderRadius: '50%',
-          border: `3px solid ${telemetryColor}80`,
-          boxShadow: `0 0 40px ${telemetryColor}30, inset 0 0 40px ${telemetryColor}20`,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          backgroundColor: 'rgba(6,7,9,0.75)',
-          backdropFilter: 'blur(10px)',
-          zIndex: 12
-        }}
-      >
-        <div style={{ position: 'absolute', width: 440, height: 440, borderRadius: '50%', border: `1.5px dashed ${telemetryColor}50` }} />
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 26, fontWeight: 800, letterSpacing: 4, color: telemetryColor }}>ANÁLISE</span>
-        <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 52, fontWeight: 900, letterSpacing: 3, color: '#F4F4F0', margin: '4px 0' }}>O OUTRO LADO</span>
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 20, fontWeight: 700, letterSpacing: 2, color: 'rgba(244,244,240,0.7)' }}>INVESTIGAÇÃO</span>
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 22, fontWeight: 800, letterSpacing: 3, color: accentColor }}>TÉCNICA</span>
-      </div>
+      {/* 7. Elementos de Brand-Board (Renderizados APENAS no modo brand-board) */}
+      {!isCleanThumbnail && (
+        <>
+          {/* Selo de Auditoria Técnica */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 240,
+              right: 260,
+              width: 440,
+              height: 440,
+              borderRadius: '50%',
+              border: `3px solid ${telemetryColor}80`,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'rgba(6,7,9,0.75)',
+              zIndex: 12
+            }}
+          >
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 24, color: telemetryColor }}>ANÁLISE</span>
+            <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 48, color: '#F4F4F0' }}>O OUTRO LADO</span>
+          </div>
 
-      {/* 7. Barra Inferior com Identidade e Accents de Telemetria */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 70,
-          left: 180,
-          right: 180,
-          height: 70,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 26,
-          color: 'rgba(244,244,240,0.75)',
-          borderTop: '1px solid rgba(255,255,255,0.15)',
-          paddingTop: 15,
-          zIndex: 10
-        }}
-      >
-        {/* Logo Lockup */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <div style={{ width: 22, height: 22, borderRadius: '50%', border: `4px solid ${accentColor}`, borderRightColor: 'transparent' }} />
-          <span style={{ fontWeight: 900, letterSpacing: 3 }}><strong style={{ color: accentColor }}>O</strong> OUTRO LADO</span>
-        </div>
-
-        {/* Coordenadas */}
-        <div style={{ letterSpacing: 2, color: 'rgba(244,244,240,0.6)' }}>
-          COORDENADAS // <span style={{ color: telemetryColor }}>{coordinates}</span>
-        </div>
-
-        {/* Dial de Revelação */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 14, height: 14, backgroundColor: accentColor, borderRadius: '50%', boxShadow: `0 0 10px ${accentColor}` }} />
-          <span style={{ fontWeight: 800, color: '#F4F4F0' }}>REVELAÇÃO: <strong style={{ color: accentColor }}>{revealPercentage}%</strong></span>
-        </div>
-      </div>
+          {/* Rodapé com Coordenadas */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 60,
+              left: 160,
+              right: 160,
+              height: 60,
+              display: 'flex',
+              justifyContent: 'space-between',
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 24,
+              color: 'rgba(244,244,240,0.7)',
+              borderTop: '1px solid rgba(255,255,255,0.15)',
+              paddingTop: 12
+            }}
+          >
+            <div>COORDENADAS // {coordinates}</div>
+            <div>REVELAÇÃO: {revealPercentage}%</div>
+          </div>
+        </>
+      )}
     </AbsoluteFill>
   );
 };

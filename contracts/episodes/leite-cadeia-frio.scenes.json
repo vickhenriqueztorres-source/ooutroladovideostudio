@@ -1,0 +1,1752 @@
+[
+  {
+    "sceneId": "LEITE_001",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "Quando o leite sai da vaca, começa uma corrida contra milhões de microrganismos que já estavam no ambiente.",
+    "visualSubject": "fresh raw milk flowing through a closed stainless-steel receiver at a present-day dairy farm",
+    "visual_must_include": [
+      "fresh raw milk flowing through a closed stainless-steel receiver at a present-day dairy farm",
+      "the white stream moves continuously through a transparent sanitary sight glass"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_001",
+      "substituting fresh raw milk flowing through a closed stainless-steel receiver at a present-day dairy farm with an icon or abstract symbol",
+      "static showroom pose instead of the white stream moves continuously through a transparent sanitary sight glass"
+    ],
+    "required_category": "milk_chain_001",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_002",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "Ele nasce quente, perto da temperatura do corpo, onde a multiplicação microbiana pode acelerar.",
+    "visualSubject": "macro view of warm raw milk droplets on the inner wall of a sanitized stainless-steel pipe",
+    "visual_must_include": [
+      "macro view of warm raw milk droplets on the inner wall of a sanitized stainless-steel pipe",
+      "condensation beads remain visible beside the fresh milk film"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_002",
+      "substituting macro view of warm raw milk droplets on the inner wall of a sanitized stainless-steel pipe with an icon or abstract symbol",
+      "static showroom pose instead of condensation beads remain visible beside the fresh milk film"
+    ],
+    "required_category": "milk_chain_002",
+    "canon_category": "evidence",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_003",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "A partir desse instante, cada minuto e cada grau ajudam a decidir quanto tempo esse litro continuará seguro.",
+    "visualSubject": "flat technical time-temperature chart anchored to a real stainless dairy tank photograph",
+    "visual_must_include": [
+      "flat technical time-temperature chart anchored to a real stainless dairy tank photograph",
+      "restrained lines mark elapsed time and measured temperature"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_003",
+      "substituting flat technical time-temperature chart anchored to a real stainless dairy tank photograph with an icon or abstract symbol",
+      "static showroom pose instead of restrained lines mark elapsed time and measured temperature"
+    ],
+    "required_category": "milk_chain_003",
+    "canon_category": "reveal",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_004",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "A primeira máquina invisível não é a embalagem. É o tanque onde o leite começa a ser resfriado.",
+    "visualSubject": "present-day insulated bulk milk cooling tank inside a clean Brazilian dairy milk room",
+    "visual_must_include": [
+      "present-day insulated bulk milk cooling tank inside a clean Brazilian dairy milk room",
+      "the vessel, sanitary pipes and practical wall lighting remain fully observable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_004",
+      "substituting present-day insulated bulk milk cooling tank inside a clean Brazilian dairy milk room with an icon or abstract symbol",
+      "static showroom pose instead of the vessel, sanitary pipes and practical wall lighting remain fully observable"
+    ],
+    "required_category": "milk_chain_004",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_005",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "Pás lentas misturam o volume para que nenhuma parte fique quente demais.",
+    "visualSubject": "documentary view through the inspection glass of a bulk milk tank agitator",
+    "visual_must_include": [
+      "documentary view through the inspection glass of a bulk milk tank agitator",
+      "the stainless agitator rotates slowly through the milk surface"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_005",
+      "substituting documentary view through the inspection glass of a bulk milk tank agitator with an icon or abstract symbol",
+      "static showroom pose instead of the stainless agitator rotates slowly through the milk surface"
+    ],
+    "required_category": "milk_chain_005",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_006",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "Uma camisa térmica retira calor sem tocar diretamente no alimento.",
+    "visualSubject": "cutaway documentary image of the real cooling jacket around a stainless bulk milk tank",
+    "visual_must_include": [
+      "cutaway documentary image of the real cooling jacket around a stainless bulk milk tank",
+      "thin audit lines trace heat leaving the metal wall toward the refrigeration circuit"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_006",
+      "substituting cutaway documentary image of the real cooling jacket around a stainless bulk milk tank with an icon or abstract symbol",
+      "static showroom pose instead of thin audit lines trace heat leaving the metal wall toward the refrigeration circuit"
+    ],
+    "required_category": "milk_chain_006",
+    "canon_category": "evidence",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_007",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "Uma pequena amostra acompanha o lote como testemunha química e microbiológica do percurso.",
+    "visualSubject": "sealed raw milk sample vial beside a stainless sampling port",
+    "visual_must_include": [
+      "sealed raw milk sample vial beside a stainless sampling port",
+      "the vial, tamper seal and port fill a macro evidence frame"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_007",
+      "substituting sealed raw milk sample vial beside a stainless sampling port with an icon or abstract symbol",
+      "static showroom pose instead of the vial, tamper seal and port fill a macro evidence frame"
+    ],
+    "required_category": "milk_chain_007",
+    "canon_category": "evidence",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_008",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH1",
+    "chapterTitle": "A CORRIDA COMEÇA",
+    "voiceover": "Dali, o litro entra numa rota que liga propriedades rurais, estradas e a plataforma da indústria.",
+    "visualSubject": "insulated milk tanker parked at a real dairy reception bay with rural access road visible",
+    "visual_must_include": [
+      "insulated milk tanker parked at a real dairy reception bay with rural access road visible",
+      "the tanker, reception canopy and route geometry share the wide frame"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_008",
+      "substituting insulated milk tanker parked at a real dairy reception bay with rural access road visible with an icon or abstract symbol",
+      "static showroom pose instead of the tanker, reception canopy and route geometry share the wide frame"
+    ],
+    "required_category": "milk_chain_008",
+    "canon_category": "maps",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_009",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "A ordenha moderna reduz contato com o ar usando conjuntos fechados, mangueiras sanitárias e vácuo controlado.",
+    "visualSubject": "milking cluster attached to a dairy cow udder inside a present-day parlor with no humans present",
+    "visual_must_include": [
+      "milking cluster attached to a dairy cow udder inside a present-day parlor with no humans present",
+      "closed liners and milk tubes remain clearly visible beneath the animal"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_009",
+      "substituting milking cluster attached to a dairy cow udder inside a present-day parlor with no humans present with an icon or abstract symbol",
+      "static showroom pose instead of closed liners and milk tubes remain clearly visible beneath the animal"
+    ],
+    "required_category": "milk_chain_009",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_010",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "O leite atravessa tubulações fechadas enquanto o fluxo pulsa no ritmo do equipamento.",
+    "visualSubject": "raw milk moving through a transparent sanitary section of a closed milking pipeline",
+    "visual_must_include": [
+      "raw milk moving through a transparent sanitary section of a closed milking pipeline",
+      "pulses of milk and air alternate visibly inside the line"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_010",
+      "substituting raw milk moving through a transparent sanitary section of a closed milking pipeline with an icon or abstract symbol",
+      "static showroom pose instead of pulses of milk and air alternate visibly inside the line"
+    ],
+    "required_category": "milk_chain_010",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_011",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "Placas metálicas podem antecipar a retirada de calor e aliviar o sistema de refrigeração.",
+    "visualSubject": "stainless plate pre-cooler connected to sanitary milk piping and a real water circuit",
+    "visual_must_include": [
+      "stainless plate pre-cooler connected to sanitary milk piping and a real water circuit",
+      "parallel plates, valves and condensation are visible under practical light"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_011",
+      "substituting stainless plate pre-cooler connected to sanitary milk piping and a real water circuit with an icon or abstract symbol",
+      "static showroom pose instead of parallel plates, valves and condensation are visible under practical light"
+    ],
+    "required_category": "milk_chain_011",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_012",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "A curva precisa cair rápido para desacelerar o crescimento microbiano.",
+    "visualSubject": "documentary thermal curve over a real bulk milk tank and calibrated probe",
+    "visual_must_include": [
+      "documentary thermal curve over a real bulk milk tank and calibrated probe",
+      "the graph descends from body temperature toward the refrigerated control band"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_012",
+      "substituting documentary thermal curve over a real bulk milk tank and calibrated probe with an icon or abstract symbol",
+      "static showroom pose instead of the graph descends from body temperature toward the refrigerated control band"
+    ],
+    "required_category": "milk_chain_012",
+    "canon_category": "evidence",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_013",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "Compressor e condensador expulsam para o ambiente o calor retirado daquele volume.",
+    "visualSubject": "working refrigeration condenser and compressor serving a dairy bulk milk tank",
+    "visual_must_include": [
+      "working refrigeration condenser and compressor serving a dairy bulk milk tank",
+      "condenser fans spin while copper lines vibrate subtly"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_013",
+      "substituting working refrigeration condenser and compressor serving a dairy bulk milk tank with an icon or abstract symbol",
+      "static showroom pose instead of condenser fans spin while copper lines vibrate subtly"
+    ],
+    "required_category": "milk_chain_013",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_014",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "O termômetro registra se o lote chegou à faixa de conservação planejada.",
+    "visualSubject": "calibrated temperature probe and analog backup gauge mounted on a bulk milk tank",
+    "visual_must_include": [
+      "calibrated temperature probe and analog backup gauge mounted on a bulk milk tank",
+      "probe tip, cable seal and gauge face are shown in macro focus"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_014",
+      "substituting calibrated temperature probe and analog backup gauge mounted on a bulk milk tank with an icon or abstract symbol",
+      "static showroom pose instead of probe tip, cable seal and gauge face are shown in macro focus"
+    ],
+    "required_category": "milk_chain_014",
+    "canon_category": "evidence",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_015",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "Em mapas de coleta, distância vira tempo. E tempo, sem frio, vira risco acumulado.",
+    "visualSubject": "flat cartographic route connecting several dairy farms to one processing plant",
+    "visual_must_include": [
+      "flat cartographic route connecting several dairy farms to one processing plant",
+      "thin route lines follow real roads and mark collection points"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_015",
+      "substituting flat cartographic route connecting several dairy farms to one processing plant with an icon or abstract symbol",
+      "static showroom pose instead of thin route lines follow real roads and mark collection points"
+    ],
+    "required_category": "milk_chain_015",
+    "canon_category": "maps",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_016",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH2",
+    "chapterTitle": "RESFRIAR ANTES QUE SEJA TARDE",
+    "voiceover": "Tampas, juntas e válvulas precisam ficar fechadas porque uma entrada suja pode comprometer o lote.",
+    "visualSubject": "sealed sanitary hatch, gasket and outlet valve on a bulk milk tank",
+    "visual_must_include": [
+      "sealed sanitary hatch, gasket and outlet valve on a bulk milk tank",
+      "the intact seal and clean contact surfaces fill the frame"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_016",
+      "substituting sealed sanitary hatch, gasket and outlet valve on a bulk milk tank with an icon or abstract symbol",
+      "static showroom pose instead of the intact seal and clean contact surfaces fill the frame"
+    ],
+    "required_category": "milk_chain_016",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_017",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Na coleta, a mangueira conecta tanque e caminhão sem expor o leite ao ambiente.",
+    "visualSubject": "locked sanitary hose coupling between a bulk tank and an insulated milk tanker with no humans present",
+    "visual_must_include": [
+      "locked sanitary hose coupling between a bulk tank and an insulated milk tanker with no humans present",
+      "milk moves through the closed hose while the coupling remains stable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_017",
+      "substituting locked sanitary hose coupling between a bulk tank and an insulated milk tanker with no humans present with an icon or abstract symbol",
+      "static showroom pose instead of milk moves through the closed hose while the coupling remains stable"
+    ],
+    "required_category": "milk_chain_017",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_018",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "O caminhão-tanque preserva o frio conquistado, mas não corrige leite que já saiu quente demais.",
+    "visualSubject": "sectioned view of an insulated stainless milk tanker showing sealed compartments",
+    "visual_must_include": [
+      "sectioned view of an insulated stainless milk tanker showing sealed compartments",
+      "insulation, internal baffles and sanitary outlet are physically visible"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_018",
+      "substituting sectioned view of an insulated stainless milk tanker showing sealed compartments with an icon or abstract symbol",
+      "static showroom pose instead of insulation, internal baffles and sanitary outlet are physically visible"
+    ],
+    "required_category": "milk_chain_018",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_019",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Cada parada soma quilômetros, volumes e relógios diferentes dentro do mesmo roteiro.",
+    "visualSubject": "flat logistics map of a milk tanker collecting from multiple rural points",
+    "visual_must_include": [
+      "flat logistics map of a milk tanker collecting from multiple rural points",
+      "route segments appear sequentially with restrained time markers"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_019",
+      "substituting flat logistics map of a milk tanker collecting from multiple rural points with an icon or abstract symbol",
+      "static showroom pose instead of route segments appear sequentially with restrained time markers"
+    ],
+    "required_category": "milk_chain_019",
+    "canon_category": "maps",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_020",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Na estrada, o litro viaja dentro de paredes metálicas sem poder quebrar a cadeia térmica.",
+    "visualSubject": "insulated stainless milk tanker traveling on a real Brazilian rural highway",
+    "visual_must_include": [
+      "insulated stainless milk tanker traveling on a real Brazilian rural highway",
+      "the tanker follows a curve while the camera tracks laterally"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_020",
+      "substituting insulated stainless milk tanker traveling on a real Brazilian rural highway with an icon or abstract symbol",
+      "static showroom pose instead of the tanker follows a curve while the camera tracks laterally"
+    ],
+    "required_category": "milk_chain_020",
+    "canon_category": "maps",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_021",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Antes da descarga, novas amostras medem composição, acidez e sinais de contaminação.",
+    "visualSubject": "automated dairy laboratory sample rack beside milk analyzer instruments with no people present",
+    "visual_must_include": [
+      "automated dairy laboratory sample rack beside milk analyzer instruments with no people present",
+      "sealed vials, analyzer ports and calibration controls are visible"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_021",
+      "substituting automated dairy laboratory sample rack beside milk analyzer instruments with no people present with an icon or abstract symbol",
+      "static showroom pose instead of sealed vials, analyzer ports and calibration controls are visible"
+    ],
+    "required_category": "milk_chain_021",
+    "canon_category": "evidence",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_022",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Densidade e acidez revelam alterações que a cor branca sozinha esconderia.",
+    "visualSubject": "paired close-up of a dairy hydrometer cylinder and titration flask containing milk samples",
+    "visual_must_include": [
+      "paired close-up of a dairy hydrometer cylinder and titration flask containing milk samples",
+      "a restrained comparison line aligns the two physical measurements"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_022",
+      "substituting paired close-up of a dairy hydrometer cylinder and titration flask containing milk samples with an icon or abstract symbol",
+      "static showroom pose instead of a restrained comparison line aligns the two physical measurements"
+    ],
+    "required_category": "milk_chain_022",
+    "canon_category": "reveal",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_023",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Equipamentos automatizados repetem leituras para decidir se o lote pode entrar na fábrica.",
+    "visualSubject": "automated milk analyzer carousel inside a dairy intake laboratory with no humans present",
+    "visual_must_include": [
+      "automated milk analyzer carousel inside a dairy intake laboratory with no humans present",
+      "the sample carousel indexes one position and the instrument door closes"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_023",
+      "substituting automated milk analyzer carousel inside a dairy intake laboratory with no humans present with an icon or abstract symbol",
+      "static showroom pose instead of the sample carousel indexes one position and the instrument door closes"
+    ],
+    "required_category": "milk_chain_023",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_024",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "Resíduos de antibióticos podem interromper fermentações e indicar que o leite não deveria seguir.",
+    "visualSubject": "dairy antibiotic residue test strip and sealed control ampoule on a clean laboratory bench",
+    "visual_must_include": [
+      "dairy antibiotic residue test strip and sealed control ampoule on a clean laboratory bench",
+      "the test window and control marking remain visible with no brand text"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_024",
+      "substituting dairy antibiotic residue test strip and sealed control ampoule on a clean laboratory bench with an icon or abstract symbol",
+      "static showroom pose instead of the test window and control marking remain visible with no brand text"
+    ],
+    "required_category": "milk_chain_024",
+    "canon_category": "evidence",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_025",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH3",
+    "chapterTitle": "O TANQUE E O LABORATÓRIO",
+    "voiceover": "O resultado cria uma bifurcação: liberar, segregar ou rejeitar. A embalagem ainda nem apareceu.",
+    "visualSubject": "flat audit flow built around a real milk sample, intake valve and quarantine tank photograph",
+    "visual_must_include": [
+      "flat audit flow built around a real milk sample, intake valve and quarantine tank photograph",
+      "three thin paths identify release, segregation and rejection"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_025",
+      "substituting flat audit flow built around a real milk sample, intake valve and quarantine tank photograph with an icon or abstract symbol",
+      "static showroom pose instead of three thin paths identify release, segregation and rejection"
+    ],
+    "required_category": "milk_chain_025",
+    "canon_category": "reveal",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_026",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "Aprovado, o leite entra na indústria por linhas fechadas que ligam recepção e tratamento.",
+    "visualSubject": "wide elevated view of a real dairy plant reception area and connected stainless process lines",
+    "visual_must_include": [
+      "wide elevated view of a real dairy plant reception area and connected stainless process lines",
+      "pipe geometry traces the physical route from tanker bay to processing hall"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_026",
+      "substituting wide elevated view of a real dairy plant reception area and connected stainless process lines with an icon or abstract symbol",
+      "static showroom pose instead of pipe geometry traces the physical route from tanker bay to processing hall"
+    ],
+    "required_category": "milk_chain_026",
+    "canon_category": "maps",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_027",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "No pasteurizador, muitas placas finas criam grande área de troca de calor em pouco espaço.",
+    "visualSubject": "opened industrial plate heat exchanger used for milk pasteurization",
+    "visual_must_include": [
+      "opened industrial plate heat exchanger used for milk pasteurization",
+      "gaskets, corrugated plates and sanitary connections are sharply observable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_027",
+      "substituting opened industrial plate heat exchanger used for milk pasteurization with an icon or abstract symbol",
+      "static showroom pose instead of gaskets, corrugated plates and sanitary connections are sharply observable"
+    ],
+    "required_category": "milk_chain_027",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_028",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "Na pasteurização rápida, o leite pode passar por 72 a 75 graus durante 15 a 20 segundos.",
+    "visualSubject": "technical pasteurization curve over real heat exchanger plates and a calibrated holding tube",
+    "visual_must_include": [
+      "technical pasteurization curve over real heat exchanger plates and a calibrated holding tube",
+      "the 72 to 75 degree band and 15 to 20 second interval appear as audit marks"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_028",
+      "substituting technical pasteurization curve over real heat exchanger plates and a calibrated holding tube with an icon or abstract symbol",
+      "static showroom pose instead of the 72 to 75 degree band and 15 to 20 second interval appear as audit marks"
+    ],
+    "required_category": "milk_chain_028",
+    "canon_category": "evidence",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_029",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "Se a temperatura cair, uma válvula desvia o leite para repetir o tratamento.",
+    "visualSubject": "sanitary flow-diversion valve and holding tube in an operating milk pasteurization line",
+    "visual_must_include": [
+      "sanitary flow-diversion valve and holding tube in an operating milk pasteurization line",
+      "the valve actuator changes position while milk continues through closed pipes"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_029",
+      "substituting sanitary flow-diversion valve and holding tube in an operating milk pasteurization line with an icon or abstract symbol",
+      "static showroom pose instead of the valve actuator changes position while milk continues through closed pipes"
+    ],
+    "required_category": "milk_chain_029",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_030",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "O calor reduz microrganismos perigosos, mas não transforma leite pasteurizado em produto eterno.",
+    "visualSubject": "real milk sample beside restrained before-and-after microbial count plates",
+    "visual_must_include": [
+      "real milk sample beside restrained before-and-after microbial count plates",
+      "a subtle comparison reveals reduction without fictional microbes"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_030",
+      "substituting real milk sample beside restrained before-and-after microbial count plates with an icon or abstract symbol",
+      "static showroom pose instead of a subtle comparison reveals reduction without fictional microbes"
+    ],
+    "required_category": "milk_chain_030",
+    "canon_category": "reveal",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_031",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "A homogeneização quebra glóbulos de gordura para evitar separação visível.",
+    "visualSubject": "industrial milk homogenizer valve assembly with high-pressure sanitary piping",
+    "visual_must_include": [
+      "industrial milk homogenizer valve assembly with high-pressure sanitary piping",
+      "the valve block, pressure housing and outlet line are clearly observable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_031",
+      "substituting industrial milk homogenizer valve assembly with high-pressure sanitary piping with an icon or abstract symbol",
+      "static showroom pose instead of the valve block, pressure housing and outlet line are clearly observable"
+    ],
+    "required_category": "milk_chain_031",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_032",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "No UHT, o choque é mais intenso: temperatura muito alta por poucos segundos.",
+    "visualSubject": "operating UHT milk processing skid with steam lines, heat exchanger and sterile piping",
+    "visual_must_include": [
+      "operating UHT milk processing skid with steam lines, heat exchanger and sterile piping",
+      "steam valves pulse and condensate moves through the real process skid"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_032",
+      "substituting operating UHT milk processing skid with steam lines, heat exchanger and sterile piping with an icon or abstract symbol",
+      "static showroom pose instead of steam valves pulse and condensate moves through the real process skid"
+    ],
+    "required_category": "milk_chain_032",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_033",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "A referência industrial fica entre 130 e 150 graus por dois a quatro segundos.",
+    "visualSubject": "UHT time-temperature diagram anchored to a real sterile holding tube and cooling section",
+    "visual_must_include": [
+      "UHT time-temperature diagram anchored to a real sterile holding tube and cooling section",
+      "axes mark 130 to 150 degrees for two to four seconds and rapid cooling"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_033",
+      "substituting UHT time-temperature diagram anchored to a real sterile holding tube and cooling section with an icon or abstract symbol",
+      "static showroom pose instead of axes mark 130 to 150 degrees for two to four seconds and rapid cooling"
+    ],
+    "required_category": "milk_chain_033",
+    "canon_category": "evidence",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_034",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH4",
+    "chapterTitle": "CALOR CONTROLADO",
+    "voiceover": "Depois do calor, tanque e tubulações protegem o produto contra uma nova contaminação.",
+    "visualSubject": "sterile surge tank, filtered air assembly and aseptic milk piping inside a real filling area",
+    "visual_must_include": [
+      "sterile surge tank, filtered air assembly and aseptic milk piping inside a real filling area",
+      "sealed connections and practical clean-room surfaces remain visible"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_034",
+      "substituting sterile surge tank, filtered air assembly and aseptic milk piping inside a real filling area with an icon or abstract symbol",
+      "static showroom pose instead of sealed connections and practical clean-room surfaces remain visible"
+    ],
+    "required_category": "milk_chain_034",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_035",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "Só agora a embalagem entra em cena, formada e sincronizada com o fluxo do produto.",
+    "visualSubject": "aseptic milk carton forming machine behind transparent safety guards with no people present",
+    "visual_must_include": [
+      "aseptic milk carton forming machine behind transparent safety guards with no people present",
+      "packaging web advances while one carton body is folded"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_035",
+      "substituting aseptic milk carton forming machine behind transparent safety guards with no people present with an icon or abstract symbol",
+      "static showroom pose instead of packaging web advances while one carton body is folded"
+    ],
+    "required_category": "milk_chain_035",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_036",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "Papel, polímeros e alumínio trabalham contra luz, oxigênio, umidade e vazamentos.",
+    "visualSubject": "macro cross-section of real multilayer aseptic milk carton material",
+    "visual_must_include": [
+      "macro cross-section of real multilayer aseptic milk carton material",
+      "paper fiber, polymer films and thin aluminum barrier are distinguishable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_036",
+      "substituting macro cross-section of real multilayer aseptic milk carton material with an icon or abstract symbol",
+      "static showroom pose instead of paper fiber, polymer films and thin aluminum barrier are distinguishable"
+    ],
+    "required_category": "milk_chain_036",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_037",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "Essas camadas não matam microrganismos; elas preservam o resultado do processo térmico.",
+    "visualSubject": "real aseptic carton layer sample beside a sealed seam",
+    "visual_must_include": [
+      "real aseptic carton layer sample beside a sealed seam",
+      "thin audit lines connect each physical layer to its protective function"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_037",
+      "substituting real aseptic carton layer sample beside a sealed seam with an icon or abstract symbol",
+      "static showroom pose instead of thin audit lines connect each physical layer to its protective function"
+    ],
+    "required_category": "milk_chain_037",
+    "canon_category": "matter",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_038",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "O enchimento ocorre em ambiente controlado e a selagem fecha cada unidade.",
+    "visualSubject": "aseptic milk filling and top-sealing station operating with no people present",
+    "visual_must_include": [
+      "aseptic milk filling and top-sealing station operating with no people present",
+      "cartons advance, fill and seal in a continuous mechanical cycle"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_038",
+      "substituting aseptic milk filling and top-sealing station operating with no people present with an icon or abstract symbol",
+      "static showroom pose instead of cartons advance, fill and seal in a continuous mechanical cycle"
+    ],
+    "required_category": "milk_chain_038",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_039",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "Código de lote e data ligam aquela caixa aos testes e condições registrados.",
+    "visualSubject": "industrial lot-code printer marking sealed milk cartons on a real conveyor",
+    "visual_must_include": [
+      "industrial lot-code printer marking sealed milk cartons on a real conveyor",
+      "the print head pulses while cartons move beneath it with unreadable text"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_039",
+      "substituting industrial lot-code printer marking sealed milk cartons on a real conveyor with an icon or abstract symbol",
+      "static showroom pose instead of the print head pulses while cartons move beneath it with unreadable text"
+    ],
+    "required_category": "milk_chain_039",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_040",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "O pasteurizado continua refrigerado; o UHT fechado pode seguir pela rota ambiente.",
+    "visualSubject": "split flat logistics map linking one dairy plant to refrigerated and ambient routes",
+    "visual_must_include": [
+      "split flat logistics map linking one dairy plant to refrigerated and ambient routes",
+      "cold and ambient route lines remain cartographic and restrained"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_040",
+      "substituting split flat logistics map linking one dairy plant to refrigerated and ambient routes with an icon or abstract symbol",
+      "static showroom pose instead of cold and ambient route lines remain cartographic and restrained"
+    ],
+    "required_category": "milk_chain_040",
+    "canon_category": "maps",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_041",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "No leite pasteurizado, caminhão e câmara fria mantêm a corrida até o ponto de venda.",
+    "visualSubject": "refrigerated dairy truck carrying sealed milk crates on a real distribution road",
+    "visual_must_include": [
+      "refrigerated dairy truck carrying sealed milk crates on a real distribution road",
+      "the vehicle enters a cold-store loading bay under ordinary daylight"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_041",
+      "substituting refrigerated dairy truck carrying sealed milk crates on a real distribution road with an icon or abstract symbol",
+      "static showroom pose instead of the vehicle enters a cold-store loading bay under ordinary daylight"
+    ],
+    "required_category": "milk_chain_041",
+    "canon_category": "maps",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_042",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH5",
+    "chapterTitle": "A EMBALAGEM NÃO TRABALHA SOZINHA",
+    "voiceover": "Na loja, a geladeira é a última máquina comercial antes de o litro chegar até você.",
+    "visualSubject": "supermarket refrigerated milk shelf with sealed cartons and no shoppers present",
+    "visual_must_include": [
+      "supermarket refrigerated milk shelf with sealed cartons and no shoppers present",
+      "evaporator vents, shelf thermometer and product rows remain visible"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_042",
+      "substituting supermarket refrigerated milk shelf with sealed cartons and no shoppers present with an icon or abstract symbol",
+      "static showroom pose instead of evaporator vents, shelf thermometer and product rows remain visible"
+    ],
+    "required_category": "milk_chain_042",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_043",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "Em casa, abrir a embalagem inicia uma nova contagem.",
+    "visualSubject": "opened milk carton stored on an interior refrigerator shelf with no people present",
+    "visual_must_include": [
+      "opened milk carton stored on an interior refrigerator shelf with no people present",
+      "a restrained clock marker appears beside the cap and cold-air vent"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_043",
+      "substituting opened milk carton stored on an interior refrigerator shelf with no people present with an icon or abstract symbol",
+      "static showroom pose instead of a restrained clock marker appears beside the cap and cold-air vent"
+    ],
+    "required_category": "milk_chain_043",
+    "canon_category": "matter",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_044",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "Tempo demais fora do frio reduz a margem criada pela indústria.",
+    "visualSubject": "sealed pasteurized milk bottle developing condensation beside a refrigerator with no people present",
+    "visual_must_include": [
+      "sealed pasteurized milk bottle developing condensation beside a refrigerator with no people present",
+      "condensation grows while the practical room remains still"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_044",
+      "substituting sealed pasteurized milk bottle developing condensation beside a refrigerator with no people present with an icon or abstract symbol",
+      "static showroom pose instead of condensation grows while the practical room remains still"
+    ],
+    "required_category": "milk_chain_044",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_045",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "Mesmo o UHT precisa de geladeira depois de aberto, porque a barreira foi rompida.",
+    "visualSubject": "opened UHT milk carton standing upright on a clean refrigerator shelf",
+    "visual_must_include": [
+      "opened UHT milk carton standing upright on a clean refrigerator shelf",
+      "the open cap, cold vent and interior thermometer are observable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_045",
+      "substituting opened UHT milk carton standing upright on a clean refrigerator shelf with an icon or abstract symbol",
+      "static showroom pose instead of the open cap, cold vent and interior thermometer are observable"
+    ],
+    "required_category": "milk_chain_045",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_046",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "No centro do sistema existe um triângulo: tempo, temperatura e contaminação.",
+    "visualSubject": "flat audit triangle over a real milk pipe, thermometer and sealed sample vial",
+    "visual_must_include": [
+      "flat audit triangle over a real milk pipe, thermometer and sealed sample vial",
+      "each side links time, temperature or contamination to one physical object"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_046",
+      "substituting flat audit triangle over a real milk pipe, thermometer and sealed sample vial with an icon or abstract symbol",
+      "static showroom pose instead of each side links time, temperature or contamination to one physical object"
+    ],
+    "required_category": "milk_chain_046",
+    "canon_category": "reveal",
+    "visual_asset_class": "MOTION_GRAPHICS",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_047",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "Quando a proteção falha, proteínas se agregam, a acidez sobe e o líquido pode coalhar.",
+    "visualSubject": "macro documentary view of spoiled milk curdling inside a clear laboratory glass",
+    "visual_must_include": [
+      "macro documentary view of spoiled milk curdling inside a clear laboratory glass",
+      "small curds form and separate from the liquid in real time"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_047",
+      "substituting macro documentary view of spoiled milk curdling inside a clear laboratory glass with an icon or abstract symbol",
+      "static showroom pose instead of small curds form and separate from the liquid in real time"
+    ],
+    "required_category": "milk_chain_047",
+    "canon_category": "evidence",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_048",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "Duas caixas parecidas podem exigir cuidados diferentes porque processo e logística não são iguais.",
+    "visualSubject": "sealed aseptic UHT carton beside a refrigerated pasteurized milk bottle",
+    "visual_must_include": [
+      "sealed aseptic UHT carton beside a refrigerated pasteurized milk bottle",
+      "package seams, cold condensation and storage symbols remain observable"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_048",
+      "substituting sealed aseptic UHT carton beside a refrigerated pasteurized milk bottle with an icon or abstract symbol",
+      "static showroom pose instead of package seams, cold condensation and storage symbols remain observable"
+    ],
+    "required_category": "milk_chain_048",
+    "canon_category": "matter",
+    "visual_asset_class": "REALISTIC_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  },
+  {
+    "sceneId": "LEITE_049",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "O último controle verifica passagem, selagem e rastreabilidade antes da saída.",
+    "visualSubject": "sealed milk carton crossing an automated seal inspection checkpoint with no people present",
+    "visual_must_include": [
+      "sealed milk carton crossing an automated seal inspection checkpoint with no people present",
+      "the carton moves through the sensor arch and continues on the conveyor"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_049",
+      "substituting sealed milk carton crossing an automated seal inspection checkpoint with no people present with an icon or abstract symbol",
+      "static showroom pose instead of the carton moves through the sensor arch and continues on the conveyor"
+    ],
+    "required_category": "milk_chain_049",
+    "canon_category": "matter",
+    "visual_asset_class": "VIDEO",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "firefly"
+    ]
+  },
+  {
+    "sceneId": "LEITE_050",
+    "episodeId": "leite-cadeia-frio",
+    "chapterId": "CH6",
+    "chapterTitle": "A VALIDADE É UMA CADEIA",
+    "voiceover": "A validade do leite não vem da embalagem; ela é fabricada por uma cadeia de tempo e temperatura.",
+    "visualSubject": "one-liter milk carton among real artifacts from cooling, transport, testing, heating and filling",
+    "visual_must_include": [
+      "one-liter milk carton among real artifacts from cooling, transport, testing, heating and filling",
+      "a restrained route line connects tank, tanker, sample vial, heat exchanger and carton"
+    ],
+    "visual_must_not": [
+      "unrelated generic dairy advertising in LEITE_050",
+      "substituting one-liter milk carton among real artifacts from cooling, transport, testing, heating and filling with an icon or abstract symbol",
+      "static showroom pose instead of a restrained route line connects tank, tanker, sample vial, heat exchanger and carton"
+    ],
+    "required_category": "milk_chain_050",
+    "canon_category": "matter",
+    "visual_asset_class": "MOTION_IMAGE",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.2,
+    "domainTags": [
+      "milk",
+      "dairy-farm",
+      "cold-chain",
+      "pasteurization",
+      "uht",
+      "aseptic-packaging",
+      "food-safety",
+      "brazil"
+    ],
+    "allowed_sources": [
+      "dossier"
+    ]
+  }
+]

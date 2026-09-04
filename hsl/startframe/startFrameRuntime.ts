@@ -11,6 +11,7 @@ import {
   HSL_VISUAL_IDENTITY_RULES
 } from '../../config/hslVisualIdentity';
 import {StartFrameIdentityGate} from './startFrameIdentityGate';
+import {FIREFLY_GENERATION_PROFILE} from '../../config/fireflyGenerationConfig';
 
 export interface HslStartFrameApprovalItem {
   readonly shot_id?: string;
@@ -252,16 +253,16 @@ export class HslStartFrameRuntime {
       });
       if (premiumPackage) premiumPackagePaths.push(premiumPackage.packageDirectory);
       const isVeo = shot.generation_strategy === 'VEO_MOTION_GRAPHIC' || shot.generation_strategy === 'VEO_REMOTION_HYBRID';
-      const duration = isVeo ? shot.veo_motion!.duration_seconds : 10;
+      const duration = isVeo ? shot.veo_motion!.duration_seconds : 5;
       const motionPackage = {
-        schema: isVeo ? 'hsl.veo.generation-package.v1' : 'hsl.kling.generation-package.v1',
-        status: isVeo ? 'GENERATION_PACKAGE_READY_FOR_VEO' : 'GENERATION_PACKAGE_READY_FOR_KLING',
+        schema: isVeo ? 'hsl.veo.generation-package.v1' : 'hsl.firefly-video.generation-package.v1',
+        status: isVeo ? 'GENERATION_PACKAGE_READY_FOR_VEO' : 'GENERATION_PACKAGE_READY_FOR_FIREFLY',
         episode_id: executionPlan.episode_id, shot_id: shot.shot_id, parent_scene_id: shot.parent_scene_id,
         execution_revision: executionRevision,
         start_frame_path: frame.path, start_frame_sha256: frame.sha256,
-        generation_strategy: shot.generation_strategy || 'KLING_CINEMATIC',
+        generation_strategy: isVeo ? shot.generation_strategy : 'FIREFLY_CINEMATIC',
         audio_strategy: shot.audio_strategy || 'KENNEY_DESIGNED',
-        model: isVeo ? 'Veo 3.1 Fast' : 'Kling 3.0',
+        model: isVeo ? 'Veo 3.1 Fast' : FIREFLY_GENERATION_PROFILE.model,
         generate_audio: Boolean(isVeo && shot.veo_motion?.generate_audio),
         premium_start_frame_package: premiumPackage?.packageDirectory || null,
         motion_family: shot.motion_family || null,
@@ -271,7 +272,7 @@ export class HslStartFrameRuntime {
         camera_motion: shot.motion.camera_motion,
         planned_usable_seconds: Math.min(shot.planned_duration_seconds, duration),
         head_handle_seconds: 0.4, tail_handle_seconds: 0.4,
-        generation_duration_seconds: duration, supported_duration_seconds: isVeo ? [4, 6, 8] : [5, 10],
+        generation_duration_seconds: duration, supported_duration_seconds: isVeo ? [4, 6, 8] : [5],
         resolution: isVeo ? shot.veo_motion!.resolution : '1080p', aspect_ratio: '16:9',
         evidence_status: 'illustrative', ai_disclosure_required: true, on_screen_label: 'AI VISUALIZATION'
       };
@@ -286,9 +287,9 @@ export class HslStartFrameRuntime {
         handoff_mode: 'MISSION_CONTROL_AUTOMATED', eligible_for_automated_video_dispatch: true,
         visual_function: shot.visual_function, evidence_status: 'illustrative', ai_disclosure_required: true,
         on_screen_label: 'AI VISUALIZATION', created_at: new Date().toISOString(),
-        generation_strategy: shot.generation_strategy || 'KLING_CINEMATIC',
+        generation_strategy: isVeo ? shot.generation_strategy : 'FIREFLY_CINEMATIC',
         audio_strategy: shot.audio_strategy || 'KENNEY_DESIGNED',
-        requested_model: isVeo ? 'Veo 3.1 Fast' : 'Kling 3.0',
+        requested_model: isVeo ? 'Veo 3.1 Fast' : FIREFLY_GENERATION_PROFILE.model,
         generate_audio: Boolean(isVeo && shot.veo_motion?.generate_audio),
         premium_start_frame_package_path: premiumPackage?.packageDirectory
       });

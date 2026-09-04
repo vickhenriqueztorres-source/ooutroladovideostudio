@@ -57,7 +57,9 @@ export const TimelineCalloutSchema = z.object({
   categoryText: z.string().min(2, "O kicker (categoryText) do callout deve ter pelo menos 2 caracteres."),
   mainText: z.string().min(2, "O título (mainText) do callout deve ter pelo menos 2 caracteres."),
   subText: z.string().min(2, "O sublabel (subText) do callout deve ter pelo menos 2 caracteres."),
-  position: z.enum(['center', 'bottom_left', 'bottom_right', 'top_left', 'top_right', 'center_left', 'top_center']).optional().default('bottom_left')
+  position: z.enum(['center', 'bottom_left', 'bottom_right', 'top_left', 'top_right', 'center_left', 'top_center']).optional().default('bottom_left'),
+  startSeconds: z.number().min(0).max(3).optional().default(0.45),
+  durationSeconds: z.number().min(0.8).max(2.5).optional().default(1.8),
 }).superRefine((callout, ctx) => {
   if (callout.categoryText.trim().toLowerCase() === callout.mainText.trim().toLowerCase()) {
     ctx.addIssue({
@@ -67,6 +69,8 @@ export const TimelineCalloutSchema = z.object({
     });
   }
 });
+
+export type TimelineCallout = z.infer<typeof TimelineCalloutSchema>;
 
 export const TimelineSceneItemSchema = z.object({
   id: z.string().min(1, "O campo 'id' da cena não pode ser vazio."),
@@ -83,6 +87,7 @@ export const TimelineSceneItemSchema = z.object({
   voiceoverText: z.string().optional(),
   sfxFile: z.string().optional(),
   mediaFile: z.string().optional(),
+  mediaSha256: z.string().regex(/^(?:sha256_)?[a-f0-9]{64}$/i, 'TIMELINE_MEDIA_SHA256_INVALID').optional(),
   visualSubject: z.string().optional(),
   callout: TimelineCalloutSchema.optional(),
   motionRecipes: DocumentaryMotionRecipeListSchema.optional().default([]),
@@ -124,7 +129,21 @@ export const TimelineSceneItemSchema = z.object({
         path: ['motionRecipes', i],
       });
     }
-    if (scene.callout && recipe.startSeconds < Math.min(4, scene.durationSeconds) && end > 0) {
+    if (recipe.binding && scene.mediaSha256) {
+      const recipeHash = recipe.binding.mediaSha256.replace(/^sha256_/i, '').toLowerCase();
+      const mediaHash = scene.mediaSha256.replace(/^sha256_/i, '').toLowerCase();
+      if (recipeHash !== mediaHash) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `TIMELINE_MOTION_MEDIA_HASH_MISMATCH:${recipe.id}:${scene.id}`,
+          path: ['motionRecipes', i, 'binding', 'mediaSha256'],
+        });
+      }
+    }
+    const calloutStart = scene.callout?.startSeconds ?? 0.45;
+    const calloutEnd = calloutStart + (scene.callout?.durationSeconds ?? 1.8);
+    const calloutOverlap = Math.min(end, calloutEnd) - Math.max(recipe.startSeconds, calloutStart);
+    if (scene.callout && calloutOverlap > 0.2) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: `TIMELINE_MOTION_CALLOUT_COLLISION: Motion '${recipe.id}' compete com o callout da cena '${scene.id}'.`,
@@ -224,6 +243,7 @@ export type AudioManifest = z.infer<typeof AudioManifestSchema>;
 
 export const TimelineContractSchema = z.object({
   episodeId: z.string().min(1, "O campo 'episodeId' é obrigatório."),
+  motionLanguage: z.enum(['legacy', 'documentary-field-v4']).optional().default('legacy'),
   fps: z.number().int().positive().optional().default(HSL_FPS),
   scenes: z.array(TimelineSceneItemSchema).min(1, "O timeline deve conter pelo menos uma cena."),
   actBreaks: z.array(z.number().int().nonnegative()).optional(),
@@ -232,6 +252,59 @@ export const TimelineContractSchema = z.object({
   audio: AudioManifestSchema.optional()
 }).superRefine((data, ctx) => {
   const scenes = data.scenes;
+
+  if (data.motionLanguage === 'documentary-field-v4') {
+    const calloutCount = scenes.filter((scene) => scene.callout).length;
+    if (calloutCount / scenes.length > 0.3) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `MOTION_CALLOUT_OVERUSE:${calloutCount}/${scenes.length}:max=30%`,
+        path: ['scenes'],
+      });
+    }
+    const crossfadeCount = scenes.filter((scene) => scene.transition === 'crossfade').length;
+    if (crossfadeCount / scenes.length > 0.35) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `MOTION_CROSSFADE_OVERUSE:${crossfadeCount}/${scenes.length}:max=35%`,
+        path: ['scenes'],
+      });
+    }
+    const mediaScenes = scenes.filter((scene) => scene.mediaFile || scene.props?.mediaPath);
+    const uniqueMedia = new Set(mediaScenes.map((scene) => scene.mediaFile || scene.props?.mediaPath));
+    if (mediaScenes.length && uniqueMedia.size / mediaScenes.length < 0.7) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `MOTION_MEDIA_REPETITION:${uniqueMedia.size}/${mediaScenes.length}:min=70%`,
+        path: ['scenes'],
+      });
+    }
+    scenes.forEach((scene, index) => {
+      if (scene.component === 'FieldDocumentaryScene' && !(scene.mediaFile || scene.props?.mediaPath)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `MOTION_TEMPORAL_MEDIA_REQUIRED:${scene.id}`,
+          path: ['scenes', index, 'mediaFile'],
+        });
+      }
+      if ((scene.mediaFile || scene.props?.mediaPath) && scene.camera !== 'static') {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `MOTION_SYNTHETIC_CAMERA_FORBIDDEN:${scene.id}:${scene.camera}`,
+          path: ['scenes', index, 'camera'],
+        });
+      }
+      scene.motionRecipes.forEach((recipe, recipeIndex) => {
+        if (recipe.binding && !scene.mediaSha256) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: `MOTION_SCENE_MEDIA_HASH_REQUIRED:${scene.id}:${recipe.id}`,
+            path: ['scenes', index, 'motionRecipes', recipeIndex, 'binding'],
+          });
+        }
+      });
+    });
+  }
 
   // 1. TIMELINE_NO_ACT_STRUCTURE (mín 2, máx 4 viradas de ato)
   if (!data.actBreaks || data.actBreaks.length < 2 || data.actBreaks.length > 4) {
@@ -335,12 +408,12 @@ export const TimelineContractSchema = z.object({
     // Se a cena possui callout declarado
     if (sc.callout) {
       const calloutZone = sc.callout.position || 'bottom_left';
-      // Callout fica ativo até 4s ou duração total da cena
-      const calloutEnd = Math.min(sceneEnd, sceneStart + 4.0);
+      const calloutStart = sceneStart + sc.callout.startSeconds;
+      const calloutEnd = Math.min(sceneEnd, calloutStart + sc.callout.durationSeconds);
       occupiedIntervals.push({
         elementName: `Callout da cena '${sc.id}'`,
         zone: calloutZone,
-        startSeconds: sceneStart,
+        startSeconds: calloutStart,
         endSeconds: calloutEnd
       });
     }

@@ -63,7 +63,7 @@ function main(): void {
     }))
   });
 
-  process.env.HSL_FIREFLY_TARGET_RESOLUTION = process.env.HSL_FIREFLY_TARGET_RESOLUTION || '720p';
+  process.env.HSL_FIREFLY_TARGET_RESOLUTION = process.env.HSL_FIREFLY_TARGET_RESOLUTION || '1080p';
   const startFrames = new HslStartFrameRuntime().run({
     productionId,
     executionPlanPath: path.join(outputRoot, 'editorial', 'execution', 'episode.execution.json'),
@@ -73,7 +73,7 @@ function main(): void {
   });
   const prepared = new HslFireflyGenerationRuntime().prepare(startFrames.handoffs, path.join(outputRoot, 'firefly'));
   const modelCounts = startFrames.handoffs.reduce<Record<string, number>>((counts, handoff) => {
-    const model = handoff.requested_model || 'Kling 3.0';
+    const model = handoff.requested_model || 'Firefly Video';
     counts[model] = (counts[model] || 0) + 1;
     return counts;
   }, {});
@@ -85,7 +85,7 @@ function main(): void {
     status: 'GENERATION_GUIDE_READY',
     dispatch_authorized: false,
     target_provider_override: 'Firefly Video',
-    target_resolution: '720p',
+    target_resolution: '1080p',
     approval_manifest_path: approvalManifestPath,
     start_frame_manifest_path: startFrames.startFrameManifestPath,
     motion_package_count: startFrames.motionPackagePaths.length,
@@ -101,7 +101,7 @@ function main(): void {
     motion_package_count: startFrames.motionPackagePaths.length,
     source_provider_model_counts: modelCounts,
     target_provider_override: 'Firefly Video',
-    target_resolution: '720p',
+    target_resolution: '1080p',
     generation_guide_path: prepared.masterGuidePath,
     preparation_manifest_path: manifestPath
   }, null, 2)}\n`);

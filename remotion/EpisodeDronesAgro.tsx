@@ -1,6 +1,6 @@
 import React from 'react';
 import { CinematicEpisode } from './cinema/CinematicEpisode';
-import { EPISODE_DRONES_AGRO_CALCULATED_TIMELINE } from './episodeDronesAgroTimelineData';
+import { EPISODE_DRONES_AGRO_FIELD_CALCULATED_TIMELINE } from './episodeDronesAgroFieldTimelineData';
 
 export interface EpisodeDronesAgroProps {
   runId?: string;
@@ -19,7 +19,7 @@ export const EpisodeDronesAgro: React.FC<EpisodeDronesAgroProps> = ({
 }) => {
   return (
     <CinematicEpisode
-      timeline={EPISODE_DRONES_AGRO_CALCULATED_TIMELINE}
+      timeline={EPISODE_DRONES_AGRO_FIELD_CALCULATED_TIMELINE}
       accentColor={accentColor}
       telemetryColor={telemetryColor}
       runId={runId}

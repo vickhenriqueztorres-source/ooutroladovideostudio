@@ -13,6 +13,7 @@ import { SceneTransition } from './SceneTransition';
 import { CameraLanguage } from './CameraLanguage';
 import { CinematicAudioMix } from './CinematicAudioMix';
 import { resolveSceneComponent } from './componentRegistry';
+import { DynamicDocumentaryMedia } from '../documentary/DynamicDocumentaryMedia';
 import { KineticEditorialCallout } from '../documentary/KineticEditorialCallout';
 import {
   DocumentaryMotionStage,
@@ -185,6 +186,9 @@ export const CinematicEpisode: React.FC<CinematicEpisodeProps> = ({
                         durationInFrames={sequenceDuration}
                         sceneIndex={index}
                       >
+                        {['IndustrialXRayHUD', 'LaserScanDossier', 'VelocityPhysicsCalculationHUD', 'FlowMeterPulserSchematicHUD', 'FlowDiscrepancyHUD'].includes(scene.component) && (
+                          <DynamicDocumentaryMedia {...mergedProps} />
+                        )}
                         <SceneComponent {...mergedProps} />
                       </CameraLanguage>
                     </DocumentaryMotionStage>
@@ -197,8 +201,11 @@ export const CinematicEpisode: React.FC<CinematicEpisodeProps> = ({
                         mainText={scene.callout.mainText}
                         subText={scene.callout.subText}
                         categoryText={scene.callout.categoryText}
-                        startFrame={15}
-                        durationFrames={Math.max(60, scene.durationFrames - 20)}
+                        startFrame={Math.round((scene.callout.startSeconds ?? 0.45) * calculatedTimeline.fps)}
+                        durationFrames={Math.min(
+                          Math.round((scene.callout.durationSeconds ?? 1.8) * calculatedTimeline.fps),
+                          Math.max(1, scene.durationFrames - Math.round((scene.callout.startSeconds ?? 0.45) * calculatedTimeline.fps)),
+                        )}
                         position={(scene.callout.position as any) || 'bottom_left'}
                         accentColor={accentColor}
                         telemetryColor={telemetryColor}

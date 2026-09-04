@@ -4,10 +4,19 @@ import {DocumentaryMotionRecipeSchema} from '../../contracts/documentaryMotionCo
 import {DocumentaryMotionStage, DocumentaryOverlayDirector} from './DocumentaryOverlayDirector';
 
 const source = 'Demonstracao da biblioteca Documentario de Campo Investigativo';
+const trackedBinding = (point: {x: number; y: number}, durationSeconds: number) => ({
+  mediaSha256: 'b'.repeat(64),
+  trackingMethod: 'manual_keyframes' as const,
+  confidence: 0.9,
+  keyframes: [
+    {atSeconds: 0, point},
+    {atSeconds: durationSeconds, point: {x: point.x + 0.012, y: point.y + 0.006}},
+  ],
+});
 
 const rawRecipes = [
-  {id: 'field', type: 'field_marker', startSeconds: 0.4, durationSeconds: 2.2, zone: 'bottom_left', colorRole: 'evidence', anchor: {x: .63, y: .39}, label: 'Equipamento em operacao', detail: 'Materia observada'},
-  {id: 'freeze', type: 'evidence_freeze', startSeconds: 3.2, durationSeconds: 1, zone: 'bottom_left', colorRole: 'evidence', anchor: {x: .62, y: .39}, label: 'Sensor identificado', source},
+  {id: 'field', type: 'field_marker', startSeconds: 0.4, durationSeconds: 2.2, zone: 'bottom_left', colorRole: 'evidence', anchor: {x: .63, y: .39}, binding: trackedBinding({x: .63, y: .39}, 2.2), label: 'Equipamento em operacao', detail: 'Materia observada'},
+  {id: 'freeze', type: 'evidence_freeze', startSeconds: 3.2, durationSeconds: 1, zone: 'bottom_left', colorRole: 'evidence', anchor: {x: .62, y: .39}, binding: trackedBinding({x: .62, y: .39}, 1), label: 'Sensor identificado', source},
   {id: 'measure', type: 'measurement_bracket', startSeconds: 6.2, durationSeconds: 2.3, colorRole: 'neutral', from: {x: .35, y: .62}, to: {x: .72, y: .62}, value: '2,5 m', label: 'Faixa observada'},
   {id: 'counter', type: 'verified_counter', startSeconds: 9.2, durationSeconds: 2.4, zone: 'bottom_right', colorRole: 'telemetry', endValue: 28, decimals: 0, suffix: ' km/h', label: 'Velocidade medida', source, verifiedData: true},
   {id: 'caption', type: 'source_caption', startSeconds: 12.2, durationSeconds: 2.4, zone: 'bottom_left', text: 'Operacao registrada em campo', source},
@@ -19,7 +28,7 @@ const rawRecipes = [
   {id: 'timeline', type: 'timeline_marks', startSeconds: 30.2, durationSeconds: 2.4, zone: 'bottom_center', colorRole: 'evidence', title: 'Uma operacao', events: [{label: 'Decolagem', date: '00:00'}, {label: 'Mapeamento', date: '00:18'}, {label: 'Aplicacao', date: '00:42'}], activeIndex: 1, source},
   {id: 'location', type: 'location_stamp', startSeconds: 33.2, durationSeconds: 2.4, zone: 'top_left', colorRole: 'telemetry', place: 'Cristalina, GO', coordinates: '16.7676 S, 47.6131 W', context: 'Registro de campo', source, verifiedData: true},
   {id: 'area', type: 'area_outline', startSeconds: 36.2, durationSeconds: 2.4, zone: 'bottom_left', colorRole: 'evidence', points: [{x: .2, y: .3}, {x: .72, y: .27}, {x: .82, y: .72}, {x: .3, y: .78}], label: 'Area delimitada', value: '1 hectare', source},
-  {id: 'risk', type: 'risk_marker', startSeconds: 39.2, durationSeconds: 2.4, zone: 'bottom_right', colorRole: 'risk', anchor: {x: .73, y: .28}, label: 'Ponto de risco', consequence: 'Obstaculo dentro da rota', source},
+  {id: 'risk', type: 'risk_marker', startSeconds: 39.2, durationSeconds: 2.4, zone: 'bottom_right', colorRole: 'risk', anchor: {x: .73, y: .28}, binding: trackedBinding({x: .73, y: .28}, 2.4), label: 'Ponto de risco', consequence: 'Obstaculo dentro da rota', source},
 ];
 
 const recipes = rawRecipes.map((recipe) => DocumentaryMotionRecipeSchema.parse(recipe));

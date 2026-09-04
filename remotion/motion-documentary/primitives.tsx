@@ -1,6 +1,6 @@
 import React from 'react';
-import {interpolate} from 'remotion';
-import {DocumentaryMotionColorRole, NormalizedPoint} from '../../contracts/documentaryMotionContract';
+import {Easing, interpolate} from 'remotion';
+import {DocumentaryMotionColorRole, DocumentaryMotionRecipe, NormalizedPoint} from '../../contracts/documentaryMotionContract';
 import {colorForRole, DOCUMENTARY_MOTION_TOKENS} from './tokens';
 
 export function motionEnvelope(frame: number, durationInFrames: number): number {
@@ -9,10 +9,12 @@ export function motionEnvelope(frame: number, durationInFrames: number): number 
   const fadeIn = interpolate(frame, [0, enter], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
+    easing: Easing.out(Easing.cubic),
   });
   const fadeOut = interpolate(frame, [exitStart, durationInFrames], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
+    easing: Easing.in(Easing.cubic),
   });
   return Math.min(fadeIn, fadeOut);
 }
@@ -22,8 +24,29 @@ export function drawProgress(frame: number, durationInFrames: number): number {
     frame,
     [0, Math.min(DOCUMENTARY_MOTION_TOKENS.timing.lineDrawFrames, durationInFrames * 0.45)],
     [0, 1],
-    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}
+    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)}
   );
+}
+
+export function trackedPoint(
+  binding: DocumentaryMotionRecipe['binding'],
+  fallback: NormalizedPoint,
+  frame: number,
+  fps: number,
+): NormalizedPoint {
+  if (!binding?.keyframes.length) return fallback;
+  const seconds = frame / fps;
+  const keyframes = binding.keyframes;
+  if (seconds <= keyframes[0].atSeconds) return keyframes[0].point;
+  if (seconds >= keyframes[keyframes.length - 1].atSeconds) return keyframes[keyframes.length - 1].point;
+  const rightIndex = keyframes.findIndex((keyframe) => keyframe.atSeconds >= seconds);
+  const left = keyframes[Math.max(0, rightIndex - 1)];
+  const right = keyframes[rightIndex];
+  const progress = (seconds - left.atSeconds) / Math.max(0.001, right.atSeconds - left.atSeconds);
+  return {
+    x: left.point.x + (right.point.x - left.point.x) * progress,
+    y: left.point.y + (right.point.y - left.point.y) * progress,
+  };
 }
 
 export function px(point: NormalizedPoint): {x: number; y: number} {
@@ -102,15 +125,15 @@ export const MotionPanel: React.FC<{
     style={{
       width,
       boxSizing: 'border-box',
-      padding: compact ? '12px 14px' : '16px 18px',
-      background: DOCUMENTARY_MOTION_TOKENS.colors.panel,
-      borderLeft: `3px solid ${colorForRole(role)}`,
-      borderRadius: DOCUMENTARY_MOTION_TOKENS.geometry.panelRadius,
+      padding: compact ? '8px 0' : '10px 0',
+      background: 'transparent',
+      borderTop: `1px solid ${colorForRole(role)}`,
+      borderRadius: 0,
       color: DOCUMENTARY_MOTION_TOKENS.colors.white,
       opacity,
-      transform: `translateY(${(1 - opacity) * 8}px)`,
       fontFamily: DOCUMENTARY_MOTION_TOKENS.typography.editorial,
       textAlign: 'left',
+      textShadow: '0 2px 12px rgba(0,0,0,0.9)',
     }}
   >
     {children}

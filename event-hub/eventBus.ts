@@ -33,6 +33,11 @@ export class EventBus extends EventEmitter {
     
     try {
       const db = getDatabase();
+      db.prepare(`
+        INSERT OR IGNORE INTO productions (production_id, project_name, status)
+        VALUES (?, 'O Outro Lado', 'RUNNING')
+      `).run(event.production_id);
+
       const stmt = db.prepare(`
         INSERT OR IGNORE INTO agent_events (event_id, production_id, source, agent_name, step_index, event_type, timestamp, payload)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)

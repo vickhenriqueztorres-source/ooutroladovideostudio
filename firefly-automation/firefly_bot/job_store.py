@@ -18,10 +18,10 @@ from .logging_utils import event
 LOGGER = logging.getLogger("firefly_bot.job_store")
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 BATCH_DEFAULTS: dict[str, object] = {
-    "model": "Kling 3.0",
-    "resolution": "720p",
-    "aspect_ratio": "9:16",
-    # Default conservador; Kling 3.0 aceita duração configurável até 15s.
+    "model": "Kling 2.5 Turbo",
+    "resolution": "1080p",
+    "aspect_ratio": "16:9",
+    # O preset aprovado do canal usa takes image-to-video de cinco segundos.
     "duration_seconds": 5,
     "generate_audio": False,
 }
@@ -101,9 +101,9 @@ def _initialize_schema(conn: sqlite3.Connection) -> None:
             claimed_at REAL,
             generation_started_at REAL,
             updated_at REAL NOT NULL,
-            model TEXT NOT NULL DEFAULT 'Kling 3.0',
-            resolution TEXT NOT NULL DEFAULT '720p',
-            aspect_ratio TEXT NOT NULL DEFAULT '9:16',
+            model TEXT NOT NULL DEFAULT 'Kling 2.5 Turbo',
+            resolution TEXT NOT NULL DEFAULT '1080p',
+            aspect_ratio TEXT NOT NULL DEFAULT '16:9',
             duration_seconds INTEGER NOT NULL DEFAULT 5,
             generate_audio INTEGER NOT NULL DEFAULT 0,
             name TEXT,
@@ -115,9 +115,9 @@ def _initialize_schema(conn: sqlite3.Connection) -> None:
     additions = {
         "image_path": "TEXT",
         "generation_started_at": "REAL",
-        "model": "TEXT NOT NULL DEFAULT 'Kling 3.0'",
-        "resolution": "TEXT NOT NULL DEFAULT '720p'",
-        "aspect_ratio": "TEXT NOT NULL DEFAULT '9:16'",
+        "model": "TEXT NOT NULL DEFAULT 'Kling 2.5 Turbo'",
+        "resolution": "TEXT NOT NULL DEFAULT '1080p'",
+        "aspect_ratio": "TEXT NOT NULL DEFAULT '16:9'",
         "duration_seconds": "INTEGER NOT NULL DEFAULT 5",
         "generate_audio": "INTEGER NOT NULL DEFAULT 0",
         "name": "TEXT",
@@ -166,11 +166,31 @@ def init_db(config: Config) -> sqlite3.Connection:
 
 def feed_prompts(conn: sqlite3.Connection, prompts: list[str]) -> int:
     """Insere prompts simples para manter compatibilidade com batches sem imagem."""
-    rows = [(prompt.strip(), time.time()) for prompt in prompts if prompt.strip()]
+    rows = [
+        (
+            prompt.strip(),
+            time.time(),
+            BATCH_DEFAULTS["model"],
+            BATCH_DEFAULTS["resolution"],
+            BATCH_DEFAULTS["aspect_ratio"],
+            BATCH_DEFAULTS["duration_seconds"],
+            int(bool(BATCH_DEFAULTS["generate_audio"])),
+        )
+        for prompt in prompts
+        if prompt.strip()
+    ]
     if not rows:
         return 0
     with conn:
-        conn.executemany("INSERT INTO jobs(prompt, updated_at) VALUES (?, ?)", rows)
+        conn.executemany(
+            """
+            INSERT INTO jobs (
+                prompt, updated_at, model, resolution, aspect_ratio,
+                duration_seconds, generate_audio
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            rows,
+        )
     event(LOGGER, logging.INFO, "prompts_fed", count=len(rows), status="pending")
     return len(rows)
 
@@ -294,6 +314,11 @@ def _batch_rows(
             image_str = None
             default_stem = str(raw_item.get("name", "shot"))
 
+        if model.casefold() == "kling 2.5 turbo" and image_str is None:
+            raise GuideValidationError(
+                "Kling 2.5 Turbo exige um primeiro quadro em image"
+            )
+
         item_name = _validate_output_name(raw_item.get("name"), default_stem)
         inline_prompt = raw_item.get("prompt")
         if inline_prompt is not None:
@@ -357,7 +382,7 @@ def feed_from_guide(conn: sqlite3.Connection, guide_path: str | Path, base_dir: 
 
 
 def feed_auto_discover(conn: sqlite3.Connection, base_dir: str | Path) -> int:
-    """Alimenta a fila sem JSON usando os defaults Kling 3.0 e pares por nome-base."""
+    """Alimenta a fila com o preset Kling 2.5 Turbo e pares por nome-base."""
     root = Path(base_dir).resolve()
     rows = _batch_rows(BATCH_DEFAULTS, root, _discover_items(root))
     return _insert_batch_rows(conn, rows)

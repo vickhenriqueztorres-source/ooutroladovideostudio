@@ -39,14 +39,22 @@ async function runTests() {
       description: 'Bico da bomba de combustivel abastecendo no posto em 35mm',
       durationSeconds: 6.0,
       fps: 24,
-      resolution: '1280x720',
+      resolution: '1920x1080',
       colorTone: 'Chiaroscuro / Sodium Amber',
+      domains: ['fuel', 'gas_station'],
       provenance: 'curated_broll',
       qaStatus: 'approved',
       approvedBy: 'test_suite',
       approvedAt: new Date().toISOString(),
       createdAt: new Date().toISOString()
     });
+    const approvedCatalog = VideoRepositoryMatcher.loadCatalog(true);
+    const approvedFixture = approvedCatalog.videos.find(v => v.id === 'LEGAL_FUEL_NOZZLE_TEST_01');
+    assert.ok(approvedFixture, 'Fixture do banco não foi registrada');
+    approvedFixture.qaStatus = 'approved';
+    approvedFixture.approvedBy = 'test_suite';
+    approvedFixture.approvedAt = new Date().toISOString();
+    VideoRepositoryMatcher.saveCatalog(approvedCatalog);
 
     const matchResult = VideoRepositoryMatcher.matchScene({
       sceneId: 'GAS_MATCH_TEST',

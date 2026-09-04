@@ -95,34 +95,15 @@ const HybridOverlay: React.FC<{scene: HslRenderScene}> = ({scene}) => {
   return (
     <>
       <div style={{position: 'absolute', left: 70, top: 110, opacity: reveal, maxWidth: 620, zIndex: 15}}>
-        <div style={{display: 'inline-block', color: accent, border: `1px solid ${accent}`, padding: '6px 12px', fontFamily: 'JetBrains Mono, monospace', fontSize: 13, letterSpacing: 2, fontWeight: 700, background: tokens.glass, backdropFilter: 'blur(10px)'}}>
+        <div style={{display: 'inline-block', color: accent, borderTop: `1px solid ${accent}`, paddingTop: 7, fontFamily: 'JetBrains Mono, monospace', fontSize: 12, letterSpacing: 0, fontWeight: 700}}>
           {design.eyebrow}
         </div>
-        <div style={{marginTop: 14, color: tokens.text, fontFamily: 'Bebas Neue, sans-serif', fontSize: 44, lineHeight: 1.02, letterSpacing: 1.5, textShadow: '0 4px 20px rgba(0,0,0,0.9)'}}>
+        <div style={{marginTop: 10, color: tokens.text, fontFamily: 'Inter, sans-serif', fontSize: 28, lineHeight: 1.08, letterSpacing: 0, fontWeight: 750, textShadow: '0 3px 18px rgba(0,0,0,0.95)'}}>
           {design.headline}
         </div>
       </div>
-      <div style={{position: 'absolute', right: 70, bottom: 90, display: 'flex', gap: 10, zIndex: 15}}>
-        {design.stages.map((stage, index) => (
-          <div
-            key={`${stage}-${index}`}
-            style={{
-              padding: '8px 14px',
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: 12,
-              letterSpacing: 1.5,
-              fontWeight: 700,
-              color: index <= stageIndex ? tokens.background : tokens.text,
-              background: index <= stageIndex ? accent : tokens.glass,
-              border: `1px solid ${index <= stageIndex ? accent : tokens.border}`,
-              backdropFilter: 'blur(8px)',
-              boxShadow: index <= stageIndex ? `0 0 12px ${accent}` : 'none',
-              opacity: reveal
-            }}
-          >
-            {stage}
-          </div>
-        ))}
+      <div style={{position: 'absolute', right: 70, bottom: 76, width: 360, paddingTop: 8, borderTop: `1px solid ${accent}`, color: tokens.text, fontFamily: 'JetBrains Mono, monospace', fontSize: 12, letterSpacing: 0, zIndex: 15, opacity: reveal, textAlign: 'right', textShadow: '0 2px 12px rgba(0,0,0,0.95)'}}>
+        {design.stages[stageIndex]}
       </div>
     </>
   );
@@ -133,7 +114,6 @@ const SceneBody: React.FC<{scene: HslRenderScene; showGlobalOverlays: boolean; s
 }) => {
   const frame = useCurrentFrame();
   const opacity = interpolate(frame, [0, 10, scene.durationInFrames - 10, scene.durationInFrames], [0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const scale = interpolate(frame, [0, scene.durationInFrames], [1.0, 1.05]);
   const progress = Math.max(0, Math.min(1, frame / Math.max(1, scene.durationInFrames - 1)));
   const accent = accentFor(scene);
 
@@ -143,7 +123,7 @@ const SceneBody: React.FC<{scene: HslRenderScene; showGlobalOverlays: boolean; s
       {(scene.visualMode === 'generated_ai' || scene.visualMode === 'licensed_real') && (
         scene.mediaSrc ? (
           <>
-            <Video src={staticFile(scene.mediaSrc)} muted style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${scale})`}} />
+            <Video src={staticFile(scene.mediaSrc)} muted style={{width: '100%', height: '100%', objectFit: 'cover'}} />
             <AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(6,7,9,0.10) 0%, rgba(6,7,9,0.75) 100%)'}} />
           </>
         ) : null
@@ -187,13 +167,14 @@ const SceneBody: React.FC<{scene: HslRenderScene; showGlobalOverlays: boolean; s
 
 export const HslEpisode: React.FC<HslEpisodeRenderProps> = (props) => {
   let from = 0;
-  const showGlobalOverlays = props.showGlobalOverlays ?? true;
-  const showHybridTextOverlay = props.showHybridTextOverlay ?? true;
+  const showGlobalOverlays = props.showGlobalOverlays ?? false;
+  const showHybridTextOverlay = props.showHybridTextOverlay ?? false;
+  const showMasterStopwatch = props.showMasterStopwatch ?? false;
 
   return (
     <AbsoluteFill style={{backgroundColor: tokens.background}}>
       {/* 1. Cronômetro Atômico Superior de Alta Precisão */}
-      <AtomicStopwatch totalFrames={props.totalDurationInFrames} />
+      {showMasterStopwatch ? <AtomicStopwatch totalFrames={props.totalDurationInFrames} /> : null}
 
       {/* 2. Sequência Temporal de Cenas */}
       {props.scenes.map((scene) => {
@@ -212,8 +193,8 @@ export const HslEpisode: React.FC<HslEpisodeRenderProps> = (props) => {
 
       {/* 4. Overlay Anamórfico 35mm (Letterbox 2.39:1 + Grão + Cantoneiras [ ]) */}
       <AnamorphicCinematicOverlay
-        showLetterbox={true}
-        showFramingBrackets={showGlobalOverlays}
+        showLetterbox={false}
+        showFramingBrackets={false}
         showFilmGrain={true}
         accentColor={tokens.primaryOrange}
       />

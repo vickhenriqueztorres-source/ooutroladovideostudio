@@ -93,6 +93,7 @@ def launch_persistent_browser(config_path: str = "config.yaml") -> Tuple[Playwri
 
     context = playwright.chromium.launch_persistent_context(
         user_data_dir=str(profile_dir),
+        channel="chrome",
         headless=False,
         args=chromium_args,
         viewport=None,

@@ -17,7 +17,7 @@ export const SceneSfxItemSchema = z.object({
   sceneId: z.string().min(3),
   order: z.number().int().positive(),
   take_type: z.enum(['CINEMATIC_TAKE', 'KEYFRAME_DOSSIER']),
-  cues: z.array(AudioCueSchema).min(1),
+  cues: z.array(AudioCueSchema),
   targetSeconds: z.number().positive(),
   outPath: z.string().min(5)
 });
@@ -33,7 +33,7 @@ export const AudioBedContractSchema = z.object({
     targetSeconds: z.number().positive(),
     mood: z.string()
   }),
-  sfx: z.array(SceneSfxItemSchema).length(30),
+  sfx: z.array(SceneSfxItemSchema).min(1),
   mix: z.object({
     outPath: z.string().min(5),
     targetSeconds: z.number().positive()
@@ -177,8 +177,8 @@ export function buildAudioBedPlan(
 ): AudioBedPlanReport {
   const timestamp = new Date().toISOString();
 
-  if (sceneContracts.length !== 30) {
-    throw new Error(`SFX_PLAN_INCOMPLETE: Esperado 30 contratos de cena, recebido ${sceneContracts.length}.`);
+  if (sceneContracts.length === 0) {
+    throw new Error('SFX_PLAN_INCOMPLETE: Nenhum contrato de cena recebido.');
   }
 
   const sfxItems: SceneSfxItem[] = [];
@@ -189,17 +189,10 @@ export function buildAudioBedPlan(
     const targetSeconds = sc.targetSeconds || 12.0;
     const isCinematic = sc.take_type === 'CINEMATIC_TAKE';
 
-    const cues = CANONICAL_SCENE_AUDIO_CUES[sc.sceneId] || [
-      { cueId: `${sc.sceneId}_CUE_01`, description: `Atmospheric industrial mechanical hum for ${sc.sceneId}`, atSeconds: 0.0, durationSeconds: targetSeconds }
-    ];
-
-    // Regra 1: Validação de Densidade
-    if (isCinematic && cues.length < 2) {
-      throw new Error(`SFX_DENSITY_VIOLATION: Cena cinematográfica '${sc.sceneId}' exige no mínimo 2 cues de SFX.`);
-    }
-    if (!isCinematic && cues.length < 1) {
-      throw new Error(`SFX_DENSITY_VIOLATION: Cena de dossiê '${sc.sceneId}' exige no mínimo 1 cue de SFX.`);
-    }
+    const isNarrativeCue = i === 0 || i === sceneContracts.length - 1 || i % 6 === 0;
+    const cues = CANONICAL_SCENE_AUDIO_CUES[sc.sceneId] || (isNarrativeCue ? [
+      {cueId: `${sc.sceneId}_CUE_01`, description: `Restrained documentary evidence punctuation for ${sc.sceneId}`, atSeconds: 0.35, durationSeconds: Math.min(1.0, targetSeconds - 0.35)},
+    ] : []);
 
     // Regra 2: Duração das cues não pode exceder o targetSeconds da cena
     const cuesDurationSum = cues.reduce((acc, c) => acc + c.durationSeconds, 0);
@@ -229,7 +222,7 @@ export function buildAudioBedPlan(
   const audioBedContract: AudioBedContract = {
     episodeId: contract.episodeId,
     musicMood: contract.musicMood || 'dark_industrial_investigative',
-    sfxDensity: 'high',
+    sfxDensity: 'low',
     music: {
       outPath: `runs/${contract.episodeId}/${runId}/audio/music/bed.wav`,
       targetSeconds: contract.targetDurationSeconds || 360.0,

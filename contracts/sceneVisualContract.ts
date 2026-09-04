@@ -6,6 +6,14 @@ export type AllowedVisualSource = z.infer<typeof AllowedVisualSourceSchema>;
 export const TakeTypeSchema = z.enum(['CINEMATIC_TAKE', 'KEYFRAME_DOSSIER']);
 export type TakeType = z.infer<typeof TakeTypeSchema>;
 
+export const VisualAssetClassSchema = z.enum([
+  'REALISTIC_IMAGE',
+  'VIDEO',
+  'MOTION_GRAPHICS',
+  'MOTION_IMAGE'
+]);
+export type VisualAssetClass = z.infer<typeof VisualAssetClassSchema>;
+
 export const SceneVisualContractSchema = z.object({
   sceneId: z
     .string()
@@ -18,6 +26,9 @@ export const SceneVisualContractSchema = z.object({
   voiceover: z
     .string()
     .min(1, "O campo 'voiceover' não pode ser vazio."),
+
+  chapterId: z.string().min(1, "O campo 'chapterId' não pode ser vazio.").optional(),
+  chapterTitle: z.string().min(1, "O campo 'chapterTitle' não pode ser vazio.").optional(),
 
   visual_must_include: z
     .array(z.string().min(1, "Termo de 'visual_must_include' não pode ser vazio."))
@@ -46,6 +57,10 @@ export const SceneVisualContractSchema = z.object({
     .min(1, "O campo 'allowed_sources' deve conter no mínimo 1 fonte permitida ('firefly', 'bank' ou 'dossier')."),
 
   take_type: TakeTypeSchema,
+
+  visual_asset_class: VisualAssetClassSchema.optional(),
+
+  canon_category: z.enum(['matter', 'evidence', 'maps', 'reveal']).optional(),
 
   targetSeconds: z
     .number()
