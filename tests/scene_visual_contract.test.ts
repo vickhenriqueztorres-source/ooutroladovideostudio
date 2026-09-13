@@ -109,10 +109,11 @@ try {
     category: 'fuel_dispenser_nozzle',
     filename: sampleFile,
     tags: ['bico', 'bomba', 'combustivel', 'gasolina', 'fuel', 'gas_station', 'tanque', 'posto'],
+    domains: ['fuel', 'gas_station'],
     description: 'Bico da bomba de combustivel abastecendo no posto',
     durationSeconds: 6.0,
     fps: 24,
-    resolution: '1280x720',
+    resolution: '1920x1080',
     colorTone: 'Chiaroscuro / Sodium Amber',
     provenance: 'curated_broll',
     qaStatus: 'approved',
@@ -120,6 +121,14 @@ try {
     approvedAt: new Date().toISOString(),
     createdAt: new Date().toISOString()
   });
+
+  // Promove o vídeo para approved no catálogo para o teste de match positivo
+  const testCat = VideoRepositoryMatcher.loadCatalog(true);
+  const entryIdx = testCat.videos.findIndex(v => v.id === 'FUEL_PUMP_TEST_LEGAL_01');
+  if (entryIdx !== -1) {
+    testCat.videos[entryIdx].qaStatus = 'approved';
+    VideoRepositoryMatcher.saveCatalog(testCat);
+  }
 
   const matchResult = VideoRepositoryMatcher.matchScene({
     sceneId: 'GAS_TEST_HIT',

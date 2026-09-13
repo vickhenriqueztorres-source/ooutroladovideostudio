@@ -2,301 +2,751 @@
   {
     "sceneId": "GAS_001",
     "voiceover": "Você encosta no posto, pede cinquenta litros, e o mostrador digital começa a rodar imediatamente.",
-    "visualSubject": "Bico da bomba de gasolina travado no bocal do tanque com asfalto molhado e névoa",
-    "visual_must_include": ["bico", "tanque", "gasolina"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Bico da bomba de gasolina travado no bocal do tanque com asfalto molhado e névoa sendo acionado por operador com luva técnica, detalhe macro em close-up extremo registrando a pressão física do comando",
+    "visual_must_include": [
+      "bico",
+      "tanque",
+      "gasolina"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "touchscreen flutuante",
+      "dedos deformados",
+      "interface de videogame",
+      "anachronism_physical_trigger_0"
+    ],
     "required_category": "fuel_dispenser_nozzle",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 9
+    "targetSeconds": 9,
+    "visual_subject": "Bico da bomba de gasolina travado no bocal do tanque com asfalto molhado e névoa sendo acionado por operador com luva técnica, detalhe macro em close-up extremo registrando a pressão física do comando",
+    "narrative_archetype": "PHYSICAL_TRIGGER",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_002",
     "voiceover": "No painel do veículo, a agulha sobe até o limite, mas a sensação de que o tanque esvazia rápido demais não é ilusão.",
-    "visualSubject": "Painel de instrumentos com velocímetro escuro e agulha de combustível iluminada em âmbar",
-    "visual_must_include": ["painel", "combustivel", "ponteiro"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Painel de instrumentos com velocímetro escuro e agulha de combustível iluminada em âmbar operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "painel",
+      "combustivel",
+      "ponteiro"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_1"
+    ],
     "required_category": "vehicle_dashboard",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 15
+    "targetSeconds": 15,
+    "visual_subject": "Painel de instrumentos com velocímetro escuro e agulha de combustível iluminada em âmbar operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_003",
     "voiceover": "Por trás da carcaça metálica da bomba comercial, opera um mecanismo de metrologia mecânica de precisão milimétrica.",
     "visualSubject": "Chassi interno aberto da bomba de combustível revelando tubulação de bronze e chassi de aço",
-    "visual_must_include": ["chassi", "bomba", "tubulacao"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "chassi",
+      "bomba",
+      "tubulacao"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_2"
+    ],
     "required_category": "fuel_station_infrastructure",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 8
+    "targetSeconds": 8,
+    "visual_subject": "Chassi interno aberto da bomba de combustível revelando tubulação de bronze e chassi de aço",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_004",
     "voiceover": "O coração da medição é o bloco medidor de deslocamento positivo com quatro pistões mecânicos alternados.",
-    "visualSubject": "Bloco medidor de vazão de quatro pistões usinado em alumínio fundido com camisas de cilindro",
-    "visual_must_include": ["medidor", "pistoes", "vazao"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Bloco medidor de vazão de quatro pistões usinado em alumínio fundido com camisas de cilindro operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "medidor",
+      "pistoes",
+      "vazao"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_3"
+    ],
     "required_category": "flow_meter_mechanism",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 16
+    "targetSeconds": 16,
+    "visual_subject": "Bloco medidor de vazão de quatro pistões usinado em alumínio fundido com camisas de cilindro operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_005",
     "voiceover": "A cada curso completo de cada pistão, exatamente duzentos e cinquenta mililitros de líquido são deslocados.",
-    "visualSubject": "Corte técnico em 3D do pistão interno empurrando fluido através da câmara de calibração",
-    "visual_must_include": ["pistao", "camara", "fluido"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Corte técnico em 3D do pistão interno empurrando fluido através da câmara de calibração operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "pistao",
+      "camara",
+      "fluido"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_4"
+    ],
     "required_category": "flow_meter_mechanism",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 12
+    "targetSeconds": 12,
+    "visual_subject": "Corte técnico em 3D do pistão interno empurrando fluido através da câmara de calibração operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_006",
     "voiceover": "O virabrequim mecânico do medidor gira solidário a um disco magnético codificador com fendas ópticas.",
-    "visualSubject": "Virabrequim conectado ao disco giratório magnético com ranhuras de leitura angular",
-    "visual_must_include": ["virabrequim", "disco", "codificador"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Virabrequim conectado ao disco giratório magnético com ranhuras de leitura angular operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "virabrequim",
+      "disco",
+      "codificador"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_5"
+    ],
     "required_category": "pulse_sensor_assembly",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 9
+    "targetSeconds": 9,
+    "visual_subject": "Virabrequim conectado ao disco giratório magnético com ranhuras de leitura angular operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_007",
     "voiceover": "Sensores de Efeito Hall lêem as variações de campo magnético e convertem a rotação em pulsos elétricos de onda quadrada.",
     "visualSubject": "Sensor magnético Hall soldado sobre placa com trilhas de cobre emitindo pulsos elétricos",
-    "visual_must_include": ["sensor", "pulsos", "circuito"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "sensor",
+      "pulsos",
+      "circuito"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_6"
+    ],
     "required_category": "pulse_sensor_assembly",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 15
+    "targetSeconds": 15,
+    "visual_subject": "Sensor magnético Hall soldado sobre placa com trilhas de cobre emitindo pulsos elétricos",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_008",
     "voiceover": "Pelo padrão metrológico oficial do INMETRO, cada litro despejado deve gerar exatamente duzentos pulsos elétricos.",
     "visualSubject": "Osciloscópio digital exibindo trem de pulsos de duzentos hertz sincronizado com o fluxo",
-    "visual_must_include": ["osciloscopio", "pulsos", "frequencia"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "osciloscopio",
+      "pulsos",
+      "frequencia"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_7"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 8
+    "targetSeconds": 8,
+    "visual_subject": "Osciloscópio digital exibindo trem de pulsos de duzentos hertz sincronizado com o fluxo",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_009",
     "voiceover": "Esses pulsos sobem por um chicote blindado até a placa-mãe de controle no topo do cabeçote da bomba.",
-    "visualSubject": "Chicote elétrico com malha metálica blindada subindo pela coluna estrutural da bomba",
-    "visual_must_include": ["chicote", "cabecote", "bomba"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Chicote elétrico com malha metálica blindada subindo pela coluna estrutural da bomba operando em escala monumental, luz chiaroscuro recortando a geometria industrial em perspectiva profunda",
+    "visual_must_include": [
+      "chicote",
+      "cabecote",
+      "bomba"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "cidade cyberpunk",
+      "paisagem de fantasia",
+      "satélite fictício",
+      "anachronism_monumental_scale_8"
+    ],
     "required_category": "fuel_station_infrastructure",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 16
+    "targetSeconds": 16,
+    "visual_subject": "Chicote elétrico com malha metálica blindada subindo pela coluna estrutural da bomba operando em escala monumental, luz chiaroscuro recortando a geometria industrial em perspectiva profunda",
+    "narrative_archetype": "MONUMENTAL_SCALE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_010",
     "voiceover": "A placa do computador de bordo calcula o volume em tempo real e comanda os dígitos de cristal líquido do mostrador.",
-    "visualSubject": "Placa controladora principal com microcontrolador e mostrador de display de sete segmentos",
-    "visual_must_include": ["microcontrolador", "display", "placa"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Placa controladora principal com microcontrolador e mostrador de display de sete segmentos operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "microcontrolador",
+      "display",
+      "placa"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_9"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 12
+    "targetSeconds": 12,
+    "visual_subject": "Placa controladora principal com microcontrolador e mostrador de display de sete segmentos operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_011",
     "voiceover": "É aqui que entra a engenharia do crime organizado: a adulteração clandestina do processamento de pulsos.",
     "visualSubject": "Close macro em solda clandestina conectando chip pirata em paralelo às trilhas da placa-mãe",
-    "visual_must_include": ["solda", "chip", "trilhas"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "solda",
+      "chip",
+      "trilhas"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_10"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 9
+    "targetSeconds": 9,
+    "visual_subject": "Close macro em solda clandestina conectando chip pirata em paralelo às trilhas da placa-mãe",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_012",
     "voiceover": "Um microprocessador clandestino miniaturizado é enxertado diretamente nas linhas de sinal do pulsador.",
-    "visualSubject": "Microchip SMD microscópico camuflado com resina preta epóxi sobre o chassi eletrônico",
-    "visual_must_include": ["microchip", "resina", "placa"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Microchip SMD microscópico camuflado com resina preta epóxi sobre o chassi eletrônico interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "microchip",
+      "resina",
+      "placa"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_11"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 15
+    "targetSeconds": 15,
+    "visual_subject": "Microchip SMD microscópico camuflado com resina preta epóxi sobre o chassi eletrônico interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_013",
     "voiceover": "O chip fraudador intercepta a contagem: a cada cem pulsos reais recebidos, ele injeta dez pulsos fantasmas.",
     "visualSubject": "Diagrama lógico exibindo injeção de pulsos sintéticos na linha de dados do computador de bordo",
-    "visual_must_include": ["diagrama", "pulsos", "dados"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "diagrama",
+      "pulsos",
+      "dados"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_12"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 8
+    "targetSeconds": 8,
+    "visual_subject": "Diagrama lógico exibindo injeção de pulsos sintéticos na linha de dados do computador de bordo",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_014",
     "voiceover": "O computador da bomba acredita que o medidor girou mais rápido e avança os números no painel antes da hora.",
-    "visualSubject": "Display LCD da bomba saltando rapidamente de quarenta e cinco para cinquenta litros",
-    "visual_must_include": ["display", "litros", "bomba"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Display LCD da bomba saltando rapidamente de quarenta e cinco para cinquenta litros operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "display",
+      "litros",
+      "bomba"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_13"
+    ],
     "required_category": "fuel_dispenser_nozzle",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 16
+    "targetSeconds": 16,
+    "visual_subject": "Display LCD da bomba saltando rapidamente de quarenta e cinco para cinquenta litros operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_015",
     "voiceover": "Enquanto o cliente paga por cinquenta litros fechados, apenas quarenta e seis litros reais caíram no tanque.",
-    "visualSubject": "Cálculo comparativo mostrando discrepância volumétrica de quatro litros retidos na tubulação",
-    "visual_must_include": ["discrepancia", "volume", "tanque"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Cálculo comparativo mostrando discrepância volumétrica de quatro litros retidos na tubulação operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "discrepancia",
+      "volume",
+      "tanque"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_14"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 12
+    "targetSeconds": 12,
+    "visual_subject": "Cálculo comparativo mostrando discrepância volumétrica de quatro litros retidos na tubulação operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_016",
     "voiceover": "Essa diferença de quase dez por cento gera lucros ilícitos de centenas de milhares de reais por mês por posto.",
-    "visualSubject": "Planilha forense e balanço contábil projetando faturamento de combustível adulterado",
-    "visual_must_include": ["planilha", "combustivel", "volume"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Planilha forense e balanço contábil projetando faturamento de combustível adulterado interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "planilha",
+      "combustivel",
+      "volume"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_15"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 9
+    "targetSeconds": 9,
+    "visual_subject": "Planilha forense e balanço contábil projetando faturamento de combustível adulterado interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_017",
     "voiceover": "Mas o verdadeiro golpe reside no mecanismo de defesa invisível criado pelos hackers de combustível.",
-    "visualSubject": "Módulo de comunicação sem fio miniaturizado com antena Bluetooth integrada na carcaça",
-    "visual_must_include": ["modulo", "antena", "carcaca"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Módulo de comunicação sem fio miniaturizado com antena Bluetooth integrada na carcaça interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "modulo",
+      "antena",
+      "carcaca"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_16"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 15
+    "targetSeconds": 15,
+    "visual_subject": "Módulo de comunicação sem fio miniaturizado com antena Bluetooth integrada na carcaça interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_018",
     "voiceover": "Os chips são equipados com microcontroladores Bluetooth ou rádio-frequência de longo alcance.",
     "visualSubject": "Mão segurando smartphone com aplicativo de gatilho remoto acionando chave criptografada",
-    "visual_must_include": ["smartphone", "aplicativo", "gatilho"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "smartphone",
+      "aplicativo",
+      "gatilho"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "touchscreen flutuante",
+      "dedos deformados",
+      "interface de videogame",
+      "anachronism_physical_trigger_17"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 8
+    "targetSeconds": 8,
+    "visual_subject": "Mão segurando smartphone com aplicativo de gatilho remoto acionando chave criptografada",
+    "narrative_archetype": "PHYSICAL_TRIGGER",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_019",
     "voiceover": "Quando a viatura de fiscalização do INMETRO ou da polícia estaciona na pista do posto, o alerta é disparado.",
-    "visualSubject": "Viatura de fiscalização metrológica oficial com giroscópio chegando à pista do posto",
-    "visual_must_include": ["viatura", "fiscalizacao", "posto"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Viatura de fiscalização metrológica oficial com giroscópio chegando à pista do posto operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "viatura",
+      "fiscalizacao",
+      "posto"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_18"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 16
+    "targetSeconds": 16,
+    "visual_subject": "Viatura de fiscalização metrológica oficial com giroscópio chegando à pista do posto operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_020",
     "voiceover": "Com um único clique discreto em um controle de chaveiro ou celular, o modo de auditoria é acionado.",
-    "visualSubject": "Chaveiro transmissor de rádio disparando sinal de desativação instantânea para a bomba",
-    "visual_must_include": ["chaveiro", "transmissor", "bomba"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Chaveiro transmissor de rádio disparando sinal de desativação instantânea para a bomba operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "chaveiro",
+      "transmissor",
+      "bomba"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_19"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 12
+    "targetSeconds": 12,
+    "visual_subject": "Chaveiro transmissor de rádio disparando sinal de desativação instantânea para a bomba operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_021",
     "voiceover": "O chip fraudador entra em modo transparente e desliga completamente a injeção de pulsos sintéticos.",
-    "visualSubject": "Comutação eletrônica de relé comutando a linha de pulsos para o modo bypass transparente",
-    "visual_must_include": ["rele", "bypass", "pulsos"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Comutação eletrônica de relé comutando a linha de pulsos para o modo bypass transparente interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "rele",
+      "bypass",
+      "pulsos"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_20"
+    ],
     "required_category": "pulse_sensor_assembly",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 9
+    "targetSeconds": 9,
+    "visual_subject": "Comutação eletrônica de relé comutando a linha de pulsos para o modo bypass transparente interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_022",
     "voiceover": "Os peritos do órgão regulador sacam a medida padrão aferida de vinte litros para o teste obrigatório.",
-    "visualSubject": "Medidor padrão volumétrico de vinte litros em aço inox calibrado sendo posicionado sob o bico",
-    "visual_must_include": ["medidor_padrao", "aço_inox", "bico"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Medidor padrão volumétrico de vinte litros em aço inox calibrado sendo posicionado sob o bico operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "medidor_padrao",
+      "aço_inox",
+      "bico"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_21"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 15
+    "targetSeconds": 15,
+    "visual_subject": "Medidor padrão volumétrico de vinte litros em aço inox calibrado sendo posicionado sob o bico operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_023",
     "voiceover": "O combustível escorre para o aferidor e o menisco de vidro marca exatamente o traço de vinte litros, com erro zero.",
     "visualSubject": "Visor de vidro do aferidor de combustível marcando linha exata de menisco no traço de vinte litros",
-    "visual_must_include": ["visor", "menisco", "aferidor"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "visor",
+      "menisco",
+      "aferidor"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_22"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 8
+    "targetSeconds": 8,
+    "visual_subject": "Visor de vidro do aferidor de combustível marcando linha exata de menisco no traço de vinte litros",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_024",
     "voiceover": "A bomba recebe o selo de conformidade do INMETRO e os fiscais recolhem seus equipamentos sem encontrar nada.",
-    "visualSubject": "Selo holográfico inviolável de conformidade do INMETRO colado sobre o chassi da bomba",
-    "visual_must_include": ["selo", "holograma", "chassi"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Selo holográfico inviolável de conformidade do INMETRO colado sobre o chassi da bomba operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "selo",
+      "holograma",
+      "chassi"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_23"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 16
+    "targetSeconds": 16,
+    "visual_subject": "Selo holográfico inviolável de conformidade do INMETRO colado sobre o chassi da bomba operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_025",
     "voiceover": "Assim que a viatura deixa o posto, o botão é apertado novamente e a bomba volta a desviar quatro litros por abastecimento.",
-    "visualSubject": "Viatura sumindo no horizonte da rodovia enquanto o display da bomba volta a operar em modo fraude",
-    "visual_must_include": ["rodovia", "display", "bomba"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Viatura sumindo no horizonte da rodovia enquanto o display da bomba volta a operar em modo fraude interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "rodovia",
+      "display",
+      "bomba"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_24"
+    ],
     "required_category": "fuel_station_infrastructure",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 12
+    "targetSeconds": 12,
+    "visual_subject": "Viatura sumindo no horizonte da rodovia enquanto o display da bomba volta a operar em modo fraude interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_026",
     "voiceover": "Para combater o golpe, a polícia científica desenvolveu analisadores de firmware e câmeras térmicas de alta resolução.",
     "visualSubject": "Câmera termográfica infravermelha revelando ponto de calor anormal de microchip soldado na placa",
-    "visual_must_include": ["termografia", "ponto_calor", "microchip"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visual_must_include": [
+      "termografia",
+      "ponto_calor",
+      "microchip"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_25"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 9
+    "targetSeconds": 9,
+    "visual_subject": "Câmera termográfica infravermelha revelando ponto de calor anormal de microchip soldado na placa",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_027",
     "voiceover": "Os novos lacres eletrônicos gravam a assinatura criptográfica de cada pulso diretamente em uma memória de auditoria selada.",
-    "visualSubject": "Módulo de lacre eletrônico criptográfico selado com chumbo óptico e barramento inviolável",
-    "visual_must_include": ["lacre", "criptografia", "barramento"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Módulo de lacre eletrônico criptográfico selado com chumbo óptico e barramento inviolável operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "lacre",
+      "criptografia",
+      "barramento"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_26"
+    ],
     "required_category": "metrology_forensics",
     "take_type": "KEYFRAME_DOSSIER",
-    "targetSeconds": 15
+    "targetSeconds": 15,
+    "visual_subject": "Módulo de lacre eletrônico criptográfico selado com chumbo óptico e barramento inviolável operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_028",
     "voiceover": "Qualquer tentativa de adulterar a contagem aciona uma chave de autodestruição que bloqueia permanentemente a bomba.",
-    "visualSubject": "Circuito integrado de segurança disparando bloqueio com led de alerta vermelho pulsante",
-    "visual_must_include": ["bloqueio", "alerta", "circuito"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Circuito integrado de segurança disparando bloqueio com led de alerta vermelho pulsante interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "bloqueio",
+      "alerta",
+      "circuito"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_27"
+    ],
     "required_category": "rogue_microchip_pcb",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 8
+    "targetSeconds": 8,
+    "visual_subject": "Circuito integrado de segurança disparando bloqueio com led de alerta vermelho pulsante interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_029",
     "voiceover": "A guerra invisível nos postos de combustível revela que a tecnologia que promete precisão também pode ser hackeada.",
-    "visualSubject": "Visão geral da estação de combustível à noite sob chuva com névoa volumétrica e iluminação âmbar",
-    "visual_must_include": ["estacao", "nevoa", "bombas"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Visão geral da estação de combustível à noite sob chuva com névoa volumétrica e iluminação âmbar interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "visual_must_include": [
+      "estacao",
+      "nevoa",
+      "bombas"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "hacker de capuz",
+      "laser decorativo vermelho",
+      "circuito brilhante neon",
+      "anachronism_vulnerability_node_28"
+    ],
     "required_category": "fuel_station_infrastructure",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 16
+    "targetSeconds": 16,
+    "visual_subject": "Visão geral da estação de combustível à noite sob chuva com névoa volumétrica e iluminação âmbar interceptando o fluxo de sinal ou dados com cabo clandestino soldado, evidenciando o ponto exato de desvio ou adulteração",
+    "narrative_archetype": "VULNERABILITY_NODE",
+    "generation_priority": "GENERATIVE_BESPOKE"
   },
   {
     "sceneId": "GAS_030",
     "voiceover": "A verdade de um sistema aparece quando seus rastros são colocados lado a lado: investigar, revelar, compreender.",
-    "visualSubject": "Bico metálico sendo travado de volta no suporte da bomba encerrando o fluxo de medição",
-    "visual_must_include": ["bico", "suporte", "bomba"],
-    "visual_must_not": ["cargo ship", "warehouse conveyor", "water tank rooftop"],
+    "visualSubject": "Bico metálico sendo travado de volta no suporte da bomba encerrando o fluxo de medição operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "visual_must_include": [
+      "bico",
+      "suporte",
+      "bomba"
+    ],
+    "visual_must_not": [
+      "cargo ship",
+      "warehouse conveyor",
+      "water tank rooftop",
+      "engrenagens de plástico",
+      "motor estilizado",
+      "raio x colorido cgi",
+      "anachronism_internal_mechanism_29"
+    ],
     "required_category": "fuel_dispenser_nozzle",
     "take_type": "CINEMATIC_TAKE",
-    "targetSeconds": 12
+    "targetSeconds": 12,
+    "visual_subject": "Bico metálico sendo travado de volta no suporte da bomba encerrando o fluxo de medição operando em rotação ou condução contínua, corte técnico revelando engrenagens ou barramento eletrônico sob iluminação de tungstênio",
+    "narrative_archetype": "INTERNAL_MECHANISM",
+    "generation_priority": "GENERATIVE_BESPOKE"
   }
 ]

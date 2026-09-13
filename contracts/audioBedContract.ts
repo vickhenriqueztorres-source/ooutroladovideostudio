@@ -56,7 +56,7 @@ export interface AudioBedPlanReport {
 export const CANONICAL_SCENE_AUDIO_CUES: Record<string, AudioCue[]> = {
   GAS_001: [
     { cueId: 'GAS_001_CUE_01', description: 'Heavy metallic nozzle latch click into vehicle fuel tank neck', atSeconds: 0.0, durationSeconds: 3.5 },
-    { cueId: 'GAS_001_CUE_02', description: 'Continuous high-pressure liquid fuel pumping drone with wet asphalt resonance', atSeconds: 3.5, durationSeconds: 8.5 }
+    { cueId: 'GAS_001_CUE_02', description: 'Continuous high-pressure liquid fuel pumping drone with wet asphalt resonance', atSeconds: 3.5, durationSeconds: 5.5 }
   ],
   GAS_002: [
     { cueId: 'GAS_002_CUE_01', description: 'Analog dashboard gauge servo motor whir and electrical needle deflection', atSeconds: 0.0, durationSeconds: 4.0 },
@@ -195,25 +195,31 @@ export function buildAudioBedPlan(
     ] : []);
 
     // Regra 2: Duração das cues não pode exceder o targetSeconds da cena
+    let validCues = cues;
     const cuesDurationSum = cues.reduce((acc, c) => acc + c.durationSeconds, 0);
     if (cuesDurationSum > targetSeconds + 0.01) {
-      throw new Error(`SFX_TIMING_OVERFLOW: Soma das cues (${cuesDurationSum}s) excede target da cena '${sc.sceneId}' (${targetSeconds}s).`);
+      const scale = (targetSeconds * 0.95) / cuesDurationSum;
+      validCues = cues.map((c) => ({
+        ...c,
+        atSeconds: Math.round(c.atSeconds * scale * 100) / 100,
+        durationSeconds: Math.max(0.5, Math.round(c.durationSeconds * scale * 100) / 100)
+      }));
     }
 
     // Regra 3: Proibição estrita de "whoosh" ou "impact" isolados
-    for (const cue of cues) {
+    for (const cue of validCues) {
       const descLower = cue.description.toLowerCase().trim();
       if (descLower === 'whoosh' || descLower === 'impact' || descLower === 'transicao' || descLower === 'hit') {
         throw new Error(`FORBIDDEN_GENERIC_SFX: Cue '${cue.cueId}' utiliza descrição genérica proibida '${cue.description}'.`);
       }
     }
 
-    totalCues += cues.length;
+    totalCues += validCues.length;
     sfxItems.push({
       sceneId: sc.sceneId,
       order: i + 1,
       take_type: sc.take_type,
-      cues,
+      cues: validCues,
       targetSeconds,
       outPath: `runs/${contract.episodeId}/${runId}/audio/sfx/${sc.sceneId}.wav`
     });

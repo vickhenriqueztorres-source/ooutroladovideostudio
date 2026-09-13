@@ -1,0 +1,25 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "COMMONS_158941502",
+  "provider": "wikimedia",
+  "license": "Public_Domain",
+  "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Euclid_spacecraft_from_all_sides_%E2%80%93_starry_background_ESA479305.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Euclid_spacecraft_from_all_sides_%E2%80%93_starry_background_ESA479305.webm",
+  "author": "European Space Agency",
+  "rawSha256": "ddf2c713716788e0f0639bd13921644907abdf0e6bd5ed2f94034b16c1c6251f",
+  "sanitizedSha256": "1a0726c4fb7eeabba9154f6726787033094bc08965c81e927707368dbfaf256e",
+  "audioStripped": true,
+  "durationSeconds": 5.083008,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "aircraft_satcom_radome",
+  "tags": [
+    "antenna satellite dish",
+    "wikimedia_commons",
+    "open_archive"
+  ],
+  "domains": [
+    "aircraft_satcom_radome"
+  ],
+  "timestamp": "2026-09-10T20:12:24.032Z"
+}

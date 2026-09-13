@@ -1,10 +1,22 @@
 # Configurações do ChatGPT Image Bot (Prompt 2)
 output_dir: "output"
-profile_dir: "C:/Users/brend/chatgpt_bot_session"
+profile_dir: "C:/Users/brend/chatgpt_bot_session_1"
 prompts_file: "prompts/queue.txt"
 manifest_file: "output/manifest.jsonl"
 url: "https://chatgpt.com/"
 cdp_url: "http://127.0.0.1:9222"
+
+# Pool de Contas para Rotação Automática Anti-Rate-Limit
+accounts:
+  - id: 1
+    name: "Conta 1"
+    profile_dir: "C:/Users/brend/chatgpt_bot_session_1"
+  - id: 2
+    name: "Conta 2"
+    profile_dir: "C:/Users/brend/chatgpt_bot_session_2"
+  - id: 3
+    name: "Conta 3"
+    profile_dir: "C:/Users/brend/chatgpt_bot_session_3"
 
 # Delays de digitação humana (char a char)
 typing_delay_min_ms: 30

@@ -1,0 +1,12 @@
+{
+  "baseImageSrc": "episodes/encomenda-china-curitiba/thumbnails/raw_frame_a.png",
+  "headlineLines": [
+    "R$ 20.",
+    "18.000 KM."
+  ],
+  "categoryBadge": "INVESTIGAÇÃO LOGÍSTICA // O OUTRO LADO",
+  "subheadline": "O SEGREDO DO FRETE GRÁTIS DA CHINA",
+  "accentColor": "#FF5500",
+  "telemetryColor": "#00F0FF",
+  "textSide": "LEFT"
+}

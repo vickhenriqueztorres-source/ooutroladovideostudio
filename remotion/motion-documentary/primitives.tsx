@@ -120,14 +120,14 @@ export const MotionPanel: React.FC<{
   children: React.ReactNode;
   width?: number;
   compact?: boolean;
-}> = ({opacity, role = 'neutral', children, width = 420, compact = false}) => (
+}> = ({opacity, role = 'neutral', children, width = 640, compact = false}) => (
   <div
     style={{
       width,
       boxSizing: 'border-box',
-      padding: compact ? '8px 0' : '10px 0',
+      padding: compact ? '10px 0' : '14px 0',
       background: 'transparent',
-      borderTop: `1px solid ${colorForRole(role)}`,
+      borderTop: `2px solid ${colorForRole(role)}`,
       borderRadius: 0,
       color: DOCUMENTARY_MOTION_TOKENS.colors.white,
       opacity,

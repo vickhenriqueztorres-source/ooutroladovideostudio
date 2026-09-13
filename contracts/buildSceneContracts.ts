@@ -4,36 +4,45 @@ import {
   parseSceneVisualContract,
   AllowedVisualSource,
   TakeType,
-  VisualAssetClass
+  VisualAssetClass,
+  GenerationPriority,
+  NarrativeArchetype
 } from './sceneVisualContract';
 
 export interface RawSceneInput {
   sceneId: string;
   voiceover: string;
   visualSubject?: string;
+  visual_subject?: string;
   visual_must_include?: string[];
   visual_must_not?: string[];
   required_category?: string;
   domainTags?: string[];
   allowed_sources?: AllowedVisualSource[];
   take_type?: TakeType;
+  generation_priority?: GenerationPriority;
+  narrative_archetype?: NarrativeArchetype;
   targetSeconds?: number;
   chapterId?: string;
   chapterTitle?: string;
   visual_asset_class?: VisualAssetClass;
   canon_category?: 'matter' | 'evidence' | 'maps' | 'reveal';
+  narration_alignment?: Array<{
+    word: string;
+    start_ms: number;
+    end_ms: number;
+    source?: string;
+  }>;
 }
 
-const NO_PEOPLE_START_FRAME_DENYLIST = [
-  'person',
-  'people',
-  'human',
-  'worker',
-  'operator',
-  'hands',
-  'face',
-  'body',
-  'human silhouette'
+const NO_STAGED_STOCK_PORTRAITS_DENYLIST = [
+  'smiling person looking at camera',
+  'presenter addressing camera',
+  'commercial stock model portrait',
+  'posed business portrait',
+  'smiling face into camera',
+  'influencer smiling selfie',
+  'staged commercial advertisement photography'
 ];
 
 const VISUAL_MIX_KEY_BY_CLASS: Record<VisualAssetClass, 'realisticImages' | 'videos' | 'motionGraphics' | 'motionImages'> = {
@@ -173,7 +182,7 @@ export function buildSceneContracts(
     const combinedMustNot = Array.from(new Set([
       ...filteredStandardDenylist,
       ...(sc.visual_must_not || []),
-      ...(episodeContract.startFramePeoplePolicy === 'FORBIDDEN' ? NO_PEOPLE_START_FRAME_DENYLIST : [])
+      ...(episodeContract.startFramePeoplePolicy === 'FORBIDDEN' ? NO_STAGED_STOCK_PORTRAITS_DENYLIST : [])
     ]));
 
     if (combinedMustNot.length < 1) {
@@ -217,10 +226,23 @@ export function buildSceneContracts(
       ? sc.targetSeconds
       : Math.round((episodeContract.targetDurationSeconds / scenes.length) * 10) / 10;
 
+    const sceneWords = (sc.voiceover || '').trim().split(/\s+/).filter(Boolean);
+    const msPerWord = Math.round(60000 / 146);
+    const estimatedAlignment = sceneWords.map((word, wIdx) => ({
+      word,
+      start_ms: wIdx * msPerWord,
+      end_ms: (wIdx + 1) * msPerWord,
+      source: 'tts_word_timestamps'
+    }));
+
     const rawContract = {
       sceneId: sc.sceneId,
       episodeId: episodeContract.episodeId,
       voiceover: sc.voiceover,
+      visualSubject: subjectTrimmed,
+      visual_subject: subjectTrimmed,
+      generation_priority: sc.generation_priority || 'GENERATIVE_BESPOKE',
+      narrative_archetype: sc.narrative_archetype,
       chapterId: sc.chapterId,
       chapterTitle: sc.chapterTitle,
       visual_must_include: validMustInclude,
@@ -235,6 +257,9 @@ export function buildSceneContracts(
           ? sc.required_category
           : undefined
       ),
+      narration_alignment: (sc.narration_alignment && sc.narration_alignment.length > 0)
+        ? sc.narration_alignment
+        : estimatedAlignment,
       targetSeconds
     };
 

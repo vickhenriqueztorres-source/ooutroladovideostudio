@@ -8,7 +8,22 @@
     "industrial",
     "atmospheric",
     "macro_physics",
-    "fuel_dispenser_nozzle"
+    "fuel_dispenser_nozzle",
+    "military_dish_antenna",
+    "presidential_runway_tarmac",
+    "urban_crowd_smartphones",
+    "presidential_terminal_desk",
+    "commercial_cell_tower",
+    "ruggedized_secure_phone",
+    "faraday_copper_mesh",
+    "rf_shielded_door",
+    "secure_cable_tunnel",
+    "optical_monitoring_rack",
+    "meeting_room_shadows",
+    "bug_sweep_inspection",
+    "tscm_sweep_equipment",
+    "phone_cradle_hangup",
+    "brasilia_esplanade_twilight"
   ],
   "videos": [
     {
@@ -470,7 +485,7 @@
       "durationSeconds": 6.016,
       "fps": 24,
       "resolution": "1920x1080",
-      "colorTone": "Muted Slate / Office",
+      "colorTone": "documentary-low-key / Muted Slate",
       "recommendedMotion": "slow_push_in",
       "sha256": "b8d626652ce50986acc72fd5d46b9b44b82f687ed14d6604d8d870ad1db5d1d8",
       "createdAt": "2026-08-28T15:46:14.300Z",
@@ -553,6 +568,471 @@
         "industrial",
         "ecommerce"
       ]
+    },
+    {
+      "id": "NASA_van_040804_why",
+      "category": "cyber_telemetry",
+      "filename": "cyber_telemetry/clean_NASA_van_040804_why.mp4",
+      "tags": [
+        "vandenberg",
+        "vafb",
+        "elv",
+        "gpb",
+        "nasa",
+        "public_domain",
+        "space",
+        "earth_observation",
+        "cyber_telemetry",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "cyber_telemetry"
+      ],
+      "description": "KSC-04-S-00098",
+      "durationSeconds": 5,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "natural-rec709",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "46bef53625b56ddcd14982f7ea22cfec2bab9fe16ec85c98c66e193c9c200f46",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_nasa",
+      "approvedAt": "2026-09-10T19:14:37.474Z",
+      "createdAt": "2026-09-10T19:14:37.474Z"
+    },
+    {
+      "id": "COMMONS_158941502",
+      "category": "aircraft_satcom_radome",
+      "filename": "aircraft_satcom_radome/SC_019_clean_COMMONS_158941502.mp4",
+      "tags": [
+        "antenna satellite dish",
+        "wikimedia_commons",
+        "open_archive",
+        "aircraft_satcom_radome",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "aircraft_satcom_radome"
+      ],
+      "description": "File:Euclid spacecraft from all sides – starry background ESA479305.webm",
+      "durationSeconds": 5.083008,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "1a0726c4fb7eeabba9154f6726787033094bc08965c81e927707368dbfaf256e",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:12:24.056Z",
+      "createdAt": "2026-09-10T20:12:24.032Z"
+    },
+    {
+      "id": "COMMONS_94479249",
+      "category": "presidential_runway_tarmac",
+      "filename": "presidential_runway_tarmac/clean_COMMONS_94479249.mp4",
+      "tags": [
+        "airplane runway airport",
+        "wikimedia_commons",
+        "open_archive",
+        "presidential_runway_tarmac",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "airplane",
+        "runway",
+        "airport"
+      ],
+      "description": "File:Plane Spotting 4 CARGO airplanes takeoff Runway at Taiwan airport 台灣桃園機場起飛.webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "f47a58f5308d724cd85540c3b2efba794bdfb203815b32f213d016563acdc256",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T19:37:54.979Z",
+      "createdAt": "2026-09-10T19:37:54.965Z"
+    },
+    {
+      "id": "COMMONS_179166280",
+      "category": "urban_crowd_smartphones",
+      "filename": "urban_crowd_smartphones/clean_COMMONS_179166280.mp4",
+      "tags": [
+        "urban street night",
+        "wikimedia_commons",
+        "open_archive",
+        "urban_crowd_smartphones",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "urban",
+        "street",
+        "night"
+      ],
+      "description": "File:Sal de mesa vista con campo oscuro.webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "a715d83f50354872699c87563ed7251ba3c6a4fadeb773afffefbed2f6b08127",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T19:40:25.591Z",
+      "createdAt": "2026-09-10T19:40:25.577Z"
+    },
+    {
+      "id": "COMMONS_145576511",
+      "category": "commercial_cell_tower",
+      "filename": "commercial_cell_tower/SC_002_clean_COMMONS_145576511.mp4",
+      "tags": [
+        "smartphone street night",
+        "wikimedia_commons",
+        "open_archive",
+        "commercial_cell_tower",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "commercial_cell_tower"
+      ],
+      "description": "File:Berlin rally after Navalny's murder asv2024-02-16 VIDEO moment of silence.webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "ce0ad994dcbe88b8e14c87ce6c417f5f7d4a2f4ac9d3196ff28014a976d5b569",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:07:18.133Z",
+      "createdAt": "2026-09-10T20:07:18.115Z"
+    },
+    {
+      "id": "NASA_How_Ingenuity_Talks_to_Us_From_Mars",
+      "category": "ruggedized_secure_phone",
+      "filename": "ruggedized_secure_phone/SC_005_clean_NASA_How_Ingenuity_Talks_to_Us_From_Mars.mp4",
+      "tags": [
+        "NASA",
+        "Ingenuity",
+        "Nacer Chahat",
+        "JPL",
+        "Jim Green",
+        "Gravity Assist",
+        "Ingenuity helicopter",
+        "nasa",
+        "public_domain",
+        "space",
+        "earth_observation",
+        "ruggedized_secure_phone",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "ruggedized_secure_phone"
+      ],
+      "description": "How Ingenuity Talks to Us From Mars",
+      "durationSeconds": 5.083008,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "285ab17804b486941053a8839e99381cfa4842a4277fd5270c1080879ae6cb4e",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_nasa",
+      "approvedAt": "2026-09-10T20:08:10.951Z",
+      "createdAt": "2026-09-10T20:08:10.940Z"
+    },
+    {
+      "id": "NASA_ksc_102204_cupola",
+      "category": "faraday_copper_mesh",
+      "filename": "faraday_copper_mesh/SC_009_clean_NASA_ksc_102204_cupola.mp4",
+      "tags": [
+        "ISS",
+        "cupola",
+        "module",
+        "space_shuttle",
+        "nasa",
+        "public_domain",
+        "space",
+        "earth_observation",
+        "faraday_copper_mesh",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "faraday_copper_mesh"
+      ],
+      "description": "KSC-04-S-00338",
+      "durationSeconds": 5,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "c76afebc11af0c28c33efa16deb99190341b9b0d059a31341f9644b0e60e84f9",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_nasa",
+      "approvedAt": "2026-09-10T20:09:04.566Z",
+      "createdAt": "2026-09-10T20:09:04.557Z"
+    },
+    {
+      "id": "NASA_GSFC_20161007_IMERG_m12389_Matthew_WS",
+      "category": "rf_shielded_door",
+      "filename": "rf_shielded_door/SC_010_clean_NASA_GSFC_20161007_IMERG_m12389_Matthew_WS.mp4",
+      "tags": [
+        "Atmospheric Science",
+        "GPM",
+        "Natural Hazards",
+        "Rainfall",
+        "Storm",
+        "Hurricanes",
+        "Precipitation Amount",
+        "Precipitation",
+        "Earth",
+        "Hurricane Matthew",
+        "landfall",
+        "nasa",
+        "public_domain",
+        "space",
+        "earth_observation",
+        "rf_shielded_door",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "rf_shielded_door"
+      ],
+      "description": "NASA Calculates Matthew's Heavy Rains - Wide Shot",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "e6a27f205c741013872896ad4df8cd7c17ae3f5181dfedd8a5be18a2eac03a9c",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_nasa",
+      "approvedAt": "2026-09-10T20:10:21.553Z",
+      "createdAt": "2026-09-10T20:10:21.545Z"
+    },
+    {
+      "id": "COMMONS_148204953",
+      "category": "secure_cable_tunnel",
+      "filename": "secure_cable_tunnel/SC_011_clean_COMMONS_148204953.mp4",
+      "tags": [
+        "underground tunnel corridor",
+        "wikimedia_commons",
+        "open_archive",
+        "secure_cable_tunnel",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "secure_cable_tunnel"
+      ],
+      "description": "File:Steam Plant and Utility Tunnel Safety Video VOTY 2019 (LRC-2018-B701-V-Utility-Tunnel-Safety-Video-8770).webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "4966f203c28da750ddcf132c04a9d14abaef38a9645a2129ac6871857de1504f",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:10:50.012Z",
+      "createdAt": "2026-09-10T20:10:50.005Z"
+    },
+    {
+      "id": "COMMONS_69429449",
+      "category": "optical_monitoring_rack",
+      "filename": "optical_monitoring_rack/SC_013_clean_COMMONS_69429449.mp4",
+      "tags": [
+        "fiber optic cables data",
+        "wikimedia_commons",
+        "open_archive",
+        "optical_monitoring_rack",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "optical_monitoring_rack"
+      ],
+      "description": "File:PGE Metcalf Substation Surveillance Video, April 2013.webm",
+      "durationSeconds": 5,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "1219b73977501ad19c74f7eec2b855cce3c21137d7e13496a85f33e5e3c98906",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:10:58.942Z",
+      "createdAt": "2026-09-10T20:10:58.934Z"
+    },
+    {
+      "id": "COMMONS_63926338",
+      "category": "meeting_room_shadows",
+      "filename": "meeting_room_shadows/SC_021_clean_COMMONS_63926338.mp4",
+      "tags": [
+        "boardroom boardroom",
+        "wikimedia_commons",
+        "open_archive",
+        "meeting_room_shadows",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "meeting_room_shadows"
+      ],
+      "description": "File:Scott Lilienfeld ESC2017.webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "f0e488cc956287b1fe6bda65e142364e9a802c4b659a1285277236c0f7e1011b",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:12:53.208Z",
+      "createdAt": "2026-09-10T20:12:53.201Z"
+    },
+    {
+      "id": "COMMONS_75045179",
+      "category": "bug_sweep_inspection",
+      "filename": "bug_sweep_inspection/SC_023_clean_COMMONS_75045179.mp4",
+      "tags": [
+        "technical inspection device",
+        "wikimedia_commons",
+        "open_archive",
+        "bug_sweep_inspection",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "bug_sweep_inspection"
+      ],
+      "description": "File:Gigaset Smartphone Production IV Quality Inspection.webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "e4ac0107deb65957d25bcc2d29aacca71b1c273a2baea2c52b07467bc38c27d9",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:14:04.817Z",
+      "createdAt": "2026-09-10T20:14:04.811Z"
+    },
+    {
+      "id": "NASA_ksc_120805_lsp_anderson",
+      "category": "tscm_sweep_equipment",
+      "filename": "tscm_sweep_equipment/SC_024_clean_NASA_ksc_120805_lsp_anderson.mp4",
+      "tags": [
+        "Liftoff_to_Learning",
+        "Eric_Anderson",
+        "LSP",
+        "telemetry",
+        "nasa",
+        "public_domain",
+        "space",
+        "earth_observation",
+        "tscm_sweep_equipment",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "tscm_sweep_equipment"
+      ],
+      "description": "KSC-05-S-00314",
+      "durationSeconds": 5,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "eaacdae2e2d04e08e1ada50a519ff83b8c145277a32ae8f7314e2a06ea4ad441",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_nasa",
+      "approvedAt": "2026-09-10T20:14:13.050Z",
+      "createdAt": "2026-09-10T20:14:13.042Z"
+    },
+    {
+      "id": "NASA_ksc_020305_fincke",
+      "category": "phone_cradle_hangup",
+      "filename": "phone_cradle_hangup/SC_026_clean_NASA_ksc_020305_fincke.mp4",
+      "tags": [
+        "ISS",
+        "International_Space_Station",
+        "Expedition_9",
+        "Mike_Fincke",
+        "astronauts",
+        "nasa",
+        "public_domain",
+        "space",
+        "earth_observation",
+        "phone_cradle_hangup",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "phone_cradle_hangup"
+      ],
+      "description": "KSC-05-S-00038",
+      "durationSeconds": 5,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "79ea0ce2b0c2aa8f05f1360804be84e6c1948f48e20cc18a1192ed3c9eb837a9",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_nasa",
+      "approvedAt": "2026-09-10T20:14:21.826Z",
+      "createdAt": "2026-09-10T20:14:21.819Z"
+    },
+    {
+      "id": "COMMONS_42891443",
+      "category": "brasilia_esplanade_twilight",
+      "filename": "brasilia_esplanade_twilight/SC_029_clean_COMMONS_42891443.mp4",
+      "tags": [
+        "modernist city",
+        "wikimedia_commons",
+        "open_archive",
+        "brasilia_esplanade_twilight",
+        "35mm",
+        "real_world_footage"
+      ],
+      "domains": [
+        "brasilia_esplanade_twilight"
+      ],
+      "description": "File:Basilica of Our Lady of Guadalupe MVI 7239.webm",
+      "durationSeconds": 5.083333,
+      "fps": 24,
+      "resolution": "1920x1080",
+      "colorTone": "documentary-low-key",
+      "recommendedMotion": "cinematic_drift",
+      "sha256": "c5792666ecc9b44a55781f8a412a50d86798ad381ee66cfab55f1cc64564c501",
+      "provenance": "stock_curated",
+      "qaStatus": "approved",
+      "approvedBy": "web_harvester_wikimedia",
+      "approvedAt": "2026-09-10T20:15:37.089Z",
+      "createdAt": "2026-09-10T20:15:37.077Z"
     }
   ]
 }

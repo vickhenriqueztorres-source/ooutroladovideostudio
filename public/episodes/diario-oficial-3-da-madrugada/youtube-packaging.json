@@ -1,0 +1,54 @@
+{
+  "episodeId": "diario-oficial-3-da-madrugada",
+  "topic": "A Máquina Secreta que Muda as Leis do País Enquanto Você Dorme",
+  "variants": [
+    {
+      "variantId": "VARIANT_A",
+      "profile": "Mecanismo / Assinatura (Corte X-Ray)",
+      "title": "O Outro Lado das 3 da Madrugada: A Máquina que Muda as Leis do País Enquanto Você Dorme",
+      "headline": "ÀS 03:00.",
+      "subheadline": "CHAVE ICP-BRASIL // SERVIDOR INCOM ATIVO",
+      "thumbnail4kPath": "public/episodes/diario-oficial-3-da-madrugada/thumbnails/thumb_variant_a_with_text.png",
+      "testHypothesis": "Quebra de modelo mental: revela que a lei brasileira não nasce nos discursos do Congresso, mas em um servidor criptográfico operando no silêncio da madrugada."
+    },
+    {
+      "variantId": "VARIANT_B",
+      "profile": "Risco / Ponto de Falha (Gargalo Crítico)",
+      "title": "A Janela das 04:59: Por Que o Governo Não Consegue Cancelar uma Lei Publicada?",
+      "headline": "SEM VOLTA.",
+      "subheadline": "HASH SHA-256 // FORÇA DE LEI IRREVOGÁVEL",
+      "thumbnail4kPath": "public/episodes/diario-oficial-3-da-madrugada/thumbnails/thumb_variant_b_with_text.png",
+      "testHypothesis": "Tensão de irrevogabilidade: o medo burocrático de um erro de digitação de centavos que se torna regra obrigatória para 215 milhões de pessoas sem botão de desfazer."
+    },
+    {
+      "variantId": "VARIANT_C",
+      "profile": "Escala Monumental (Objeto Pequeno vs Máquina Gigante)",
+      "title": "Como 1 Linha de Código em Brasília Muda a Sua Vida Antes do Café da Manhã",
+      "headline": "NOVA LEI.",
+      "subheadline": "215 MILHÕES // SINCRONISMO ÀS 05:00",
+      "thumbnail4kPath": "public/episodes/diario-oficial-3-da-madrugada/thumbnails/thumb_variant_c_with_text.png",
+      "testHypothesis": "Espanto de escala: a desproporção entre uma única linha em XML na tela do computador e o impacto direto nos preços, regras e portos do país inteiro às 5h da manhã."
+    }
+  ],
+  "description": "Quando você acorda de manhã e descobre que o preço de um imposto subiu, que uma diretoria estatal foi demitida ou que uma nova regra bancária entrou em vigor, isso não foi decidido na hora do café. Essa decisão passou por uma esteira secreta de servidores entre meia-noite e as 5h da manhã.\n\nNeste documentário investigativo, dissecamos a engenharia invisível da Imprensa Nacional em Brasília, o sistema INCom, as chaves criptográficas do ICP-Brasil e a janela irreversível das 04h59 — o momento exato em que um hash matemático sela o Diário Oficial da União e transforma texto puro na regra soberana de 215 milhões de pessoas.\n\nCapítulos:\n00:00 - O Silêncio das 03:00 e o Envio pelo INCom\n00:49 - O Carimbo Criptográfico e a Força de Lei\n01:40 - A Esteira Automatizada de Diagramação do DOU\n02:32 - A Janela Crítica das 04:59 e o Hash SHA-256\n03:26 - O Gargalo do Erro Irrevogável (Sem Desfazer)\n04:19 - A Publicação às 05:00 e o Veredito do Estado\n\nFicha Técnica e Fontes Oficiais:\n- Imprensa Nacional (Presidência da República / Casa Civil)\n- Sistema de Envio Eletrônico de Matérias (INCom)\n- Infraestrutura de Chaves Públicas Brasileira (ICP-Brasil / ITI)\n- Decreto Federal nº 9.215/2017 (Publicação Eletrônica do DOU)\n- Observatório Nacional (Padrão Primário de Tempo e Frequência do Brasil)\n\nInscreva-se no canal O Outro Lado para entender o que acontece depois que você clica, compra, liga ou aperta.\nINVESTIGAR. REVELAR. COMPREENDER.",
+  "tags": [
+    "o outro lado",
+    "diario oficial da uniao",
+    "dou",
+    "imprensa nacional",
+    "como funcionam as leis",
+    "brasilia",
+    "esplanada dos ministerios",
+    "casa civil",
+    "icp brasil",
+    "assinatura digital",
+    "criptografia de estado",
+    "servidores publicos",
+    "decreto presidencial",
+    "medida provisoria",
+    "documentario investigativo",
+    "bastidores do poder",
+    "engenharia publica",
+    "tecnologia governamental"
+  ]
+}

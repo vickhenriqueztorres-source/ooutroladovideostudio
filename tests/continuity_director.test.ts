@@ -9,6 +9,7 @@ import {runCinematicDirectionShadowHook} from '../hsl/cinematic/runners/cinemati
 import {buildCinematicContinuityContexts} from '../hsl/cinematic/services/cinematicContinuityContextBuilder';
 import {inspectCinematicScenePlanMigration} from '../hsl/cinematic/services/cinematicScenePlanMigration';
 import {buildCinematicSequenceMemory} from '../hsl/cinematic/services/cinematicSequenceMemoryBuilder';
+import {tokenizeScriptWords} from '../hsl/cinematic/services/scriptWordSpans';
 import {
   CinematicTelemetryEventData,
   CinematicTelemetryEventName,
@@ -99,20 +100,29 @@ function fixture(options: {missingVisualModeAt?: number; sceneCount?: number} = 
   tempRoots.push(root);
   const packagePath = path.join(root, 'episode-package.json');
   const sceneCount = options.sceneCount || 3;
-  const scenes = Array.from({length: sceneCount}, (_, index) => ({
-    scene_id: `HSL_${String(index + 1).padStart(3, '0')}`,
-    claim_id: `C${String(index + 1).padStart(3, '0')}`,
-    chapter_id: index < 2 ? 'CH_01' : 'CH_02',
-    narrative_function: index === 0 ? 'establish_context' : index === 1 ? 'explain_mechanism' : 'consequence',
-    ...(options.missingVisualModeAt === index ? {} : {visual_mode: index === 1 ? 'remotion_flow_trace' : 'licensed_real'}),
-    visual_subject: index === 0 ? 'airport fuel system' : index === 1 ? 'transfer valve' : 'waiting aircraft',
-    review_status: 'APPROVED',
-    voiceover: index === 0
+  const scenes = Array.from({length: sceneCount}, (_, index) => {
+    const voiceover = index === 0
       ? 'The airport fuel system connects storage with every active gate.'
       : index === 1
         ? 'A transfer valve controls when fuel enters the distribution line.'
-        : 'When that transfer slows, aircraft wait longer at the gate.'
-  }));
+        : 'When that transfer slows, aircraft wait longer at the gate.';
+    const words = tokenizeScriptWords(voiceover);
+    return {
+      scene_id: `HSL_${String(index + 1).padStart(3, '0')}`,
+      claim_id: `C${String(index + 1).padStart(3, '0')}`,
+      chapter_id: index < 2 ? 'CH_01' : 'CH_02',
+      narrative_function: index === 0 ? 'establish_context' : index === 1 ? 'explain_mechanism' : 'consequence',
+      ...(options.missingVisualModeAt === index ? {} : {visual_mode: index === 1 ? 'remotion_flow_trace' : 'licensed_real'}),
+      visual_subject: index === 0 ? 'airport fuel system' : index === 1 ? 'transfer valve' : 'waiting aircraft',
+      review_status: 'APPROVED',
+      voiceover,
+      narration_alignment: words.map((word, wIdx) => ({
+        word: word.text,
+        start_ms: 1000 + wIdx * 120,
+        end_ms: 1100 + wIdx * 120
+      }))
+    };
+  });
   fs.writeFileSync(packagePath, JSON.stringify({
     episode_id: 'HSL_EP_001',
     human_approval_status: 'APPROVED',
@@ -352,14 +362,17 @@ test('27. generation failure before staging promotes no partial set', async () =
 });
 
 test('28. feature flags OFF preserve the existing behavior', async () => {
+  // obsoleto desde a253b77: direção cinematográfica é obrigatória
   const {root, packagePath} = fixture();
   const before = fs.readdirSync(root);
-  const result = await runCinematicDirectionShadowHook({
-    productionId: 'PROD_CONTINUITY_OFF', editorialPackagePath: packagePath,
-    flags: {pipelineV1Enabled: false, shadowModeEnabled: false, shouldRunShadow: false},
-    runner: {run: async () => { throw new Error('must remain disabled'); }}
-  });
-  assert.deepEqual(result, {executed: false, success: true});
+  await assert.rejects(
+    () => runCinematicDirectionShadowHook({
+      productionId: 'PROD_CONTINUITY_OFF', editorialPackagePath: packagePath,
+      flags: {pipelineV1Enabled: false, shadowModeEnabled: false, shouldRunShadow: false},
+      runner: {run: async () => { throw new Error('must remain disabled'); }}
+    }),
+    /CINEMATIC_DIRECTION_REQUIRED/
+  );
   assert.deepEqual(fs.readdirSync(root), before);
 });
 
@@ -368,7 +381,7 @@ test('29. shadow failure does not block or modify production truth', async () =>
   const before = fs.readFileSync(packagePath);
   const result = await runCinematicDirectionShadowHook({
     productionId: 'PROD_CONTINUITY_FAILURE', editorialPackagePath: packagePath,
-    flags: {pipelineV1Enabled: true, shadowModeEnabled: true, shouldRunShadow: true},
+    flags: {pipelineV1Enabled: false, shadowModeEnabled: true, shouldRunShadow: true},
     runner: new CinematicDirectionShadowRunner(new CapturingTelemetry())
   });
   assert.equal(result.executed, true);

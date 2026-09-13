@@ -20,6 +20,18 @@ import {EpisodeEnergiaIaDataCenters} from './EpisodeEnergiaIaDataCenters';
 import {EPISODE_ENERGIA_IA_TOTAL_FRAMES} from './episodeEnergiaIaDataCentersTimelineData';
 import {EpisodeNota100} from './EpisodeNota100';
 import {EPISODE_NOTA_100_TOTAL_FRAMES} from './episodeNota100TimelineData';
+import {EpisodeRaioX} from './EpisodeRaioX';
+import {EPISODE_RAIO_X_TOTAL_FRAMES} from './episodeRaioXTimelineData';
+import {EpisodeSalaCofre} from './EpisodeSalaCofre';
+import {EPISODE_SALA_COFRE_TOTAL_FRAMES} from './episodeSalaCofreTimelineData';
+import {EpisodeLinhaSegura} from './EpisodeLinhaSegura';
+import {EPISODE_LINHA_SEGURA_TOTAL_FRAMES} from './episodeLinhaSeguraTimelineData';
+import {EpisodeRedeEletrica60hz} from './EpisodeRedeEletrica60hz';
+import {EPISODE_REDE_ELETRICA_TOTAL_FRAMES} from './episodeRedeEletrica60hzTimelineData';
+import {EpisodeDiarioOficial} from './EpisodeDiarioOficial';
+import {EPISODE_DIARIO_OFICIAL_TOTAL_FRAMES} from './episodeDiarioOficialTimelineData';
+import {EpisodeEncomendaChina} from './EpisodeEncomendaChina';
+import {EPISODE_ENCOMENDA_CHINA_TOTAL_FRAMES} from './episodeEncomendaChinaTimelineData';
 import {HslThumbnail, HslThumbnailProps} from './HslThumbnail';
 import {
   FieldDocumentaryThumbnail,
@@ -183,6 +195,54 @@ export const RemotionRoot: React.FC = () => <>
     id="EpisodeNota100"
     component={EpisodeNota100}
     durationInFrames={EPISODE_NOTA_100_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="EpisodeRaioX"
+    component={EpisodeRaioX}
+    durationInFrames={EPISODE_RAIO_X_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="EpisodeSalaCofre"
+    component={EpisodeSalaCofre}
+    durationInFrames={EPISODE_SALA_COFRE_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="EpisodeLinhaSegura"
+    component={EpisodeLinhaSegura}
+    durationInFrames={EPISODE_LINHA_SEGURA_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="EpisodeRedeEletrica"
+    component={EpisodeRedeEletrica60hz}
+    durationInFrames={EPISODE_REDE_ELETRICA_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="EpisodeDiarioOficial"
+    component={EpisodeDiarioOficial}
+    durationInFrames={EPISODE_DIARIO_OFICIAL_TOTAL_FRAMES}
+    fps={30}
+    width={1920}
+    height={1080}
+  />
+  <Composition
+    id="EpisodeEncomendaChina"
+    component={EpisodeEncomendaChina}
+    durationInFrames={EPISODE_ENCOMENDA_CHINA_TOTAL_FRAMES}
     fps={30}
     width={1920}
     height={1080}

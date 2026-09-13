@@ -89,7 +89,7 @@ export class CinematicExecutionCompiler {
         ...(scene.attention_role ? {
           attention_role: scene.attention_role,
           attention_loop_id: scene.attention_loop_id || null,
-          pause_after_ms: scene.pause_after_ms || 0
+          pause_after_ms: (scene as any).pause_after_ms || 0
         } : {}),
         energy: timing.energy, planned_duration_seconds: timing.plannedDurationSeconds,
         shot: source.shot, camera: source.camera, continuity: source.continuity,

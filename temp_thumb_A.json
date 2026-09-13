@@ -1,0 +1,17 @@
+{
+  "baseImageSrc": "episodes/receita-federal-t-rex/thumbnails/bases/base_a.png",
+  "headlineLines": [
+    "ELES JÁ",
+    "SABEM."
+  ],
+  "categoryBadge": "INVESTIGAÇÃO // O OUTRO LADO",
+  "subheadline": "BASE SPED // 5 BILHÕES DE REGISTROS POR MÊS",
+  "textSide": "LEFT",
+  "accentColor": "#FF5500",
+  "telemetryColor": "#00F0FF",
+  "revealPercentage": 92,
+  "coordinates": "15.7975° S, 47.8919° W",
+  "mode": "thumbnail",
+  "hideDecorativeHud": true,
+  "brandMark": "minimal"
+}

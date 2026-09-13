@@ -8,6 +8,7 @@ import {HSL_CINEMATIC_BRAND_RULES} from '../hsl/cinematic/config/hslCinematicSho
 import {CinematicDirectionShadowRunner} from '../hsl/cinematic/runners/cinematicDirectionShadowRunner';
 import {runCinematicDirectionShadowHook} from '../hsl/cinematic/runners/cinematicShadowHook';
 import {inspectCinematicScenePlanMigration} from '../hsl/cinematic/services/cinematicScenePlanMigration';
+import {tokenizeScriptWords} from '../hsl/cinematic/services/scriptWordSpans';
 import {
   CinematicTelemetryEventData,
   CinematicTelemetryEventName,
@@ -40,19 +41,22 @@ after(() => {
 
 function beat(): NarrativeBeatV1 {
   return {
+    id: 'HSL_018_B001',
     beat_id: 'HSL_018_B001',
     scene_id: 'HSL_018',
     claim_id: 'C007',
+    t_start: 0.0,
+    t_end: 4.5,
+    transcript_span: SCRIPT,
+    narrative_function: 'explain_mechanism',
+    evidence_mode: 'witness',
+    visual_claim: 'sistema mecânico operando com válvulas e tubulações industriais visíveis sob iluminação prática',
+    visual_must_include: ['tubulações'],
+    visual_must_not: [],
+    hud_value: null,
     script_span: {start_word: 0, end_word: 13},
-    text: SCRIPT,
-    semantic_function: 'explain_mechanism',
-    concept: 'airport_fuel_flow',
-    importance: 'high',
-    emphasis: ['airport fuel distribution system'],
-    cut_candidate: true,
-    visual_change_candidate: true,
-    timing: {source: 'not_available'}
-  };
+    timing: {source: 'estimated_wpm'}
+  } as any;
 }
 
 function input(overrides: Partial<CinematicShotDirectorInput> = {}): CinematicShotDirectorInput {
@@ -82,6 +86,7 @@ function fixture(options: {visualMode?: boolean} = {}): {root: string; packagePa
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hsl-shot-director-'));
   tempRoots.push(root);
   const packagePath = path.join(root, 'episode-package.json');
+  const words = tokenizeScriptWords(SCRIPT);
   fs.writeFileSync(packagePath, JSON.stringify({
     episode_id: 'HSL_EP_001',
     human_approval_status: 'APPROVED',
@@ -93,7 +98,12 @@ function fixture(options: {visualMode?: boolean} = {}): {root: string; packagePa
       ...(options.visualMode === false ? {} : {visual_mode: 'licensed_real'}),
       visual_subject: 'airport fuel distribution system',
       review_status: 'APPROVED',
-      voiceover: SCRIPT
+      voiceover: SCRIPT,
+      narration_alignment: words.map((word, index) => ({
+        word: word.text,
+        start_ms: 1000 + index * 120,
+        end_ms: 1100 + index * 120
+      }))
     }]
   }, null, 2));
   return {root, packagePath};
@@ -239,15 +249,18 @@ test('16. full plan validator rejects changed narrative intent', async () => {
 });
 
 test('17. disabled feature flags create no side effects', async () => {
+  // obsoleto desde a253b77: direção cinematográfica é obrigatória
   const {root, packagePath} = fixture();
   const before = fs.readdirSync(root);
-  const hook = await runCinematicDirectionShadowHook({
-    productionId: 'PROD_DISABLED',
-    editorialPackagePath: packagePath,
-    flags: {pipelineV1Enabled: false, shadowModeEnabled: false, shouldRunShadow: false},
-    runner: {run: async () => { throw new Error('must stay disabled'); }}
-  });
-  assert.deepEqual(hook, {executed: false, success: true});
+  await assert.rejects(
+    () => runCinematicDirectionShadowHook({
+      productionId: 'PROD_DISABLED',
+      editorialPackagePath: packagePath,
+      flags: {pipelineV1Enabled: false, shadowModeEnabled: false, shouldRunShadow: false},
+      runner: {run: async () => { throw new Error('must stay disabled'); }}
+    }),
+    /CINEMATIC_DIRECTION_REQUIRED/
+  );
   assert.deepEqual(fs.readdirSync(root), before);
 });
 
@@ -257,7 +270,7 @@ test('18. shot agent failure remains non-blocking through shadow hook', async ()
   const hook = await runCinematicDirectionShadowHook({
     productionId: 'PROD_NO_VISUAL_MODE',
     editorialPackagePath: packagePath,
-    flags: {pipelineV1Enabled: true, shadowModeEnabled: true, shouldRunShadow: true},
+    flags: {pipelineV1Enabled: false, shadowModeEnabled: true, shouldRunShadow: true},
     runner: new CinematicDirectionShadowRunner(new CapturingTelemetry())
   });
   assert.equal(hook.executed, true);

@@ -6,6 +6,7 @@ import {
 } from '../types/cinematicPlans';
 import {CinematicValidationError} from '../validators/cinematicValidationError';
 import {buildCinematicSequenceMemory} from './cinematicSequenceMemoryBuilder';
+import {deriveSemanticFunction} from '../schemas/beatSchema';
 
 export interface CinematicContinuitySceneSource {
   readonly editorialScene: Readonly<CinematicEditorialSceneView>;
@@ -34,7 +35,7 @@ export function buildCinematicContinuitySceneViews(
       narrative_function: typeof editorialScene.narrative_function === 'string'
         ? editorialScene.narrative_function
         : '',
-      beat_semantics: provisionalPlan.beats.map((beat) => beat.semantic_function),
+      beat_semantics: provisionalPlan.beats.map((beat) => deriveSemanticFunction(beat.narrative_function) as any),
       narrative_intent: provisionalPlan.direction.narrative_intent || '',
       focus_target: provisionalPlan.direction.focus_target,
       shot: provisionalPlan.shot,

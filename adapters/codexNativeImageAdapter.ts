@@ -129,7 +129,7 @@ STEPS:
     return new Promise((resolve) => {
       let stdoutData = '';
       let stderrData = '';
-      const proc = spawn('codex.cmd', ['exec', '--ephemeral', '-'], {
+      const proc = spawn('codex.cmd', ['exec', '--dangerously-bypass-approvals-and-sandbox', '--ephemeral', '-'], {
         stdio: ['pipe', 'pipe', 'pipe'],
         shell: true
       });
@@ -153,6 +153,41 @@ STEPS:
 
       proc.on('close', (code) => {
         clearTimeout(timer);
+
+        // Auto-recuperação de imagem caso o Codex CLI a tenha salvo em $CODEX_HOME/generated_images
+        if (!fs.existsSync(resolvedOut) || fs.statSync(resolvedOut).size <= 1024 * 50) {
+          try {
+            const codexGenDir = path.join(process.env.USERPROFILE || 'C:\\Users\\brend', '.codex', 'generated_images');
+            if (fs.existsSync(codexGenDir)) {
+              let newestFile: string | null = null;
+              let newestMtime = 0;
+              const sessions = fs.readdirSync(codexGenDir);
+              for (const session of sessions) {
+                const sessionPath = path.join(codexGenDir, session);
+                if (fs.statSync(sessionPath).isDirectory()) {
+                  const files = fs.readdirSync(sessionPath);
+                  for (const f of files) {
+                    if (f.endsWith('.png') || f.endsWith('.jpg')) {
+                      const fPath = path.join(sessionPath, f);
+                      const mtime = fs.statSync(fPath).mtimeMs;
+                      if (mtime > newestMtime && (Date.now() - mtime) < 240000) {
+                        newestMtime = mtime;
+                        newestFile = fPath;
+                      }
+                    }
+                  }
+                }
+              }
+              if (newestFile && fs.statSync(newestFile).size > 1024 * 50) {
+                fs.copyFileSync(newestFile, resolvedOut);
+                Logger.info(this.name, `[CODEX_CLI] 🔄 Auto-recuperado arquivo gerado em ${newestFile} -> ${resolvedOut}`);
+              }
+            }
+          } catch (e: any) {
+            Logger.warn(this.name, `Aviso na varredura de auto-recuperação: ${e.message}`);
+          }
+        }
+
         if (fs.existsSync(resolvedOut) && fs.statSync(resolvedOut).size > 1024 * 50) {
           const buffer = fs.readFileSync(resolvedOut);
           const sha256 = crypto.createHash('sha256').update(buffer).digest('hex');

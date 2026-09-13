@@ -1,0 +1,25 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "COMMONS_148204953",
+  "provider": "wikimedia",
+  "license": "Public_Domain",
+  "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Steam_Plant_and_Utility_Tunnel_Safety_Video_VOTY_2019_%28LRC-2018-B701-V-Utility-Tunnel-Safety-Video-8770%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Steam_Plant_and_Utility_Tunnel_Safety_Video_VOTY_2019_(LRC-2018-B701-V-Utility-Tunnel-Safety-Video-8770).webm",
+  "author": "NASA Langley Research Center",
+  "rawSha256": "57be57e975d094323516062cba40865954e130528de57edec8a8a98c99e8f5e1",
+  "sanitizedSha256": "4966f203c28da750ddcf132c04a9d14abaef38a9645a2129ac6871857de1504f",
+  "audioStripped": true,
+  "durationSeconds": 5.083333,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "secure_cable_tunnel",
+  "tags": [
+    "underground tunnel corridor",
+    "wikimedia_commons",
+    "open_archive"
+  ],
+  "domains": [
+    "secure_cable_tunnel"
+  ],
+  "timestamp": "2026-09-10T20:10:50.005Z"
+}

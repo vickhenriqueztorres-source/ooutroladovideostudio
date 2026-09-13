@@ -1,0 +1,37 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "NASA_GSFC_20161007_IMERG_m12389_Matthew_WS",
+  "provider": "nasa",
+  "license": "NASA_Public_Domain",
+  "sourceUrl": "http://images-assets.nasa.gov/video/GSFC_20161007_IMERG_m12389_Matthew_WS/GSFC_20161007_IMERG_m12389_Matthew_WS~orig.mp4",
+  "sourcePageUrl": "https://images.nasa.gov/details-GSFC_20161007_IMERG_m12389_Matthew_WS",
+  "author": "GSFC",
+  "rawSha256": "42aa34d5da270ff227bfa9057bbc0228e9c2de30807ed3549551d0b2766135d1",
+  "sanitizedSha256": "e6a27f205c741013872896ad4df8cd7c17ae3f5181dfedd8a5be18a2eac03a9c",
+  "audioStripped": true,
+  "durationSeconds": 5.083333,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "rf_shielded_door",
+  "tags": [
+    "Atmospheric Science",
+    "GPM",
+    "Natural Hazards",
+    "Rainfall",
+    "Storm",
+    "Hurricanes",
+    "Precipitation Amount",
+    "Precipitation",
+    "Earth",
+    "Hurricane Matthew",
+    "landfall",
+    "nasa",
+    "public_domain",
+    "space",
+    "earth_observation"
+  ],
+  "domains": [
+    "rf_shielded_door"
+  ],
+  "timestamp": "2026-09-10T20:10:21.545Z"
+}

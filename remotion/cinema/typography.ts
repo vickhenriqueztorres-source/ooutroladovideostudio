@@ -10,11 +10,11 @@ export const CINEMATIC_TYPOGRAPHY = {
     EDITORIAL: "'Inter', 'Helvetica Neue', Arial, sans-serif"
   },
   SIZES: {
-    DOSSIER_TITLE: '28px',
-    SECTION_HEADER: '20px',
-    PRIMARY_LABEL: '13px',
-    TELEMETRY_DATA: '11px',
-    FOOTNOTE: '9px'
+    DOSSIER_TITLE: '64px',
+    SECTION_HEADER: '42px',
+    PRIMARY_LABEL: '28px',
+    TELEMETRY_DATA: '24px',
+    FOOTNOTE: '18px'
   },
   WEIGHTS: {
     REGULAR: 400,

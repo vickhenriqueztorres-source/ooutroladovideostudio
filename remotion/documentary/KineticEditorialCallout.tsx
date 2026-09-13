@@ -55,6 +55,8 @@ export const KineticEditorialCallout: React.FC<KineticEditorialCalloutProps> = (
   const opacity = Math.min(enter, exit);
 
   // Posicionamento
+
+  // Posicionamento
   const getContainerStyle = (): React.CSSProperties => {
     switch (position) {
       case 'bottom_left':
@@ -86,7 +88,7 @@ export const KineticEditorialCallout: React.FC<KineticEditorialCalloutProps> = (
           flexDirection: 'column',
           opacity,
           transform: `translateY(${(1 - enter) * 5}px)`,
-          maxWidth: 620,
+          maxWidth: 1100,
           ...getContainerStyle()
         }}
       >
@@ -94,13 +96,13 @@ export const KineticEditorialCallout: React.FC<KineticEditorialCalloutProps> = (
           <div
             style={{
               fontFamily: "'JetBrains Mono', Menlo, Consolas, monospace",
-              fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: 0,
+              fontSize: 22,
+              fontWeight: 800,
+              letterSpacing: 2,
               color: accentColor,
               textTransform: 'uppercase',
-              marginBottom: 6,
-              textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+              marginBottom: 10,
+              textShadow: '0 2px 14px rgba(0,0,0,0.95)'
             }}
           >
             {categoryText}
@@ -110,13 +112,13 @@ export const KineticEditorialCallout: React.FC<KineticEditorialCalloutProps> = (
         <div
           style={{
             fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-            fontSize: displayText.length > 38 ? 26 : 30,
-            fontWeight: 750,
+            fontSize: displayText.length > 40 ? 46 : 56,
+            fontWeight: 850,
             letterSpacing: 0,
             color: '#F4F4F0',
             textTransform: 'uppercase',
-            lineHeight: 1.15,
-            textShadow: '0 2px 14px rgba(0,0,0,0.95)'
+            lineHeight: 1.1,
+            textShadow: '0 3px 20px rgba(0,0,0,0.98)'
           }}
         >
           {displayText}
@@ -124,10 +126,11 @@ export const KineticEditorialCallout: React.FC<KineticEditorialCalloutProps> = (
 
         <div
           style={{
-            height: 1,
-            width: 42,
+            height: 3,
+            width: 72,
             backgroundColor: accentColor,
-            marginTop: 8,
+            marginTop: 12,
+            marginBottom: 8,
             alignSelf: 'flex-start'
           }}
         />
@@ -136,13 +139,13 @@ export const KineticEditorialCallout: React.FC<KineticEditorialCalloutProps> = (
           <div
             style={{
               fontFamily: "'JetBrains Mono', Menlo, Consolas, monospace",
-              fontSize: 12,
-              fontWeight: 500,
-              letterSpacing: 0,
-              color: '#D7D8D4',
-              marginTop: 7,
+              fontSize: 22,
+              fontWeight: 600,
+              letterSpacing: 1,
+              color: '#E2E4DE',
+              marginTop: 4,
               textTransform: 'uppercase',
-              textShadow: '0 2px 10px rgba(0,0,0,0.9)'
+              textShadow: '0 2px 12px rgba(0,0,0,0.95)'
             }}
           >
             {subText}

@@ -54,8 +54,10 @@ function findProtectedFields(value: unknown, path = '$'): string[] {
   const findings: string[] = [];
   for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
     const childPath = `${path}.${key}`;
-    const allowedClaimReference = key === 'claim_id' && /^\$\.beats\[\d+\]\.claim_id$/.test(childPath);
-    if (PROTECTED_EDITORIAL_FIELDS.has(key) && !allowedClaimReference) findings.push(childPath);
+    const allowedBeatField =
+      (key === 'claim_id' || key === 'narrative_function') &&
+      /^\$\.beats\[\d+\]\.(claim_id|narrative_function)$/.test(childPath);
+    if (PROTECTED_EDITORIAL_FIELDS.has(key) && !allowedBeatField) findings.push(childPath);
     findings.push(...findProtectedFields(child, childPath));
   }
   return findings;

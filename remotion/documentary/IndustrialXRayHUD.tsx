@@ -15,6 +15,14 @@ export interface IndustrialXRayHUDProps {
   dateText?: string;
   accentColor?: string;
   telemetryColor?: string;
+  nodeTitle?: string;
+  nodeStatus?: string;
+  nodeLayer?: string;
+  metricLabel?: string;
+  metricValue?: string;
+  flowTitle?: string;
+  flowStages?: string[];
+  currentFlowIndex?: number;
 }
 
 /**
@@ -34,7 +42,15 @@ export const IndustrialXRayHUD: React.FC<IndustrialXRayHUDProps> = ({
   sourceText = '',
   dateText = '',
   accentColor = '#FF5500',
-  telemetryColor = '#00F0FF'
+  telemetryColor = '#00F0FF',
+  nodeTitle,
+  nodeStatus,
+  nodeLayer,
+  metricLabel,
+  metricValue,
+  flowTitle,
+  flowStages,
+  currentFlowIndex
 }) => {
   const frame = useCurrentFrame();
 
@@ -90,13 +106,13 @@ export const IndustrialXRayHUD: React.FC<IndustrialXRayHUDProps> = ({
             }}
           >
             <div style={{fontSize: 10, color: '#8A8D9F', letterSpacing: 1}}>
-              NÚCLEO DE VERIFICAÇÃO PIX
+              {nodeTitle || spec?.regulatorySource?.documentTitle || spec?.chapterTag || 'SISTEMA DE TELEMETRIA // NÓ ATIVO'}
             </div>
             <div style={{fontSize: 12, color: accentColor, fontWeight: 900, marginTop: 4}}>
-              STATUS: SOB CARGA
+              {nodeStatus || 'STATUS: OPERACIONAL'}
             </div>
             <div style={{fontSize: 10, color: telemetryColor, marginTop: 2}}>
-              CAMADA: ANTI-FRAUDE
+              {nodeLayer || 'CAMADA: ENCRIPTAÇÃO & CONTROLE'}
             </div>
           </div>
 
@@ -216,13 +232,14 @@ export const IndustrialXRayHUD: React.FC<IndustrialXRayHUDProps> = ({
           }}
         >
           <div style={{fontSize: 11, letterSpacing: 1.5, color: '#8A8D9F', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: 8}}>
-            FLUXO DE VERIFICAÇÃO
+            {flowTitle || 'FLUXO DE VERIFICAÇÃO'}
           </div>
 
           {/* Estágios do Fluxo */}
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 16}}>
-            {['RECEBIDO', 'ANÁLISE', 'VERIFICAÇÃO', 'DECISÃO'].map((stage, idx) => {
-              const isCurrent = stage === 'VERIFICAÇÃO';
+            {(flowStages || ['ENTRADA', 'ISOLAMENTO', 'AUDITORIA', 'VEREDITO']).map((stage, idx) => {
+              const activeIdx = currentFlowIndex !== undefined ? currentFlowIndex : 2;
+              const isCurrent = idx === activeIdx;
               return (
                 <div key={idx} style={{textAlign: 'center', opacity: isCurrent ? 1 : 0.45}}>
                   <div
@@ -250,12 +267,12 @@ export const IndustrialXRayHUD: React.FC<IndustrialXRayHUDProps> = ({
             })}
           </div>
 
-          {/* Transações por Segundo */}
+          {/* Métrica Dinâmica / Taxa */}
           <div style={{marginTop: 20, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
             <div>
-              <div style={{fontSize: 9, color: '#8A8D9F'}}>TRANSAÇÕES POR SEGUNDO</div>
+              <div style={{fontSize: 9, color: '#8A8D9F'}}>{metricLabel || 'TAXA DE PROCESSAMENTO'}</div>
               <div style={{fontSize: 18, fontWeight: 900, color: telemetryColor, marginTop: 2}}>
-                {transactionsPerSec}
+                {metricValue || transactionsPerSec || '10.000 ops/s'}
               </div>
             </div>
             {/* Gráfico de Barras Miniatura */}

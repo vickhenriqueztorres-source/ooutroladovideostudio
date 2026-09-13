@@ -1,0 +1,182 @@
+{
+  "RX_001": {
+    "audioDuration": 7.94,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.7,
+    "frames": 261
+  },
+  "RX_002": {
+    "audioDuration": 7.06,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.9,
+    "frames": 237
+  },
+  "RX_003": {
+    "audioDuration": 7.48,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.3,
+    "frames": 249
+  },
+  "RX_004": {
+    "audioDuration": 9.33,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.1,
+    "frames": 303
+  },
+  "RX_005": {
+    "audioDuration": 7.89,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.7,
+    "frames": 261
+  },
+  "RX_006": {
+    "audioDuration": 7.99,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.8,
+    "frames": 264
+  },
+  "RX_007": {
+    "audioDuration": 8.82,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.6,
+    "frames": 288
+  },
+  "RX_008": {
+    "audioDuration": 10.36,
+    "breathSeconds": 0.8,
+    "sceneDuration": 11.2,
+    "frames": 336
+  },
+  "RX_009": {
+    "audioDuration": 9.43,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.2,
+    "frames": 306
+  },
+  "RX_010": {
+    "audioDuration": 9.06,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.9,
+    "frames": 297
+  },
+  "RX_011": {
+    "audioDuration": 9.43,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.2,
+    "frames": 306
+  },
+  "RX_012": {
+    "audioDuration": 6.36,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.2,
+    "frames": 216
+  },
+  "RX_013": {
+    "audioDuration": 9.94,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.7,
+    "frames": 321
+  },
+  "RX_014": {
+    "audioDuration": 7.94,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.7,
+    "frames": 261
+  },
+  "RX_015": {
+    "audioDuration": 8.78,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.6,
+    "frames": 288
+  },
+  "RX_016": {
+    "audioDuration": 8.22,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9,
+    "frames": 270
+  },
+  "RX_017": {
+    "audioDuration": 6.46,
+    "breathSeconds": 0.8,
+    "sceneDuration": 7.3,
+    "frames": 219
+  },
+  "RX_018": {
+    "audioDuration": 7.8,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.6,
+    "frames": 258
+  },
+  "RX_019": {
+    "audioDuration": 7.38,
+    "breathSeconds": 0.2,
+    "sceneDuration": 7.5,
+    "frames": 225
+  },
+  "RX_020": {
+    "audioDuration": 8.08,
+    "breathSeconds": 2.7,
+    "sceneDuration": 10.8,
+    "frames": 324
+  },
+  "RX_021": {
+    "audioDuration": 7.71,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.5,
+    "frames": 255
+  },
+  "RX_022": {
+    "audioDuration": 7.48,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.3,
+    "frames": 249
+  },
+  "RX_023": {
+    "audioDuration": 7.38,
+    "breathSeconds": 0.8,
+    "sceneDuration": 8.2,
+    "frames": 246
+  },
+  "RX_024": {
+    "audioDuration": 9.43,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10.2,
+    "frames": 306
+  },
+  "RX_025": {
+    "audioDuration": 10.59,
+    "breathSeconds": 0.8,
+    "sceneDuration": 11.4,
+    "frames": 342
+  },
+  "RX_026": {
+    "audioDuration": 9.24,
+    "breathSeconds": 0.8,
+    "sceneDuration": 10,
+    "frames": 300
+  },
+  "RX_027": {
+    "audioDuration": 9.15,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.9,
+    "frames": 297
+  },
+  "RX_028": {
+    "audioDuration": 10.26,
+    "breathSeconds": 0.8,
+    "sceneDuration": 11.1,
+    "frames": 333
+  },
+  "RX_029": {
+    "audioDuration": 8.45,
+    "breathSeconds": 0.8,
+    "sceneDuration": 9.3,
+    "frames": 279
+  },
+  "RX_030": {
+    "audioDuration": 10.54,
+    "breathSeconds": 0.8,
+    "sceneDuration": 11.3,
+    "frames": 339
+  }
+}

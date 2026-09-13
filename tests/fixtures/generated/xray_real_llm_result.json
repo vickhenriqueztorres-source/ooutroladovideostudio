@@ -1,0 +1,344 @@
+{
+  "beatAttemptCount": 2,
+  "beatAttempt1Violations": [],
+  "generatedBeats": [
+    {
+      "id": "RX_001_B001",
+      "beat_id": "RX_001_B001",
+      "t_start": 0,
+      "t_end": 3.61,
+      "transcript_span": "Quando a esteira acelera a 0,5 metros por segundo,",
+      "narrative_function": "introduce_object",
+      "evidence_mode": "scale",
+      "visual_claim": "esteira transportadora industrial tracionando bagagem através de roletes metálicos acionados",
+      "visual_must_include": [
+        "esteira transportadora movimentando bagagem",
+        "roletes metálicos girando sob a carga"
+      ],
+      "visual_must_not": [
+        "marca comercial",
+        "hologramas",
+        "iluminação neon dominante"
+      ],
+      "hud_value": "0,5 metros por segundo",
+      "scene_id": "RX_001",
+      "claim_id": "CLM_XRAY_DUAL_ENERGY",
+      "script_span": {
+        "start_word": 0,
+        "end_word": 9
+      },
+      "concept": "esteira_transportadora",
+      "importance": "high",
+      "emphasis": [
+        "0,5 metros por segundo"
+      ],
+      "cut_candidate": true,
+      "visual_change_candidate": true,
+      "timing": {
+        "source": "tts_word_timestamps"
+      }
+    },
+    {
+      "id": "RX_001_B002",
+      "beat_id": "RX_001_B002",
+      "t_start": 3.61,
+      "t_end": 7.85,
+      "transcript_span": "o gerador dispara dois feixes de raio-X com energias diferentes.",
+      "narrative_function": "explain_mechanism",
+      "evidence_mode": "witness",
+      "visual_claim": "gerador blindado acionando relés enquanto lâmpadas piloto âmbar acendem alternadamente",
+      "visual_must_include": [
+        "gerador blindado energizado",
+        "relés de alta tensão acionando",
+        "lâmpadas piloto âmbar acendendo"
+      ],
+      "visual_must_not": [
+        "feixes luminosos artificiais",
+        "interfaces flutuantes",
+        "efeitos de ficção científica"
+      ],
+      "hud_value": null,
+      "scene_id": "RX_001",
+      "claim_id": "CLM_XRAY_DUAL_ENERGY",
+      "script_span": {
+        "start_word": 9,
+        "end_word": 19
+      },
+      "concept": "gerador_dupla_energia",
+      "importance": "high",
+      "emphasis": [
+        "gerador",
+        "dois feixes",
+        "energias diferentes"
+      ],
+      "cut_candidate": true,
+      "visual_change_candidate": true,
+      "timing": {
+        "source": "tts_word_timestamps"
+      }
+    },
+    {
+      "id": "RX_001_B003",
+      "beat_id": "RX_001_B003",
+      "t_start": 7.85,
+      "t_end": 12.38,
+      "transcript_span": "Isso faz com que a densidade da matéria seja calculada instantaneamente,",
+      "narrative_function": "explain_mechanism",
+      "evidence_mode": "dissection",
+      "visual_claim": "cristais cintiladores reagindo enquanto fotodiodos alinhados registram intensidades distintas",
+      "visual_must_include": [
+        "cristais cintiladores reagindo à passagem da bagagem",
+        "fotodiodos de silício alinhados",
+        "módulos eletrônicos com indicadores piscando"
+      ],
+      "visual_must_not": [
+        "raios luminosos visíveis",
+        "gráficos coloridos",
+        "equipamento inventado"
+      ],
+      "hud_value": null,
+      "scene_id": "RX_001",
+      "claim_id": "CLM_XRAY_DUAL_ENERGY",
+      "script_span": {
+        "start_word": 19,
+        "end_word": 30
+      },
+      "concept": "calculo_densidade",
+      "importance": "high",
+      "emphasis": [
+        "densidade da matéria",
+        "calculada instantaneamente"
+      ],
+      "cut_candidate": true,
+      "visual_change_candidate": true,
+      "timing": {
+        "source": "tts_word_timestamps"
+      }
+    },
+    {
+      "id": "RX_001_B004",
+      "beat_id": "RX_001_B004",
+      "t_start": 12.38,
+      "t_end": 15.125,
+      "transcript_span": "antes mesmo da mala sair do túnel blindado.",
+      "narrative_function": "reveal_constraint",
+      "evidence_mode": "witness",
+      "visual_claim": "mala emergindo enquanto tiras plumbíferas flexionadas retornam à posição vertical",
+      "visual_must_include": [
+        "mala saindo do túnel blindado",
+        "tiras plumbíferas flexionando sobre a bagagem",
+        "roletes transportadores continuando em movimento"
+      ],
+      "visual_must_not": [
+        "passageiros posando",
+        "iluminação de estúdio",
+        "movimento artificial repetido"
+      ],
+      "hud_value": null,
+      "scene_id": "RX_001",
+      "claim_id": "CLM_XRAY_DUAL_ENERGY",
+      "script_span": {
+        "start_word": 30,
+        "end_word": 38
+      },
+      "concept": "saida_tunel_blindado",
+      "importance": "high",
+      "emphasis": [
+        "antes mesmo",
+        "túnel blindado"
+      ],
+      "cut_candidate": true,
+      "visual_change_candidate": true,
+      "timing": {
+        "source": "tts_word_timestamps"
+      }
+    }
+  ],
+  "shotAttemptCount": 2,
+  "shotAttempt1Violations": [
+    {
+      "code": "LITERAL_PROMPT",
+      "shot_id": "shot_004",
+      "beat_id": "RX_001_B004",
+      "message": "Prompt contains literal transcript words not present in visual_claim: tunel, blindado"
+    }
+  ],
+  "finalPlan": {
+    "scene_id": "RX_001",
+    "episode_id": "raio-x-aeroporto",
+    "shots": [
+      {
+        "shot_id": "shot_001",
+        "beat_id": "RX_001_B001",
+        "shot_role": "primary",
+        "shot_type": "TECHNICAL_LOCKED",
+        "composition": "ASYMMETRIC_LEFT",
+        "lens": "NATURAL_50",
+        "motion": {
+          "camera_move": "LOCKED",
+          "subject_motion": "esteira transportadora traciona a mala enquanto roletes metálicos giram sob a carga"
+        },
+        "t_start": 0,
+        "t_end": 3.61,
+        "duration_s": 3.61,
+        "cut_on_word": null,
+        "hud_value": "0,5 metros por segundo",
+        "focus_target": "mala sobre os roletes metálicos"
+      },
+      {
+        "shot_id": "shot_002",
+        "beat_id": "RX_001_B002",
+        "shot_role": "primary",
+        "shot_type": "MECHANICAL_DETAIL",
+        "composition": "ASYMMETRIC_RIGHT",
+        "lens": "DETAIL_85",
+        "motion": {
+          "camera_move": "SLOW_PUSH_IN",
+          "subject_motion": "relés de alta tensão acionam no gerador blindado enquanto duas lâmpadas piloto âmbar acendem alternadamente"
+        },
+        "t_start": 3.61,
+        "t_end": 7.85,
+        "duration_s": 4.24,
+        "cut_on_word": null,
+        "hud_value": null,
+        "focus_target": "relés e lâmpadas piloto do gerador blindado"
+      },
+      {
+        "shot_id": "shot_003",
+        "beat_id": "RX_001_B003",
+        "shot_role": "primary",
+        "shot_type": "MACRO_DETAIL",
+        "composition": "ASYMMETRIC_LEFT",
+        "lens": "MACRO",
+        "motion": {
+          "camera_move": "HANDHELD_MICRO",
+          "subject_motion": "cristais cintiladores reagem em sequência, fotodiodos de silício permanecem alinhados e LEDs dos módulos eletrônicos piscam em ritmos distintos"
+        },
+        "t_start": 7.85,
+        "t_end": 12.38,
+        "duration_s": 4.53,
+        "cut_on_word": null,
+        "hud_value": null,
+        "focus_target": "cristais cintiladores e fotodiodos alinhados"
+      },
+      {
+        "shot_id": "shot_004",
+        "beat_id": "RX_001_B004",
+        "shot_role": "primary",
+        "shot_type": "MECHANICAL_DETAIL",
+        "composition": "ASYMMETRIC_RIGHT",
+        "lens": "DOCUMENTARY_35",
+        "motion": {
+          "camera_move": "LATERAL_DOLLY",
+          "subject_motion": "mala emerge pela abertura do equipamento de inspeção enquanto tiras plumbíferas flexionam sobre a bagagem, retornam à posição vertical e os roletes continuam girando"
+        },
+        "t_start": 12.38,
+        "t_end": 15.125,
+        "duration_s": 2.745,
+        "cut_on_word": null,
+        "hud_value": null,
+        "focus_target": "tiras plumbíferas sobre a mala na abertura de saída"
+      }
+    ],
+    "total_duration": 15.125,
+    "shot_count": 4,
+    "metrics": {
+      "cuts_per_minute": 15.87,
+      "avg_shot_s": 3.781,
+      "locked_pct": 25,
+      "scale_steps": 3,
+      "shot_type_histogram": {
+        "TECHNICAL_LOCKED": 1,
+        "MECHANICAL_DETAIL": 2,
+        "MACRO_DETAIL": 1
+      },
+      "lens_histogram": {
+        "NATURAL_50": 1,
+        "DETAIL_85": 1,
+        "MACRO": 1,
+        "DOCUMENTARY_35": 1
+      },
+      "composition_histogram": {
+        "ASYMMETRIC_LEFT": 2,
+        "ASYMMETRIC_RIGHT": 2
+      },
+      "top5_longest_shots": [
+        {
+          "shot_id": "shot_003",
+          "duration_s": 4.53,
+          "shot_type": "MACRO_DETAIL"
+        },
+        {
+          "shot_id": "shot_002",
+          "duration_s": 4.24,
+          "shot_type": "MECHANICAL_DETAIL"
+        },
+        {
+          "shot_id": "shot_001",
+          "duration_s": 3.61,
+          "shot_type": "TECHNICAL_LOCKED"
+        },
+        {
+          "shot_id": "shot_004",
+          "duration_s": 2.745,
+          "shot_type": "MECHANICAL_DETAIL"
+        }
+      ],
+      "timing_source": "tts_word_timestamps"
+    }
+  },
+  "episodeMetrics": {
+    "cuts_per_minute": 15.87,
+    "avg_shot_s": 3.781,
+    "locked_pct": 25,
+    "scale_steps": {
+      "min": 3,
+      "avg": 3,
+      "by_scene": {
+        "RX_001": 3
+      }
+    },
+    "shot_type_histogram": {
+      "TECHNICAL_LOCKED": 1,
+      "MECHANICAL_DETAIL": 2,
+      "MACRO_DETAIL": 1
+    },
+    "lens_histogram": {
+      "NATURAL_50": 1,
+      "DETAIL_85": 1,
+      "MACRO": 1,
+      "DOCUMENTARY_35": 1
+    },
+    "composition_histogram": {
+      "ASYMMETRIC_LEFT": 2,
+      "ASYMMETRIC_RIGHT": 2
+    },
+    "top5_longest_shots": [
+      {
+        "shot_id": "shot_003",
+        "duration_s": 4.53,
+        "shot_type": "MACRO_DETAIL",
+        "scene_id": "RX_001"
+      },
+      {
+        "shot_id": "shot_002",
+        "duration_s": 4.24,
+        "shot_type": "MECHANICAL_DETAIL",
+        "scene_id": "RX_001"
+      },
+      {
+        "shot_id": "shot_001",
+        "duration_s": 3.61,
+        "shot_type": "TECHNICAL_LOCKED",
+        "scene_id": "RX_001"
+      },
+      {
+        "shot_id": "shot_004",
+        "duration_s": 2.745,
+        "shot_type": "MECHANICAL_DETAIL",
+        "scene_id": "RX_001"
+      }
+    ],
+    "timing_source": "tts_word_timestamps"
+  }
+}

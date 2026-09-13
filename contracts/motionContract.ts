@@ -1,11 +1,13 @@
-﻿import { z } from 'zod';
+import { z } from 'zod';
 import { TimelineCalloutSchema, HudWindowSchema } from './timelineContract';
+import { DocumentaryMotionRecipeListSchema } from './documentaryMotionContract';
 
 export const MotionSceneAssignmentSchema = z.object({
   sceneId: z.string().min(1),
   component: z.string().min(1),
   props: z.record(z.string(), z.any()).default({}),
   callout: TimelineCalloutSchema.optional(),
+  motionRecipes: DocumentaryMotionRecipeListSchema.optional().default([]),
   motionMode: z.enum(['slow_push_in', 'crash_push_in', 'dramatic_pull_out', 'pan_right', 'pan_left', 'cinematic_drift']).optional(),
   camera: z.enum(['pushIn', 'drift', 'tension', 'static', 'pullOut', 'panRight', 'panLeft']).optional(),
   transition: z.enum(['crossfade', 'dipToBlack', 'whipPan', 'hardCut', 'laserWipe', 'wipe', 'cut']).optional()

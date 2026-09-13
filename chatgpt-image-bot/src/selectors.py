@@ -110,9 +110,17 @@ CONFIRMATION_PATTERNS = [
 RATE_LIMIT_PATTERNS = [
     r"você atingiu o limite",
     r"tente novamente em (\d+)\s*(segundos|minutos|horas|s|m|h)",
+    r"tente novamente após",
+    r"tente novamente mais tarde",
     r"limite de mensagens atingido",
+    r"limite de criação de imagens",
+    r"limite de uso atingido",
     r"you've reached your limit",
     r"try again in (\d+)\s*(seconds|minutes|hours|s|m|h)",
+    r"try again after",
+    r"try again later",
+    r"image creation limit",
+    r"usage limit",
     r"too many requests",
     r"rate limit"
 ]

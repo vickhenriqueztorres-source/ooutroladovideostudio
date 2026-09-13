@@ -1,0 +1,31 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "NASA_ksc_020305_fincke",
+  "provider": "nasa",
+  "license": "NASA_Public_Domain",
+  "sourceUrl": "http://images-assets.nasa.gov/video/ksc_020305_fincke/ksc_020305_fincke~orig.mp4",
+  "sourcePageUrl": "https://images.nasa.gov/details-ksc_020305_fincke",
+  "author": "KSC",
+  "rawSha256": "860c10f48fe986a85deeb00496ac6d5e17f46762f2fef4e89be11c25d43ffee3",
+  "sanitizedSha256": "79ea0ce2b0c2aa8f05f1360804be84e6c1948f48e20cc18a1192ed3c9eb837a9",
+  "audioStripped": true,
+  "durationSeconds": 5,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "phone_cradle_hangup",
+  "tags": [
+    "ISS",
+    "International_Space_Station",
+    "Expedition_9",
+    "Mike_Fincke",
+    "astronauts",
+    "nasa",
+    "public_domain",
+    "space",
+    "earth_observation"
+  ],
+  "domains": [
+    "phone_cradle_hangup"
+  ],
+  "timestamp": "2026-09-10T20:14:21.819Z"
+}

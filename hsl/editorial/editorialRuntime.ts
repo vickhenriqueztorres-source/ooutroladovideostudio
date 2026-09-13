@@ -199,11 +199,27 @@ export class HslEditorialRuntime {
     const sourceById = new Map(seed.sources.map((source) => [source.source_id, source]));
     const claimBySourceId = new Map<string, string>();
     claims.forEach((claim) => claim.source_ids.forEach((sourceId) => { if (!claimBySourceId.has(sourceId)) claimBySourceId.set(sourceId, claim.claim_id); }));
+    const rawWpm = process.env.HSL_NARRATION_WPM;
+    if (!rawWpm) {
+      throw new Error('CONFIG_ERROR: HSL_NARRATION_WPM environment variable is required for editorialRuntime estimation.');
+    }
+    const configuredWpm = Number(rawWpm);
+    if (!Number.isFinite(configuredWpm) || configuredWpm < 100 || configuredWpm > 220) {
+      throw new Error(`CONFIG_ERROR: HSL_NARRATION_WPM must be between 100 and 220, got '${rawWpm}'`);
+    }
+    const msPerWord = Math.round(60000 / configuredWpm);
     const sceneContracts: HslEditorialSceneContract[] = seed.scenes.map((scene) => {
       const primarySource = scene.claim_source_ids.map((sourceId) => sourceById.get(sourceId)).find(Boolean);
       const claimId = scene.claim_source_ids.map((sourceId) => claimBySourceId.get(sourceId)).find(Boolean) || null;
       const generated = scene.visual_mode === 'generated_ai';
       const attentionRole = attentionByScene.get(scene.scene_id);
+      const sceneWords = (scene.voiceover || '').trim().split(/\s+/).filter(Boolean);
+      const narrationAlignment = sceneWords.map((word, wIdx) => ({
+        word,
+        start_ms: wIdx * msPerWord,
+        end_ms: (wIdx + 1) * msPerWord,
+        source: 'estimated_wpm' as const
+      }));
       return {
         scene_id: scene.scene_id, chapter_id: scene.chapter_id, chapter_title: scene.chapter_title,
         claim_id: claimId, narrative_function: scene.narrative_function, voiceover: scene.voiceover,
@@ -214,6 +230,7 @@ export class HslEditorialRuntime {
         license_status: scene.visual_mode === 'licensed_real' ? 'required_before_assembly' : 'not_applicable',
         original_contribution: `Episode-specific ${scene.narrative_function} treatment for ${scene.visual_subject}`,
         ai_disclosure_required: generated,
+        narration_alignment: narrationAlignment,
         ...(generated ? {on_screen_label: 'AI VISUALIZATION' as const} : {}),
         ...(scene.visual_function ? {visual_function: scene.visual_function} : {}),
         ...(attentionRole ? {

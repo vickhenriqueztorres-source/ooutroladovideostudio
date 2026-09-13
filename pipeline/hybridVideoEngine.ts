@@ -14,6 +14,7 @@ import { buildFireflyPrompt } from '../contracts/buildFireflyPrompt';
 import {materializeFireflyDispatchPackage} from './fireflyDispatchPackage';
 import {FIREFLY_GENERATION_PROFILE} from '../config/fireflyGenerationConfig';
 import {VisualAssetClass} from '../contracts/sceneVisualContract';
+import {WebFootageHarvesterAgent} from '../hsl/media/agents/webFootageHarvesterAgent';
 
 export interface HybridSceneInput {
   scene_id: string;
@@ -24,6 +25,9 @@ export interface HybridSceneInput {
   visual_subject: string;
   take_type: 'KEYFRAME_DOSSIER' | 'CINEMATIC_TAKE';
   visual_asset_class?: VisualAssetClass;
+  generation_priority?: 'GENERATIVE_BESPOKE' | 'ARCHIVE_SUPPORT';
+  narrative_archetype?: string;
+  cinematic_shot?: any;
   integrated_text?: string;
   callout_main?: string;
   callout_sub?: string;
@@ -45,6 +49,7 @@ export interface HybridVideoEngineOptions {
   publicExecutionDirectory: string;
   mode?: VideoExecutionMode;
   forceFireflyAll?: boolean;
+  enableWebHarvest?: boolean;
 }
 
 export interface HybridVideoEngineResult {
@@ -154,7 +159,10 @@ export class HybridVideoEngine {
         visual_must_not: sc.visual_must_not,
         required_category: sc.required_category,
         domainTags: (sc as any).domain_tags || (sc as any).domainTags || sc.tags || [],
-        take_type: sc.take_type
+        take_type: sc.take_type,
+        generation_priority: sc.generation_priority,
+        narrative_archetype: sc.narrative_archetype,
+        cinematic_shot: sc.cinematic_shot
       });
 
       const promptMaster = promptResult.prompt;
@@ -185,10 +193,17 @@ export class HybridVideoEngine {
         Logger.info('HybridVideoEngine', `  📑 [${sc.scene_id}] Classificado como KEYFRAME_DOSSIER (Render 2.5D com HUD)`);
         
         // Se ainda não existir Start Frame real, extrai de banco ou compõe
-        this.ensureStartFrameExists(startFramePath, promptMaster, sc.scene_id);
+        this.ensureStartFrameExists(startFramePath, promptMaster, sc.scene_id, runDirectory);
         fs.copyFileSync(startFramePath, pubStartFramePath);
 
-        this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'KEYFRAME_DOSSIER');
+        const episodeName = path.basename(path.dirname(runDirectory));
+        const canonicalReceipt = path.join(process.cwd(), 'runs', episodeName, 'scenes', sc.scene_id, 'start_frame_receipt.json');
+        if (fs.existsSync(canonicalReceipt)) {
+          fs.copyFileSync(canonicalReceipt, path.join(sceneDir, 'start_frame_receipt.json'));
+          fs.copyFileSync(canonicalReceipt, path.join(pubSceneDir, 'start_frame_receipt.json'));
+        } else {
+          this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'KEYFRAME_DOSSIER');
+        }
 
         sceneOutcomes[sc.scene_id] = {
           action: 'KEYFRAME_DOSSIER_2.5D',
@@ -205,18 +220,98 @@ export class HybridVideoEngine {
         continue;
       }
 
-      // Consulta semântica ao Banco de Vídeos com governança de contrato visual
-      const matchResult = VideoRepositoryMatcher.matchScene({
-        sceneId: sc.scene_id,
-        chapterTitle: sc.chapter_title,
-        visualSubject: sc.visual_subject,
-        tags: sc.tags || [],
-        domainTags: sc.domain_tags || options.domainTags || [],
-        requiredCategory: sc.required_category,
-        visualMustInclude: sc.visual_must_include,
-        visualMustNot: sc.visual_must_not,
-        allowedSources: sc.allowed_sources
-      }, mode);
+      // Fast-Path: Verifica se já existe um take canônico pré-aprovado no diretório da cena do episódio
+      const episodeName = path.basename(path.dirname(runDirectory));
+      const canonicalSceneDir = path.join(process.cwd(), 'runs', episodeName, 'scenes', sc.scene_id);
+      const canonicalTakePath = path.join(canonicalSceneDir, 'firefly_take.mp4');
+      const directTakePath = path.join(sceneDir, 'firefly_take.mp4');
+      const activeTakeSource = fs.existsSync(canonicalTakePath) && fs.statSync(canonicalTakePath).size >= 50000
+        ? canonicalTakePath
+        : (fs.existsSync(directTakePath) && fs.statSync(directTakePath).size >= 50000 ? directTakePath : null);
+
+      if (activeTakeSource) {
+        matchedCount++;
+        Logger.info('HybridVideoEngine', `  🎥 [${sc.scene_id}] Fast-Path Hit: Take pré-aprovado encontrado em ${activeTakeSource}`);
+
+        const targetVideo = path.join(sceneDir, 'firefly_take.mp4');
+        const pubVideo = path.join(pubSceneDir, 'firefly_take.mp4');
+
+        if (activeTakeSource !== targetVideo) {
+          fs.copyFileSync(activeTakeSource, targetVideo);
+        }
+        fs.copyFileSync(targetVideo, pubVideo);
+
+        const canonicalStartFrame = path.join(canonicalSceneDir, 'firefly_start_frame.png');
+        if (fs.existsSync(canonicalStartFrame) && fs.statSync(canonicalStartFrame).size > 10240) {
+          fs.copyFileSync(canonicalStartFrame, startFramePath);
+          fs.copyFileSync(canonicalStartFrame, pubStartFramePath);
+        } else if (!fs.existsSync(startFramePath) || fs.statSync(startFramePath).size < 10240) {
+          execSync(`ffmpeg -y -ss 00:00:01 -i "${targetVideo}" -frames:v 1 -q:v 2 "${startFramePath}"`);
+          fs.copyFileSync(startFramePath, pubStartFramePath);
+        }
+
+        const canonicalStartReceipt = path.join(canonicalSceneDir, 'start_frame_receipt.json');
+        if (fs.existsSync(canonicalStartReceipt)) {
+          fs.copyFileSync(canonicalStartReceipt, path.join(sceneDir, 'start_frame_receipt.json'));
+          fs.copyFileSync(canonicalStartReceipt, path.join(pubSceneDir, 'start_frame_receipt.json'));
+        } else {
+          this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE', 'bank');
+        }
+
+        const canonicalTakeReceipt = path.join(canonicalSceneDir, 'firefly_take_receipt.json');
+        if (fs.existsSync(canonicalTakeReceipt)) {
+          fs.copyFileSync(canonicalTakeReceipt, path.join(sceneDir, 'firefly_take_receipt.json'));
+          fs.copyFileSync(canonicalTakeReceipt, path.join(pubSceneDir, 'firefly_take_receipt.json'));
+        } else {
+          this.writeVideoReceipt(sceneDir, pubSceneDir, sc.scene_id, targetVideo, activeTakeSource, 'bank');
+        }
+
+        sceneOutcomes[sc.scene_id] = {
+          action: 'USE_MATCHED_VIDEO',
+          videoPath: targetVideo,
+          startFramePath,
+          matchScore: 1.0,
+          takeOrigin: 'bank_matched',
+          reason: 'Take pré-aprovado e autenticado do repositório/staging da cena'
+        };
+
+        availableMedia[sc.scene_id] = {
+          hasVideo: true,
+          hasImage: true,
+          isDossier: false
+        };
+        continue;
+      }
+
+      // Avaliação de Prioridade Generativa: GENERATIVE_BESPOKE ignora banco e web
+      const isGenerativeBespoke =
+        sc.generation_priority === 'GENERATIVE_BESPOKE' ||
+        Boolean(options.forceFireflyAll) ||
+        mode === 'generate-all' ||
+        (Boolean(sc.allowed_sources) && sc.allowed_sources!.length === 1 && sc.allowed_sources![0] === 'firefly');
+
+      let matchResult: any = {
+        recommendedAction: 'DISPATCH_FIREFLY_ON_DEMAND',
+        matchScore: 0,
+        reason: 'GENERATIVE_BESPOKE: Síntese visual exclusiva sob medida no Firefly/Codex.'
+      };
+
+      if (!isGenerativeBespoke && (!sc.allowed_sources || sc.allowed_sources.includes('bank'))) {
+        // Consulta semântica ao Banco de Vídeos com governança de contrato visual
+        matchResult = VideoRepositoryMatcher.matchScene({
+          sceneId: sc.scene_id,
+          chapterTitle: sc.chapter_title,
+          visualSubject: sc.visual_subject,
+          tags: sc.tags || [],
+          domainTags: sc.domain_tags || options.domainTags || [],
+          requiredCategory: sc.required_category,
+          visualMustInclude: sc.visual_must_include,
+          visualMustNot: sc.visual_must_not,
+          allowedSources: sc.allowed_sources
+        }, mode);
+      } else if (isGenerativeBespoke) {
+        Logger.info('HybridVideoEngine', `  ✨ [${sc.scene_id}] Prioridade GENERATIVE_BESPOKE: Banco de vídeos e web ignorados -> Síntese sob medida no Firefly/Codex.`);
+      }
 
       if (matchResult.recommendedAction === 'USE_MATCHED_VIDEO' && matchResult.absoluteVideoPath) {
         matchedCount++;
@@ -232,7 +327,8 @@ export class HybridVideoEngine {
         execSync(`ffmpeg -y -ss 00:00:01 -i "${targetVideo}" -frames:v 1 -q:v 2 "${startFramePath}"`);
         fs.copyFileSync(startFramePath, pubStartFramePath);
 
-        this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE');
+        this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE', 'bank');
+        this.writeVideoReceipt(sceneDir, pubSceneDir, sc.scene_id, targetVideo, matchResult.absoluteVideoPath, 'bank');
 
         sceneOutcomes[sc.scene_id] = {
           action: 'USE_MATCHED_VIDEO',
@@ -249,44 +345,133 @@ export class HybridVideoEngine {
           isDossier: false
         };
       } else {
-        // Cache Miss -> Verifica permissão de Firefly
-        const allowsFirefly = !sc.allowed_sources || sc.allowed_sources.includes('firefly');
-        if (!allowsFirefly) {
-          throw new Error(
-            `NO_LEGAL_VISUAL: Cena '${sc.scene_id}' não encontrou vídeo compatível no banco e 'allowed_sources' não permite Firefly.`
-          );
+        // Avaliação de Sourcing Inteligente: Cenas confidenciais/heroicas/forenses NÃO devem buscar em stock web
+        const CONFIDENTIAL_HERO_DOMAINS = new Set([
+          'presidential_terminal_desk',
+          'cryptographic_terminal',
+          'rogue_microchip_pcb',
+          'covert_wiretap',
+          'classified_bunker',
+          'secret_room',
+          'intelligence_briefing',
+          'metrology_forensics',
+          'pulse_sensor_assembly'
+        ]);
+
+        const subjectLower = sc.visual_subject.toLowerCase();
+        const isHeroConfidential = 
+          CONFIDENTIAL_HERO_DOMAINS.has(sc.required_category || '') ||
+          subjectLower.includes('criptograf') ||
+          subjectLower.includes('confidencial') ||
+          subjectLower.includes('secreto') ||
+          subjectLower.includes('sigiloso') ||
+          subjectLower.includes('gabinete presidencial') ||
+          subjectLower.includes('escuta telef') ||
+          subjectLower.includes('microchip') ||
+          subjectLower.includes('hardware rogue');
+
+        // Cache Miss no banco local -> Tenta busca e higienização de vídeo real na internet apenas para infraestrutura observável pública
+        let webHarvestSuccess = false;
+        const enableWebHarvest = options.enableWebHarvest ?? (process.env.HSL_ENABLE_WEB_HARVEST !== 'false');
+        const allowsBank = !sc.allowed_sources || sc.allowed_sources.includes('bank');
+
+        if (isGenerativeBespoke) {
+          // Bypassa Web Harvester para garantir síntese sob medida
+        } else if (isHeroConfidential) {
+          Logger.info('HybridVideoEngine', `  🔒 [${sc.scene_id}] Cena classificada como HERO_CONFIDENTIAL. Roteamento exclusivo para geração visual 35mm cinematográfica (Firefly). Web Harvester ignorado.`);
+        } else if (enableWebHarvest && allowsBank) {
+          try {
+            const harvester = new WebFootageHarvesterAgent();
+            const harvestResult = await harvester.harvestForScene({
+              sceneId: sc.scene_id,
+              visualSubject: sc.visual_subject,
+              visualMustInclude: sc.visual_must_include,
+              visualMustNot: sc.visual_must_not,
+              category: sc.required_category || 'industrial',
+              domainTags: sc.domain_tags || options.domainTags || [],
+              targetDurationSeconds: 5.0
+            });
+
+            const semanticScore = harvestResult.receipt?.semanticScore ?? 1.0;
+            if (harvestResult.found && harvestResult.videoPath && harvestResult.startFramePath && semanticScore >= 0.75) {
+              matchedCount++;
+              webHarvestSuccess = true;
+              Logger.info('HybridVideoEngine', `  🌐 [${sc.scene_id}] Hit no Web Footage Harvester (${harvestResult.candidate?.provider}, score ${(semanticScore * 100).toFixed(0)}%)! Take higienizado com áudio zero.`);
+
+              const targetVideo = path.join(sceneDir, 'firefly_take.mp4');
+              const pubVideo = path.join(pubSceneDir, 'firefly_take.mp4');
+
+              fs.copyFileSync(harvestResult.videoPath, targetVideo);
+              fs.copyFileSync(harvestResult.videoPath, pubVideo);
+
+              fs.copyFileSync(harvestResult.startFramePath, startFramePath);
+              fs.copyFileSync(harvestResult.startFramePath, pubStartFramePath);
+
+              this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE', 'bank');
+              this.writeVideoReceipt(sceneDir, pubSceneDir, sc.scene_id, targetVideo, harvestResult.videoPath, 'bank');
+
+              sceneOutcomes[sc.scene_id] = {
+                action: 'USE_MATCHED_VIDEO',
+                videoPath: targetVideo,
+                startFramePath,
+                matchScore: semanticScore,
+                takeOrigin: 'bank_matched',
+                reason: harvestResult.reason
+              };
+
+              availableMedia[sc.scene_id] = {
+                hasVideo: true,
+                hasImage: true,
+                isDossier: false
+              };
+            } else if (harvestResult.found) {
+              Logger.info('HybridVideoEngine', `  ⚠️ [${sc.scene_id}] Candidato web descartado por relevância semântica insuficiente (${(semanticScore * 100).toFixed(0)}% < 75%). Prosseguindo para fallback Firefly.`);
+            }
+          } catch (webErr: any) {
+            Logger.warn('HybridVideoEngine', `  ⚠️ [${sc.scene_id}] Falha na tentativa de busca web: ${webErr.message}. Prosseguindo para fallback Firefly.`);
+          }
         }
 
-        Logger.info('HybridVideoEngine', `  🔥 [${sc.scene_id}] PENDING_FIREFLY (${matchResult.reason}). ENFILEIRANDO GERAÇÃO ON-DEMAND NO FIREFLY.`);
-        
-        if (FIREFLY_GENERATION_PROFILE.requires_first_frame) {
-          this.ensureStartFrameExists(startFramePath, promptMaster, sc.scene_id);
-          fs.copyFileSync(startFramePath, pubStartFramePath);
-          this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE');
+        if (!webHarvestSuccess) {
+          // Cache Miss & Web Miss -> Verifica permissão de Firefly
+          const allowsFirefly = !sc.allowed_sources || sc.allowed_sources.includes('firefly');
+          if (!allowsFirefly) {
+            throw new Error(
+              `NO_LEGAL_VISUAL: Cena '${sc.scene_id}' não encontrou vídeo compatível no banco/web e 'allowed_sources' não permite Firefly.`
+            );
+          }
+
+          Logger.info('HybridVideoEngine', `  🔥 [${sc.scene_id}] PENDING_FIREFLY (${matchResult.reason}). ENFILEIRANDO GERAÇÃO ON-DEMAND NO FIREFLY.`);
+          
+          if (FIREFLY_GENERATION_PROFILE.requires_first_frame) {
+            this.ensureStartFrameExists(startFramePath, promptMaster, sc.scene_id);
+            fs.copyFileSync(startFramePath, pubStartFramePath);
+            this.writeStartFrameReceipt(sceneDir, pubSceneDir, sc.scene_id, promptMaster, startFramePath, 'CINEMATIC_TAKE');
+          }
+
+          fireflyPendingScenes.push({
+            scene: sc,
+            sceneDir,
+            pubSceneDir,
+            prompt: promptMaster,
+            negativePrompt: negativePrompt,
+            startFramePath
+          });
+
+          sceneOutcomes[sc.scene_id] = {
+            action: 'DISPATCH_FIREFLY_ON_DEMAND',
+            startFramePath,
+            matchScore: matchResult.matchScore,
+            takeOrigin: 'firefly_real',
+            reason: `PENDING_FIREFLY: ${matchResult.reason}`
+          };
+
+          availableMedia[sc.scene_id] = {
+            hasVideo: true,
+            hasImage: true,
+            isDossier: false
+          };
         }
-
-        fireflyPendingScenes.push({
-          scene: sc,
-          sceneDir,
-          pubSceneDir,
-          prompt: promptMaster,
-          negativePrompt: negativePrompt,
-          startFramePath
-        });
-
-        sceneOutcomes[sc.scene_id] = {
-          action: 'DISPATCH_FIREFLY_ON_DEMAND',
-          startFramePath,
-          matchScore: matchResult.matchScore,
-          takeOrigin: 'firefly_real',
-          reason: `PENDING_FIREFLY: ${matchResult.reason}`
-        };
-
-        availableMedia[sc.scene_id] = {
-          hasVideo: true,
-          hasImage: true,
-          isDossier: false
-        };
       }
     }
 
@@ -432,8 +617,23 @@ export class HybridVideoEngine {
     };
   }
 
-  private ensureStartFrameExists(startFramePath: string, prompt: string, sceneId: string): void {
+  private ensureStartFrameExists(startFramePath: string, prompt: string, sceneId: string, runDirectory?: string): void {
     if (fs.existsSync(startFramePath) && fs.statSync(startFramePath).size >= 10240) {
+      return;
+    }
+
+    const episodeName = runDirectory ? path.basename(path.dirname(runDirectory)) : 'linha-segura-presidencial';
+    const canonicalPath = path.join(process.cwd(), 'runs', episodeName, 'scenes', sceneId, 'firefly_start_frame.png');
+    if (fs.existsSync(canonicalPath) && fs.statSync(canonicalPath).size >= 10240) {
+      fs.mkdirSync(path.dirname(startFramePath), { recursive: true });
+      fs.copyFileSync(canonicalPath, startFramePath);
+      return;
+    }
+
+    const publicPath = path.join(process.cwd(), 'public', 'episodes', episodeName, 'images', `${sceneId}.png`);
+    if (fs.existsSync(publicPath) && fs.statSync(publicPath).size >= 10240) {
+      fs.mkdirSync(path.dirname(startFramePath), { recursive: true });
+      fs.copyFileSync(publicPath, startFramePath);
       return;
     }
 
@@ -484,15 +684,16 @@ export class HybridVideoEngine {
     pubSceneDir: string,
     sceneId: string,
     videoPath: string,
-    sourceOutput: string
+    sourceOutput: string,
+    sourceSystem: 'adobe_firefly' | 'bank' = 'adobe_firefly'
   ): void {
     const bytes = fs.readFileSync(videoPath);
     const probe = PipelineContractGate.probeMedia(videoPath);
     const receipt = {
       schema: 'hsl.video.provenance.v2',
-      sourceSystem: 'adobe_firefly',
-      model: FIREFLY_GENERATION_PROFILE.model,
-      fps: FIREFLY_GENERATION_PROFILE.fps,
+      sourceSystem,
+      model: sourceSystem === 'bank' ? 'curated_bank_or_web' : FIREFLY_GENERATION_PROFILE.model,
+      fps: (probe as any).fps || FIREFLY_GENERATION_PROFILE.fps,
       sceneId,
       sourceOutput,
       sha256: crypto.createHash('sha256').update(bytes).digest('hex'),

@@ -12,5 +12,6 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["tests/integration/run_xray_real_llm.ts", "node_modules", "dist"]
 }

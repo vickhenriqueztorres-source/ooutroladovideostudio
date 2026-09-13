@@ -42,7 +42,7 @@ export interface CinematicTelemetryEventData {
     cutCandidateCount: number;
     visualChangeCandidateCount: number;
     highImportanceCount: number;
-    timingSource: 'not_available' | 'narration_alignment';
+    timingSource: 'not_available' | 'narration_alignment' | 'tts_word_timestamps' | 'forced_alignment' | 'estimated_wpm';
   }>;
   readonly shotMetrics?: Readonly<{
     shotType: string;

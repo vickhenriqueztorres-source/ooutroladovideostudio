@@ -1,0 +1,12 @@
+{
+  "baseImageSrc": "episodes/encomenda-china-curitiba/thumbnails/raw_frame_b.png",
+  "headlineLines": [
+    "1 MILÍMETRO.",
+    "SEM ENTREGA."
+  ],
+  "categoryBadge": "GARGALO DE ESTADO // O OUTRO LADO",
+  "subheadline": "O CÓDIGO DE BARRAS QUE TRAVA EM CURITIBA",
+  "accentColor": "#FF5500",
+  "telemetryColor": "#00F0FF",
+  "textSide": "LEFT"
+}

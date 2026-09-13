@@ -1,0 +1,30 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "NASA_ksc_102204_cupola",
+  "provider": "nasa",
+  "license": "NASA_Public_Domain",
+  "sourceUrl": "http://images-assets.nasa.gov/video/ksc_102204_cupola/ksc_102204_cupola~orig.mp4",
+  "sourcePageUrl": "https://images.nasa.gov/details-ksc_102204_cupola",
+  "author": "KSC",
+  "rawSha256": "091f295791617c0ddc47ccc84b15e4353a6784b54277dcee9860972a1233072f",
+  "sanitizedSha256": "c76afebc11af0c28c33efa16deb99190341b9b0d059a31341f9644b0e60e84f9",
+  "audioStripped": true,
+  "durationSeconds": 5,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "faraday_copper_mesh",
+  "tags": [
+    "ISS",
+    "cupola",
+    "module",
+    "space_shuttle",
+    "nasa",
+    "public_domain",
+    "space",
+    "earth_observation"
+  ],
+  "domains": [
+    "faraday_copper_mesh"
+  ],
+  "timestamp": "2026-09-10T20:09:04.557Z"
+}

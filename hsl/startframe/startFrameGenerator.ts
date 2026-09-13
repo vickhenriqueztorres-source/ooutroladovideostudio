@@ -8,7 +8,12 @@ import { ImageGenerationConfig, ImageProviderType } from '../../config/imageGene
 import { ImageQualityValidator } from '../../quality/imageQualityValidator';
 
 const NO_PEOPLE_PROMPT_TERMS = [
-  'person', 'people', 'human', 'worker', 'operator', 'hands', 'face', 'body', 'human silhouette'
+  'smiling person looking at camera',
+  'presenter addressing camera',
+  'commercial stock model portrait',
+  'posed business portrait',
+  'smiling face into camera',
+  'influencer smiling selfie'
 ];
 
 export interface StartFrameGenerationItem {
@@ -160,7 +165,8 @@ export class StartFrameGenerator {
             (existingProvider === 'codex_cli' ||
               existingProvider === 'chatgpt_image_bot' ||
               existingProvider === 'codex_native' ||
-              existingProvider === 'openai_imagegen') &&
+              existingProvider === 'openai_imagegen' ||
+              existingProvider === 'bank') &&
             (!item.forbidPeople || peoplePolicyVerified)
           ) {
             provider = existingProvider;

@@ -1,0 +1,36 @@
+{
+  "episodeId": "encomenda-china-curitiba",
+  "title": "O OUTRO LADO DA SUA ENCOMENDA DE R$ 20 DA CHINA: A ROTA DOS 18.000 KM ATÉ A SUA PORTA",
+  "theme": "A logística oculta transcontinental entre Shenzhen, cargueiros aéreos, o hub alfandegário de Curitiba, scanners tomográficos da Receita Federal e os sorters industriais de alta velocidade que entregam um produto do outro lado do mundo pelo preço de um café",
+  "domainTags": [
+    "logistica-internacional",
+    "encomenda-china",
+    "curitiba",
+    "ceint",
+    "receita-federal",
+    "remessa-conforme",
+    "scanner-raiox",
+    "cross-belt-sorter",
+    "cargueiro-aereo",
+    "shenzhen",
+    "codigo-de-barras",
+    "viracopos",
+    "correios"
+  ],
+  "targetDurationSeconds": 315,
+  "minDurationRatio": 0.9,
+  "minScenes": 30,
+  "requiredStages": [
+    "narration",
+    "visuals",
+    "sfx",
+    "music",
+    "mix",
+    "thumbnail",
+    "render",
+    "cinematic_grade"
+  ],
+  "voiceProfile": "Chris - Sóbrio, íntimo, autoritário (ElevenLabs)",
+  "musicMood": "dark_industrial_investigative",
+  "sfxDensity": "high"
+}

@@ -69,3 +69,19 @@ preview_*.png
 test_dalle_one.ts
 test_gen_frame.ts
 chatgpt-image-bot/queue_*.jsonl
+
+# Output & Heavy Master Renders
+out/
+temp/
+checkpoints/
+*.wav
+**/*.wav
+*master*.mp4
+**/*master*.mp4
+master.mp4
+**/master.mp4
+final_master.mp4
+**/final_master.mp4
+public/episodes/raio-x-aeroporto/master.mp4
+public/**/master.mp4
+public/**/final_master.mp4

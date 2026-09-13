@@ -1,0 +1,12 @@
+{
+  "baseImageSrc": "episodes/encomenda-china-curitiba/thumbnails/raw_frame_c.png",
+  "headlineLines": [
+    "NO VÁCUO.",
+    "DO COMÉRCIO."
+  ],
+  "categoryBadge": "INFRAESTRUTURA AÉREA // O OUTRO LADO",
+  "subheadline": "POR QUE ESSE PACOTE NÃO VIAJA SOZINHO",
+  "accentColor": "#FF5500",
+  "telemetryColor": "#00F0FF",
+  "textSide": "LEFT"
+}

@@ -1,4 +1,4 @@
-﻿import { PackagingRagClient } from '../rag/packaging-rag-client';
+import { PackagingRagClient } from '../rag/packaging-rag-client';
 import {
   ThumbnailConcept,
   ThumbnailVariantId
@@ -22,12 +22,67 @@ export class ThumbnailPlanner {
     const isCurrency = brief.objectOrFlow.toLowerCase().includes('nota') || brief.objectOrFlow.toLowerCase().includes('cédula') || brief.objectOrFlow.toLowerCase().includes('cedula') || brief.system.toLowerCase().includes('moeda') || brief.approvedTitle.toLowerCase().includes('nota');
     const isCable = brief.objectOrFlow.toLowerCase().includes('cabo') || brief.system.toLowerCase().includes('submarina') || brief.approvedTitle.toLowerCase().includes('cabo');
     const isPix = brief.objectOrFlow.toLowerCase().includes('pix') || brief.system.toLowerCase().includes('spi') || brief.approvedTitle.toLowerCase().includes('pix');
+    const isRaioX = brief.objectOrFlow.toLowerCase().includes('raio-x') || brief.objectOrFlow.toLowerCase().includes('aeroporto') || brief.system.toLowerCase().includes('alfândega') || brief.system.toLowerCase().includes('alfandega') || brief.approvedTitle.toLowerCase().includes('raio-x') || brief.episodeId.includes('raio-x');
 
     let variantA: ThumbnailCopyVariant;
     let variantB: ThumbnailCopyVariant;
     let variantC: ThumbnailCopyVariant;
 
-    if (isCurrency) {
+    if (isRaioX) {
+      variantA = {
+        variantId: 'A',
+        hypothesis: 'MECHANISM',
+        format: 'XRAY_MECHANISM',
+        visualConcept: 'Monitor da alfândega revelando corte espectral da mala em laranja, verde e azul sob comando do fiscal',
+        focalObject: 'Monitor de Dupla Energia da Alfândega',
+        focalRelationship: 'Revela que o scanner desfaz a opacidade das roupas e enxerga através do tecido em 2 segundos',
+        headline: 'NÃO ADIANTA ESCONDER',
+        headlineWords: ['NÃO', 'ADIANTA', 'ESCONDER'],
+        headlineLength: 3,
+        supportingText: 'O QUE O FISCAL VÊ EM 2 SEGUNDOS NA ESTEIRA',
+        titleRelationship: 'COMPLEMENTARY',
+        curiosityQuestion: 'Como o scanner do aeroporto desfaz as roupas e enxerga o interior da mala em 2 segundos?',
+        supportedClaimIds: brief.primaryClaimIds.length > 0 ? [brief.primaryClaimIds[0]] : ['CLAIM_XRAY_TRANSPARENCY'],
+        disallowedElements: ['EMOJIS', 'RED_ARROWS', 'HUMAN_FACES'],
+        confidence: 0.98
+      };
+
+      variantB = {
+        variantId: 'B',
+        hypothesis: 'RISK',
+        format: 'BOTTLENECK',
+        visualConcept: 'Monitor de inspeção brilhando em laranja puro revelando substância orgânica densa oculta',
+        focalObject: 'Espectro Laranja de Matéria Orgânica',
+        focalRelationship: 'A cor âmbar compartilhada por roupas, dinheiro, remédios ou contrabando que dispara inspeção física',
+        headline: 'SE FICAR LARANJA...',
+        headlineWords: ['SE', 'FICAR', 'LARANJA...'],
+        headlineLength: 3,
+        supportingText: 'A COR QUE FAZ A ALFÂNDEGA ABRIR SUA MALA',
+        titleRelationship: 'CONSEQUENCE',
+        curiosityQuestion: 'Por que a cor laranja na tela da alfândega é o maior alerta de inspeção da Receita Federal?',
+        supportedClaimIds: brief.primaryClaimIds.length > 1 ? [brief.primaryClaimIds[1]] : ['CLAIM_XRAY_ORANGE_ORGANIC'],
+        disallowedElements: ['EMOJIS', 'RED_ARROWS', 'HUMAN_FACES'],
+        confidence: 0.97
+      };
+
+      variantC = {
+        variantId: 'C',
+        hypothesis: 'SCALE',
+        format: 'BOTTLENECK',
+        visualConcept: 'Silhueta retangular negra e opaca na tela do scanner gerando travamento automático da esteira',
+        focalObject: 'Mancha Preta Impenetrável vs Scanner',
+        focalRelationship: 'A falsa blindagem por chumbo ou papel alumínio que cria uma zona opaca e aciona o alarme',
+        headline: 'O ERRO DO ALUMÍNIO',
+        headlineWords: ['O', 'ERRO', 'DO', 'ALUMÍNIO'],
+        headlineLength: 4,
+        supportingText: 'A MANCHA PRETA QUE TRAVA A ESTEIRA NA HORA',
+        titleRelationship: 'COMPLEMENTARY',
+        curiosityQuestion: 'Por que tentar esconder itens em papel alumínio ou chumbo é a certeza de ter a mala aberta?',
+        supportedClaimIds: brief.primaryClaimIds.length > 2 ? [brief.primaryClaimIds[2]] : ['CLAIM_XRAY_LEAD_MYTH'],
+        disallowedElements: ['EMOJIS', 'RED_ARROWS', 'HUMAN_FACES'],
+        confidence: 0.96
+      };
+    } else if (isCurrency) {
       variantA = {
         variantId: 'A',
         hypothesis: 'MECHANISM',

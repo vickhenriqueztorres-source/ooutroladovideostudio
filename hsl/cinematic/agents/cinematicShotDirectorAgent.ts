@@ -18,6 +18,7 @@ import {
 import {CinematicTelemetryPort} from '../telemetry/cinematicTelemetry';
 import {validateCinematicShotDirection} from '../validators/cinematicShotValidator';
 import {CinematicValidationError} from '../validators/cinematicValidationError';
+import {deriveSemanticFunction} from '../schemas/beatSchema';
 
 function dominantBeat(beats: readonly NarrativeBeatV1[]): NarrativeBeatV1 {
   const beat = beats.find((candidate) => candidate.importance === 'high')
@@ -30,7 +31,8 @@ function dominantBeat(beats: readonly NarrativeBeatV1[]): NarrativeBeatV1 {
 function chooseShotType(input: CinematicShotDirectorInput, beat: NarrativeBeatV1): HslShotType {
   const mode = input.visualMode.toLowerCase();
   if (mode.includes('remotion')) return 'TECHNICAL_LOCKED';
-  switch (beat.semantic_function) {
+  const semantic = deriveSemanticFunction(beat.narrative_function);
+  switch (semantic) {
     case 'introduce_object': return 'SCALE_REFERENCE';
     case 'introduce_system': return mode.includes('map') ? 'AERIAL_NETWORK' : 'SYSTEM_WIDE';
     case 'establish_context': return mode.includes('map') || mode.includes('aerial') ? 'AERIAL_NETWORK' : 'ESTABLISHING';
@@ -57,7 +59,7 @@ function shotSize(type: HslShotType): HslShotSize {
   return sizes[type];
 }
 
-function shotDesign(type: HslShotType, semantic: NarrativeBeatV1['semantic_function']): {
+function shotDesign(type: HslShotType, semantic: string): {
   composition: HslComposition;
   anchor: HslSubjectAnchor;
   space: HslNegativeSpace;
@@ -98,7 +100,7 @@ function shotDesign(type: HslShotType, semantic: NarrativeBeatV1['semantic_funct
   };
 }
 
-function cameraDesign(type: HslShotType, semantic: NarrativeBeatV1['semantic_function']): {
+function cameraDesign(type: HslShotType, semantic: string): {
   movement: HslCameraMovement;
   direction: HslCameraDirection;
   intensity: HslCameraIntensity;
@@ -145,8 +147,9 @@ export class CinematicShotDirectorAgent {
       const focusTarget = input.focusTargetCandidates[0];
       if (!focusTarget) throw new CinematicValidationError('CINEMATIC_SHOT_FOCUS_REQUIRED', input.sceneId);
       const shotType = chooseShotType(input, beat);
-      const design = shotDesign(shotType, beat.semantic_function);
-      const camera = cameraDesign(shotType, beat.semantic_function);
+      const semantic = deriveSemanticFunction(beat.narrative_function);
+      const design = shotDesign(shotType, semantic);
+      const camera = cameraDesign(shotType, semantic);
       const output: CinematicShotDirection = {
         focusTarget,
         shot: {
@@ -162,7 +165,7 @@ export class CinematicShotDirectorAgent {
         camera,
         decisionReason: {
           based_on: ['narrative_intent', beat.beat_id],
-          goal: `Prioritize ${focusTarget} to support ${beat.semantic_function.replace(/_/g, ' ')}.`
+          goal: `Prioritize ${focusTarget} to support ${semantic.replace(/_/g, ' ')}.`
         }
       };
       validateCinematicShotDirection(output, input);

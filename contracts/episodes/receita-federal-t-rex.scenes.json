@@ -1,0 +1,632 @@
+[
+  {
+    "sceneId": "REX_001",
+    "chapterId": "CH_01",
+    "chapterTitle": "O MILISSEGUNDO DO PIX",
+    "voiceover": "Você encosta o cartão na maquininha, escuta o bip de confirmação e guarda o comprovante térmico no bolso sem olhar.",
+    "visualSubject": "Terminal de pagamento com tela escura refletindo luz de lâmpada incandescente e papel térmico de recibo sendo impresso com código de barras fiscal em macro 35mm",
+    "visual_must_include": [
+      "maquininha de cartao",
+      "papel termico",
+      "leitor nfc"
+    ],
+    "visual_must_not": [
+      "rosto sorridente",
+      "atendente de caixa",
+      "loja iluminada como comercial"
+    ],
+    "required_category": "payment_terminal_macro",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_002",
+    "chapterId": "CH_01",
+    "chapterTitle": "O MILISSEGUNDO DO PIX",
+    "voiceover": "A sensação imediata é de privacidade absoluta. Ninguém pediu seu nome, você não digitou seu CPF e a compra durou menos de três segundos.",
+    "visualSubject": "Smartphone escuro pousado sobre balcão de madeira rústica com tela exibindo comprovante de transferência bancária criptografada",
+    "visual_must_include": [
+      "tela de smartphone",
+      "comprovante digital",
+      "mesa de madeira"
+    ],
+    "visual_must_not": [
+      "mao segurando telefone",
+      "pessoa digitando",
+      "grafico neon"
+    ],
+    "required_category": "digital_receipt_screen",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_003",
+    "chapterId": "CH_01",
+    "chapterTitle": "O MILISSEGUNDO DO PIX",
+    "voiceover": "Mas o que a maioria dos brasileiros desconhece é que o sigilo bancário não é uma barreira de chumbo. Ele é apenas uma esteira de dados contínua.",
+    "visualSubject": "Cabos de fibra óptica industriais amarelos e azuis conectados a bandejas de roteamento em bastidor metálico de telecomunicações",
+    "visual_must_include": [
+      "cabos de fibra optica",
+      "bandeja de conexao",
+      "bastidor metalico"
+    ],
+    "visual_must_not": [
+      "hologramas de internet",
+      "túnel futurista",
+      "luzes de discoteca"
+    ],
+    "required_category": "telecom_fiber_routing",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "REX_004",
+    "chapterId": "CH_01",
+    "chapterTitle": "O MILISSEGUNDO DO PIX",
+    "voiceover": "No momento em que o dinheiro sai da sua conta, a adquirente do cartão e o seu banco geram um registro digital com data, hora, centavos e chave de liquidação.",
+    "visualSubject": "Tela de log de sistema bancário exibindo linhas de texto hexadecimal e registros de liquidação financeira com timestamps em milissegundos",
+    "visual_must_include": [
+      "log de transacao",
+      "caracteres hexadecimais",
+      "timestamp de sistema"
+    ],
+    "visual_must_not": [
+      "interface ficticia de hacker",
+      "codigo caindo estilo Matrix",
+      "vetor verde"
+    ],
+    "required_category": "financial_log_screen",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_005",
+    "chapterId": "CH_01",
+    "chapterTitle": "O MILISSEGUNDO DO PIX",
+    "voiceover": "Esse pacote de dados não fica adormecido no servidor do banco. Ele é empacotado para a viagem rumo ao centro nevrálgico do poder fiscal em Brasília.",
+    "visualSubject": "Mapa cartográfico escuro do Brasil exibindo linhas de transmissão de dados convergindo das capitais para o Distrito Federal sob iluminação âmbar",
+    "visual_must_include": [
+      "mapa do brasil",
+      "rotas de dados convergentes",
+      "marcador do distrito federal"
+    ],
+    "visual_must_not": [
+      "globo girando 3d",
+      "raios brilhantes neon",
+      "cenografia espacial"
+    ],
+    "required_category": "national_data_route_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "REX_006",
+    "chapterId": "CH_02",
+    "chapterTitle": "A FORTALEZA DO SERPRO",
+    "voiceover": "No subsolo da capital federal, protegido por portas estanques e paredes de concreto de alta densidade, opera o data center do Serviço Federal de Processamento de Dados.",
+    "visualSubject": "Edifício monumental de concreto armado em Brasília sob iluminação perimetral noturna com torres de refrigeração e segurança física",
+    "visual_must_include": [
+      "fachada de concreto",
+      "iluminacao de seguranca",
+      "arquitetura monumental"
+    ],
+    "visual_must_not": [
+      "soldados armados",
+      "viaturas com sirenes",
+      "multidao"
+    ],
+    "required_category": "government_datacenter_exterior",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_007",
+    "chapterId": "CH_02",
+    "chapterTitle": "A FORTALEZA DO SERPRO",
+    "voiceover": "É aqui que vive a infraestrutura física da Receita Federal: fileiras infinitas de racks de alta capacidade mantidos a dezoito graus centígrados com atmosfera pressurizada.",
+    "visualSubject": "Corredor frio de data center governamental com contenção térmica em vidro fumê, piso elevado metálico e luzes de status em âmbar e azul profundo",
+    "visual_must_include": [
+      "corredor termico",
+      "racks corporativos",
+      "piso elevado"
+    ],
+    "visual_must_not": [
+      "operador caminhando",
+      "fumaça de gelo seco",
+      "neons flutuantes"
+    ],
+    "required_category": "datacenter_cold_aisle",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_008",
+    "chapterId": "CH_02",
+    "chapterTitle": "A FORTALEZA DO SERPRO",
+    "voiceover": "Não há janelas para o mundo exterior. Se a rede elétrica da cidade entrar em colapso, turbinas e geradores marítimos a diesel assumem a carga em sete segundos.",
+    "visualSubject": "Grupo motogerador industrial a diesel de grande porte em sala técnica de subsolo com tubulações de exaustão e painéis de controle analógicos",
+    "visual_must_include": [
+      "gerador a diesel",
+      "tubulacao de exaustao",
+      "painel de transferencia"
+    ],
+    "visual_must_not": [
+      "homem de macacao",
+      "ferramentas jogadas",
+      "lixo"
+    ],
+    "required_category": "subterranean_power_backup",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_009",
+    "chapterId": "CH_02",
+    "chapterTitle": "A FORTALEZA DO SERPRO",
+    "voiceover": "Nas paredes laterais, robôs industriais movem milhares de cartuchos de fita magnética LTO, gravando cópias imutáveis de cada movimentação econômica do país.",
+    "visualSubject": "Unidade automatizada de biblioteca de fitas magnéticas LTO com braço robótico interno selecionando cartucho de dados sob iluminação de serviço",
+    "visual_must_include": [
+      "biblioteca de fitas lto",
+      "braco robotico",
+      "cartuchos de armazenamento"
+    ],
+    "visual_must_not": [
+      "robo humanoide",
+      "ficcao cientifica",
+      "brilho laser azul"
+    ],
+    "required_category": "tape_library_robotics",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "REX_010",
+    "chapterId": "CH_02",
+    "chapterTitle": "A FORTALEZA DO SERPRO",
+    "voiceover": "Cada compra, cada salário, cada dividendo e cada venda de patrimônio efetuada no Brasil fica registrada de forma indelével nessa caverna digital.",
+    "visualSubject": "Visor de leitor óptico industrial de código de barras bidimensional DATAMATRIX gravado em placa metálica de patrimônio de servidor",
+    "visual_must_include": [
+      "codigo datamatrix",
+      "placa metalica",
+      "leitor optico"
+    ],
+    "visual_must_not": [
+      "mao de tecnico",
+      "tela quebrada",
+      "adesivo colorido"
+    ],
+    "required_category": "server_asset_tag",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "REX_011",
+    "chapterId": "CH_03",
+    "chapterTitle": "AS QUATRO TEIAS INVISÍVEIS",
+    "voiceover": "A máquina não depende da boa vontade do cidadão para descobrir o fluxo de caixa. O sistema se alimenta de quatro grandes declarações compulsórias e automáticas.",
+    "visualSubject": "Diagrama técnico institucional em estilo x-ray sobrepondo as quatro siglas estruturais do Fisco: e-Financeira, DeCred, DIMOB e SPED em fundo carbon black",
+    "visual_must_include": [
+      "diagrama de arquitetura",
+      "siglas tecnicas",
+      "linhas de conexao"
+    ],
+    "visual_must_not": [
+      "icones fofos",
+      "interface corporativa de marketing",
+      "cores de arco-iris"
+    ],
+    "required_category": "fiscal_architecture_diagram",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_012",
+    "chapterId": "CH_03",
+    "chapterTitle": "AS QUATRO TEIAS INVISÍVEIS",
+    "voiceover": "A primeira é a e-Financeira. Todos os bancos do país são obrigados por lei a transmitir qualquer movimentação mensal consolidada superior a dois mil reais.",
+    "visualSubject": "Painel pericial com relatório de remessa bancária oficial criptografada exibindo colunas de saldo inicial, créditos, débitos e identificador do SPB",
+    "visual_must_include": [
+      "relatorio bancario",
+      "dados consolidados",
+      "chancela de seguranca"
+    ],
+    "visual_must_not": [
+      "dinheiro caindo",
+      "cofre aberto com notas",
+      "porquinho de porcelana"
+    ],
+    "required_category": "e_financeira_ledger",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_013",
+    "chapterId": "CH_03",
+    "chapterTitle": "AS QUATRO TEIAS INVISÍVEIS",
+    "voiceover": "A segunda é a DeCred. As operadoras de cartão e aplicativos de entrega reportam o total bruto transacionado por cada maquininha e por cada CPF credenciado.",
+    "visualSubject": "Close-up macro em circuito integrado de leitor de smartcard com trilhas de cobre expostas e conector dourado em lâmina de silício",
+    "visual_must_include": [
+      "circuito integrado",
+      "trilhas de cobre",
+      "smartcard terminal"
+    ],
+    "visual_must_not": [
+      "cartao de credito com nome visivel",
+      "dedos humanos",
+      "desenho infantil"
+    ],
+    "required_category": "pos_terminal_internals",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_014",
+    "chapterId": "CH_03",
+    "chapterTitle": "AS QUATRO TEIAS INVISÍVEIS",
+    "voiceover": "A terceira é a DIMOB. Cada escritura em cartório, cada contrato de aluguel por imobiliária e cada escritura pública é carimbada no servidor fiscal.",
+    "visualSubject": "Livro oficial de registro de imóveis aberto em mesa escura sob lupa de aumento revelando selo holográfico de autenticidade cartorária",
+    "visual_must_include": [
+      "livro de registro",
+      "selo holografico",
+      "lupa de pericia"
+    ],
+    "visual_must_not": [
+      "tabeliao sorrindo",
+      "caneta dourada cara",
+      "escritorio moderno"
+    ],
+    "required_category": "notary_registry_dossier",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_015",
+    "chapterId": "CH_03",
+    "chapterTitle": "AS QUATRO TEIAS INVISÍVEIS",
+    "voiceover": "E a quarta engrenagem é o SPED: cada Nota Fiscal Eletrônica emitida no comércio gera um arquivo XML assinado que entra diretamente nos computadores do governo.",
+    "visualSubject": "Estrutura de arquivo XML de nota fiscal eletrônica sendo parseada em tela com nós de tributação, ICMS e código de barras DANFE",
+    "visual_must_include": [
+      "arvore de tags xml",
+      "chave de acesso danfe",
+      "assinatura digital"
+    ],
+    "visual_must_not": [
+      "cupom de supermercado amassado",
+      "mao de comprador",
+      "carrinho de compras"
+    ],
+    "required_category": "nfe_xml_structure",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_016",
+    "chapterId": "CH_04",
+    "chapterTitle": "O CÉREBRO DO T-REX & HARPIA",
+    "voiceover": "Cruzamento de dados convencional usa tabelas relacionais. Mas cinco bilhões de registros por mês fariam qualquer banco de dados tradicional travar em segundos.",
+    "visualSubject": "Gabinete central de processamento paralelo com luzes de barramento ótico pulsando em altíssima frequência dentro de rack blindado",
+    "visual_must_include": [
+      "gabinete de processamento",
+      "barramento de dados optico",
+      "blindagem eletromagnetica"
+    ],
+    "visual_must_not": [
+      "cerebro cibernetico azul",
+      "cabeca de robo",
+      "raios eletricos"
+    ],
+    "required_category": "mainframe_core_processing",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_017",
+    "chapterId": "CH_04",
+    "chapterTitle": "O CÉREBRO DO T-REX & HARPIA",
+    "voiceover": "É aqui que entra o T-Rex: um cluster de supercomputação capaz de processar petabytes de dados associado a um software proprietário desenvolvido no Brasil: o Harpia.",
+    "visualSubject": "Identificação de rack corporativo com chapa metálica de identificação industrial e indicadores de telemetria operacional com carga de processamento",
+    "visual_must_include": [
+      "chapa de identificacao",
+      "indicador de telemetria",
+      "painel de carga"
+    ],
+    "visual_must_not": [
+      "dinossauro desenhado",
+      "logo infantil",
+      "fogo"
+    ],
+    "required_category": "supercomputer_telemetry",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_018",
+    "chapterId": "CH_04",
+    "chapterTitle": "O CÉREBRO DO T-REX & HARPIA",
+    "voiceover": "Criado em parceria com engenheiros da Unicamp e do ITA, o Harpia não procura erros linha por linha. Ele foi construído sobre a matemática da teoria dos grafos.",
+    "visualSubject": "Visualização cartográfica de rede de grafos tridimensionais conectando nós de contas bancárias, empresas holding e CPFs com vetores direcionais em ciano laser",
+    "visual_must_include": [
+      "grafo de rede",
+      "nos interconectados",
+      "vetores direcionais"
+    ],
+    "visual_must_not": [
+      "rede social comercial",
+      "icones de pessoas",
+      "cores saturadas"
+    ],
+    "required_category": "graph_theory_visualization",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_019",
+    "chapterId": "CH_04",
+    "chapterTitle": "O CÉREBRO DO T-REX & HARPIA",
+    "voiceover": "O algoritmo enxerga cada CPF como um ponto e cada transação como uma linha. Se um dinheiro passa por dez contas de fachada em um único dia, a teia desenha o beneficiário real.",
+    "visualSubject": "Zoom analítico em nó anômalo de grafo onde múltiplas rotas financeiras convergem para um único identificador fiscal destacado em laranja de alerta",
+    "visual_must_include": [
+      "no de convergencia",
+      "linhas de fluxo financeiro",
+      "alerta visual pontual"
+    ],
+    "visual_must_not": [
+      "lupa desenhada",
+      "caricatura de corrupto",
+      "notas voando"
+    ],
+    "required_category": "graph_anomaly_detection",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_020",
+    "chapterId": "CH_04",
+    "chapterTitle": "O CÉREBRO DO T-REX & HARPIA",
+    "voiceover": "O sistema não investiga apenas sonegadores profissionais. Ele mapeia a compatibilidade matemática entre a renda que você declarou e o padrão de vida que seus cartões exibem.",
+    "visualSubject": "Gráfico vetorial comparativo exibindo curva de evolução patrimonial versus fluxo de caixa real reportado pelas administradoras de cartão",
+    "visual_must_include": [
+      "curva de patrimonio",
+      "fluxo de caixa real",
+      "eixo temporal de auditoria"
+    ],
+    "visual_must_not": [
+      "cifrao gigante",
+      "ilustracao 3d amadora",
+      "setas vermelhas"
+    ],
+    "required_category": "cashflow_variance_chart",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "REX_021",
+    "chapterId": "CH_05",
+    "chapterTitle": "O GARGALO DA MALHA SEM HUMANOS",
+    "voiceover": "A imagem popular do auditor fiscal de terno examinando papéis com uma caneta vermelha pertence ao século passado.",
+    "visualSubject": "Mesa de auditoria pericial em madeira escura com pastas de processos fiscais antigos amarrados com barbante sob luz solitária de luminária industrial",
+    "visual_must_include": [
+      "pasta de processo fisico",
+      "barbante de custodia",
+      "mesa de madeira escura"
+    ],
+    "visual_must_not": [
+      "auditor sentado",
+      "cafe fumegante",
+      "sorriso"
+    ],
+    "required_category": "legacy_tax_audit_archive",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "REX_022",
+    "chapterId": "CH_05",
+    "chapterTitle": "O GARGALO DA MALHA SEM HUMANOS",
+    "voiceover": "Hoje, a malha fina roda como uma rotina em lote na calada da noite. Nenhum ser humano decide quem cai na malha; quem decide é uma operação lógica booleana.",
+    "visualSubject": "Console de terminal corporativo em tela fosca exibindo execução de job batch noturno com contadores de registros auditados subindo velozmente",
+    "visual_must_include": [
+      "linha de comando batch",
+      "contador de registros",
+      "indicador de execucao"
+    ],
+    "visual_must_not": [
+      "rosto refletido na tela",
+      "hacker com capuz",
+      "bomba relogio"
+    ],
+    "required_category": "batch_job_execution",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_023",
+    "chapterId": "CH_05",
+    "chapterTitle": "O GARGALO DA MALHA SEM HUMANOS",
+    "voiceover": "Se o seu médico declarou que recebeu de você três mil reais, mas você digitou três mil e um centavo por engano, a divergência acusa erro em microssegundos.",
+    "visualSubject": "Macro pericial em monitor de alta resolução exibindo discrepância exata de valores entre fonte pagadora e declarante com marcação de alerta",
+    "visual_must_include": [
+      "comparativo de dois valores",
+      "delta de centavos",
+      "codigo de erro do sistema"
+    ],
+    "visual_must_not": [
+      "medico de jaleco",
+      "estetoscopio",
+      "paciente"
+    ],
+    "required_category": "tax_discrepancy_delta",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "REX_024",
+    "chapterId": "CH_05",
+    "chapterTitle": "O GARGALO DA MALHA SEM HUMANOS",
+    "voiceover": "O robô não analisa sua intenção, não sabe se você cometeu um erro de digitação e não aceita desculpas. A trava de segurança é ativada instantaneamente.",
+    "visualSubject": "Servidor blade sendo travado em trilho metálico de rack com tranca de pressão mecânica sob luz âmbar de segurança",
+    "visual_must_include": [
+      "servidor blade",
+      "trilho metalico",
+      "tranca de pressao"
+    ],
+    "visual_must_not": [
+      "cadeado gigante de desenho",
+      "policial com algemas",
+      "sirene"
+    ],
+    "required_category": "blade_chassis_lock",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_025",
+    "chapterId": "CH_05",
+    "chapterTitle": "O GARGALO DA MALHA SEM HUMANOS",
+    "voiceover": "Sua restituição fica retida nos cofres públicos, seu CPF entra em status pendente de regularização e o processo administrativo é gerado sem que ninguém tenha encostado um dedo.",
+    "visualSubject": "Comprovante oficial de situação cadastral com carimbo digital e status pericial em destaque na tela de consulta de pendências fiscais",
+    "visual_must_include": [
+      "comprovante de situacao",
+      "carimbo digital",
+      "codigo de controle"
+    ],
+    "visual_must_not": [
+      "pessoa triste",
+      "computador jogado no chao",
+      "grafico de desenho animado"
+    ],
+    "required_category": "cpf_status_freeze",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "REX_026",
+    "chapterId": "CH_06",
+    "chapterTitle": "O VEREDITO FISCAL",
+    "voiceover": "Quando chega o mês de março e você abre o programa do Imposto de Renda, o governo oferece a declaração pré-preenchida com um clique.",
+    "visualSubject": "Interface limpa de aplicativo de declaração do IRPF carregando dados tributários automaticamente com barra de progresso pericial",
+    "visual_must_include": [
+      "interface irpf",
+      "dados preenchidos",
+      "barra de progresso"
+    ],
+    "visual_must_not": [
+      "pessoa sorrindo na frente do pc",
+      "cafe na mesa",
+      "comercial de banco"
+    ],
+    "required_category": "prefilled_tax_return",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "REX_027",
+    "chapterId": "CH_06",
+    "chapterTitle": "O VEREDITO FISCAL",
+    "voiceover": "Aquilo não é uma demonstração de comodidade tecnológica. É a prova forense de que o T-Rex já sabia de tudo antes de você sentar na cadeira.",
+    "visualSubject": "Placa-mãe de supercomputador em macro extremo com dezenas de canais de memória DDR5 e soquete de processador de ultra-alta contagem de pinos",
+    "visual_must_include": [
+      "placa-mae de servidor",
+      "barramentos de memoria",
+      "soquete de processador"
+    ],
+    "visual_must_not": [
+      "computador gamer",
+      "luzes rgb coloridas",
+      "cooler brilhante"
+    ],
+    "required_category": "supercomputer_motherboard_macro",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_028",
+    "chapterId": "CH_06",
+    "chapterTitle": "O VEREDITO FISCAL",
+    "voiceover": "O Leão da Receita não perde tempo perguntando o que você comprou, o que você vendeu ou para onde seu Pix viajou.",
+    "visualSubject": "Conector de cabo de energia de alta voltagem trifásico de data center travado em tomada de força blindada industrial",
+    "visual_must_include": [
+      "conector trifasico",
+      "tomada blindada",
+      "cabo de forca industrial"
+    ],
+    "visual_must_not": [
+      "faisca eletrica",
+      "choque",
+      "desenho de leao"
+    ],
+    "required_category": "industrial_power_feeder",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "REX_029",
+    "chapterId": "CH_06",
+    "chapterTitle": "O VEREDITO FISCAL",
+    "voiceover": "Ele apenas aguarda em silêncio no subsolo de Brasília para verificar se você tem a audácia de mentir sobre o que os servidores já registraram.",
+    "visualSubject": "Perspectiva longa em plano simétrico do corredor central de servidores do SERPRO com luzes azuis e sombras profundas em 35mm chiaroscuro",
+    "visual_must_include": [
+      "corredor simetrico",
+      "racks de servidores escuros",
+      "iluminacao de piso chiaroscuro"
+    ],
+    "visual_must_not": [
+      "seguranca caminhando",
+      "fantasma",
+      "fumaca cenografica"
+    ],
+    "required_category": "datacenter_endless_hallway",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "REX_030",
+    "chapterId": "CH_06",
+    "chapterTitle": "O VEREDITO FISCAL",
+    "voiceover": "Porque no Brasil contemporâneo, a única coisa mais rápida do que a velocidade com que você gasta o seu dinheiro é a precisão com que o Estado enxerga o seu rastro.",
+    "visualSubject": "Dossiê pericial fechado sobre mesa de metal escuro com carimbo vermelho oficial em baixo-relevo e chave criptográfica impressa",
+    "visual_must_include": [
+      "dossie pericial",
+      "carimbo oficial",
+      "chave criptografica"
+    ],
+    "visual_must_not": [
+      "mao humana",
+      "bandeira do brasil rasgada",
+      "cadeado falso"
+    ],
+    "required_category": "final_forensic_dossier",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  }
+]

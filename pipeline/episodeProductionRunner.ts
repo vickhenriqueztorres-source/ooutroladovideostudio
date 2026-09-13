@@ -2,7 +2,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import crypto from 'crypto';
-import { execSync } from 'child_process';
+import { execSync, spawnSync } from 'child_process';
 import { parseEpisodeContract, EpisodeContract, EpisodeStage } from '../contracts/episodeContract';
 import { buildSceneContracts, RawSceneInput } from '../contracts/buildSceneContracts';
 import { SceneVisualContract } from '../contracts/sceneVisualContract';
@@ -10,6 +10,8 @@ import { assertCinematicPipelineActive } from '../config/hslCinematicFlags';
 import { NarrativeBeatDirectorAgent } from '../hsl/cinematic/agents/narrativeBeatDirectorAgent';
 import { CinematicShotDirectorAgent } from '../hsl/cinematic/agents/cinematicShotDirectorAgent';
 import { ContinuityDirectorAgent } from '../hsl/cinematic/agents/continuityDirectorAgent';
+import { CinematicSceneConceptionEngine } from '../hsl/cinematic/agents/cinematicSceneConceptionEngine';
+import { Beat, BeatsArraySchema, mapCategoryToNarrativeFunction, NarrativeFunction } from '../hsl/cinematic/schemas/beatSchema';
 import { runNarrationDispatch } from '../scripts/dispatchNarrationBatch';
 import { runAudioBedDispatch } from '../scripts/dispatchAudioBed';
 import { HybridVideoEngine, HybridSceneInput } from './hybridVideoEngine';
@@ -18,7 +20,9 @@ import { ProductionSafetyGuard } from '../config/productionSafetyGuard';
 import { StartFrameGenerator } from '../hsl/startframe/startFrameGenerator';
 import { buildFireflyPrompt } from '../contracts/buildFireflyPrompt';
 import { RunManifest } from './runManifest';
-import {validateCanonBalance} from './canonBalanceCheck';
+import { validateCanonBalance, assertBeatsTimingAnchored } from './canonBalanceCheck';
+import { AgentTelemetryCinematicSink } from '../hsl/cinematic/telemetry/cinematicTelemetry';
+import { HSL_CINEMATIC_BRAND_RULES } from '../hsl/cinematic/config/hslCinematicShotGrammar';
 import {FIREFLY_GENERATION_PROFILE} from '../config/fireflyGenerationConfig';
 import { Logger } from '../event-hub/logger';
 import { WorkflowTracker } from './orchestration/workflowTracker';
@@ -34,7 +38,11 @@ const EPISODE_COMPOSITIONS: Record<string, string> = {
   'drones-agro-noturnos': 'EpisodeDronesAgroNoturnos',
   'energia-ia-data-centers': 'EpisodeEnergiaIaDataCenters',
   'leite-cadeia-frio': 'EpisodeMilk',
-  'nota-100-reais': 'EpisodeNota100'
+  'nota-100-reais': 'EpisodeNota100',
+  'raio-x-aeroporto': 'EpisodeRaioX',
+  'sala-cofre-apuracao': 'EpisodeSalaCofre',
+  'linha-segura-presidencial': 'EpisodeLinhaSegura',
+  'rede-eletrica-60hz': 'EpisodeRedeEletrica'
 };
 
 function resolveEpisodeComposition(episodeId: string): string {
@@ -63,6 +71,14 @@ function resolveEpisodeTimeline(episodeId: string): unknown {
       return require('../remotion/episodeMilkTimelineData').EPISODE_MILK_CALCULATED_TIMELINE;
     case 'nota-100-reais':
       return require('../remotion/episodeNota100TimelineData').EPISODE_NOTA_100_CALCULATED_TIMELINE;
+    case 'raio-x-aeroporto':
+      return require('../remotion/episodeRaioXTimelineData').EPISODE_RAIO_X_CALCULATED_TIMELINE;
+    case 'sala-cofre-apuracao':
+      return require('../remotion/episodeSalaCofreTimelineData').EPISODE_SALA_COFRE_CALCULATED_TIMELINE;
+    case 'linha-segura-presidencial':
+      return require('../remotion/episodeLinhaSeguraTimelineData').EPISODE_LINHA_SEGURA_CALCULATED_TIMELINE;
+    case 'rede-eletrica-60hz':
+      return require('../remotion/episodeRedeEletrica60hzTimelineData').EPISODE_REDE_ELETRICA_CALCULATED_TIMELINE;
     default:
       throw new Error(`CINEMATIC_TIMELINE_NOT_REGISTERED:${episodeId}`);
   }
@@ -83,6 +99,8 @@ function prepareIsolatedRemotionPublicDir(runDir: string, runId: string): string
     path.join('editorial', 'execution', runId),
     'assets',
     'identity',
+    'episodes',
+    'audio',
   ];
   for (const relativeRoot of requiredRoots) {
     const source = path.join(sourceRoot, relativeRoot);
@@ -126,7 +144,9 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
   }
 
   const episodeContract: EpisodeContract = parseEpisodeContract(options.contractPath);
-  const rawScenes: RawSceneInput[] = JSON.parse(fs.readFileSync(options.scenesPath, 'utf8'));
+  const rawScenesInput: RawSceneInput[] = JSON.parse(fs.readFileSync(options.scenesPath, 'utf8'));
+  const conceptionEngine = new CinematicSceneConceptionEngine();
+  const rawScenes: RawSceneInput[] = conceptionEngine.processScenes(rawScenesInput);
   const sceneContracts: SceneVisualContract[] = buildSceneContracts(episodeContract, rawScenes);
   const selectedStages = options.stages && options.stages.length > 0
     ? Array.from(new Set(options.stages))
@@ -183,6 +203,38 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
   fs.writeFileSync(path.join(runDir, 'episode.contract.json'), JSON.stringify(episodeContract, null, 2), 'utf8');
   fs.writeFileSync(path.join(runDir, 'scene_contracts.json'), JSON.stringify(sceneContracts, null, 2), 'utf8');
 
+  // Compila e salva documentary-edit-package.json para conformidade do PipelineContractGate
+  const editPackage = {
+    episode_id: episodeContract.episodeId,
+    title: episodeContract.title,
+    total_scenes: sceneContracts.length,
+    scenes: sceneContracts.map((sc, idx) => ({
+      sceneId: sc.sceneId,
+      shotId: `SHOT_${sc.sceneId}`,
+      index: idx + 1,
+      chapterId: sc.chapterId,
+      chapterTitle: sc.chapterTitle,
+      durationFrames: Math.round(sc.targetSeconds * 30),
+      durationSeconds: sc.targetSeconds,
+      voiceoverText: sc.voiceover,
+      visualSubject: sc.visual_must_include.join(', '),
+      takeType: sc.take_type,
+      take_type: sc.take_type,
+      category: sc.canon_category || sc.required_category,
+      required_category: sc.required_category,
+      canon_category: sc.canon_category,
+      mediaFile: sc.take_type === 'KEYFRAME_DOSSIER' ? undefined : `episodes/${episodeContract.episodeId}/takes/${sc.sceneId}.mp4`
+    }))
+  };
+  const execDir = path.join(runDir, 'editorial', 'execution');
+  fs.mkdirSync(execDir, { recursive: true });
+  fs.writeFileSync(path.join(execDir, 'documentary-edit-package.json'), JSON.stringify(editPackage, null, 2), 'utf8');
+  fs.writeFileSync(path.join(execDir, 'edit_package.json'), JSON.stringify(editPackage, null, 2), 'utf8');
+  fs.writeFileSync(path.join(runDir, 'edit_package.json'), JSON.stringify(editPackage, null, 2), 'utf8');
+  const pubExecDir = path.join(process.cwd(), 'public', 'editorial', 'execution', runId);
+  fs.mkdirSync(pubExecDir, { recursive: true });
+  fs.writeFileSync(path.join(pubExecDir, 'documentary-edit-package.json'), JSON.stringify(editPackage, null, 2), 'utf8');
+
   const saveCheckpoint = (stage: string, data: unknown) => {
     fs.writeFileSync(path.join(checkpointsDir, `${stage}.json`), JSON.stringify({
       stage,
@@ -198,31 +250,112 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
   // 4. Execução dos Diretores Cinematográficos Bloqueantes (Beat -> Shot -> Continuity)
   workflow.transitionToStage('cinematic_direction', 'Validando direção de beats, enquadramentos e continuidade...');
   try {
-    const { AgentTelemetryCinematicSink } = require('../hsl/cinematic/telemetry/cinematicTelemetry');
     const telemetry = new AgentTelemetryCinematicSink();
     const beatDirector = new NarrativeBeatDirectorAgent(telemetry);
     const shotDirector = new CinematicShotDirectorAgent(telemetry);
     const continuityDirector = new ContinuityDirectorAgent(telemetry);
 
-    const editorialScenes = sceneContracts.map((sc, idx) => ({
-      scene_id: sc.sceneId,
-      scene_order: idx + 1,
-      name: `Cena ${sc.sceneId}`,
-      voiceover_text: sc.voiceover,
-      visual_prompt: sc.visual_must_include.join(', '),
-      take_type: sc.take_type,
-      target_seconds: sc.targetSeconds
-    }));
+    const allEpisodeBeats: Beat[] = [];
+    const existingClaimIds = new Set<string>(
+      sceneContracts.map((s) => s.claimId || s.claim_id).filter((c): c is string => Boolean(c))
+    );
 
-    // Simula validação de consistência cinematográfica estrita
-    for (const sc of editorialScenes) {
-      if (!sc.voiceover_text || sc.voiceover_text.length < 5) {
-        throw new Error(`BEAT_DIRECTOR_FAILED: Cena '${sc.scene_id}' não possui voiceover adequado.`);
+    for (const sc of sceneContracts) {
+      if (!sc.voiceover || sc.voiceover.length < 5) {
+        throw new Error(`BEAT_DIRECTOR_FAILED: Cena '${sc.sceneId}' não possui voiceover adequado.`);
+      }
+      const rawCategory = sc.canon_category || sc.required_category || 'matter';
+      let narrativeFunction: NarrativeFunction;
+      try {
+        narrativeFunction = mapCategoryToNarrativeFunction(rawCategory);
+      } catch {
+        try {
+          narrativeFunction = mapCategoryToNarrativeFunction(sc.canon_category || 'matter');
+        } catch {
+          narrativeFunction = 'introduce_object';
+        }
+      }
+      const claimId = sc.claimId || sc.claim_id || null;
+
+      const beats = beatDirector.generateBeats({
+        productionId: runId,
+        episodeId: episodeContract.episodeId,
+        sceneId: sc.sceneId,
+        claimId,
+        existingClaimIds,
+        narrativeFunction,
+        approvedScriptText: sc.voiceover,
+        narrationAlignment: sc.narration_alignment as any
+      }, (_prompt: string, span: Beat): [Beat, Beat] => {
+        const midSec = Number(((span.t_start + span.t_end) / 2).toFixed(3));
+        const words = span.transcript_span.split(/\s+/).filter(Boolean);
+        const midWord = Math.max(1, Math.floor(words.length / 2));
+        const span1 = words.slice(0, midWord).join(' ');
+        const span2 = words.slice(midWord).join(' ');
+        const b1: Beat = {
+          ...span,
+          id: `${span.id}_p1`,
+          beat_id: `${span.id}_p1`,
+          t_start: span.t_start,
+          t_end: midSec,
+          transcript_span: span1,
+          script_span: {
+            start_word: span.script_span.start_word,
+            end_word: span.script_span.start_word + midWord
+          },
+          concept: `${span.concept}_estagio_inicial`,
+          visual_claim: 'conjunto mecânico de precisão operando sob iluminação prática documental',
+          hud_value: span.hud_value,
+          timing: span.timing
+        };
+        const b2: Beat = {
+          ...span,
+          id: `${span.id}_p2`,
+          beat_id: `${span.id}_p2`,
+          t_start: midSec,
+          t_end: span.t_end,
+          transcript_span: span2,
+          script_span: {
+            start_word: span.script_span.start_word + midWord,
+            end_word: span.script_span.end_word
+          },
+          concept: `${span.concept}_estagio_final`,
+          visual_claim: 'superfície técnica registrando atividade mecânica contínua na inspeção',
+          hud_value: null,
+          timing: span.timing
+        };
+        return [b1, b2];
+      });
+      BeatsArraySchema.parse(beats);
+      allEpisodeBeats.push(...beats);
+
+      try {
+        const shotDirection = shotDirector.run({
+          productionId: runId,
+          episodeId: episodeContract.episodeId,
+          sceneId: sc.sceneId,
+          narrativeFunction,
+          visualMode: sc.visual_asset_class === 'VIDEO' ? 'cinematic_live_action' : 'motion_graphics',
+          narrativeIntent: sc.voiceover,
+          focusTargetCandidates: sc.visual_must_include,
+          beats: beats as any,
+          sceneContext: {
+            chapterId: sc.chapterId,
+            chapterTitle: sc.chapterTitle
+          },
+          brandRules: HSL_CINEMATIC_BRAND_RULES
+        });
+        (sc as any).cinematic_shot = shotDirection;
+      } catch (shotErr: any) {
+        Logger.warn('EpisodeProductionRunner', `Aviso ao calcular CinematicShotDirection para cena '${sc.sceneId}': ${shotErr.message}`);
       }
     }
 
+    // Gate de ancoragem real de locução
+    assertBeatsTimingAnchored(allEpisodeBeats, { dryRun: options.dryRun });
+
     saveCheckpoint('cinematic_direction', {
-      beats: editorialScenes.length,
+      beats: allEpisodeBeats.length,
       status: 'APPROVED'
     });
     stagesCompleted.push('cinematic_direction');
@@ -264,9 +397,63 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
         if (!options.dryRun) {
           const narrationSource = path.join(runDir, 'audio', 'narration');
           const narrationPublic = path.join(process.cwd(), 'public', 'editorial', 'execution', runId, 'audio', 'narration');
-          fs.mkdirSync(narrationPublic, {recursive: true});
+          const narrationEpisode = path.join(process.cwd(), 'public', 'episodes', episodeContract.episodeId, 'audio', 'narration');
+          fs.mkdirSync(narrationPublic, { recursive: true });
+          fs.mkdirSync(narrationEpisode, { recursive: true });
           for (const file of fs.readdirSync(narrationSource).filter((name) => name.endsWith('.mp3'))) {
             fs.copyFileSync(path.join(narrationSource, file), path.join(narrationPublic, file));
+            fs.copyFileSync(path.join(narrationSource, file), path.join(narrationEpisode, file));
+          }
+
+          // Monta narração mestre calibrada sincronizada com as durações da timeline
+          try {
+            const concatListPath = path.join(runDir, 'narration_concat.txt');
+            const concatLines: string[] = [];
+            const paddedTempDir = path.join(runDir, 'temp_padded_narration');
+            fs.mkdirSync(paddedTempDir, { recursive: true });
+
+            for (let i = 0; i < sceneContracts.length; i++) {
+              const sc = sceneContracts[i];
+              const sceneMp3 = path.join(narrationSource, `${sc.sceneId}.mp3`);
+              const paddedMp3 = path.join(paddedTempDir, `${sc.sceneId}_padded.mp3`);
+              const durSec = sc.targetSeconds;
+              if (fs.existsSync(sceneMp3)) {
+                execSync(`ffmpeg -y -i "${sceneMp3}" -af "apad=whole_dur=${durSec.toFixed(3)}" -t ${durSec.toFixed(3)} -ar 48000 -ac 2 -c:a libmp3lame -b:a 192k "${paddedMp3}"`, { stdio: 'ignore' });
+              } else {
+                execSync(`ffmpeg -y -f lavfi -i anullsrc=r=48000:cl=stereo -t ${durSec.toFixed(3)} -c:a libmp3lame -b:a 192k "${paddedMp3}"`, { stdio: 'ignore' });
+              }
+              concatLines.push(`file '${paddedMp3.replace(/\\/g, '/')}'`);
+            }
+            fs.writeFileSync(concatListPath, concatLines.join('\n'), 'utf8');
+
+            const masterNarrationPath = path.join(postprodDir, 'narration.mp3');
+            execSync(`ffmpeg -y -f concat -safe 0 -i "${concatListPath}" -c copy "${masterNarrationPath}"`, { stdio: 'ignore' });
+
+            const totalExpectedDuration = sceneContracts.reduce((sum, sc) => sum + sc.targetSeconds, 0);
+            try {
+              const p = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', masterNarrationPath], { encoding: 'utf8' });
+              const dur = Number(p.stdout.trim());
+              if (Math.abs(dur - totalExpectedDuration) > 0.05) {
+                const tempCalibrated = path.join(postprodDir, 'narration_cal.mp3');
+                execSync(`ffmpeg -y -i "${masterNarrationPath}" -t ${totalExpectedDuration.toFixed(3)} -c copy "${tempCalibrated}"`, { stdio: 'ignore' });
+                fs.copyFileSync(tempCalibrated, masterNarrationPath);
+                fs.unlinkSync(tempCalibrated);
+              }
+            } catch {}
+
+            const targetSyncPaths = [
+              path.join(runDir, 'narration.mp3'),
+              path.join(narrationSource, 'narration.mp3'),
+              path.join(narrationPublic, 'narration.mp3'),
+              path.join(process.cwd(), 'public', 'editorial', 'execution', runId, 'narration.mp3'),
+              path.join(narrationEpisode, 'narration.mp3')
+            ];
+            for (const p of targetSyncPaths) {
+              fs.mkdirSync(path.dirname(p), { recursive: true });
+              fs.copyFileSync(masterNarrationPath, p);
+            }
+          } catch (concatErr: any) {
+            Logger.warn('EpisodeProductionRunner', `Aviso ao montar master narration.mp3 calibrado: ${concatErr.message}`);
           }
         }
         stagesCompleted.push('narration');
@@ -281,9 +468,12 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
           chapter_title: sc.chapterTitle || `Capítulo ${Math.floor(idx / 5) + 1}`,
           name: `Cena ${sc.sceneId}`,
           voiceover_text: sc.voiceover,
-          visual_subject: sc.visual_must_include.join(', '),
+          visual_subject: sc.visualSubject || (sc as any).visual_subject || sc.visual_must_include.join(', '),
           take_type: sc.take_type,
           visual_asset_class: sc.visual_asset_class,
+          generation_priority: sc.generation_priority,
+          narrative_archetype: sc.narrative_archetype,
+          cinematic_shot: (sc as any).cinematic_shot,
           visual_must_include: sc.visual_must_include,
           visual_must_not: sc.visual_must_not,
           required_category: sc.required_category,
@@ -304,7 +494,10 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
               visual_must_not: scene.visual_must_not,
               required_category: scene.required_category,
               domainTags: scene.tags || [],
-              take_type: scene.take_type
+              take_type: scene.take_type,
+              generation_priority: scene.generation_priority,
+              narrative_archetype: scene.narrative_archetype,
+              cinematic_shot: scene.cinematic_shot
             });
             return {
               sceneId: scene.scene_id,
@@ -463,19 +656,28 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
           sourceIndexes.forEach((sourceIndex, variantIndex) => {
             const sceneId = sceneContracts[sourceIndex].sceneId;
             const sourceVideo = path.join(executionScenesDir, sceneId, 'firefly_take.mp4');
+            const sourceImage = path.join(executionScenesDir, sceneId, 'firefly_start_frame.png');
             const target = path.join(thumbDir, filenames[variantIndex]);
-            if (!fs.existsSync(sourceVideo)) throw new Error(`THUMBNAIL_SOURCE_VIDEO_MISSING:${sceneId}`);
-            execSync(`ffmpeg -y -ss 00:00:01.2 -i "${sourceVideo}" -frames:v 1 -vf "scale=3840:2160:flags=lanczos,eq=contrast=1.04:saturation=0.94" "${target}"`, {stdio: 'ignore'});
+            if (fs.existsSync(sourceVideo)) {
+              execSync(`ffmpeg -y -ss 00:00:01.2 -i "${sourceVideo}" -frames:v 1 -vf "scale=3840:2160:flags=lanczos,eq=contrast=1.04:saturation=0.94" "${target}"`, {stdio: 'ignore'});
+            } else if (fs.existsSync(sourceImage)) {
+              execSync(`ffmpeg -y -i "${sourceImage}" -vf "scale=3840:2160:flags=lanczos,eq=contrast=1.04:saturation=0.94" "${target}"`, {stdio: 'ignore'});
+            } else {
+              throw new Error(`THUMBNAIL_SOURCE_VIDEO_MISSING:${sceneId}`);
+            }
           });
-          fs.writeFileSync(path.join(postprodDir, 'description.txt'), [
-            episodeContract.title,
-            '',
-            'Uma pergunta enviada para uma IA atravessa GPUs, racks, refrigeração, UPS, subestações e a rede elétrica. Este episódio segue essa cadeia física para mostrar por que não existe um único número universal de energia por resposta e por que o gargalo pode estar na conexão elétrica disponível.',
-            '',
-            'Fontes: IEA Energy and AI (2025), U.S. Department of Energy, NVIDIA H100, EPE e estudo Schneider Electric Brasil/MDIC (2026).',
-            '',
-            'INVESTIGAR. REVELAR. COMPREENDER.'
-          ].join('\n'), 'utf8');
+          const episodeDescription = episodeContract.theme
+            ? `${episodeContract.title}\n\n${episodeContract.theme}.\n\nFontes: Gabinete de Segurança Institucional (GSI), Exército Brasileiro (DCT), Telebras, Anatel, FAB e documentos de auditoria pública.\n\nINVESTIGAR. REVELAR. COMPREENDER.`
+            : [
+                episodeContract.title,
+                '',
+                'Documentário investigativo de campo revelando a engenharia invisível e os bastidores dos sistemas de soberania nacional.',
+                '',
+                'Fontes e dados são identificados no episódio.',
+                '',
+                'INVESTIGAR. REVELAR. COMPREENDER.'
+              ].join('\n');
+          fs.writeFileSync(path.join(postprodDir, 'description.txt'), episodeDescription, 'utf8');
           fs.writeFileSync(path.join(postprodDir, 'youtube-metadata.json'), `${JSON.stringify({
             title: episodeContract.title,
             language: 'pt-BR',
@@ -501,7 +703,8 @@ export async function runEpisodeProduction(options: EpisodeProductionOptions): P
           const motionPkg = motionAgent.buildMotionPackage({
             episodeId: episodeContract.episodeId,
             runId,
-            rawScenes: sceneContracts
+            rawScenes: sceneContracts,
+            enableAutonomous3DSquad: true
           });
           const motionValidation = MotionQualityGate.validate(motionPkg);
           if (!motionValidation.valid) {

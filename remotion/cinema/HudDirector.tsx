@@ -109,19 +109,19 @@ export const HudDirector: React.FC<HudDirectorProps> = ({
               position: 'absolute',
               top: '110px',
               right: '48px',
-              padding: '14px 20px',
-              backgroundColor: 'rgba(6, 7, 9, 0.88)',
-              backdropFilter: 'blur(12px)',
-              border: `1px solid rgba(0, 240, 255, 0.25)`,
-              borderLeft: `3px solid ${accentColor}`,
-              borderRadius: '4px',
+              padding: '20px 28px',
+              backgroundColor: 'rgba(6, 7, 9, 0.92)',
+              backdropFilter: 'blur(16px)',
+              border: `1px solid rgba(0, 240, 255, 0.35)`,
+              borderLeft: `5px solid ${accentColor}`,
+              borderRadius: '6px',
               color: CINEMATIC_TYPOGRAPHY.COLORS.TEXT_PRIMARY,
               fontFamily: CINEMATIC_TYPOGRAPHY.FONTS.TELEMETRY,
-              fontSize: '12px',
+              fontSize: '22px',
               letterSpacing: '1px',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.75)',
               zIndex: 920,
-              maxWidth: '400px',
+              maxWidth: '680px',
               transform: `translate3d(${translateX}px, 0, 0)`,
               opacity
             }}
@@ -131,15 +131,15 @@ export const HudDirector: React.FC<HudDirectorProps> = ({
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                marginBottom: '6px'
+                marginBottom: '10px'
               }}
             >
               <span
                 style={{
                   color: telemetryColor,
                   fontWeight: 'bold',
-                  fontSize: CINEMATIC_TYPOGRAPHY.SIZES.TELEMETRY_DATA,
-                  letterSpacing: '1.5px'
+                  fontSize: CINEMATIC_TYPOGRAPHY.SIZES.PRIMARY_LABEL,
+                  letterSpacing: '2px'
                 }}
               >
                 // TELEMETRIA SISTÊMICA
@@ -156,8 +156,9 @@ export const HudDirector: React.FC<HudDirectorProps> = ({
             <div
               style={{
                 color: CINEMATIC_TYPOGRAPHY.COLORS.TEXT_PRIMARY,
-                fontSize: '13px',
-                lineHeight: 1.4,
+                fontSize: '26px',
+                fontWeight: 600,
+                lineHeight: 1.35,
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 display: '-webkit-box',
@@ -170,8 +171,8 @@ export const HudDirector: React.FC<HudDirectorProps> = ({
             {win.props?.status && (
               <div
                 style={{
-                  marginTop: '6px',
-                  fontSize: CINEMATIC_TYPOGRAPHY.SIZES.TELEMETRY_DATA,
+                  marginTop: '8px',
+                  fontSize: '22px',
                   color: accentColor,
                   fontWeight: 'bold',
                   overflow: 'hidden',

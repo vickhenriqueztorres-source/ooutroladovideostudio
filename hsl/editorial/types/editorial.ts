@@ -80,8 +80,12 @@ export interface HslEditorialSceneContract {
   readonly visual_function?: HslVisualFunction;
   readonly attention_role?: HslAttentionRole;
   readonly attention_loop_id?: string | null;
-  readonly pause_after_ms?: number;
-  readonly review_status: 'APPROVED';
+  readonly narration_alignment?: readonly {
+    readonly word: string;
+    readonly start_ms: number;
+    readonly end_ms: number;
+    readonly source?: 'tts_word_timestamps' | 'forced_alignment' | 'estimated_wpm';
+  }[];
   readonly source_scene_revision: string;
 }
 

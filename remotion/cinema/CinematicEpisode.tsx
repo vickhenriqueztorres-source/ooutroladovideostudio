@@ -186,10 +186,13 @@ export const CinematicEpisode: React.FC<CinematicEpisodeProps> = ({
                         durationInFrames={sequenceDuration}
                         sceneIndex={index}
                       >
-                        {['IndustrialXRayHUD', 'LaserScanDossier', 'VelocityPhysicsCalculationHUD', 'FlowMeterPulserSchematicHUD', 'FlowDiscrepancyHUD'].includes(scene.component) && (
-                          <DynamicDocumentaryMedia {...mergedProps} />
+                        {/* Camada 1: Realidade Observada (Take de Vídeo Real / Imagem 1080p) */}
+                        <DynamicDocumentaryMedia {...mergedProps} />
+
+                        {/* Camada 2: Mecanismo Revelado (Motion Graphics / HUD / Dossiê sobreposto) */}
+                        {SceneComponent !== DynamicDocumentaryMedia && (
+                          <SceneComponent {...mergedProps} />
                         )}
-                        <SceneComponent {...mergedProps} />
                       </CameraLanguage>
                     </DocumentaryMotionStage>
 

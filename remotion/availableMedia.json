@@ -1,526 +1,151 @@
 {
-  "EIA_001": {
+  "SC_001": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_002": {
+  "SC_002": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_003": {
+  "SC_003": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_004": {
+  "SC_004": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_005": {
+  "SC_005": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_006": {
+  "SC_006": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_007": {
+  "SC_007": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_008": {
+  "SC_008": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_009": {
+  "SC_009": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_010": {
+  "SC_010": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_011": {
+  "SC_011": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_012": {
+  "SC_012": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_013": {
+  "SC_013": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_014": {
+  "SC_014": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_015": {
+  "SC_015": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_016": {
+  "SC_016": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_017": {
+  "SC_017": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_018": {
+  "SC_018": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_019": {
+  "SC_019": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_020": {
+  "SC_020": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_021": {
+  "SC_021": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_022": {
+  "SC_022": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_023": {
+  "SC_023": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_024": {
+  "SC_024": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_025": {
+  "SC_025": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_026": {
+  "SC_026": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_027": {
+  "SC_027": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_028": {
+  "SC_028": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_029": {
+  "SC_029": {
     "hasVideo": true,
     "hasImage": true,
     "isDossier": false
   },
-  "EIA_030": {
+  "SC_030": {
     "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_031": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_032": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_033": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_034": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_035": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_036": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_037": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_038": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_039": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_040": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_041": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_042": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_043": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_044": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_045": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_046": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_047": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_048": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_049": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_050": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_051": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_052": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_053": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_054": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_055": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_056": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_057": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_058": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_059": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_060": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_061": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_062": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_063": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_064": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_065": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_066": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_067": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_068": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_069": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_070": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_071": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_072": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_073": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_074": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "EIA_075": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_001": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_002": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_003": {
-    "hasVideo": true,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_004": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_005": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_006": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_007": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_008": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_009": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_010": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_011": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_012": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_013": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_014": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_015": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_016": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_017": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_018": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_019": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_020": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_021": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_022": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_023": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_024": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_025": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_026": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_027": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": false
-  },
-  "N100_028": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_029": {
-    "hasVideo": false,
-    "hasImage": true,
-    "isDossier": true
-  },
-  "N100_030": {
-    "hasVideo": false,
     "hasImage": true,
     "isDossier": false
   }

@@ -1,0 +1,27 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "COMMONS_179166280",
+  "provider": "wikimedia",
+  "license": "Public_Domain",
+  "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Sal_de_mesa_vista_con_campo_oscuro.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sal_de_mesa_vista_con_campo_oscuro.webm",
+  "author": "Brandon Antonio Segura Torres &amp; Priscilla Vieto Bonilla",
+  "rawSha256": "06f7100889cdb0fe75cd2aa09bc19266a5dc3677014ff4b6f6f98c27e410034d",
+  "sanitizedSha256": "a715d83f50354872699c87563ed7251ba3c6a4fadeb773afffefbed2f6b08127",
+  "audioStripped": true,
+  "durationSeconds": 5.083333,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "urban_crowd_smartphones",
+  "tags": [
+    "urban street night",
+    "wikimedia_commons",
+    "open_archive"
+  ],
+  "domains": [
+    "urban",
+    "street",
+    "night"
+  ],
+  "timestamp": "2026-09-10T19:40:25.577Z"
+}

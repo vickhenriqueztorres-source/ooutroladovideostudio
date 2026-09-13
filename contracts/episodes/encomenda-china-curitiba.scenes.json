@@ -1,0 +1,572 @@
+[
+  {
+    "sceneId": "SC_001",
+    "voiceover": "Você comprou um fone de ouvido ou uma capa de celular por vinte reais com frete grátis do outro lado do planeta. Em três cliques no smartphone, o pedido foi confirmado.",
+    "visualSubject": "Dedo tocando a tela de um smartphone em ambiente escuro confirmando pedido com texto de frete grátis e rota internacional sob iluminação chiaroscuro 35mm",
+    "visual_must_include": [
+      "tela de smartphone iluminando ambiente escuro",
+      "confirmacao de compra internacional",
+      "reflexo suave no vidro da tela"
+    ],
+    "visual_must_not": [
+      "pessoa com expressao forcada",
+      "estetica de propaganda colorida",
+      "luz fluorescente de escritorio"
+    ],
+    "required_category": "smartphone_checkout_dark",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_002",
+    "voiceover": "Pela lógica comum do frete rodoviário, transportar essa caixa da esquina até a sua casa deveria custar mais caro do que o próprio objeto. Mas esse pacote não obedece à lógica convencional.",
+    "visualSubject": "Moeda de um real ao lado de um pacote plástico cinza fosco de 150 gramas em uma bancada de pesagem industrial de aço inoxidável sob iluminação zenital fria",
+    "visual_must_include": [
+      "pacote cinza lacrado com fita adesiva",
+      "balanca digital com display de 150g",
+      "bancada de aco inox escuro"
+    ],
+    "visual_must_not": [
+      "logotipos comerciais chamativos",
+      "rosto de operador",
+      "cores saturadas de marketing"
+    ],
+    "required_category": "parcel_weighing_scale",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_003",
+    "voiceover": "O ponto de partida é o distrito industrial de Shenzhen, na província de Guangdong. Uma malha urbana de galpões colossais onde milhões de itens são consolidados a cada segundo.",
+    "visualSubject": "Plano aéreo monumental de um parque logístico industrial em Shenzhen ao entardecer sob neblina densa com fileiras infinitas de caminhões e galpões de concreto escuro",
+    "visual_must_include": [
+      "galpoes logisticos monumentais",
+      "neblina industrial e asfalto umido",
+      "luzes de postes de vapor de sodio ambar"
+    ],
+    "visual_must_not": [
+      "cidade futurista cyberpunk com neon",
+      "hologramas no ar",
+      "trafego de ficcao cientifica"
+    ],
+    "required_category": "shenzhen_logistics_hub_fog",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_004",
+    "voiceover": "O pacote não viaja sozinho. Ele é imediatamente arremessado para dentro de uma saca de polipropileno de cinquenta quilos, agrupado com outras quatrocentas encomendas idênticas.",
+    "visualSubject": "Operador com luvas industriais em movimento rapido depositando pacote em grande saca de carga de lona reforcada em esteira rolante de aco sob luz direcional",
+    "visual_must_include": [
+      "sacas de carga industrial",
+      "esteira de roletes metalicos",
+      "etiquetas de despacho em codigo de barras"
+    ],
+    "visual_must_not": [
+      "operador olhando para a camera",
+      "ambiente sujo ou degradado",
+      "logos de marcas concorrentes"
+    ],
+    "required_category": "consolidation_sack_belt",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.0
+  },
+  {
+    "sceneId": "SC_005",
+    "voiceover": "Essa é a primeira chave do enigma: a consolidação de carga marginal. O seu fone de vinte reais não paga uma viagem exclusiva; ele aproveita o vácuo de uma engrenagem que já ia se mover de qualquer forma.",
+    "visualSubject": "Diagrama isometrico vetorial de um conteiner aereo de aluminio sendo preenchido por sacas de pacotes sem deixar um unico centimetro cubico de ar vazio em linhas ciano e ambar",
+    "visual_must_include": [
+      "corte esquematico de conteiner",
+      "vetores de densidade e cubagem volumetrica",
+      "indicadores numericos de aproveitamento 98 por cento"
+    ],
+    "visual_must_not": [
+      "graficos de desenho animado",
+      "elementos coloridos infantis",
+      "linhas sem alinhamento tecnico"
+    ],
+    "required_category": "uld_volumetric_density_cad",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_006",
+    "voiceover": "A meia-noite, as sacas chegam ao terminal de cargas do aeroporto internacional. Aqui, operários montam os ULDs, os paletes metálicos desenhados exatamente para o contorno curvo da fuselagem dos aviões.",
+    "visualSubject": "Plataforma de carga do aeroporto a noite com refletores industriais iluminando paletes de aluminio aeronáutico ULD cobertos por redes de amarracao sob chuva fina",
+    "visual_must_include": [
+      "paletes aeronauticos ULD de aluminio",
+      "redes de amarracao de carga pesada",
+      "chao de asfalto molhado refletindo luzes de pista"
+    ],
+    "visual_must_not": [
+      "turistas ou passageiros",
+      "avioes coloridos de desenho",
+      "cenario diurno ensolarado"
+    ],
+    "required_category": "airport_tarmac_cargo_uld",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_007",
+    "voiceover": "Um cargueiro de fuselagem larga, como o Boeing 777F ou 747-8, abre a sua imensa porta de carga lateral. Plataformas pantográficas elevam vinte toneladas de pacotes diretamente para o convés principal.",
+    "visualSubject": "Elevador pantografico hidraulico elevando conteiner ULD ate a porta de carga aberta da fuselagem de um aviao cargueiro gigante sob ceu escuro e luzes de solo",
+    "visual_must_include": [
+      "porta lateral de carga aberta na fuselagem",
+      "elevador hidraulico em movimento",
+      "fuselagem metalica monumental"
+    ],
+    "visual_must_not": [
+      "janelas de passageiros iluminadas",
+      "efeitos especiais pirotecnicos",
+      "marcas aereas fantasiosas"
+    ],
+    "required_category": "cargo_plane_hydraulic_loader",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_008",
+    "voiceover": "Começa a travessia de dezoito mil e trezentos quilômetros. A rota não é uma linha reta no mapa plano, mas uma curva geodésica que contorna a curvatura da Terra em direção ao hemisfério sul.",
+    "visualSubject": "Mapa cartografico escuro em projecao ortografica da Terra mostrando o arco de voo conectando Shenzhen, escala no Golfo Persico ou Africa e cruzando o Oceano Atlantico ate o Brasil",
+    "visual_must_include": [
+      "trajetoria em arco com telemetria ciano",
+      "marcador de distancia de 18340 km",
+      "topografia escura com centros de conexao iluminados"
+    ],
+    "visual_must_not": [
+      "mapa mundi colorido escolar",
+      "linhas pontilhadas vermelhas piscantes",
+      "globo terrestre giratorio generico"
+    ],
+    "required_category": "global_flight_trajectory_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.5
+  },
+  {
+    "sceneId": "SC_009",
+    "voiceover": "A onze mil metros de altitude e novecentos quilômetros por hora, a temperatura externa atinge cinquenta graus negativos. O porão é pressurizado para manter as baterias de lítio dos fones intactas.",
+    "visualSubject": "Camera lenta pelo corredor interno escuro do porao de carga do aviao iluminado apenas por fitas de LED ambar de emergencia ao longo das travas de piso dos conteineres",
+    "visual_must_include": [
+      "corredor de carga do porao pressurizado",
+      "travas de chao com roletes e travas mecanicas",
+      "textura de paredes termoisolantes aeronauticas"
+    ],
+    "visual_must_not": [
+      "pessoas andando no porao",
+      "janelas ou vista para nuvens",
+      "bagagens de viagem comuns"
+    ],
+    "required_category": "pressurized_cargo_hold_interior",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.0
+  },
+  {
+    "sceneId": "SC_010",
+    "voiceover": "Mas o pacote não viaja apenas como massa física. Horas antes do pouso, um manifesto eletrônico em formato XML com centenas de milhares de linhas é transmitido aos servidores da Receita Federal em Brasília.",
+    "visualSubject": "Terminal de dados com codigo XML estruturado de manifesto de carga aerea correndo na tela com chaves criptograficas e campos de CPF e valor aduaneiro em ciano e verde escuro",
+    "visual_must_include": [
+      "estrutura de tags XML de manifesto aereo",
+      "campos de peso, descricao e chave de remessa",
+      "monitor com tipografia monoespacada sob luz difusa"
+    ],
+    "visual_must_not": [
+      "codigo binario verde caindo estilo matrix",
+      "hacker com capuz",
+      "alertas de erro em vermelho gigante"
+    ],
+    "required_category": "air_cargo_manifest_xml_terminal",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_011",
+    "voiceover": "Às quatro da manhã, os trens de pouso tocam a pista molhada do Aeroporto Internacional de Viracopos, em Campinas. É a principal porta de entrada da carga aérea do país.",
+    "visualSubject": "Rodas traseiras de um cargueiro gigante tocando o asfalto umido da pista com fumaça de borracha instantanea sob luzes azuis e amarelas de balizamento noturno",
+    "visual_must_include": [
+      "trem de pouso traseiro tocando pista molhada",
+      "luzes de balizamento aeroportuario",
+      "nevoeiro e asfalto com reflexos nitidos"
+    ],
+    "visual_must_not": [
+      "acidente ou pista com fogo",
+      "plano aberto de dia ensolarado",
+      "passageiros desembarcando"
+    ],
+    "required_category": "touchdown_tarmac_rain_night",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_012",
+    "voiceover": "Em menos de quarenta minutos, tratores de pista rebocam as carretas de paletes para os recintos alfandegados. O relógio contra o tempo logístico já começou a contar.",
+    "visualSubject": "Tratores industriais de reboque tracionando comboio de quatro carretas com conteineres ULD cruzando o patio de manobras escuro em direcao aos galpoes alfandegados",
+    "visual_must_include": [
+      "comboio de carretas de reboque de carga",
+      "galpao alfandegado ao fundo com portas seccionais",
+      "luzes de sinalizacao ambar piscando nos tratores"
+    ],
+    "visual_must_not": [
+      "pessoas correndo ou em panico",
+      "veiculos civis de passeio",
+      "ambiente desorganizado"
+    ],
+    "required_category": "tarmac_tug_convoy_warehouse",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.0
+  },
+  {
+    "sceneId": "SC_013",
+    "voiceover": "As sacas de encomendas postais são imediatamente transferidas para carretas seladas com lacre eletrônico, com destino ao lendário CEINT de Curitiba — o Centro Internacional dos Correios.",
+    "visualSubject": "Carreta de grande porte saindo da doca com portas traseiras fechadas e lacre de alta seguranca sendo travado com clique mecanico em close sob luz industrial",
+    "visual_must_include": [
+      "lacre eletronico com numero de serie e codigo de barras",
+      "portas de aco corrugado da carreta",
+      "doca de concreto escuro com guarnicao de borracha"
+    ],
+    "visual_must_not": [
+      "caminhoneiro em pose comercial",
+      "logotipos nao autorizados",
+      "estrada ensolarada com praia"
+    ],
+    "required_category": "truck_seal_security_lock",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_014",
+    "voiceover": "Curitiba não foi escolhida por acaso. A unidade concentra a maior esteira de automação aduaneira da América Latina, dimensionada para processar até quatrocentas mil encomendas por dia.",
+    "visualSubject": "Visao geral de drone lenta e imponente sobre o imenso complexo do Centro Internacional de Curitiba a noite com dezenas de docas ativas e iluminacao industrial em vapor de sodio",
+    "visual_must_include": [
+      "galpao logistico monumental de dezenas de docas",
+      "patio organizado de carretas e caminhoes",
+      "iluminacao perimetral de alta seguranca"
+    ],
+    "visual_must_not": [
+      "bairro residencial proximo",
+      "predios historicos de Curitiba",
+      "estetica de videogame"
+    ],
+    "required_category": "curitiba_ceint_complex_aerial",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_015",
+    "voiceover": "Quando as sacas são rompidas nas esteiras de recepção, o seu pacote de vinte reais entra no ponto mais crítico de toda a sua jornada: o funil da autoridade pública.",
+    "visualSubject": "Esteira rolante de aco recebendo centenas de pequenos pacotes cinzas deslizando ordenadamente sob iluminação rasante fria com sensores de presença a laser ciano",
+    "visual_must_include": [
+      "esteira com fluxo contínuo de pacotes plásticos",
+      "sensores opticos com feixes laser ciano transversais",
+      "calhas laterais de direcionamento em aco escovado"
+    ],
+    "visual_must_not": [
+      "pacotes caindo no chao ou destruidos",
+      "operadores com celulares",
+      "luz estourada sem contraste"
+    ],
+    "required_category": "infeed_conveyor_parcels_flow",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.0
+  },
+  {
+    "sceneId": "SC_016",
+    "voiceover": "Antes de qualquer ser humano tocar na caixa, ela passa por dentro do túnel de chumbo do scanner de alta energia da Receita Federal. Um equipamento que opera em velocidade contínua sem parar o fluxo.",
+    "visualSubject": "Plano lateral do tunel blindado do scanner de raio-X industrial com cortinas de borracha de chumbo balançando conforme os pacotes entram na camera de escaneamento",
+    "visual_must_include": [
+      "tiras de cortina de protecao de chumbo",
+      "carcaca de aco escuro com simbolo de radiacao discreto",
+      "esteira transportadora motorizada continua"
+    ],
+    "visual_must_not": [
+      "radiacao visivel verde fluorescente",
+      "raios laser cortando pacotes",
+      "ambiente hospitalar"
+    ],
+    "required_category": "customs_xray_tunnel_lead_curtain",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_017",
+    "voiceover": "A máquina não gera uma fotografia comum. Ela emite dois feixes de raios-X em frequências energéticas distintas para medir a atenuação atômica de cada componente dentro da embalagem.",
+    "visualSubject": "Corte transversal 3D esquematico mostrando os dois geradores de raios-X disparando feixes de 140kV e 100kV através do pacote em linhas tecnicas vetoriais finas",
+    "visual_must_include": [
+      "diagrama de feixe duplo de energia",
+      "placa de detectores fotodiodos de silicio sob a esteira",
+      "escala de atenuacao de densidade em centimetros"
+    ],
+    "visual_must_not": [
+      "raios comic book estilo choque",
+      "cores arco-iris",
+      "modelos 3D genericos de baixa qualidade"
+    ],
+    "required_category": "dual_energy_ray_schematic_cad",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_018",
+    "voiceover": "Na tela do auditor, a física atômica vira cores: matéria orgânica e polímeros plásticos aparecem em tons de laranja; vidros e alumínio em verde; aços e metais densos em azul cobalto.",
+    "visualSubject": "Tela forense do scanner da Receita Federal mostrando imagem radiografica de fone de ouvido bluetooth com bateria de litio em azul escuro e fios de cobre em tons ambar brilhante",
+    "visual_must_include": [
+      "radiografia com cores analiticas laranja e azul cobalto",
+      "silhueta interna nitida de fones e estojo de carga",
+      "grade de medicoes de densidade e espessura milimetrica"
+    ],
+    "visual_must_not": [
+      "armas ou conteudo ilicito bizarro",
+      "estetica de tela de videogame",
+      "imagem borrada sem definicao"
+    ],
+    "required_category": "radiography_density_monitor",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_019",
+    "voiceover": "Algoritmos de inteligência artificial comparam a imagem gerada com a declaração do manifesto XML em menos de duzentos milissegundos. Se a densidade conferir com 'fone sem fio', o sinal verde é liberado.",
+    "visualSubject": "HUD de analise espectral sobrepondo a imagem de raio-X com caixa delimitadora de rastreamento ciano e tag 'DENSITY MATCH: 99.4%' com dados de conformidade alfandegaria",
+    "visual_must_include": [
+      "bounding box de IA em ciano laser com cantos angulares",
+      "leitura percentual de confianca e peso conferido",
+      "grafico de curva de absorcao de densidade"
+    ],
+    "visual_must_not": [
+      "rosto de robo estilizado",
+      "efeitos de glitch exagerados",
+      "letras vermelhas garrafais de panico"
+    ],
+    "required_category": "customs_ai_spectral_hud",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_020",
+    "voiceover": "Pelo Programa Remessa Conforme, o tributo foi calculado e liquidado no momento do clique. O sistema cruza o CPF do comprador em Brasília com a base da Receita e concede o desembaraço em tempo real.",
+    "visualSubject": "Terminal da Receita Federal validando status de desembaraço aduaneiro com protocolo de liberacao em verde esmeralda e carimbo digital SHA-256 sobre fundo escuro de dados",
+    "visual_must_include": [
+      "status 'DESEMBARAÇO AUTOMATIZADO / REMESSA CONFORME'",
+      "carimbo de hash criptografico e timestamp da Receita",
+      "codigo de rastreamento com prefixo internacional NL"
+    ],
+    "visual_must_not": [
+      "brasao da republica distorcido",
+      "documentos amassados de papel",
+      "visual amador de planilha excel"
+    ],
+    "required_category": "customs_clearance_protocol_screen",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_021",
+    "voiceover": "Liberado pelo Estado, o pacote cai na artéria principal do galpão: o Cross-Belt Sorter. Uma esteira mecânica contínua formada por centenas de bandejas motorizadas conectadas em cadeia.",
+    "visualSubject": "Plano em perspectiva da grandiosa esteira circular cross-belt correndo em velocidade constante com bandejas pretas individuais em trilhos de aco escuro polido",
+    "visual_must_include": [
+      "esteira cross-belt com circuito elevado de bandejas",
+      "chassis metalico com engrenagens e trilhos lineares",
+      "galpao industrial com iluminacao de alta precisao"
+    ],
+    "visual_must_not": [
+      "esteira quebrada ou com ferrugem",
+      "pessoas andando em cima dos trilhos",
+      "luzes estroboscopicas de festa"
+    ],
+    "required_category": "cross_belt_sorter_track_loop",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_022",
+    "voiceover": "Essa máquina se desloca a mais de três vírgula dois metros por segundo — mais de onze quilômetros por hora em pista sinuosa sem derrubar uma única caixa pelas curvas.",
+    "visualSubject": "Camera acompanhando em alta velocidade lateral um pacote repousando sobre a correia motorizada da bandeja individual conforme ela curva com fluidez mecanica precisa",
+    "visual_must_include": [
+      "tracking lateral suave em alta velocidade",
+      "detalhe da textura emborrachada da correia individual",
+      "fundo com esteiras e colunas em desfoque de movimento"
+    ],
+    "visual_must_not": [
+      "camera tremida caotica",
+      "pacote deslizando fora da esteira",
+      "visao em primeira pessoa de brinquedo"
+    ],
+    "required_category": "high_speed_sorter_tracking_shot",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.0
+  },
+  {
+    "sceneId": "SC_023",
+    "voiceover": "Enquanto corre, o pacote passa sob um pórtico de leitura óptica omnidirecional. Seis câmeras lineares de alta frequência disparam luzes estroboscópicas e escaneiam os seis lados do objeto ao mesmo tempo.",
+    "visualSubject": "Portico metalico com fileira de sensores opticos e flashes ultrarrapidos iluminando o pacote conforme ele passa a toda velocidade por baixo sob luz chiaroscuro",
+    "visual_must_include": [
+      "portico de aco com 6 cameras industriais anguladas",
+      "feixes de led pulsantes focados na superficie do pacote",
+      "leitores opticos com lentes de foco automatico"
+    ],
+    "visual_must_not": [
+      "operador com leitor de mao tipo pistola",
+      "luzes piscantes de discoteca",
+      "equipamento com fios desencapados soltos"
+    ],
+    "required_category": "omnidirectional_optical_tunnel",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_024",
+    "voiceover": "A câmera decodifica o código de barras padrão Code 128 e o DataMatrix em vinte milissegundos. O CLP central já sabe exatamente a qual CEP e a qual estado aquela encomenda pertence.",
+    "visualSubject": "Macro estático de altíssima definição de uma etiqueta adesiva branca sobre o plástico cinza com código de barras nítido e dados de destino com CEP destacado em ciano",
+    "visual_must_include": [
+      "linhas pretas do codigo de barras em foco cirurgico",
+      "codigo bidimensional datamatrix no canto superior",
+      "textura de papel termico autoadesivo"
+    ],
+    "visual_must_not": [
+      "etiqueta ilegivel borrada",
+      "marcas d'agua de bancos de imagens",
+      "dados ficticios de desenho animado"
+    ],
+    "required_category": "macro_shipping_label_barcode",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_025",
+    "voiceover": "Quando a bandeja atinge o canal exato da sua região, um motor sob o carrinho é acionado por indução magnética: a correia transversal gira em cem milissegundos e ejeta o pacote na rampa certa.",
+    "visualSubject": "Momento exato da ejecao lateral da bandeja motorizada deslizando o pacote cinza com precisao milimetrica para dentro de uma rampa helicoidal de aco galvanizado",
+    "visual_must_include": [
+      "mecanismo de esteira transversal em movimento lateral",
+      "rampa espiral de aco galvanizado escuro",
+      "movimento mecanico fluido e calculado"
+    ],
+    "visual_must_not": [
+      "braco mecanico batendo com violencia",
+      "pacote amassado ou quebrado",
+      "engrenagens expostas de maquina a vapor"
+    ],
+    "required_category": "pneumatic_ejector_chute_spiral",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_026",
+    "voiceover": "Mas se a etiqueta sofrer um rasgo de um milímetro ou se o plástico amassar sobre o código, a câmera rejeita. O pacote é expulso para a linha de triagem manual — onde quinhentos mil itens aguardam leitura ótica manual.",
+    "visualSubject": "Close macro em luz rasante ambar de uma etiqueta rasgada na borda do codigo de barras com luz de alerta vermelha acendendo na lateral da esteira de rejeicao",
+    "visual_must_include": [
+      "rasgo milimetrico no inicio das barras pretas",
+      "rampa de rejeicao secundaria com pacotes acumulados",
+      "luz pontual ambar de alerta de erro de leitura"
+    ],
+    "visual_must_not": [
+      "lixeiras ou destruicao de carga",
+      "pessoas brigando ou discutindo",
+      "ambiente sujo e caotico"
+    ],
+    "required_category": "damaged_barcode_rejection_chute",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.0
+  },
+  {
+    "sceneId": "SC_027",
+    "voiceover": "Aprovado na triagem milimétrica, o pacote é despachado na esteira de saída. Antes do amanhecer, centenas de carretas partem de Curitiba abastecendo as malhas regionais de todo o Brasil.",
+    "visualSubject": "Doca de expedicao com dezenas de caminhoes baú alinhados em paralelo sob luzes ambar da madrugada com esteiras telescopicas carregando o compartimento interno",
+    "visual_must_include": [
+      "esteira telescopica estendida dentro do bau do caminhao",
+      "linha de caminhoes perfeitamente alinhados na doca",
+      "asfalto escuro com marcacoes de trafego pintadas"
+    ],
+    "visual_must_not": [
+      "caminhao quebrado ou velho",
+      "estrada vazia no meio do deserto",
+      "estetica de filme de terror"
+    ],
+    "required_category": "outbound_dock_telescopic_loader",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_028",
+    "voiceover": "Da carreta de transferência interestadual para o centro de distribuição do seu bairro. Em menos de quarenta e oito horas após a liberação da Receita, a van de entrega da última milha entra na sua rua.",
+    "visualSubject": "Van de entregas moderna em cor escura trafegando em ritmo constante pelo asfalto de uma rua residencial brasileira sob a luz suave da manha com reflexos nas janelas",
+    "visual_must_include": [
+      "van de entregas em movimento fluido",
+      "rua residencial brasileira com asfalto e calcadas",
+      "perspectiva lateral suave de ombro cinematografica"
+    ],
+    "visual_must_not": [
+      "van acelerando perigosamente ou derrapando",
+      "marcas registradas comerciais dominantes",
+      "ambiente de favela estereotipada ou mansoes irreais"
+    ],
+    "required_category": "delivery_van_residential_street",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.0
+  },
+  {
+    "sceneId": "SC_029",
+    "voiceover": "O motorista desce com a prancheta digital, retira o pacote cinza de cento e cinquenta gramas do compartimento traseiro e aperta a campainha do seu portão.",
+    "visualSubject": "Mao com luva tatica de entregador segurando o pacote cinza e escaneando pela ultima vez com leitor portatil antes de tocar a campainha de aco escovado",
+    "visual_must_include": [
+      "pacote cinza fosco em primeiro plano",
+      "leitor portatil com tela confirmando entrega 'FINALIZADA'",
+      "portao residencial de ferro ou vidro temperado"
+    ],
+    "visual_must_not": [
+      "rosto do entregador ou do morador",
+      "pose forcada de comercial de TV",
+      "cenario artificial de estudio"
+    ],
+    "required_category": "handover_doorstep_scanner_beep",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_030",
+    "voiceover": "Aquele objeto de vinte reais não é barato porque a logística é simples. Ele é barato porque aproveitou os vazios de cargueiros intercontinentais, a ótica de esteiras supersônicas e a criptografia do Estado — onde a única coisa entre a sua casa e o lixo é um código de barras de um milímetro.",
+    "visualSubject": "Plano macro cinematografico final em chiaroscuro 35mm aproximando lentamente do codigo de barras impresso na etiqueta com particulas sutis de poeira suspensas no feixe de luz ambar",
+    "visual_must_include": [
+      "macro absoluto das linhas do codigo de barras",
+      "iluminacao rasante ambar quente #FF5500",
+      "profundidade de campo ultra rasa com bokeh anamorfico 35mm"
+    ],
+    "visual_must_not": [
+      "zoom digital brusco ou artificial",
+      "graficos flutuantes 3D espalhafatosos",
+      "logos promocionais"
+    ],
+    "required_category": "macro_barcode_verdict_chiaroscuro",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 12.0
+  }
+]

@@ -208,3 +208,31 @@ export function validateCanonBalance(
     violations
   };
 }
+
+/**
+ * Gate canônico de ancoragem temporal de beats:
+ * Qualquer beat com timing.source === 'estimated_wpm' no momento da montagem da timeline
+ * aborta a produção com o erro TIMING_NOT_ANCHORED.
+ * Ambientes de Shadow ou dry-run têm permissão para prosseguir com estimated_wpm.
+ */
+export function assertBeatsTimingAnchored(
+  beats: readonly { id?: string; beat_id?: string; timing?: { source?: string } }[],
+  opts?: { isProduction?: boolean; dryRun?: boolean; isShadow?: boolean }
+): void {
+  const isProduction = opts?.isProduction ?? (!opts?.dryRun && !opts?.isShadow);
+
+  for (const beat of beats) {
+    if (beat?.timing?.source === 'estimated_wpm') {
+      const beatId = beat.id || beat.beat_id || 'unknown';
+      if (!isProduction) {
+        console.warn(
+          `[canonBalanceCheck] WARNING: Beat '${beatId}' usa estimativa WPM (permitido apenas em shadow/dry-run).`
+        );
+        continue;
+      }
+      throw new Error(
+        `TIMING_NOT_ANCHORED: Beats ainda usam estimativa WPM. Execute a locução real antes de produzir os planos. Beat '${beatId}' possui timing.source === 'estimated_wpm'.`
+      );
+    }
+  }
+}

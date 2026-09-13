@@ -1,0 +1,34 @@
+{
+  "episodeId": "diario-oficial-3-da-madrugada",
+  "title": "O OUTRO LADO DAS 3 DA MADRUGADA: A MÁQUINA QUE MUDA AS LEIS DO PAÍS ENQUANTO VOCÊ DORME",
+  "theme": "A Imprensa Nacional em Brasília, o sistema INCom, chaves criptográficas do ICP-Brasil e a janela irreversível das 04h59 que transforma uma linha de XML na regra obrigatória de 215 milhões de brasileiros antes do amanhecer",
+  "domainTags": [
+    "diario-oficial",
+    "dou",
+    "imprensa-nacional",
+    "icp-brasil",
+    "assinatura-digital",
+    "brasilia",
+    "esplanada-dos-ministerios",
+    "criptografia",
+    "incom",
+    "legislacao",
+    "infraestrutura-de-estado"
+  ],
+  "targetDurationSeconds": 300,
+  "minDurationRatio": 0.9,
+  "minScenes": 30,
+  "requiredStages": [
+    "narration",
+    "visuals",
+    "sfx",
+    "music",
+    "mix",
+    "thumbnail",
+    "render",
+    "cinematic_grade"
+  ],
+  "voiceProfile": "Chris - Sóbrio, íntimo, autoritário (ElevenLabs)",
+  "musicMood": "dark_industrial_investigative",
+  "sfxDensity": "high"
+}

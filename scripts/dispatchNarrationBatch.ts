@@ -186,6 +186,13 @@ export async function runNarrationDispatch(options?: {
       continue;
     }
 
+    const canonicalAudio = path.join(runsEpisodeBase, 'audio', 'narration', `${item.sceneId}.mp3`);
+    if (fs.existsSync(canonicalAudio) && fs.statSync(canonicalAudio).size > 1024) {
+      fs.copyFileSync(canonicalAudio, outMp3Path);
+      console.log(`🎙️ [${item.sceneId}] Áudio reutilizado da biblioteca do episódio: ${outMp3Path}`);
+      continue;
+    }
+
     console.log(`🎙️ [${item.sceneId}] Sintetizando locução ElevenLabs Chris (${item.wordCount} palavras)...`);
     const res = await adapter.synthesizeText(item.text, outMp3Path);
 

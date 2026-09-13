@@ -1,0 +1,33 @@
+{
+  "episodeId": "rede-eletrica-60hz",
+  "title": "O OUTRO LADO DA TOMADA: A MÁQUINA DE 60 HZ QUE NÃO PODE PARAR",
+  "theme": "A rede continental de ultra-alta tensão de 800 kV, a inércia mecânica de Itaipu e Belo Monte e o equilíbrio em tempo real que sustenta a civilização brasileira",
+  "domainTags": [
+    "energia-eletrica",
+    "rede-eletrica",
+    "ons",
+    "sin",
+    "itaipu",
+    "belo-monte",
+    "uhvdc",
+    "frequencia-60hz",
+    "subestacao",
+    "infraestrutura"
+  ],
+  "targetDurationSeconds": 300,
+  "minDurationRatio": 0.9,
+  "minScenes": 30,
+  "requiredStages": [
+    "narration",
+    "visuals",
+    "sfx",
+    "music",
+    "mix",
+    "thumbnail",
+    "render",
+    "cinematic_grade"
+  ],
+  "voiceProfile": "Chris - Sóbrio, íntimo, autoritário (ElevenLabs)",
+  "musicMood": "dark_industrial_investigative",
+  "sfxDensity": "high"
+}

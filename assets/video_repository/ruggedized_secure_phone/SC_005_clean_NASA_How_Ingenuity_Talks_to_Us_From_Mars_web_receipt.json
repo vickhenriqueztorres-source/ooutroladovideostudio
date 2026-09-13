@@ -1,0 +1,33 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "NASA_How_Ingenuity_Talks_to_Us_From_Mars",
+  "provider": "nasa",
+  "license": "NASA_Public_Domain",
+  "sourceUrl": "http://images-assets.nasa.gov/video/How Ingenuity Talks to Us From Mars/How Ingenuity Talks to Us From Mars~orig.mp4",
+  "sourcePageUrl": "https://images.nasa.gov/details-How Ingenuity Talks to Us From Mars",
+  "author": "HQ",
+  "rawSha256": "4a3e09757e23059511070b63a96332034fb7b4c855d1c5c1a3da324789163756",
+  "sanitizedSha256": "285ab17804b486941053a8839e99381cfa4842a4277fd5270c1080879ae6cb4e",
+  "audioStripped": true,
+  "durationSeconds": 5.083008,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "ruggedized_secure_phone",
+  "tags": [
+    "NASA",
+    "Ingenuity",
+    "Nacer Chahat",
+    "JPL",
+    "Jim Green",
+    "Gravity Assist",
+    "Ingenuity helicopter",
+    "nasa",
+    "public_domain",
+    "space",
+    "earth_observation"
+  ],
+  "domains": [
+    "ruggedized_secure_phone"
+  ],
+  "timestamp": "2026-09-10T20:08:10.940Z"
+}

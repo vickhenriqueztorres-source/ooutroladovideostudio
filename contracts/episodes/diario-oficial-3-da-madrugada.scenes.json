@@ -1,0 +1,572 @@
+[
+  {
+    "sceneId": "SC_001",
+    "voiceover": "Quando você acorda de manhã e descobre que o imposto subiu, que um diretor estatal caiu ou que uma nova regra bancária entrou em vigor, isso não foi decidido na hora do café.",
+    "visualSubject": "Smartphone na cabeceira de quarto escuro acendendo a tela às 06h00 com manchete urgente sobre nova medida provisória sob iluminação suave de abajur chiaroscuro 35mm",
+    "visual_must_include": [
+      "smartphone iluminando ambiente escuro",
+      "notificacao de noticia na tela",
+      "textura de madeira e cabeceira"
+    ],
+    "visual_must_not": [
+      "pessoa com cara de espanto forçada",
+      "luz fluorescente de escritorio",
+      "estetica de propaganda"
+    ],
+    "required_category": "morning_news_smartphone",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_002",
+    "voiceover": "Essa decisão passou por uma esteira secreta de servidores entre meia-noite e as cinco da manhã. Enquanto o país inteiro dormia, a engrenagem do Estado estava em rotação máxima.",
+    "visualSubject": "Relógio digital industrial em rack de datacenter marcando 03:14 AM com luzes de status LED em âmbar e ciano refletindo em chão de concreto polido e fiação estruturada",
+    "visual_must_include": [
+      "relogio digital 03:14",
+      "racks de servidores escuros",
+      "leds de atividade de rede"
+    ],
+    "visual_must_not": [
+      "hologramas flutuantes",
+      "estetica de ficcao cientifica",
+      "fumaca de palco"
+    ],
+    "required_category": "datacenter_clock_night",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_003",
+    "voiceover": "A Esplanada dos Ministérios está em silêncio absoluto. Quase todas as janelas estão apagadas, exceto nos gabinetes técnicos onde decretos presidenciais recebem a redação final.",
+    "visualSubject": "Plano aberto monumental da Esplanada dos Ministérios sob neblina densa da madrugada em Brasília com asfalto molhado refletindo luzes de postes de vapor de sódio",
+    "visual_must_include": [
+      "predios ministeriais em perspectiva",
+      "asfalto molhado e neblina",
+      "poucas janelas acesas no topo"
+    ],
+    "visual_must_not": [
+      "ceu azul de dia",
+      "multidao ou protesto",
+      "carros em engarrafamento"
+    ],
+    "required_category": "esplanada_night_fog",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_004",
+    "voiceover": "A unidade que move essa máquina não é uma caneta de ouro nem um discurso inflamado. É uma linha de texto estruturada em XML, transmitida por um túnel criptografado.",
+    "visualSubject": "Monitor monocromático em mesa técnica de carvalho exibindo código XML com tags de decreto presidencial e metadados de assinatura sob luz de luminária de foco cirúrgico",
+    "visual_must_include": [
+      "codigo XML com tags tecnicas",
+      "monitor fosco em sala escura",
+      "documento impresso ao lado"
+    ],
+    "visual_must_not": [
+      "letras verdes caindo estilo Matrix",
+      "graficos de hacker de cinema",
+      "mao digitando furiosamente"
+    ],
+    "required_category": "xml_decree_code",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_005",
+    "voiceover": "Para que esse texto ganhe a força física de mandar na vida de duzentos e quinze milhões de pessoas, ele precisa entrar no sistema INCom da Imprensa Nacional.",
+    "visualSubject": "Interface de autenticação do sistema governamental INCom exibindo barra de envio seguro TLS 1.3 e protocolo de recebimento de atos oficiais",
+    "visual_must_include": [
+      "tela do sistema INCom",
+      "protocolo de transmissao segura",
+      "carimbo de tempo do envio"
+    ],
+    "visual_must_not": [
+      "interface gamer colorida",
+      "logotipos comerciais falsos",
+      "animacao 3d cartoon"
+    ],
+    "required_category": "incom_system_upload",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_006",
+    "voiceover": "Isolada no Setor de Indústrias Gráficas de Brasília, a Imprensa Nacional não imprime mais papel para o público. Ela se transformou em uma fortaleza digital de alta redundância.",
+    "visualSubject": "Fachada sóbria de concreto aparente e vidro fumê do edifício da Imprensa Nacional em Brasília iluminada por holofotes de perímetro sob céu escuro de madrugada",
+    "visual_must_include": [
+      "fachada da Imprensa Nacional",
+      "letras metalicas na entrada",
+      "seguranca patrimonial discreta"
+    ],
+    "visual_must_not": [
+      "predio espelhado futurista inventado",
+      "rotativas de jornal antigo cuspindo papel",
+      "letreiro neon"
+    ],
+    "required_category": "imprensa_nacional_building",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_007",
+    "voiceover": "Tudo o que entra aqui é imediatamente dividido em três grandes artérias: a Seção 1 para Leis e Decretos, a Seção 2 para Nomeações e a Seção 3 para Licitações e Contratos.",
+    "visualSubject": "Diagrama sinótico técnico em tela de supervisão exibindo o fluxo de triagem tripartida do Diário Oficial da União com nós em ciano e linhas de dados ativas",
+    "visual_must_include": [
+      "diagrama de 3 secoes",
+      "fluxo de dados em tempo real",
+      "rotulos Seção 1, Seção 2, Seção 3"
+    ],
+    "visual_must_not": [
+      "infografico infantil",
+      "cores de arco-iris",
+      "setas gigantes piscando"
+    ],
+    "required_category": "dou_sections_architecture",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.2
+  },
+  {
+    "sceneId": "SC_008",
+    "voiceover": "Mas antes de qualquer linha ser diagramada, o sistema exige uma prova matemática: uma chave privada ICP-Brasil de até quatro mil e noventa e seis bits.",
+    "visualSubject": "Macro em 35mm de token de segurança criptográfico USB de hardware conectado a workstation militar com LED de autenticação pulsando em tom âmbar",
+    "visual_must_include": [
+      "token criptografico USB",
+      "led de seguranca ativo",
+      "detalhe metalico da porta USB"
+    ],
+    "visual_must_not": [
+      "cadeado gigante brilhando",
+      "escudo 3d de antivirus",
+      "mao com luva preta de hacker"
+    ],
+    "required_category": "hardware_token_icp",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_009",
+    "voiceover": "Se a assinatura de um ministro tiver expirado um segundo antes da meia-noite, a portaria é ejetada sumariamente da esteira. O algoritmo não aceita telefonema nem apadrinhamento.",
+    "visualSubject": "Console de auditoria registrando rejeição automática de arquivo com mensagem de erro de certificado digital expirado em texto monoespaçado âmbar",
+    "visual_must_include": [
+      "registro de erro criptografico",
+      "codigo de status do certificado",
+      "tela de monitor corporativo fosco"
+    ],
+    "visual_must_not": [
+      "sirene vermelha piscando",
+      "tela de caveira",
+      "teclado pegando fogo"
+    ],
+    "required_category": "certificate_rejection_audit",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_010",
+    "voiceover": "Apenas as matérias validadas avançam para o núcleo de diagramação automática. É aqui que o texto cru ganha a forma geométrica que o judiciário reconhece como lei.",
+    "visualSubject": "Servidores blade em bastidores metálicos operando com ventoinhas em alta rotação e chicotes de fibra óptica azuis e laranjas organizados com precisão industrial",
+    "visual_must_include": [
+      "servidores blade compactos",
+      "chicote de fibra optica impecavel",
+      "fluxo de ar e leds de processamento"
+    ],
+    "visual_must_not": [
+      "gabinete gamer com agua colorida",
+      "fios soltos baguncados",
+      "chispas eletricas"
+    ],
+    "required_category": "server_blade_processing",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_011",
+    "voiceover": "Às duas da manhã, robôs de software começam a compilar milhares de atos dispersos em páginas de três colunas perfeitamente alinhadas pelo padrão tipográfico oficial.",
+    "visualSubject": "Visualização acelerada em tela de software de paginação montando colunas tipográficas com brasão da república e cabeçalho do DOU em segundos",
+    "visual_must_include": [
+      "colunas tipograficas do DOU",
+      "brasao da republica no topo",
+      "ajuste de linhas e entrelinhas"
+    ],
+    "visual_must_not": [
+      "efeito de jornal voando de desenho animado",
+      "papel pegando fogo",
+      "grafismo desalinhado"
+    ],
+    "required_category": "automated_layout_engine",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_012",
+    "voiceover": "Em noites de fechamento de orçamento ou reformas econômicas, uma única edição do Diário Oficial pode ultrapassar três mil páginas impressas se fossem colocadas no papel.",
+    "visualSubject": "Pilhas monumentais de formulários e documentos arquivísticos em estantes de aço deslizantes em arquivo forense do governo sob iluminação de tungstênio",
+    "visual_must_include": [
+      "arquivo deslizante com volumes",
+      "etiquetas tecnicas oficiais",
+      "escala monumental de arquivos"
+    ],
+    "visual_must_not": [
+      "arquivo abandonado empoeirado de filme de terror",
+      "teias de aranha",
+      "caixas rasgadas caindo"
+    ],
+    "required_category": "massive_archive_scale",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.5
+  },
+  {
+    "sceneId": "SC_013",
+    "voiceover": "O processador não dorme. Tabelas fiscais de centenas de produtos, tarifas portuárias e regras de importação são convertidas de planilhas complexas em vetores puros.",
+    "visualSubject": "Detalhe macro de tela dividida mostrando conversão simultânea de planilha orçamentária para tabela oficial formatada com fontes clássicas da Imprensa Nacional",
+    "visual_must_include": [
+      "tabela de aliquotas e valores",
+      "tipografia oficial do DOU",
+      "linhas de grade milimetricas"
+    ],
+    "visual_must_not": [
+      "dashboard colorido de startup",
+      "grafico de pizza 3d",
+      "moedas de bitcoin"
+    ],
+    "required_category": "fiscal_table_formatting",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_014",
+    "voiceover": "Apenas um grupo restrito de diagramadores e auditores de plantão acompanha a montagem das páginas finais na sala de fechamento técnico.",
+    "visualSubject": "Sala de controle editorial na Imprensa Nacional com dois operadores experientes em monitores duplos examinando detalhes de paginação sob luz tênue de 35mm",
+    "visual_must_include": [
+      "dois operadores em monitores duplos",
+      "sala silenciosa com luz focada",
+      "relogio de parede marcando 03:45"
+    ],
+    "visual_must_not": [
+      "pessoas brigando ou gritando",
+      "cafe derramado na mesa",
+      "ambiente baguncado"
+    ],
+    "required_category": "editorial_supervision_room",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_015",
+    "voiceover": "O relógio avança implacável. Às quatro horas da manhã, a esteira precisa ser congelada. Nenhuma nova matéria pode entrar sem autorização expressa da Casa Civil.",
+    "visualSubject": "Relógio analógico de precisão com ponteiro de segundos varrendo o mostrador com fundo de aço escovado e iluminação pontual de vapor de sódio",
+    "visual_must_include": [
+      "ponteiro de segundos em movimento",
+      "mostrador metalico de precisao",
+      "reflexo de luz âmbar"
+    ],
+    "visual_must_not": [
+      "relogio cuco antigo",
+      "bomba com contagem regressiva",
+      "efeito de camera tremida"
+    ],
+    "required_category": "precision_clock_cutoff",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_016",
+    "voiceover": "Começa a janela mais perigosa de todo o ciclo: a janela das quatro e cinquenta e nove. Qualquer atraso de segundos pode travar o início das operações de órgãos em todo o país.",
+    "visualSubject": "Terminal de comando exibindo contagem regressiva para liberação do lote de publicação com indicadores de status de todos os 3 cadernos oficiais",
+    "visual_must_include": [
+      "terminal de comando e status",
+      "contagem regressiva para 04:59",
+      "indicadores Seção 1, 2, 3 prontos"
+    ],
+    "visual_must_not": [
+      "interface de lancamento de foguete",
+      "botoes vermelhos de plastico",
+      "alarmes falsos"
+    ],
+    "required_category": "terminal_countdown_window",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_017",
+    "voiceover": "Para garantir que o documento não possa ser adulterado nem pelo próprio governo após ser assinado, o sistema gera uma assinatura matemática única: o hash SHA-256.",
+    "visualSubject": "Display com sequência hexadecimal criptográfica SHA-256 sendo calculada e travada em bloco definitivo com chave pública de autoridade certificadora",
+    "visual_must_include": [
+      "codigo hexadecimal de 64 caracteres",
+      "carimbo de tempo do Observatorio Nacional",
+      "selo de assinatura ICP-Brasil"
+    ],
+    "visual_must_not": [
+      "animacao 3d de cadeado fechando",
+      "efeito brilhante magico",
+      "numeros girando aleatoriamente"
+    ],
+    "required_category": "sha256_hash_lock",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_018",
+    "voiceover": "O carimbo de tempo não vem da internet pública. Ele é calibrado diretamente pelos relógios atômicos de césio do Observatório Nacional, garantindo a hora legal brasileira.",
+    "visualSubject": "Bancada do laboratório de tempo e frequência com relógio atômico de césio exibindo frequência de referência e sincronismo militar",
+    "visual_must_include": [
+      "padrao atomico de cesio",
+      "cabos coaxiais de alta blindagem",
+      "leitura de sincronismo de hora legal"
+    ],
+    "visual_must_not": [
+      "laboratorio de cientista maluco",
+      "raios azuis e lasers",
+      "tubos de ensaio coloridos"
+    ],
+    "required_category": "atomic_clock_observatorio",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_019",
+    "voiceover": "Às quatro horas e cinquenta e nove minutos e cinquenta e oito segundos, o Diretor-Geral da Imprensa Nacional insere sua credencial máster. A chave sela a edição.",
+    "visualSubject": "Plano detalhe de mão inserindo cartão de acesso com chip criptográfico em leitor de mesa e tela autorizando a publicação imediata da edição do dia",
+    "visual_must_include": [
+      "leitor de cartao criptografico",
+      "confirmacao de autorizacao master",
+      "relogio registrando 04:59:58"
+    ],
+    "visual_must_not": [
+      "mao tremendo de tensao forçada",
+      "rosto do operador em primeiro plano",
+      "ambiente espalhafatoso"
+    ],
+    "required_category": "master_credential_seal",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.2
+  },
+  {
+    "sceneId": "SC_020",
+    "voiceover": "Em menos de um segundo, o lote de arquivos é replicado para dezenas de servidores espelho em todo o território nacional. A lei agora existe no mundo físico.",
+    "visualSubject": "Diagrama territorial do Brasil com nós de servidores espelho em Brasília, São Paulo, Rio de Janeiro e capitais regionais recebendo pacotes de dados simultâneos",
+    "visual_must_include": [
+      "mapa cartografico plano do Brasil",
+      "linhas finas de replicacao de dados",
+      "telemetria em ciano de entrega"
+    ],
+    "visual_must_not": [
+      "globo terrestre 3d girando rapido",
+      "linhas brilhantes de ficcao",
+      "bandeiras nacionais flutuantes"
+    ],
+    "required_category": "national_mirror_distribution",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_021",
+    "voiceover": "E é aqui que reside o gargalo mais aterrorizante da máquina pública: o princípio da publicidade. Uma vez no ar, o Diário Oficial não possui botão de desfazer.",
+    "visualSubject": "Página oficial do Diário Oficial da União aberta em navegador corporativo com barra de endereço governamental e selo de documento publicado irreversível",
+    "visual_must_include": [
+      "cabecalho oficial do DOU online",
+      "carimbo de publicacao oficial",
+      "marca d'agua de autenticidade digital"
+    ],
+    "visual_must_not": [
+      "botao grande vermelho escrito delete",
+      "pop-ups comerciais",
+      "tela de erro 404"
+    ],
+    "required_category": "irreversible_publication_view",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_022",
+    "voiceover": "Se um redator tiver trocado um ponto por uma vírgula em uma alíquota de exportação, o imposto reduzido passa a vigorar imediatamente a partir das cinco da manhã.",
+    "visualSubject": "Inspeção visual forense de texto legal destacando cláusula de alíquota tributária de 12,5% sob lente de aumento com contraste cromático âmbar",
+    "visual_must_include": [
+      "clausula legal com percentual de aliquota",
+      "destaque optico sobre o valor numerico",
+      "anotacao de auditoria na margem"
+    ],
+    "visual_must_not": [
+      "saco de dinheiro com cifrao",
+      "calculadora de desenho animado",
+      "seta vermelha de clickbait"
+    ],
+    "required_category": "tax_rate_clause_audit",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_023",
+    "voiceover": "O governo não pode simplesmente apagar o arquivo do servidor. A Constituição proíbe sumir com atos publicados. A única saída jurídica é publicar uma retificação oficial.",
+    "visualSubject": "Texto de edição extra do DOU exibindo termo formal de retificação e republicação de ato normativo sob luz técnica de arquivo",
+    "visual_must_include": [
+      "titulo formal RETIFICAÇÃO",
+      "texto comparativo onde se lê e leia-se",
+      "carimbo de edicao extra"
+    ],
+    "visual_must_not": [
+      "borracha apagando texto",
+      "papel rasgado",
+      "cenario juridico falso de tribunal"
+    ],
+    "required_category": "official_retification_page",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_024",
+    "voiceover": "Mas a retificação só pode sair horas depois. Nesse intervalo, empresas, bancos e tribunais já operam sob a regra anterior, e bilhões de reais podem mudar de mãos legalmente.",
+    "visualSubject": "Terminal financeiro da B3 em operação inicial matinal com gráficos de mercado cambial e juros futuros reagindo a portaria econômica sob luz chiaroscuro",
+    "visual_must_include": [
+      "terminal de mercado financeiro",
+      "telas com curvas de juros e cambio",
+      "mesa de operacoes escura antes da abertura"
+    ],
+    "visual_must_not": [
+      "homens engravatados berrando ao telefone",
+      "grafico de queda vertical estereotipado",
+      "cenas de filme de Wall Street dos anos 80"
+    ],
+    "required_category": "financial_market_reaction",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.5
+  },
+  {
+    "sceneId": "SC_025",
+    "voiceover": "Por isso, o fechamento da edição da madrugada é o momento de maior tensão burocrática do país. Um punhado de servidores carrega a estabilidade jurídica do Brasil nos ombros.",
+    "visualSubject": "Corredor silencioso dos fundos da Imprensa Nacional às 05h15 da manhã com luzes de teto se apagando em sequência e janelas revelando o amanhecer azul-escuro",
+    "visual_must_include": [
+      "corredor longo de concreto e aco",
+      "luz suave da aurora nascendo na janela",
+      "silencio arquitetonico de Brasilia"
+    ],
+    "visual_must_not": [
+      "lixo no chao",
+      "pessoas comemorando e estourando champanhe",
+      "estetica de reparticao decadente"
+    ],
+    "required_category": "dawn_corridor_silence",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_026",
+    "voiceover": "Às seis horas, o sol surge sobre os palácios de concreto de Oscar Niemeyer. O trânsito na capital começa a se mover, e os primeiros ônibus chegam às rodoviárias.",
+    "visualSubject": "Plano geral cinematográfico da Praça dos Três Poderes ao nascer do sol com céu em gradiente índigo e dourado refletindo no espelho d'água silencioso",
+    "visual_must_include": [
+      "Praca dos Tres Poderes ao amanhecer",
+      "espelho d'agua imóvel",
+      "luz dourada rasgando o horizonte"
+    ],
+    "visual_must_not": [
+      "bandeiras partidarias",
+      "policiais com escudos",
+      "efeito timelapse acelerado brega"
+    ],
+    "required_category": "brasilia_dawn_architecture",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_027",
+    "voiceover": "Advogados abrem seus computadores, juízes iniciam audiências e navios no porto de Santos calculam as taxas de atracação com base nas regras que nasceram enquanto dormiam.",
+    "visualSubject": "Porto de Santos ao início da manhã com guindastes STS movimentando contêineres e terminal de alfândega aplicando parâmetros fiscais da nova edição",
+    "visual_must_include": [
+      "guindastes portuarios de Santos",
+      "conteineres e bacia portuaria",
+      "terminal de carga alfandegado"
+    ],
+    "visual_must_not": [
+      "navio afundando",
+      "efeito miniatura tilt-shift",
+      "animacao 3d cartunesca"
+    ],
+    "required_category": "santos_port_morning_rules",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_028",
+    "voiceover": "Duzentos e quinze milhões de pessoas vivem dentro de uma ordem jurídica que se renova todos os dias exatamente às cinco horas da manhã.",
+    "visualSubject": "Multidão vista em plano elevado de costas atravessando passarela urbana de grande metrópole no horário de pico matinal sob luz natural de 35mm",
+    "visual_must_include": [
+      "fluxo de pedestres em metropole",
+      "plano elevado sem rostos identificaveis",
+      "ritmo natural da cidade acordando"
+    ],
+    "visual_must_not": [
+      "pessoas olhando para a camera",
+      "rostos em close-up de selfie",
+      "cenario caotico de filme de acao"
+    ],
+    "required_category": "urban_flow_citizens",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_029",
+    "voiceover": "Nós fomos ensinados a acreditar que o poder do país se manifesta nos microfones do plenário, nos comícios públicos ou nas discussões de gabinete televisionadas.",
+    "visualSubject": "Plenário vazio do Congresso Nacional em plano simétrico e escuro com tribuna e microfones desligados sob penumbra solene de 35mm",
+    "visual_must_include": [
+      "plenario vazio e silencioso",
+      "bancadas circulares e microfones",
+      "luz chiaroscuro destacando a tribuna"
+    ],
+    "visual_must_not": [
+      "deputados brigando ou gritando",
+      "papel picado no ar",
+      "iluminacao televisiva plana"
+    ],
+    "required_category": "empty_plenary_chamber",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_030",
+    "voiceover": "Mas a verdade é que o poder real do Estado não acontece nos discursos. Ele opera no silêncio de um servidor que, na madrugada fria de Brasília, grava irreversivelmente as regras do jogo antes do país acordar.",
+    "visualSubject": "Rack de servidores da Imprensa Nacional em close-up 35mm com LED âmbar piscando no instante da gravação do hash enquanto o plano faz um drift lento para o escuro",
+    "visual_must_include": [
+      "rack de servidor com led âmbar",
+      "placa com brasao oficial discreto",
+      "fade lento para carbon black #060709"
+    ],
+    "visual_must_not": [
+      "explosao de luz",
+      "musica de vitoria triunfante",
+      "logo gigante animado de youtube"
+    ],
+    "required_category": "server_verdict_drift",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 12
+  }
+]

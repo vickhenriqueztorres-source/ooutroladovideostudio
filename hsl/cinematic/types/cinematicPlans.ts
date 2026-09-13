@@ -36,23 +36,10 @@ export type NarrativeBeatTiming =
   | Readonly<{source: 'not_available'}>
   | Readonly<{source: 'narration_alignment'; start_ms: number; end_ms: number}>;
 
-export interface NarrativeBeatV1 {
-  beat_id: string;
-  scene_id: string;
-  claim_id: string | null;
-  script_span: Readonly<{
-    start_word: number;
-    end_word: number;
-  }>;
-  text: string;
-  semantic_function: NarrativeBeatSemanticFunction;
-  concept: string;
-  importance: NarrativeBeatImportance;
-  emphasis: readonly string[];
-  cut_candidate: boolean;
-  visual_change_candidate: boolean;
-  timing: NarrativeBeatTiming;
-}
+import type { Beat } from '../schemas/beatSchema';
+
+export type NarrativeBeatV1 = Beat;
+export type { Beat };
 
 export const HSL_SHOT_TYPES = [
   'ESTABLISHING', 'SYSTEM_WIDE', 'OPERATION', 'MECHANICAL_DETAIL', 'MACRO_DETAIL',
@@ -367,6 +354,7 @@ export interface NarrationAlignmentWordView {
   readonly word: string;
   readonly start_ms: number;
   readonly end_ms: number;
+  readonly source?: 'tts_word_timestamps' | 'forced_alignment' | 'estimated_wpm';
 }
 
 export interface NarrativeBeatSceneInput {
@@ -391,7 +379,7 @@ export interface NarrativeBeatDirectorResult {
     cutCandidateCount: number;
     visualChangeCandidateCount: number;
     highImportanceCount: number;
-    timingSource: 'not_available' | 'narration_alignment';
+    timingSource: 'not_available' | 'narration_alignment' | 'tts_word_timestamps' | 'forced_alignment' | 'estimated_wpm';
   }>;
 }
 

@@ -175,13 +175,36 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "beat_id", "scene_id", "claim_id", "script_span", "text", "semantic_function",
+        "beat_id", "scene_id", "claim_id", "script_span",
         "concept", "importance", "emphasis", "cut_candidate", "visual_change_candidate", "timing"
       ],
       "properties": {
+        "id": {"type": "string"},
         "beat_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*_B[0-9]{3}$"},
         "scene_id": {"$ref": "#/$defs/id"},
         "claim_id": {"type": ["string", "null"]},
+        "t_start": {"type": "number"},
+        "t_end": {"type": "number"},
+        "transcript_span": {"type": "string"},
+        "narrative_function": {
+          "enum": [
+            "introduce_object", "explain_mechanism", "quantify", "compare",
+            "reveal_constraint", "failure_trigger", "transition", "conclusion"
+          ]
+        },
+        "evidence_mode": {
+          "enum": ["witness", "document", "scale", "route", "dissection"]
+        },
+        "visual_claim": {"type": "string"},
+        "visual_must_include": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "visual_must_not": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "hud_value": {"type": ["string", "null"]},
         "script_span": {
           "type": "object",
           "additionalProperties": false,
@@ -191,40 +214,27 @@
             "end_word": {"type": "integer", "minimum": 1}
           }
         },
-        "text": {"type": "string", "minLength": 1},
-        "semantic_function": {
-          "enum": [
-            "introduce_object", "introduce_system", "establish_context", "follow_flow",
-            "explain_mechanism", "handoff", "reveal_dependency", "reveal_constraint",
-            "compare", "quantify", "cause", "consequence", "failure_trigger",
-            "propagation", "response", "recovery", "tradeoff", "limitation",
-            "interpretation", "conclusion"
-          ]
-        },
         "concept": {"type": "string", "minLength": 1, "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
         "importance": {"enum": ["low", "medium", "high"]},
         "emphasis": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
         "cut_candidate": {"type": "boolean"},
         "visual_change_candidate": {"type": "boolean"},
         "timing": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": ["source"],
-              "properties": {"source": {"const": "not_available"}}
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source"],
+          "properties": {
+            "source": {
+              "enum": [
+                "tts_word_timestamps",
+                "forced_alignment",
+                "estimated_wpm",
+                "narration_alignment"
+              ]
             },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": ["source", "start_ms", "end_ms"],
-              "properties": {
-                "source": {"const": "narration_alignment"},
-                "start_ms": {"type": "number", "minimum": 0},
-                "end_ms": {"type": "number", "exclusiveMinimum": 0}
-              }
-            }
-          ]
+            "start_ms": {"type": "number", "minimum": 0},
+            "end_ms": {"type": "number", "exclusiveMinimum": 0}
+          }
         }
       }
     }

@@ -82,6 +82,9 @@ class Generator:
         self.timeout_geracao_s = config.get("timeout_geracao_s", 180)
         self.delay_min_ms = config.get("delay_min_ms", 1000)
         self.delay_max_ms = config.get("delay_max_ms", 3000)
+        self.rotate_on_rate_limit = config.get("rotate_on_rate_limit", True)
+        self.account_rate_limited = False
+        self.rate_limit_message = ""
         
         ensure_dirs(str(self.output_dir))
 
@@ -229,14 +232,17 @@ class Generator:
             self.log("🔍 [3/7] BAIXAR", "Tentando extração direta via Canvas/GPU no DOM...", Colors.CYAN)
             img_data = self.page.evaluate("""
                 () => {
-                    const imgs = Array.from(document.querySelectorAll('main img, article img, div.agent-turn img, img'));
+                    const turns = Array.from(document.querySelectorAll("article[data-testid*='conversation-turn'], div.agent-turn, [data-message-author-role='assistant']"));
+                    const searchScope = turns.length > 0 ? turns[turns.length - 1] : (document.querySelector('main') || document.body);
+                    const imgs = Array.from(searchScope.querySelectorAll('img'));
                     const candidate = imgs.find(img => {
                         const rect = img.getBoundingClientRect();
                         const src = img.src || '';
                         const alt = (img.alt || '').toLowerCase();
-                        const isNotAvatar = !alt.includes('user') && !src.includes('avatar') && !src.includes('profile');
-                        const hasSize = (rect.width > 120 || img.naturalWidth > 120 || rect.height > 120);
-                        return isNotAvatar && hasSize;
+                        const isNotAvatar = !alt.includes('user') && !alt.includes('chatgpt') && !src.includes('avatar') && !src.includes('profile');
+                        const isNotSvg = !src.startsWith('data:image/svg') && !src.endsWith('.svg');
+                        const hasRealImageSize = (img.naturalWidth >= 400 && img.naturalHeight >= 400) || (rect.width >= 300 && rect.height >= 300);
+                        return isNotAvatar && isNotSvg && hasRealImageSize;
                     });
                     if (!candidate) return null;
                     
@@ -262,20 +268,24 @@ class Generator:
 
             if img_data and img_data.get("data"):
                 img_bytes = base64.b64decode(img_data["data"])
-                if len(img_bytes) > 2000:
+                if len(img_bytes) >= 40000:
                     save_image(img_bytes, target_filename, str(self.output_dir))
-                    if target_path.exists() and target_path.stat().st_size > 2000:
+                    if target_path.exists() and target_path.stat().st_size >= 40000:
                         self.log("✅ [3/7] BAIXAR", f"Imagem extraída e salva com perfeição via Canvas: {target_path} ({target_path.stat().st_size} bytes)", Colors.GREEN)
                         return target_path
+                    elif target_path.exists():
+                        target_path.unlink(missing_ok=True)
 
             if img_data and img_data.get("src") and img_data["src"].startswith("http"):
                 try:
                     response = self.page.request.get(img_data["src"])
-                    if response.status == 200 and len(response.body()) > 2000:
+                    if response.status == 200 and len(response.body()) >= 40000:
                         save_image(response.body(), target_filename, str(self.output_dir))
-                        if target_path.exists():
-                            self.log("✅ [3/7] BAIXAR", f"Imagem HTTP salva com sucesso: {target_path}", Colors.GREEN)
+                        if target_path.exists() and target_path.stat().st_size >= 40000:
+                            self.log("✅ [3/7] BAIXAR", f"Imagem HTTP salva com sucesso: {target_path} ({target_path.stat().st_size} bytes)", Colors.GREEN)
                             return target_path
+                        elif target_path.exists():
+                            target_path.unlink(missing_ok=True)
                 except Exception:
                     pass
 
@@ -293,27 +303,32 @@ class Generator:
                 download = download_info.value
                 download.save_as(str(target_path))
                 
-                if target_path.exists() and target_path.stat().st_size > 2000:
+                if target_path.exists() and target_path.stat().st_size >= 40000:
                     self.log("✅ [3/7] BAIXAR", f"Imagem salva via botão de download: {target_path} ({target_path.stat().st_size} bytes)", Colors.GREEN)
                     return target_path
+                elif target_path.exists():
+                    target_path.unlink(missing_ok=True)
             except Exception:
                 pass
 
         # 3. Método de Contingência: Screenshot do elemento de imagem
         try:
-            candidates = self.page.locator("main img, article img, div.agent-turn img, img")
+            candidates = self.page.locator("article[data-testid*='conversation-turn'] img, div.agent-turn img, main img")
             for i in range(candidates.count() - 1, -1, -1):
                 el = candidates.nth(i)
                 box = el.bounding_box()
-                if box and (box["width"] > 150 or box["height"] > 150):
+                if box and box["width"] >= 300 and box["height"] >= 300:
                     el.screenshot(path=str(target_path))
-                    if target_path.exists() and target_path.stat().st_size > 2000:
-                        self.log("✅ [3/7] BAIXAR", f"Screenshot do elemento de imagem salvo: {target_path}", Colors.GREEN)
+                    if target_path.exists() and target_path.stat().st_size >= 40000:
+                        self.log("✅ [3/7] BAIXAR", f"Screenshot do elemento de imagem salvo: {target_path} ({target_path.stat().st_size} bytes)", Colors.GREEN)
                         return target_path
+                    elif target_path.exists():
+                        target_path.unlink(missing_ok=True)
         except Exception as e:
             self.log("❌ [3/7] BAIXAR", f"Erro no screenshot de contingência: {e}", Colors.RED)
 
-        self.log("❌ [3/7] BAIXAR", "Nenhuma imagem pôde ser salva nesta tentativa.", Colors.RED)
+        self.log("❌ [3/7] BAIXAR", "Nenhuma imagem válida pôde ser salva nesta tentativa.", Colors.RED)
+        return None
         return None
 
     # =========================================================================
@@ -396,8 +411,18 @@ class Generator:
 
             # 4. RATE LIMIT
             if status == "RATE_LIMITED":
+                self.account_rate_limited = True
+                self.rate_limit_message = text
+                if self.rotate_on_rate_limit:
+                    self.log("🛑 [4/7] RATE LIMIT", f"Limite de cota atingido nesta conta: '{text}'. Acionando rotação imediata para a próxima conta...", Colors.YELLOW)
+                    return False
                 self.state_handle_rate_limit(text)
                 continue  # Retenta o mesmo prompt
+
+            if status == "TIMEOUT":
+                self.log("⚠️ [2/7] AGUARDAR", "Tempo limite esgotado sem resposta ou imagem. Tentando novamente...", Colors.YELLOW)
+                time.sleep(3)
+                continue
 
             # 5. BAIXAR
             saved_file = self.state_download_image(prompt)
@@ -425,6 +450,10 @@ class Generator:
             self.log("⚠️ TENTATIVA", f"Tentativa {attempts} não gerou imagem baixável.", Colors.YELLOW)
             time.sleep(3)
 
+        if self.account_rate_limited:
+            self.log("🔄 [7/7] ROTAÇÃO", "Prompt preservado na fila para processamento pela próxima conta do pool.", Colors.YELLOW)
+            return False
+
         # Se falhou após max_retries, faz 1 tentativa final com reload
         self.log("🔄 RECUPERAÇÃO", "Executando recarga da página para tentativa final de contingência...", Colors.YELLOW)
         try:
@@ -433,6 +462,11 @@ class Generator:
             if ensure_authenticated(self.page, url=self.config.get("url", "https://chatgpt.com/"), timeout_s=60):
                 self.state_type_prompt(prompt)
                 status, text = self.state_wait_for_response()
+                if status == "RATE_LIMITED":
+                    self.account_rate_limited = True
+                    self.rate_limit_message = text
+                    self.log("🔄 [7/7] ROTAÇÃO", "Rate limit detectado na contingência. Preservando prompt para próxima conta.", Colors.YELLOW)
+                    return False
                 saved_file = self.state_download_image(prompt)
                 if saved_file and saved_file.exists():
                     manifest_entry = {

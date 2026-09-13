@@ -1,0 +1,572 @@
+[
+  {
+    "sceneId": "SC_001",
+    "voiceover": "Você coloca o carregador na tomada e a luz se acende no mesmo instante. A sensação é de que a eletricidade estava parada ali dentro, esperando pelo seu toque.",
+    "visualSubject": "Mão inserindo plugue de três pinos em tomada de parede em sala escura residencial com LED de carregador acendendo de imediato sob iluminação prática chiaroscuro",
+    "visual_must_include": [
+      "plugue de tres pinos",
+      "tomada na parede",
+      "led indicador aceso"
+    ],
+    "visual_must_not": [
+      "faisca eletrica exagerada",
+      "mao cartunesca",
+      "luz de discoteca"
+    ],
+    "required_category": "domestic_power_outlet",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_002",
+    "voiceover": "Mas a corrente alternada não é um reservatório estático. Ela é uma onda contínua que oscila exatamente sessenta vezes por segundo nos fios da sua casa.",
+    "visualSubject": "Osciloscópio digital de bancada técnica registrando uma onda senoidal pura oscilando a 60.00 Hz e medindo a tensão da rede em tempo real",
+    "visual_must_include": [
+      "osciloscopio digital",
+      "onda senoidal",
+      "leitura 60 Hz"
+    ],
+    "visual_must_not": [
+      "grafico neon 3d",
+      "interface de ficcao cientifica",
+      "tela quebrada"
+    ],
+    "required_category": "oscilloscope_measurement",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_003",
+    "voiceover": "A cada milissegundo em que o seu computador consome um watt, uma máquina em algum ponto do país precisa empurrar exatamente esse mesmo watt para a rede.",
+    "visualSubject": "Gabinete de medição de energia elétrica digital em edifício residencial exibindo pulsos de consumo enquanto aparelhos operam no interior",
+    "visual_must_include": [
+      "medidor de energia eletrica",
+      "leitura digital de consumo",
+      "gabinete metalico"
+    ],
+    "visual_must_not": [
+      "relogio analogico antigo enferrujado",
+      "vandalismo",
+      "faiscas"
+    ],
+    "required_category": "smart_meter_cabinet",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_004",
+    "voiceover": "A rede elétrica não armazena energia em massa. Se todo o país ligar o ar-condicionado ao mesmo tempo, o sistema precisa responder no mesmo segundo.",
+    "visualSubject": "Relatório técnico impresso de despacho com curva de carga do ONS exibindo subida íngreme de demanda em megawatts no início da noite",
+    "visual_must_include": [
+      "grafico de curva de carga",
+      "dados de demanda em megawatts",
+      "documento tecnico impresso"
+    ],
+    "visual_must_not": [
+      "grafico de mercado financeiro",
+      "seta vermelha brilhante",
+      "decoracao de dashboard"
+    ],
+    "required_category": "grid_load_report",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_005",
+    "voiceover": "Manter essa ilusão de facilidade exige a maior máquina em movimento contínuo já construída na história do território brasileiro.",
+    "visualSubject": "Vista aérea noturna documental de metrópole brasileira iluminada sob névoa baixa e luz prática de vapor de sódio refletida no asfalto",
+    "visual_must_include": [
+      "malha urbana noturna",
+      "iluminacao publica de sodio",
+      "predios residenciais"
+    ],
+    "visual_must_not": [
+      "cidade futurista cyberpunk",
+      "carros voadores",
+      "efeito tilt-shift excessivo"
+    ],
+    "required_category": "urban_grid_nightscape",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8
+  },
+  {
+    "sceneId": "SC_006",
+    "voiceover": "A mais de mil quilômetros de distância, no leito do Rio Paraná, uma muralha de concreto segura vinte e nove bilhões de metros cúbicos de água bruta.",
+    "visualSubject": "Paredão monumental de concreto da usina hidrelétrica de Itaipu com condutos forçados cilíndricos gigantescos descendo para a casa de força",
+    "visual_must_include": [
+      "paredao de concreto de barragem",
+      "tubulacoes de conduto forcado",
+      "turbulencia da agua"
+    ],
+    "visual_must_not": [
+      "barco de passeio",
+      "turistas tirando selfie",
+      "animais selvagens"
+    ],
+    "required_category": "hydroelectric_dam_spillway",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_007",
+    "voiceover": "No interior da usina, a gravidade empurra a coluna d'água contra pás maciças de aço. Cada rotor pesa quase duas mil toneladas e gira a noventa rotações por minuto.",
+    "visualSubject": "Corte volumétrico técnico e raio-x esquemático de turbina hidráulica Francis revelando o eixo de aço forjado e as palhetas sob impacto de alta pressão",
+    "visual_must_include": [
+      "corte esquematico de turbina",
+      "eixo de transmissao de aco",
+      "fluxo de agua nas pas"
+    ],
+    "visual_must_not": [
+      "engrenagens de relogio",
+      "fumaca de fogo",
+      "render de desenho animado"
+    ],
+    "required_category": "hydraulic_turbine_cutaway",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.8
+  },
+  {
+    "sceneId": "SC_008",
+    "voiceover": "O que mantém o país aceso não é apenas a eletricidade em si, mas a inércia física. Essa massa monumental girando funciona como um volante mecânico indomável.",
+    "visualSubject": "Galeria subterrânea de geradores elétricos industriais com tampas cilíndricas maciças sob iluminação linear fria e piso de concreto técnico",
+    "visual_must_include": [
+      "galeria de geradores industriais",
+      "piso industrial reflexivo",
+      "placas de advertencia tecnica"
+    ],
+    "visual_must_not": [
+      "sala de cinema",
+      "computadores transparentes",
+      "lixo espalhado"
+    ],
+    "required_category": "generator_hall_gallery",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_009",
+    "voiceover": "Se essa rotação oscilar uma fração de segundo, a onda de sessenta hertz se deforma em todas as tomadas ligadas ao sistema.",
+    "visualSubject": "Instrumento de medição tacométrica digital e placa de calibração metrológica de rotor marcando 90.0 RPM com tolerância micrométrica gravada",
+    "visual_must_include": [
+      "tacometro digital de precisao",
+      "placa metalica de especificacao",
+      "tolerancia gravada em baixo-relevo"
+    ],
+    "visual_must_not": [
+      "adesivo promocional",
+      "ponteiro quebrado",
+      "interface de videogame"
+    ],
+    "required_category": "rotor_tachometer_spec",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 8
+  },
+  {
+    "sceneId": "SC_010",
+    "voiceover": "Para viajar milhares de quilômetros sem evaporar em calor, a eletricidade sai das turbinas e é comprimida por transformadores gigantescos até quinhentos mil volts.",
+    "visualSubject": "Pátio de transformadores elevadores de potência em subestação blindada com buchas cerâmicas isolantes e aletas de refrigeração sob luz matinal",
+    "visual_must_include": [
+      "transformadores de potencia elevadores",
+      "bushing de porcelana isolante",
+      "gabinete de resfriamento a oleo"
+    ],
+    "visual_must_not": [
+      "poste de madeira comum",
+      "fios caidos no chao",
+      "estetica de sucata"
+    ],
+    "required_category": "stepup_transformer_yard",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_011",
+    "voiceover": "Dois mil e quinhentos quilômetros de linhas de ultra-alta tensão cortam a floresta e o cerrado. É o maior corredor elétrico em corrente contínua do continente.",
+    "visualSubject": "Mapa cartográfico escuro do território brasileiro traçando os linhões de transmissão UHVDC de 800 kV unindo a Amazônia ao centro consumidor Sudeste",
+    "visual_must_include": [
+      "tracado territorial de transmissao",
+      "nodos geograficos ONS",
+      "cartografia de relevo sombreado"
+    ],
+    "visual_must_not": [
+      "globo giratorio 3d falso",
+      "bandeiras coloridas",
+      "marcas comerciais"
+    ],
+    "required_category": "national_grid_corridor_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_012",
+    "voiceover": "No topo das torres de aço, cabos de alumínio sustentam oitocentos mil volts. Sob o ar úmido, a energia cria um campo estático que faz os pelos do braço se arrepiarem a metros de distância.",
+    "visualSubject": "Torre de transmissão estaiada de ultra-alta tensão cortando vegetação de cerrado sob céu carregado de vento e poeira em enquadramento contra-plongée",
+    "visual_must_include": [
+      "torre de transmissao estaiada",
+      "feixes de condutores quadruplos",
+      "cadeias de isoladores de vidro"
+    ],
+    "visual_must_not": [
+      "cabo rompido em chamas",
+      "passaros voando em bando estilizado",
+      "torre eiffel"
+    ],
+    "required_category": "uhvdc_transmission_tower",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.4
+  },
+  {
+    "sceneId": "SC_013",
+    "voiceover": "Câmeras ultravioleta de inspeção revelam o efeito corona: uma descarga invisível que ioniza o ar ao redor do cabo quando a tensão tenta romper o isolamento da atmosfera.",
+    "visualSubject": "Registro documental forense capturado por câmera ultravioleta de efeito corona exibindo feixes luminescentes ionizados nos anéis metálicos de sustentação",
+    "visual_must_include": [
+      "imagem ultravioleta documental",
+      "anel anticorona metalico",
+      "descarga ionica capturada em sensor"
+    ],
+    "visual_must_not": [
+      "efeito de magia fantasiosa",
+      "raios de desenho",
+      "brilho multicolorido"
+    ],
+    "required_category": "corona_camera_inspection",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.4
+  },
+  {
+    "sceneId": "SC_014",
+    "voiceover": "Nas estações conversoras, módulos gigantescos de tiristores convertem a corrente contínua de volta em alternada, alinhando cada pulso com o ritmo do restante do país.",
+    "visualSubject": "Sala de válvulas de tiristores suspensas em atmosfera controlada com barramentos de alumínio polido e isoladores sob iluminação uniforme fria",
+    "visual_must_include": [
+      "valvulas de tiristores em suspensao",
+      "sala limpa de alta tensao",
+      "barramentos de aluminio polido"
+    ],
+    "visual_must_not": [
+      "servidor de data center comum",
+      "pessoal sem epi",
+      "neon vermelho"
+    ],
+    "required_category": "hvdc_converter_valve_hall",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11.7
+  },
+  {
+    "sceneId": "SC_015",
+    "voiceover": "O traçado contorna serras e vales para vencer desníveis geológicos antes de entrar nas metrópoles, exigindo sincronismo milimétrico em cada interceptação de carga.",
+    "visualSubject": "Mapa topográfico de perfil de elevação e travessia da Serra do Mar mostrando as linhas de transmissão cruzando desníveis de oitocentos metros de altitude",
+    "visual_must_include": [
+      "perfil topografico de elevacao",
+      "coordenadas de travessia de serra",
+      "curvas de nivel cartograficas"
+    ],
+    "visual_must_not": [
+      "mapa turistico de praia",
+      "animacao infantil 3d",
+      "linhas pontilhadas vermelhas"
+    ],
+    "required_category": "mountain_elevation_grid_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.2
+  },
+  {
+    "sceneId": "SC_016",
+    "voiceover": "Em um edifício discreto e vigiado em Brasília, o Operador Nacional do Sistema Elétrico comanda o cérebro de toda a malha interligada.",
+    "visualSubject": "Fachada institucional sóbria de concreto armado do edifício sede do ONS em Brasília com barreiras perimetrais e guarita de controle de acesso",
+    "visual_must_include": [
+      "predio governamental discreto",
+      "cancelas de seguranca patrimonial",
+      "guarita blindada"
+    ],
+    "visual_must_not": [
+      "bunker pos-apocaliptico",
+      "soldados armados com fuzil",
+      "placa com logotipo comercial"
+    ],
+    "required_category": "ons_headquarters_security",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "SC_017",
+    "voiceover": "Dentro da sala de comando, operadores observam um diagrama vivo de todo o país. Cada subestação, hidrelétrica, parque eólico e linha tronco aparece mapeado em tempo real.",
+    "visualSubject": "Sala de controle central do ONS com operadores diante de consoles ergonômicos e enorme videowall exibindo a malha de transmissão do SIN em tempo real",
+    "visual_must_include": [
+      "sala de controle operacional",
+      "videowall com diagrama unifilar",
+      "bancadas com telas de supervisao"
+    ],
+    "visual_must_not": [
+      "operador dormindo",
+      "painel de usina nuclear anos 70",
+      "iluminacao de gamer"
+    ],
+    "required_category": "ons_control_room_wall",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_018",
+    "voiceover": "Quatro grandes subsistemas dividem o território. A função do operador é balancear a energia de onde está sobrando água para onde a indústria está puxando carga pesada.",
+    "visualSubject": "Diagrama sinótico e mapa territorial dos quatro subsistemas elétricos brasileiros com vetores de intercâmbio de potência entre as regiões",
+    "visual_must_include": [
+      "mapa esquematico dos quatro subsistemas",
+      "fluxo de potencia inter-regional",
+      "rotulos tecnicos ONS"
+    ],
+    "visual_must_not": [
+      "mapa meteorologico",
+      "nuvens coloridas de previsao",
+      "estetica de app de celular"
+    ],
+    "required_category": "interconnected_subsystems_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.5
+  },
+  {
+    "sceneId": "SC_019",
+    "voiceover": "No centro de todos os monitores, um único número dita a vida ou a morte da rede: a frequência de sessenta hertz, medida com precisão de três casas decimais.",
+    "visualSubject": "Painel de telemetria SCADA exibindo medição de frequência continental de 60.002 Hz em gráfico contínuo com faixas de tolerância e alarme em destaque",
+    "visual_must_include": [
+      "leitura digital de frequencia 60.000 Hz",
+      "grafico temporal de dispersao",
+      "limites de tolerancia regulados"
+    ],
+    "visual_must_not": [
+      "relogio digital de cabeceira",
+      "contador de likes",
+      "tela azul do windows"
+    ],
+    "required_category": "frequency_telemetry_hud",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_020",
+    "voiceover": "Se a indústria de São Paulo liga dez mil motores ao mesmo tempo, os operadores precisam ordenar que Itaipu abra mais água em segundos para compensar.",
+    "visualSubject": "Engenheiro de despacho elétrico acionando protocolo de telecomunicação dedicada e confirmando elevação de potência geradora em console operacional",
+    "visual_must_include": [
+      "operador de sistema em bancada tecnica",
+      "fone de comunicacao institucional",
+      "relatorio de operacao em tela"
+    ],
+    "visual_must_not": [
+      "rosto sorrindo para a lente",
+      "festa no escritorio",
+      "computador domestico"
+    ],
+    "required_category": "grid_operator_dispatch",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_021",
+    "voiceover": "Aqui está o segredo que pouca gente conhece: quando o consumo sobe, a resistência magnética dentro dos geradores aumenta fisicamente. A rede funciona como um freio invisível sobre as turbinas.",
+    "visualSubject": "Corte volumétrico explicativo do entreferro do estator e rotor de gerador elétrico ilustrando as linhas de fluxo eletromagnético freando o giro mecânico",
+    "visual_must_include": [
+      "esquematico de forcas eletromagneticas",
+      "rotor sob torque resistente",
+      "vetores de desaceleracao"
+    ],
+    "visual_must_not": [
+      "ima de geladeira",
+      "animacao infantil",
+      "bateria explodindo"
+    ],
+    "required_category": "electromagnetic_braking_cutaway",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.8
+  },
+  {
+    "sceneId": "SC_022",
+    "voiceover": "Se a demanda supera a capacidade das usinas, as turbinas começam a perder velocidade. A frequência cai de sessenta para cinquenta e nove vírgula cinco hertz.",
+    "visualSubject": "Subestação de manobra de alta tensão sob chuva noturna com disjuntor de potência manobrando barramentos e faísca de arco extinta em câmara de gás SF6",
+    "visual_must_include": [
+      "disjuntor a gas SF6 de subestacao",
+      "barramento metalico sob chuva",
+      "brilho de manobra eletrica"
+    ],
+    "visual_must_not": [
+      "fogo descontrolado",
+      "estetica de apocalipse",
+      "curto-circuito de desenho"
+    ],
+    "required_category": "sf6_breaker_operation",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_023",
+    "voiceover": "Se a frequência cair abaixo do limite crítico, as pás das turbinas entram em ressonância e podem se estraçalhar. Para salvar as usinas, relés automáticos tomam uma decisão brutal.",
+    "visualSubject": "Relé microprocessado inteligente IED em painel de controle de subestação com LED de disparo aceso e display registrando atuação de proteção ERAC",
+    "visual_must_include": [
+      "rele digital de protecao IED",
+      "display com codigo ERAC estagio 1",
+      "painel de comando cinza industrial"
+    ],
+    "visual_must_not": [
+      "caixa de fusiveis velha",
+      "relogio de corda",
+      "luz de perigo de ficcao"
+    ],
+    "required_category": "erac_relay_protection",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 12.2
+  },
+  {
+    "sceneId": "SC_024",
+    "voiceover": "Em menos de cem milissegundos, o sistema desliga bairros e cidades inteiras sem aviso prévio. O apagão seletivo sacrifica milhares de casas para impedir o colapso continental.",
+    "visualSubject": "Vista aérea noturna em 35mm mostrando quadrante residencial de cidade sofrendo apagão repentino e ficando na escuridão total enquanto o centro permanece aceso",
+    "visual_must_include": [
+      "queda de energia em quadrante urbano",
+      "contraste entre setores iluminados e escuros",
+      "asfalto molhado"
+    ],
+    "visual_must_not": [
+      "cenario de filme de zumbi",
+      "carros colidindo",
+      "pessoas em panico"
+    ],
+    "required_category": "selective_blackout_city",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_025",
+    "voiceover": "A rede não é um bloco único e rígido. Ela é projetada para se despedaçar em ilhas independentes antes que um curto no norte derrube o sul do país.",
+    "visualSubject": "Mapa de contingência da malha nacional detalhando as linhas de corte defensivo e divisão automática em ilhas elétricas isoladas",
+    "visual_must_include": [
+      "mapa de ilhamento eletrico defensivo",
+      "linhas de descompasso e seccionamento",
+      "nomenclatura tecnica do ONS"
+    ],
+    "visual_must_not": [
+      "mapa de risco de guerra",
+      "icone de caveira",
+      "fronteiras internacionais incorretas"
+    ],
+    "required_category": "island_defense_network_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_026",
+    "voiceover": "Quando a tempestade passa e a frequência se estabiliza, a energia segue pela malha urbana até as subestações de bairro.",
+    "visualSubject": "Pátio cercado de subestação abaixadora urbana de 138 kV na periferia com bancos de capacitores industriais e cabos descendo para canaletas de concreto",
+    "visual_must_include": [
+      "subestacao de distribuicao urbana",
+      "bancos de capacitores industriais",
+      "grades de protecao perimetral"
+    ],
+    "visual_must_not": [
+      "deposito de lixo",
+      "grafite vandalico",
+      "maquinario abandonado"
+    ],
+    "required_category": "urban_distribution_substation",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.5
+  },
+  {
+    "sceneId": "SC_027",
+    "voiceover": "No poste da sua rua, o transformador a óleo rebaixa treze mil volts para os cento e vinte e sete volts que alimentam a sua parede.",
+    "visualSubject": "Transformador de distribuição cilíndrico a óleo montado no alto de poste de concreto urbano com fios de baixa tensão saindo em direção às residências",
+    "visual_must_include": [
+      "transformador de poste residencial",
+      "cabos de distribuicao aerea",
+      "poste de concreto padrao"
+    ],
+    "visual_must_not": [
+      "poste de madeira caindo",
+      "maranhal de fiavao clandestina",
+      "fita de perigo"
+    ],
+    "required_category": "residential_pole_transformer",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8
+  },
+  {
+    "sceneId": "SC_028",
+    "voiceover": "Quando o metal do seu plugue toca o contato da tomada, você não está retirando um produto armazenado na parede.",
+    "visualSubject": "Enquadramento macro detalhado dos pinos metálicos de latão de um plugue elétrico conectando-se aos contatos internos de bronze de uma tomada",
+    "visual_must_include": [
+      "close macro de plugue entrando no soquete",
+      "textura de plastico industrial e metal",
+      "iluminacao lateral chiaroscuro"
+    ],
+    "visual_must_not": [
+      "choque eletrico com esqueleto",
+      "mao ensanguentada",
+      "desenho vetorial"
+    ],
+    "required_category": "macro_plug_insertion",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 6.5
+  },
+  {
+    "sceneId": "SC_029",
+    "voiceover": "Você está se conectando mecanicamente ao eixo de uma turbina de duas mil toneladas girando a mil quilômetros de distância no mesmo milissegundo.",
+    "visualSubject": "Close macro de filamento de lâmpada LED emitindo brilho quente dourado prático sobre bancada com textura de concreto e madeira sob sombras suaves",
+    "visual_must_include": [
+      "filamento de led em close macro",
+      "brilho quente prático",
+      "textura de concreto e madeira"
+    ],
+    "visual_must_not": [
+      "lampada incandescente quebrando",
+      "efeito de sol radiante",
+      "animacao 3d cartunesca"
+    ],
+    "required_category": "led_filament_illumination",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "SC_030",
+    "voiceover": "A energia elétrica não é guardada. Ela é uma corrida ininterrupta de equilíbrio físico entre a gravidade do país e a sua tomada. Investigar. Revelar. Compreender.",
+    "visualSubject": "Dossiê final em pasta de auditoria sob superfície de aço escuro com selo editorial impresso do canal O Outro Lado e o lema INVESTIGAR REVELAR COMPREENDER",
+    "visual_must_include": [
+      "documento de auditoria tecnica",
+      "carimbo editorial O Outro Lado",
+      "assinatura institucional INVESTIGAR REVELAR COMPREENDER"
+    ],
+    "visual_must_not": [
+      "redes sociais de terceiros",
+      "emojis",
+      "propaganda comercial"
+    ],
+    "required_category": "editorial_verdict_dossier",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11.5
+  }
+]

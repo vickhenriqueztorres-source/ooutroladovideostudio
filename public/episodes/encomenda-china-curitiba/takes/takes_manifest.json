@@ -1,0 +1,185 @@
+[
+  {
+    "sceneId": "SC_003",
+    "commonsId": 141534626,
+    "title": "Aerial views at night of Cork Container Terminal (CCT)",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_003.mp4",
+    "durationSeconds": 10.5,
+    "sha256": "e09b1cec78ced8930fba4fdfbe6d4b027370c628095ca62358d436a1802f7799",
+    "verifiedZeroReuse": true
+  },
+  {
+    "sceneId": "SC_004",
+    "commonsId": 141534595,
+    "title": "Aerial views of a container terminal at the Port of Cork",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_004.mp4",
+    "durationSeconds": 10,
+    "sha256": "91248754b89f4879c847c2fc4faf9c2f0cdbcf18ea274d3482b3b5d2296ced6f",
+    "verifiedZeroReuse": true
+  },
+  {
+    "sceneId": "SC_005",
+    "commonsId": 91304211,
+    "title": "Container Ship Dashcam Around The World In 70 Days Timelapse",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Container_Ship_Dashcam_Around_The_World_In_70_Days_Timelapse%2C_4k%2C_60fps.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_005.mp4",
+    "durationSeconds": 11,
+    "sha256": "7c6aa058313490bf21b24021f3c8860c38032968ddcfecdc17c55910014fe54a",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:40:01.013Z"
+  },
+  {
+    "sceneId": "SC_006",
+    "commonsId": 151772003,
+    "title": "Loading LD3 cargo containers onto United Boeing 777-300ER",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Loading_LD3_cargo_containers_onto_United_Boeing_777-300ER.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_006.mp4",
+    "durationSeconds": 2.5,
+    "sha256": "d9e8ef40d37aa184e96d9ed8505680825fc3824a7cb21bb5a44acf6817810d59",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:40:22.431Z"
+  },
+  {
+    "sceneId": "SC_007",
+    "commonsId": 181249239,
+    "title": "16th EAS conducts a cargo mission within CENTCOM",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/16th_EAS_conducts_a_cargo_mission_within_CENTCOM_%28991549%29.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_007.mp4",
+    "durationSeconds": 11,
+    "sha256": "0977fa96e6cdc39e1b50512f9703704faef07144c2ddc8fe597e149b25e92be1",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:41:10.064Z"
+  },
+  {
+    "sceneId": "SC_008",
+    "commonsId": 94486226,
+    "title": "Plane Spotting EVA AIR Cargo Boeing 777-F5E Takeoff Runway",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Plane_Spotting_B-16781_EVA_AIR_Cargo_Boeing_777-F5E_Takeoff_Runway_at_RCTP_with_ATC_%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E8%B5%B7%E9%A3%9B.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_008.mp4",
+    "durationSeconds": 11.5,
+    "sha256": "e2077536a9d2f7763bd870f3959bf9c33124c242c34bc9d91cc4efe5efbeec1a",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:41:31.614Z"
+  },
+  {
+    "sceneId": "SC_011",
+    "commonsId": 100449803,
+    "title": "Airplane Landing at South Runway, HKIA",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Airplane_Landing_at_South_Runway%2C_HKIA_20210215.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_011.mp4",
+    "durationSeconds": 10.5,
+    "sha256": "d4010e95b2b15efcd7a509fe2d7e65ca8627c54b752afd13e4abdefe5040962d",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:41:53.546Z"
+  },
+  {
+    "sceneId": "SC_012",
+    "commonsId": 94504361,
+    "title": "Plane Spotting Nippon Cargo Boeing 747-8 Runway",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Plane_Spotting_Nippon_Cargo_Boeing_747-8_Runway_at_RCTP_with_ATC_%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E8%B5%B7%E9%99%8D.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_012.mp4",
+    "durationSeconds": 10,
+    "sha256": "ec8c7658100da8bc2aee555b207b47a006545c0b6b787e5b3618042615c7307c",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:42:11.692Z"
+  },
+  {
+    "sceneId": "SC_014",
+    "commonsId": 79797460,
+    "title": "Amazon warehouse BHX4 loading docks 1",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Amazon_warehouse_BHX4_loading_docks_1.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_014.mp4",
+    "durationSeconds": 11,
+    "sha256": "974dfb389d652b489385df5b58a6ee20c505f02a4ba2865d63c0c5b7abbdcc9c",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:42:34.273Z"
+  },
+  {
+    "sceneId": "SC_015",
+    "commonsId": 79797461,
+    "title": "Amazon warehouse BHX4 loading docks 2",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Amazon_warehouse_BHX4_loading_docks_2.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_015.mp4",
+    "durationSeconds": 10,
+    "sha256": "d334b317eebe76eb5cd41f9ac67e65edfb98b849b7defc174f8a9bba9d4d4082",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:42:51.446Z"
+  },
+  {
+    "sceneId": "SC_021",
+    "commonsId": 163563271,
+    "title": "SLAM machine in BRS2 Amazon fulfilment centre in Swindon 02",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/SLAM_machine_in_BRS2_Amazon_fulfilment_centre_in_Swindon_02.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_021.mp4",
+    "durationSeconds": 10.066667,
+    "sha256": "3a31769bf4f318ee7addd8868d48cd87c884766ec110a51757722d1c1822f82e",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:43:20.441Z"
+  },
+  {
+    "sceneId": "SC_022",
+    "commonsId": 163564303,
+    "title": "SLAM machine in BRS2 Amazon fulfilment centre in Swindon 01",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/SLAM_machine_in_BRS2_Amazon_fulfilment_centre_in_Swindon_01.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_022.mp4",
+    "durationSeconds": 10,
+    "sha256": "74ca44bfd82c234c1f1465f84f77a42694295ff75cee116c2066ae37152f9fc9",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:43:50.352Z"
+  },
+  {
+    "sceneId": "SC_023",
+    "commonsId": 74278380,
+    "title": "2018 Vote by mail envelopes being sorted in Santa Clara County",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/2018_Vote_by_mail_envelopes_being_sorted_in_Santa_Clara_County.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_023.mp4",
+    "durationSeconds": 10.5,
+    "sha256": "701ab27fc3eeb61af6f511cebdce5a42dfb79e7c39af9da16dfc5f4ea75d3ea5",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:44:04.805Z"
+  },
+  {
+    "sceneId": "SC_025",
+    "commonsId": 119714627,
+    "title": "2D/1D Barcode Scanner Reading Codes BCR-2DST3BK",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/%E7%BD%AE%E3%81%8D%E5%9E%8B%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%80%822%E6%AC%A1%E5%85%83%E3%83%BB1%E6%AC%A1%E5%85%83%E3%82%B3%E3%83%BC%E3%83%89%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8A%E5%8F%AF%E8%83%BD%EF%BC%81%E5%A3%81%E3%81%AB%E3%81%8B%E3%81%91%E3%81%A6%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%82%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%80%82%E6%9C%89%E7%B7%9A%E3%82%BF%E3%82%A4%E3%83%97%E3%80%82_BCR-2DST3BK.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_025.mp4",
+    "durationSeconds": 10.5,
+    "sha256": "9b57cc0a5a16b9c209823d847751b046f467ecafd128d4445db4e9fff517108b",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:44:16.751Z"
+  },
+  {
+    "sceneId": "SC_027",
+    "commonsId": 71758745,
+    "title": "Military truck convoy on the Manali-Leh Highway",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Military_truck_convoy_on_the_Manali-Leh_Highway.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_027.mp4",
+    "durationSeconds": 10.5,
+    "sha256": "c05915163ed3fed2aa3f58809f08ae27f00e34f0f44fe761713bcc424041cddf",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:44:43.511Z"
+  },
+  {
+    "sceneId": "SC_028",
+    "commonsId": 75157422,
+    "title": "FSR Tarpan 239 D van driving",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/FSR_Tarpan_239_D_van_%28driving%29.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_028.mp4",
+    "durationSeconds": 10,
+    "sha256": "2ec9aa1c4579c49e46d6e6c5313bb580d03254386a22b1c7747d24cbfd2c3e6a",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:45:07.231Z"
+  },
+  {
+    "sceneId": "SC_029",
+    "commonsId": 119675916,
+    "title": "High speed Bluetooth code reader BCR-BT2D1BK",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/%E9%AB%98%E9%80%9F%E3%81%A7%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8A%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%BB%A2%E9%80%81%EF%BC%81Bluetooth%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%80%82%E6%8E%A5%E7%B6%9A%E3%82%82%E7%B0%A1%E5%8D%98%E3%80%821%E6%AC%A1%E5%85%83%262%E6%AC%A1%E5%85%83%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%80%82%E5%85%85%E9%9B%BB%E3%82%AF%E3%83%AC%E3%83%BC%E3%83%89%E3%83%AB%E4%BB%98%E3%81%8D%E3%80%82_BCR-BT2D1BK.webm",
+    "output": "C:\\Users\\brend\\OneDrive\\Desktop\\PROJETO 30K ATE 27\\02 - O OUTRO LADO\\AUTOMACAO - O OUTRO LADO\\public\\episodes\\encomenda-china-curitiba\\takes\\SC_029.mp4",
+    "durationSeconds": 10.5,
+    "sha256": "4d69e18284c4c7e2b52e1a203300bc546ba598d0879354d88301597a415cfa6f",
+    "verifiedZeroReuse": true,
+    "timestamp": "2026-09-13T14:45:18.470Z"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "NASA_ksc_120805_lsp_anderson",
+  "provider": "nasa",
+  "license": "NASA_Public_Domain",
+  "sourceUrl": "http://images-assets.nasa.gov/video/ksc_120805_lsp_anderson/ksc_120805_lsp_anderson~orig.mp4",
+  "sourcePageUrl": "https://images.nasa.gov/details-ksc_120805_lsp_anderson",
+  "author": "KSC",
+  "rawSha256": "0bc5cb6bcda0c42b1242d5f16cd248458f4603cab50533d22d9462b0bba825f3",
+  "sanitizedSha256": "eaacdae2e2d04e08e1ada50a519ff83b8c145277a32ae8f7314e2a06ea4ad441",
+  "audioStripped": true,
+  "durationSeconds": 5,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "tscm_sweep_equipment",
+  "tags": [
+    "Liftoff_to_Learning",
+    "Eric_Anderson",
+    "LSP",
+    "telemetry",
+    "nasa",
+    "public_domain",
+    "space",
+    "earth_observation"
+  ],
+  "domains": [
+    "tscm_sweep_equipment"
+  ],
+  "timestamp": "2026-09-10T20:14:13.042Z"
+}

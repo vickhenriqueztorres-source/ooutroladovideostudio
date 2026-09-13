@@ -1,0 +1,162 @@
+[
+  {
+    "id": "beat_001",
+    "beat_id": "beat_001",
+    "scene_id": "RX_001",
+    "claim_id": null,
+    "t_start": 0,
+    "t_end": 3.5,
+    "transcript_span": "Quando a esteira acelera a 0,5 metros por segundo,",
+    "narrative_function": "introduce_object",
+    "evidence_mode": "scale",
+    "visual_claim": "esteira transportadora industrial tracionando bagagem pesada, roletes metálicos girando em velocidade calibrada sob luz de tungstênio",
+    "visual_must_include": [
+      "roletes mecânicos em rotação contínua",
+      "ranhuras de atrito e desgaste no chassi de aço",
+      "vibração física na borracha da correia"
+    ],
+    "visual_must_not": [
+      "passageiros olhando para frente",
+      "ilustração em três dimensões sem desgaste físico",
+      "esteira vazia sem carga"
+    ],
+    "hud_value": "0,5 m/s",
+    "script_span": {
+      "start_word": 0,
+      "end_word": 9
+    },
+    "concept": "esteira_transportadora",
+    "importance": "medium",
+    "emphasis": [
+      "esteira",
+      "acelera"
+    ],
+    "cut_candidate": false,
+    "visual_change_candidate": false,
+    "timing": {
+      "source": "tts_word_timestamps",
+      "start_ms": 0,
+      "end_ms": 3500
+    }
+  },
+  {
+    "id": "beat_002",
+    "beat_id": "beat_002",
+    "scene_id": "RX_001",
+    "claim_id": null,
+    "t_start": 3.5,
+    "t_end": 7.2,
+    "transcript_span": "o gerador dispara dois feixes de raio-X com energias diferentes.",
+    "narrative_function": "explain_mechanism",
+    "evidence_mode": "witness",
+    "visual_claim": "tubo emissor de raios X em invólucro blindado acoplado a colimador com lâmpada piloto âmbar acesa no painel",
+    "visual_must_include": [
+      "lâmpada piloto âmbar acesa",
+      "cabos industriais espessos com blindagem dielétrica",
+      "carcaça de aço do túnel com rebites aparentes"
+    ],
+    "visual_must_not": [
+      "feixes gráficos de ficção científica",
+      "luzes decorativas",
+      "aparelho médico hospitalar"
+    ],
+    "hud_value": null,
+    "script_span": {
+      "start_word": 9,
+      "end_word": 19
+    },
+    "concept": "gerador_raio_x",
+    "importance": "high",
+    "emphasis": [
+      "gerador",
+      "feixes"
+    ],
+    "cut_candidate": false,
+    "visual_change_candidate": true,
+    "timing": {
+      "source": "tts_word_timestamps",
+      "start_ms": 3500,
+      "end_ms": 7200
+    }
+  },
+  {
+    "id": "beat_003",
+    "beat_id": "beat_003",
+    "scene_id": "RX_001",
+    "claim_id": null,
+    "t_start": 7.2,
+    "t_end": 11.5,
+    "transcript_span": "Isso faz com que a densidade da matéria seja calculada instantaneamente,",
+    "narrative_function": "explain_mechanism",
+    "evidence_mode": "dissection",
+    "visual_claim": "sensor linear cintilador de matriz dupla exposto revelando fotodiodos de silício montados sobre placa de circuito impresso fosca",
+    "visual_must_include": [
+      "matriz de fotodiodos de silício alinhados",
+      "cristal cintilador em barra metálica polida",
+      "placa de circuito impresso com trilhas de cobre foscas"
+    ],
+    "visual_must_not": [
+      "monitor industrial de tela plana exibindo gráfico",
+      "modelo atômico tridimensional estilizado",
+      "brilho neon ao redor dos circuitos"
+    ],
+    "hud_value": null,
+    "script_span": {
+      "start_word": 19,
+      "end_word": 30
+    },
+    "concept": "sensor_cintilador",
+    "importance": "high",
+    "emphasis": [
+      "densidade",
+      "instantaneamente"
+    ],
+    "cut_candidate": false,
+    "visual_change_candidate": true,
+    "timing": {
+      "source": "tts_word_timestamps",
+      "start_ms": 7200,
+      "end_ms": 11500
+    }
+  },
+  {
+    "id": "beat_004",
+    "beat_id": "beat_004",
+    "scene_id": "RX_001",
+    "claim_id": null,
+    "t_start": 11.5,
+    "t_end": 15,
+    "transcript_span": "antes mesmo da mala sair do túnel blindado.",
+    "narrative_function": "reveal_constraint",
+    "evidence_mode": "witness",
+    "visual_claim": "cortina de tiras de borracha plumbífera pesada sendo empurrada pela mala, poeira e arranhões visíveis na saída do túnel de inspeção",
+    "visual_must_include": [
+      "tiras grossas de proteção de chumbo flexionando",
+      "carcaça de policarbonato da mala com etiqueta de voo desgastada",
+      "iluminação de piso frio com sombra projetada"
+    ],
+    "visual_must_not": [
+      "ambiente limpo de estúdio comercial",
+      "reflexo de operador em vidro",
+      "iluminação artificial de estúdio publicitário"
+    ],
+    "hud_value": null,
+    "script_span": {
+      "start_word": 30,
+      "end_word": 38
+    },
+    "concept": "tunel_inspecao",
+    "importance": "medium",
+    "emphasis": [
+      "túnel",
+      "blindado"
+    ],
+    "cut_candidate": true,
+    "visual_change_candidate": false,
+    "timing": {
+      "source": "tts_word_timestamps",
+      "start_ms": 11500,
+      "end_ms": 15000
+    }
+  }
+]

@@ -226,10 +226,15 @@ export async function runAudioBedDispatch(options?: {
   }
 
   const publicAudio = path.join(process.cwd(), 'public', 'editorial', 'execution', runId, 'audio');
+  const episodeAudio = path.join(process.cwd(), 'public', 'episodes', episodeContract.episodeId, 'audio');
   fs.mkdirSync(path.join(publicAudio, 'music'), {recursive: true});
   fs.mkdirSync(path.join(publicAudio, 'sfx'), {recursive: true});
+  fs.mkdirSync(path.join(episodeAudio, 'music'), {recursive: true});
+  fs.mkdirSync(path.join(episodeAudio, 'sfx'), {recursive: true});
   fs.copyFileSync(targetMusicBed, path.join(publicAudio, 'music', 'bed.wav'));
   fs.copyFileSync(targetSfxBed, path.join(publicAudio, 'sfx', 'bed.wav'));
+  fs.copyFileSync(targetMusicBed, path.join(episodeAudio, 'music', 'bed.wav'));
+  fs.copyFileSync(targetSfxBed, path.join(episodeAudio, 'sfx', 'bed.wav'));
 
   const cuePlan = cueItems.map((item, index) => ({
     sceneId: item.sceneId,

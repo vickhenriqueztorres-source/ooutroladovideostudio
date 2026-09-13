@@ -1,0 +1,572 @@
+[
+  {
+    "sceneId": "SC_001",
+    "voiceover": "No terceiro andar do Palácio do Planalto, a porta do gabinete presidencial se fecha e um telefone cinza sem visor comercial é retirado do gancho.",
+    "visualSubject": "Mão retirando monofone cinza fosco de terminal seguro sobre mesa de madeira escura no Palácio do Planalto sob luz documental chiaroscuro",
+    "visual_must_include": [
+      "monofone cinza",
+      "terminal seguro",
+      "mesa de madeira"
+    ],
+    "visual_must_not": [
+      "smartphone comum",
+      "rosto sorrindo",
+      "luz de discoteca"
+    ],
+    "required_category": "presidential_terminal_desk",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_002",
+    "voiceover": "Para qualquer brasileiro comum, fazer uma ligação significa enviar ondas pelo ar até a antena de uma operadora comercial privada.",
+    "visualSubject": "Torre de celular comercial de telefonia móvel em topo de prédio residencial contra céu urbano de fim de tarde",
+    "visual_must_include": [
+      "antena de celular",
+      "torre comercial",
+      "topo de predio"
+    ],
+    "visual_must_not": [
+      "cartunizado",
+      "efeito raio laser",
+      "publicidade comercial"
+    ],
+    "required_category": "commercial_cell_tower",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8
+  },
+  {
+    "sceneId": "SC_003",
+    "voiceover": "Mas se o Presidente da República usar a rede celular comum, cada palavra pode ser capturada por receptores a quilômetros de distância ou grampos digitais.",
+    "visualSubject": "Espectrômetro de radiofrequência e analisador de sinais militares exibindo oscilações de ondas interceptadas em bancada técnica",
+    "visual_must_include": [
+      "analisador de radiofrequencia",
+      "ondas de sinal",
+      "bancada de testes"
+    ],
+    "visual_must_not": [
+      "hacker com capuz",
+      "tela verde matrix",
+      "neon excessivo"
+    ],
+    "required_category": "rf_spectrum_analyzer",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_004",
+    "voiceover": "É por isso que quando o presidente aperta o teclado, sua voz é fatiada em microssegundos antes mesmo de sair do aparelho.",
+    "visualSubject": "Placa de circuito interno de telefone militar com processador de criptografia e componentes soldados sob microscópio de inspeção",
+    "visual_must_include": [
+      "circuito eletronico",
+      "chip soldado",
+      "lente de inspecao"
+    ],
+    "visual_must_not": [
+      "grafismo flutuante",
+      "brilho magico",
+      "computador gamer"
+    ],
+    "required_category": "crypto_hardware_chip",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 7.5
+  },
+  {
+    "sceneId": "SC_005",
+    "voiceover": "Dentro do terminal, um chip criptográfico desenvolvido pelo Exército Brasileiro converte cada som em sequências matemáticas indecifráveis.",
+    "visualSubject": "Terminal de comunicação segura fechado com selo de inviolabilidade e conectores blindados de padrão militar",
+    "visual_must_include": [
+      "terminal militar",
+      "selo de inviolabilidade",
+      "conectores de metal"
+    ],
+    "visual_must_not": [
+      "aparelho transparente",
+      "adesivo politico",
+      "luzes estroboscopicas"
+    ],
+    "required_category": "ruggedized_secure_phone",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_006",
+    "voiceover": "O Palácio do Planalto foi projetado nos anos cinquenta com monumentais fachadas de vidro, criando um problema moderno para a segurança nacional.",
+    "visualSubject": "Fachada monumental do Palácio do Planalto em ângulo documental de contra-plongée em 35mm com pilotis e espelho d'água",
+    "visual_must_include": [
+      "palacio do planalto",
+      "pilotis de concreto",
+      "espelho d'agua"
+    ],
+    "visual_must_not": [
+      "bandeiras de torcida",
+      "multidao em protesto",
+      "cenario 3d falso"
+    ],
+    "required_category": "planalto_palace_monumental",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_007",
+    "voiceover": "Microfones a laser apontados a centenas de metros de distância conseguem ler as microscópicas vibrações causadas pelo som nas vidraças.",
+    "visualSubject": "Vidraça espelhada refletindo a Praça dos Três Poderes com dispositivo piezoelétrico antivibração colado na superfície",
+    "visual_must_include": [
+      "vidro monumental",
+      "sensor antivibracao",
+      "reflexo de brasilia"
+    ],
+    "visual_must_not": [
+      "laser vermelho decorativo",
+      "vidro trincado",
+      "cyberpunk"
+    ],
+    "required_category": "acoustic_window_countermeasure",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_008",
+    "voiceover": "Para neutralizar essa ameaça, sensores nas janelas injetam ruído branco constante que cega qualquer tentativa de escuta externa.",
+    "visualSubject": "Osciloscópio de bancada comparando a forma de onda da voz humana com a camada de ruído branco acústico sobreposto",
+    "visual_must_include": [
+      "tela de osciloscopio",
+      "forma de onda",
+      "ruido acustico"
+    ],
+    "visual_must_not": [
+      "ondas coloridas 3d",
+      "interface de jogo",
+      "musica pop"
+    ],
+    "required_category": "audio_masking_waveform",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 8
+  },
+  {
+    "sceneId": "SC_009",
+    "voiceover": "E nas salas mais estratégicas do gabinete, paredes inteiras são revestidas internamente por uma malha de cobre contínua: a Gaiola de Faraday.",
+    "visualSubject": "Técnico militar ajustando malha de cobre entrelaçada de blindagem eletromagnética em parede de sala técnica de segurança",
+    "visual_must_include": [
+      "malha de cobre",
+      "parede blindada",
+      "operador tecnico"
+    ],
+    "visual_must_not": [
+      "faíscas elétricas",
+      "raios tesla",
+      "monstros"
+    ],
+    "required_category": "faraday_copper_mesh",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_010",
+    "voiceover": "Ali dentro, nenhum sinal de rádio, celular ou satélite consegue entrar ou sair. É um silêncio eletromagnético absoluto.",
+    "visualSubject": "Porta estanque pesada com travas de vedação de radiofrequência e juntas de contato de berílio fechando sala segura",
+    "visual_must_include": [
+      "porta blindada",
+      "travas de pressao",
+      "vedacao eletromagnetica"
+    ],
+    "visual_must_not": [
+      "cofre de desenho animado",
+      "banco arrombado",
+      "fumaca cenografica"
+    ],
+    "required_category": "rf_shielded_door",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_011",
+    "voiceover": "Se as ondas não podem vazar pelo ar, por onde viaja o sinal da ligação presidencial?",
+    "visualSubject": "Galeria subterrânea de concreto com calhas de aço e dutos de cabos de fibra óptica blindados com lacres de auditoria",
+    "visual_must_include": [
+      "galeria subterranea",
+      "dutos de cabos",
+      "fibra optica"
+    ],
+    "visual_must_not": [
+      "tubos fluorescentes neon",
+      "esgoto sujo",
+      "vazamento de agua"
+    ],
+    "required_category": "secure_cable_tunnel",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.5
+  },
+  {
+    "sceneId": "SC_012",
+    "voiceover": "Sob o gramado da Esplanada dos Ministérios, dutos de aço subterrâneos conectam os prédios do governo por meio de uma rede de fibra óptica privada.",
+    "visualSubject": "Mapa aerofotogramétrico cartográfico do eixo monumental de Brasília traçando a rota física dos dutos de fibra subterrâneos",
+    "visual_must_include": [
+      "mapa de brasilia",
+      "linha de rota de fibra",
+      "eixo monumental"
+    ],
+    "visual_must_not": [
+      "mapa em globo 3d girando",
+      "cidade futurista",
+      "gps de videogame"
+    ],
+    "required_category": "esplanada_fiber_route_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 11
+  },
+  {
+    "sceneId": "SC_013",
+    "voiceover": "Essa malha física não passa por cabos comerciais da internet e é monitorada 24 horas por dia por sensores de pressão e atenuação de luz.",
+    "visualSubject": "Rack de servidores de monitoramento óptico com cabos patch de fibra amarela e indicadores luminosos discretos",
+    "visual_must_include": [
+      "rack de telecom",
+      "cabos amarelos de fibra",
+      "indicadores de rede"
+    ],
+    "visual_must_not": [
+      "luzes de discoteca",
+      "computador aberto na mesa",
+      "garrafas de refrigerante"
+    ],
+    "required_category": "optical_monitoring_rack",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_014",
+    "voiceover": "Se alguém tentar curvar um cabo ou perfurar um duto para grampear o feixe de luz, a perda microscópica de fótons dispara um alarme imediato.",
+    "visualSubject": "Microscópio de bancada alinhando conector de fibra óptica com núcleo de quartzo iluminado por laser de teste",
+    "visual_must_include": [
+      "conector de fibra",
+      "feixe de luz",
+      "alinhador de precisao"
+    ],
+    "visual_must_not": [
+      "explosao",
+      "solda eletrica",
+      "faiscas cgi"
+    ],
+    "required_category": "fiber_optical_core_inspect",
+    "canon_category": "reveal",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_015",
+    "voiceover": "E quando a ligação precisa alcançar uma autoridade fora de Brasília, o sinal sobe direto para a órbita da Terra.",
+    "visualSubject": "Antena parabólica militar de alta potência instalada sobre base de concreto em instalação governamental apontada para o zênite",
+    "visual_must_include": [
+      "antena parabolica",
+      "base de concreto",
+      "instalacao militar"
+    ],
+    "visual_must_not": [
+      "disco voador",
+      "laser apontando pro ceu",
+      "estilo cyberpunk"
+    ],
+    "required_category": "military_ground_dish",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 7.5
+  },
+  {
+    "sceneId": "SC_016",
+    "voiceover": "A mais de trinta e cinco mil quilômetros de altitude, o Satélite Geoestacionário de Defesa do Brasil, o SGDC, recebe a transmissão na Banda X.",
+    "visualSubject": "Satélite de comunicação geoestacionária com painéis solares azuis desdobrados operando no vácuo espacial com a Terra ao fundo",
+    "visual_must_include": [
+      "satelite geoestacionario",
+      "paineis solares",
+      "curvatura da terra"
+    ],
+    "visual_must_not": [
+      "naves espaciais ficticias",
+      "batalha estelar",
+      "explosao"
+    ],
+    "required_category": "sgdc_satellite_orbit",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_017",
+    "voiceover": "A Banda X é uma faixa de radiofrequência militar exclusiva, imune a interferências civis e inacessível a radares e operadoras de telefonia privadas.",
+    "visualSubject": "Diagrama de frequências espectrais comparando a banda militar restrita com as faixas civis de telefonia comercial",
+    "visual_must_include": [
+      "grafico espectral",
+      "faixa de frequencia",
+      "banda militar"
+    ],
+    "visual_must_not": [
+      "layout de videogame",
+      "emojis",
+      "cores neon saturadas"
+    ],
+    "required_category": "military_spectrum_diagram",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_018",
+    "voiceover": "Mas o maior desafio de segurança acontece quando o presidente está em movimento, voando a novecentos quilômetros por hora no avião presidencial.",
+    "visualSubject": "Aeronave Airbus presidencial da Força Aérea Brasileira (FAB VC-1) pousando sob luz crepuscular em pista militar",
+    "visual_must_include": [
+      "aeronave presidencial",
+      "pista militar",
+      "insignia da fab"
+    ],
+    "visual_must_not": [
+      "acidente aereo",
+      "aviao comercial comum",
+      "passageiros correndo"
+    ],
+    "required_category": "presidential_jet_runway",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_019",
+    "voiceover": "No topo da fuselagem do FAB VC-1, uma protuberância aerodinâmica abriga uma antena parabólica motorizada que acompanha o satélite em tempo real.",
+    "visualSubject": "Plano detalhe na corcova superior da fuselagem da aeronave destacando o radome aerodinâmico que protege a antena satelital",
+    "visual_must_include": [
+      "radome de antena",
+      "fuselagem de aviao",
+      "rebites de metal"
+    ],
+    "visual_must_not": [
+      "canhão de arma",
+      "foguete militar",
+      "efeito de velocidade cartoon"
+    ],
+    "required_category": "aircraft_satcom_radome",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10.5
+  },
+  {
+    "sceneId": "SC_020",
+    "voiceover": "Enquanto voa sobre oceanos ou outros continentes, a aeronave opera como um posto de comando aéreo seguro conectado diretamente a Brasília.",
+    "visualSubject": "Mapa de cobertura de sinal satelital e rota de voo internacional exibindo o link contínuo entre a aeronave e o centro de comando",
+    "visual_must_include": [
+      "mapa de rota aerea",
+      "link satelital",
+      "posicao do aviao"
+    ],
+    "visual_must_not": [
+      "tela de filme de espionagem falso",
+      "mira vermelha",
+      "hud de combate"
+    ],
+    "required_category": "presidential_flight_satlink_map",
+    "canon_category": "maps",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_021",
+    "voiceover": "Mesmo com satélites dedicados e blindagem de cobre, o ponto mais vulnerável de qualquer sistema de segurança é sempre o comportamento humano.",
+    "visualSubject": "Mesa de reunião executiva vazia com blocos de anotações oficiais e canetas sob iluminação dramática de teto",
+    "visual_must_include": [
+      "mesa de reuniao",
+      "papeis oficiais",
+      "sala governamental"
+    ],
+    "visual_must_not": [
+      "pessoas brigando",
+      "politicos discutindo",
+      "desordem"
+    ],
+    "required_category": "meeting_room_shadows",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_022",
+    "voiceover": "Historicamente, o perigo surge quando assessores ou ministros cedem à pressa e usam celulares comerciais para tratar de assuntos de Estado.",
+    "visualSubject": "Smartphone comum comercial colocado sobre relatório com carimbo de reservado em contraste de mesa",
+    "visual_must_include": [
+      "smartphone comercial",
+      "documento com carimbo",
+      "superficie de mesa"
+    ],
+    "visual_must_not": [
+      "marca comercial explicita",
+      "notificacao de rede social",
+      "rosto"
+    ],
+    "required_category": "commercial_phone_leak_hazard",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_023",
+    "voiceover": "Aparelhos comerciais podem ser infectados silenciosamente por malwares de espionagem remota sem que o usuário aperte um único botão.",
+    "visualSubject": "Técnico de contrainteligência desmontando tomada elétrica e painel de parede com chave de fenda para varredura de transmissores",
+    "visual_must_include": [
+      "chave de fenda",
+      "tomada desmontada",
+      "painel tecnico"
+    ],
+    "visual_must_not": [
+      "hacker com mascara",
+      "fios pegando fogo",
+      "armas"
+    ],
+    "required_category": "bug_sweep_inspection",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "SC_024",
+    "voiceover": "Por isso, antes de cada viagem oficial, equipes de segurança do GSI entram nos quartos de hotéis horas antes para escanear cada fresta.",
+    "visualSubject": "Dispositivo detector de junções não-lineares sendo passado sobre cabeceiras e móveis de quarto de hotel sob custódia",
+    "visual_must_include": [
+      "detector de escutas",
+      "haste de varredura",
+      "ambiente de vistoria"
+    ],
+    "visual_must_not": [
+      "espioes escondidos",
+      "policiais de choque",
+      "dramatizacao barata"
+    ],
+    "required_category": "tscm_sweep_equipment",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_025",
+    "voiceover": "E todas as chaves criptográficas que protegem as mensagens têm prazo de validade curto: são destruídas automaticamente após cada sessão.",
+    "visualSubject": "Forno de incineração industrial ou fragmentador mecânico de cartões e discos de armazenamento sigilosos",
+    "visual_must_include": [
+      "fragmentadora pesada",
+      "placas destruidas",
+      "residuos metalicos"
+    ],
+    "visual_must_not": [
+      "explosao nuclear",
+      "monstros",
+      "desenho"
+    ],
+    "required_category": "hardware_destruction_shredder",
+    "canon_category": "evidence",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9.5
+  },
+  {
+    "sceneId": "SC_026",
+    "voiceover": "Quando o presidente encerra a ligação e coloca o monofone no gancho, o túnel criptográfico se fecha instantaneamente na memória RAM.",
+    "visualSubject": "Monofone presidencial sendo repousado no gancho do terminal seguro em plano detalhe com foco suave de profundidade",
+    "visual_must_include": [
+      "monofone no gancho",
+      "terminal seguro",
+      "foco seletivo"
+    ],
+    "visual_must_not": [
+      "gesto violento",
+      "aparelho quebrado",
+      "telejornal"
+    ],
+    "required_category": "phone_cradle_hangup",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "SC_027",
+    "voiceover": "Nenhum vestígio daquela conversa permanece gravado no aparelho ou nos cabos. Ela existiu apenas como matemática pura durante alguns minutos.",
+    "visualSubject": "Tela de terminal exibindo comando de limpeza de buffer de memória com confirmação de exclusão segura",
+    "visual_must_include": [
+      "tela de terminal",
+      "linha de comando",
+      "confirmacao de memoria"
+    ],
+    "visual_must_not": [
+      "caveira de perigo",
+      "codigo binario verde",
+      "grafico 3d"
+    ],
+    "required_category": "memory_wipe_console",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 10
+  },
+  {
+    "sceneId": "SC_028",
+    "voiceover": "Enquanto duzentos milhões de cidadãos conversam em redes públicas suscetíveis a vazamentos e quebras de privacidade cotidianas...",
+    "visualSubject": "Cruzamento movimentado de metrópole brasileira à noite com fluxo contínuo de pessoas olhando telas de celulares no asfalto",
+    "visual_must_include": [
+      "cruzamento urbano",
+      "fluxo de pedestres",
+      "asfalto noturno"
+    ],
+    "visual_must_not": [
+      "rostos identificaveis sorrindo",
+      "panfleto comercial",
+      "dia ensolarado de praia"
+    ],
+    "required_category": "urban_crowd_smartphones",
+    "canon_category": "matter",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 8.5
+  },
+  {
+    "sceneId": "SC_029",
+    "voiceover": "...no topo do Estado, a soberania de uma nação depende da capacidade de manter seus segredos protegidos atrás de camadas invisíveis de silício.",
+    "visualSubject": "Cúpula do Congresso Nacional e Esplanada dos Ministérios iluminadas no horizonte noturno de Brasília sob atmosfera de bruma",
+    "visual_must_include": [
+      "cupula do congresso",
+      "esplanada iluminada",
+      "ceu noturno"
+    ],
+    "visual_must_not": [
+      "fogos de artificio",
+      "festa na rua",
+      "cores de carnaval"
+    ],
+    "required_category": "brasilia_esplanade_twilight",
+    "canon_category": "maps",
+    "take_type": "CINEMATIC_TAKE",
+    "targetSeconds": 9
+  },
+  {
+    "sceneId": "SC_030",
+    "voiceover": "A verdade de um sistema aparece quando seus rastros são colocados lado a lado: investigar, revelar, compreender.",
+    "visualSubject": "Logotipo e selo editorial de O Outro Lado em aço industrial escuro com acento sutil em laranja sódio e corte preto final",
+    "visual_must_include": [
+      "marca editorial",
+      "aco industrial",
+      "acento laranja"
+    ],
+    "visual_must_not": [
+      "letras 3d douradas",
+      "brilho cintilante",
+      "animacao infantil"
+    ],
+    "required_category": "channel_branding_monolith",
+    "canon_category": "evidence",
+    "take_type": "KEYFRAME_DOSSIER",
+    "targetSeconds": 8.5
+  }
+]

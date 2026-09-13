@@ -11,3 +11,4 @@ export * from './runners/cinematicShadowHook';
 export * from './telemetry/cinematicTelemetry';
 export * from './types/cinematicPlans';
 export * from './validators/cinematicPlanValidator';
+export * from './agents/cinematicSceneConceptionEngine';

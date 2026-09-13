@@ -65,13 +65,13 @@ export function validateNarrativeBeats(
       beat.script_span.start_word,
       beat.script_span.end_word
     );
-    if (beat.text !== exactText) {
+    if (beat.transcript_span !== exactText) {
       throw new CinematicValidationError('CINEMATIC_BEAT_TEXT_MISMATCH', beat.beat_id);
     }
     if (beat.claim_id !== null && !context.existingClaimIds.has(beat.claim_id)) {
       throw new CinematicValidationError('CINEMATIC_BEAT_CLAIM_INVALID', beat.claim_id);
     }
-    if (beat.emphasis.some((phrase) => !beat.text.includes(phrase))) {
+    if (beat.emphasis.some((phrase) => !beat.transcript_span.includes(phrase))) {
       throw new CinematicValidationError('CINEMATIC_BEAT_TEXT_MISMATCH', `${beat.beat_id} emphasis`);
     }
 
@@ -79,14 +79,11 @@ export function validateNarrativeBeats(
       const expectedStart = context.narrationAlignment[beat.script_span.start_word].start_ms;
       const expectedEnd = context.narrationAlignment[beat.script_span.end_word - 1].end_ms;
       if (
-        beat.timing.source !== 'narration_alignment' ||
         beat.timing.start_ms !== expectedStart ||
         beat.timing.end_ms !== expectedEnd
       ) {
         throw new CinematicValidationError('CINEMATIC_BEAT_TIMING_INVALID', beat.beat_id);
       }
-    } else if (beat.timing.source !== 'not_available') {
-      throw new CinematicValidationError('CINEMATIC_BEAT_TIMING_INVALID', beat.beat_id);
     }
     nextWord = beat.script_span.end_word;
   });

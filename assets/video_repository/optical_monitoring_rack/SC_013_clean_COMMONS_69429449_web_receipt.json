@@ -1,0 +1,25 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "COMMONS_69429449",
+  "provider": "wikimedia",
+  "license": "Public_Domain",
+  "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/PGE_Metcalf_Substation_Surveillance_Video%2C_April_2013.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PGE_Metcalf_Substation_Surveillance_Video,_April_2013.webm",
+  "author": "Santa Clara County Sheriff's Office",
+  "rawSha256": "9896b530604bc182eb95214c8c8866aa5e4b64ab369f9ab371860f4f0ecec85d",
+  "sanitizedSha256": "1219b73977501ad19c74f7eec2b855cce3c21137d7e13496a85f33e5e3c98906",
+  "audioStripped": true,
+  "durationSeconds": 5,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "optical_monitoring_rack",
+  "tags": [
+    "fiber optic cables data",
+    "wikimedia_commons",
+    "open_archive"
+  ],
+  "domains": [
+    "optical_monitoring_rack"
+  ],
+  "timestamp": "2026-09-10T20:10:58.934Z"
+}

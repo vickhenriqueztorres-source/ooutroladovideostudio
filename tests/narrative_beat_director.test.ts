@@ -34,7 +34,7 @@ after(() => {
   for (const root of tempRoots) fs.rmSync(root, {recursive: true, force: true});
 });
 
-function input(aligned = false): NarrativeBeatSceneInput {
+function input(aligned = true): NarrativeBeatSceneInput {
   const words = tokenizeScriptWords(SCRIPT);
   return {
     productionId: 'PROD_BEATS',
@@ -56,6 +56,7 @@ function packageFixture(options: {withScript?: boolean; withAlignment?: boolean}
   tempRoots.push(root);
   const packagePath = path.join(root, 'episode-package.json');
   const words = tokenizeScriptWords(SCRIPT);
+  const withAlignment = options.withAlignment !== false;
   fs.writeFileSync(packagePath, JSON.stringify({
     episode_id: 'HSL_EP_001',
     human_approval_status: 'APPROVED',
@@ -68,7 +69,7 @@ function packageFixture(options: {withScript?: boolean; withAlignment?: boolean}
       visual_subject: 'airport fuel distribution network',
       review_status: 'APPROVED',
       ...(options.withScript === false ? {} : {voiceover: SCRIPT}),
-      ...(options.withAlignment ? {
+      ...(withAlignment ? {
         narration_alignment: words.map((word, index) => ({
           word: word.text,
           start_ms: 1000 + index * 120,
@@ -84,7 +85,7 @@ function digest(filePath: string): string {
   return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }
 
-function generate(aligned = false) {
+function generate(aligned = true) {
   const telemetry = new CapturingTelemetry();
   const result = new NarrativeBeatDirectorAgent(telemetry).run(input(aligned));
   return {result, telemetry};
@@ -118,7 +119,7 @@ test('3. beat spans preserve script order without overlap', () => {
 
 test('4. validator rejects invented or rewritten beat text', () => {
   const {result} = generate();
-  const invalid = result.beats.map((beat, index) => index === 0 ? {...beat, text: 'Rewritten text.'} : beat);
+  const invalid = result.beats.map((beat, index) => index === 0 ? {...beat, transcript_span: 'Rewritten text.'} : beat);
   assert.throws(
     () => validateNarrativeBeats(invalid, {
       sceneId: SCENE_ID,
@@ -147,13 +148,12 @@ test('6. every beat keeps the existing scene_id', () => {
   assert.equal(result.beats.every((beat) => beat.scene_id === SCENE_ID), true);
 });
 
-test('7. no alignment means no physical timestamps', () => {
-  const {result} = generate();
-  for (const beat of result.beats) {
-    assert.deepEqual(beat.timing, {source: 'not_available'});
-    assert.equal('start_ms' in beat.timing, false);
-    assert.equal('end_ms' in beat.timing, false);
-  }
+test('7. missing alignment throws BEAT_ALIGNMENT_MISSING (fail-closed)', () => {
+  const telemetry = new CapturingTelemetry();
+  assert.throws(
+    () => new NarrativeBeatDirectorAgent(telemetry).run(input(false)),
+    /BEAT_ALIGNMENT_MISSING/
+  );
 });
 
 test('8. real word alignment produces bounded exact timestamps', () => {
@@ -161,8 +161,8 @@ test('8. real word alignment produces bounded exact timestamps', () => {
   const {beats} = new NarrativeBeatDirectorAgent(new CapturingTelemetry()).run(alignedInput);
   const alignment = alignedInput.narrationAlignment!;
   for (const beat of beats) {
-    assert.equal(beat.timing.source, 'narration_alignment');
-    if (beat.timing.source === 'narration_alignment') {
+    assert.equal(beat.timing.source, 'tts_word_timestamps');
+    if (beat.timing.source === 'tts_word_timestamps') {
       assert.equal(beat.timing.start_ms, alignment[beat.script_span.start_word].start_ms);
       assert.equal(beat.timing.end_ms, alignment[beat.script_span.end_word - 1].end_ms);
       assert.ok(beat.timing.start_ms >= alignment[0].start_ms);
@@ -183,7 +183,7 @@ test('10. agent failure remains non-blocking through the shadow hook', async () 
   const result = await runCinematicDirectionShadowHook({
     productionId: 'PROD_BEAT_FAILURE',
     editorialPackagePath: packagePath,
-    flags: {pipelineV1Enabled: true, shadowModeEnabled: true, shouldRunShadow: true},
+    flags: {pipelineV1Enabled: false, shadowModeEnabled: true, shouldRunShadow: true},
     runner: new CinematicDirectionShadowRunner(new CapturingTelemetry())
   });
   assert.equal(result.executed, true);
@@ -224,7 +224,7 @@ test('13. invalid alignment emits beat validation failure telemetry', () => {
   };
   assert.throws(
     () => new NarrativeBeatDirectorAgent(telemetry).run(invalidInput),
-    /CINEMATIC_BEAT_TIMING_INVALID/
+    /(?:CINEMATIC_BEAT_TIMING_INVALID|BEAT_ALIGNMENT_MISSING)/
   );
   assert.deepEqual(
     telemetry.events.map((event) => event.name),

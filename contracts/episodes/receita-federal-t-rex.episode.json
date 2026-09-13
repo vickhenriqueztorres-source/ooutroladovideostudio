@@ -1,0 +1,32 @@
+{
+  "episodeId": "receita-federal-t-rex",
+  "title": "O OUTRO LADO DO LEÃO: O Supercomputador T-Rex e o Fim do Sigilo",
+  "theme": "A infraestrutura oculta de supercomputação do SERPRO e da Receita Federal em Brasília, a teoria dos grafos do algoritmo Harpia e como 5 bilhões de dados financeiros mensais eliminam o sigilo antes da declaração do Imposto de Renda",
+  "domainTags": [
+    "supercomputer",
+    "tax_audit",
+    "receita_federal",
+    "serpro",
+    "pix",
+    "banking",
+    "graph_theory",
+    "algorithms",
+    "data_center"
+  ],
+  "targetDurationSeconds": 300,
+  "minDurationRatio": 0.9,
+  "minScenes": 30,
+  "requiredStages": [
+    "narration",
+    "visuals",
+    "sfx",
+    "music",
+    "mix",
+    "thumbnail",
+    "render",
+    "cinematic_grade"
+  ],
+  "voiceProfile": "ElevenLabs Chris iP95p4xoKVk53GoZ742B",
+  "musicMood": "dark_industrial_investigative",
+  "sfxDensity": "high"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "COMMONS_94479249",
+  "provider": "wikimedia",
+  "license": "Public_Domain",
+  "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Plane_Spotting_4_CARGO_airplanes_takeoff_Runway_at_Taiwan_airport_%E5%8F%B0%E7%81%A3%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E8%B5%B7%E9%A3%9B.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Plane_Spotting_4_CARGO_airplanes_takeoff_Runway_at_Taiwan_airport_%E5%8F%B0%E7%81%A3%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E8%B5%B7%E9%A3%9B.webm",
+  "author": "티비텐",
+  "rawSha256": "e7310f5fd89f0a9eae54abc1bf44fac14c85708ae3a523f3f961f1bbf5107091",
+  "sanitizedSha256": "f47a58f5308d724cd85540c3b2efba794bdfb203815b32f213d016563acdc256",
+  "audioStripped": true,
+  "durationSeconds": 5.083333,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "presidential_runway_tarmac",
+  "tags": [
+    "airplane runway airport",
+    "wikimedia_commons",
+    "open_archive"
+  ],
+  "domains": [
+    "airplane",
+    "runway",
+    "airport"
+  ],
+  "timestamp": "2026-09-10T19:37:54.965Z"
+}

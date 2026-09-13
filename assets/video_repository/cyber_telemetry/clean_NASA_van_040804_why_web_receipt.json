@@ -1,0 +1,30 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "NASA_van_040804_why",
+  "provider": "nasa",
+  "license": "NASA_Public_Domain",
+  "sourceUrl": "http://images-assets.nasa.gov/video/van_040804_why/van_040804_why~orig.mp4",
+  "sourcePageUrl": "https://images.nasa.gov/details-van_040804_why",
+  "author": "KSC",
+  "rawSha256": "eb0977820e56e4ea8ce8fcc5aecfa347aa60a2e5575a1503d6d10c2d7e17478f",
+  "sanitizedSha256": "46bef53625b56ddcd14982f7ea22cfec2bab9fe16ec85c98c66e193c9c200f46",
+  "audioStripped": true,
+  "durationSeconds": 5,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "cyber_telemetry",
+  "tags": [
+    "vandenberg",
+    "vafb",
+    "elv",
+    "gpb",
+    "nasa",
+    "public_domain",
+    "space",
+    "earth_observation"
+  ],
+  "domains": [
+    "cyber_telemetry"
+  ],
+  "timestamp": "2026-09-10T19:14:37.474Z"
+}

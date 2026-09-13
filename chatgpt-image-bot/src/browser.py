@@ -54,11 +54,15 @@ def try_connect_cdp(playwright: Playwright, cdp_url: str = "http://127.0.0.1:922
         return None
 
 
-def launch_persistent_browser(config_path: str = "config.yaml") -> Tuple[Playwright, BrowserContext, Page]:
+def launch_persistent_browser(
+    config_path: str = "config.yaml",
+    profile_dir_override: Optional[str] = None,
+    skip_cdp: bool = False
+) -> Tuple[Playwright, BrowserContext, Page]:
     """
     Inicializa o navegador:
-    1. Tenta conectar ao Chrome REAL já aberto pelo usuário na porta 9222 (Zero Login / Já Autenticado).
-    2. Se não estiver ativo, inicia o navegador persistente com blindagem Stealth.
+    1. Se skip_cdp=False e cdp ativo, tenta conectar ao Chrome real.
+    2. Inicia o navegador persistente com perfil dedicado e blindagem Stealth.
     """
     config = load_config(config_path)
     base_dir = Path(__file__).resolve().parent.parent
@@ -66,15 +70,17 @@ def launch_persistent_browser(config_path: str = "config.yaml") -> Tuple[Playwri
 
     playwright = sync_playwright().start()
 
-    # 1. Tenta conectar ao Chrome já logado
-    cdp_session = try_connect_cdp(playwright, cdp_url)
-    if cdp_session is not None:
-        context, page = cdp_session
-        print(f"🔗 Conectado com sucesso ao seu Google Chrome real via porta 9222!")
-        return playwright, context, page
+    # 1. Tenta conectar ao Chrome via CDP somente se skip_cdp for False e não houver override de perfil
+    if not skip_cdp and not profile_dir_override:
+        cdp_session = try_connect_cdp(playwright, cdp_url)
+        if cdp_session is not None:
+            context, page = cdp_session
+            print(f"🔗 Conectado com sucesso ao seu Google Chrome real via porta 9222!")
+            return playwright, context, page
 
-    # 2. Fallback: Navegador persistente isolado
-    profile_dir = Path(config.get("profile_dir", "C:/Users/brend/chatgpt_bot_session"))
+    # 2. Navegador persistente isolado para a conta indicada
+    target_profile = profile_dir_override or config.get("profile_dir", "C:/Users/brend/chatgpt_bot_session_1")
+    profile_dir = Path(target_profile)
     if not profile_dir.is_absolute():
         profile_dir = base_dir / profile_dir
 

@@ -1,0 +1,25 @@
+{
+  "schema": "hsl.web_footage.provenance.v1",
+  "candidateId": "COMMONS_145576511",
+  "provider": "wikimedia",
+  "license": "Public_Domain",
+  "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Berlin_rally_after_Navalny%27s_murder_asv2024-02-16_VIDEO_moment_of_silence.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Berlin_rally_after_Navalny%27s_murder_asv2024-02-16_VIDEO_moment_of_silence.webm",
+  "author": "A.Savin",
+  "rawSha256": "61f4648ae1c88c847aa876a24ae631f955fd9e2333efb14844c73abfcec0726e",
+  "sanitizedSha256": "ce0ad994dcbe88b8e14c87ce6c417f5f7d4a2f4ac9d3196ff28014a976d5b569",
+  "audioStripped": true,
+  "durationSeconds": 5.083333,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "category": "commercial_cell_tower",
+  "tags": [
+    "smartphone street night",
+    "wikimedia_commons",
+    "open_archive"
+  ],
+  "domains": [
+    "commercial_cell_tower"
+  ],
+  "timestamp": "2026-09-10T20:07:18.115Z"
+}

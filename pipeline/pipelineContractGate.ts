@@ -438,7 +438,7 @@ export class PipelineContractGate {
       const pubDirectFramePath = path.join(publicDir, 'editorial', 'execution', scId, 'firefly_start_frame.png');
       const episodeFramePath = path.join(publicDir, 'episodes', contract?.episodeId || options.runId, 'images', `${scId}.png`);
 
-      const resolvedFrame = [runFramePath, episodeFramePath, legacyRunFramePath, pubRunFramePath, pubDirectFramePath].find(p => fs.existsSync(p));
+      const resolvedFrame = [runFramePath, legacyRunFramePath, pubRunFramePath, pubDirectFramePath, episodeFramePath].find(p => fs.existsSync(p));
 
       // QA Visual: GATE_BLACK_FRAME (Verifica se start frame é 100% preto com luminância < 3%)
       if (resolvedFrame) {
@@ -499,7 +499,13 @@ export class PipelineContractGate {
             '8b7b7ecf5ea2ca32070e1762c262bf86b24d7ceea3c246f6630f5ba67eb7a66b',
             'd981dcbc6e987178cf7d853e414c27415aece7240c5f21226cb121289196b0bc'
           ]);
-          const receiptPath = path.join(path.dirname(resolvedFrame), 'start_frame_receipt.json');
+          const receiptCandidates = [
+            path.join(path.dirname(resolvedFrame), 'start_frame_receipt.json'),
+            path.join(runDir, 'editorial', 'execution', 'scenes', scId, 'start_frame_receipt.json'),
+            path.join(process.cwd(), 'runs', contract?.episodeId || options.runId, 'scenes', scId, 'start_frame_receipt.json'),
+            path.join(publicDir, 'editorial', 'execution', options.runId, 'scenes', scId, 'start_frame_receipt.json')
+          ];
+          const receiptPath = receiptCandidates.find(p => fs.existsSync(p)) || receiptCandidates[0];
           const imageCatalogPath = path.join(process.cwd(), 'assets', 'image_repository', 'catalog.json');
           let isInCentralCatalog = false;
           if (fs.existsSync(imageCatalogPath)) {
@@ -577,10 +583,20 @@ export class PipelineContractGate {
                                 ['evidence', 'maps', 'reveal'].includes(String(category || '').toLowerCase()) ||
                                 ((sc as any).visualMode === 'dossier' && Boolean(resolvedFrame));
 
-      if (isDossierOrMotion && !resolvedVideo) {
-        // Um dossiê pode partir de frame autenticado, mas nunca conta como take temporal.
-        if (resolvedFrame && frameValid) validDossierVisuals++;
-        else failures.push({sceneId: scId, shotId, index: i + 1, assetType: 'VIDEO_TAKE', expectedPath: episodeFramePath, reason: 'DOSSIER_PHYSICAL_FRAME_REQUIRED: Dossiê sem frame fotográfico autenticado.'});
+      if (isDossierOrMotion) {
+        // Um dossiê parte de frame fotográfico autenticado para renderização 2.5D no Remotion
+        if (resolvedFrame && frameValid) {
+          validDossierVisuals++;
+        } else {
+          failures.push({
+            sceneId: scId,
+            shotId,
+            index: i + 1,
+            assetType: 'START_FRAME',
+            expectedPath: episodeFramePath,
+            reason: 'DOSSIER_PHYSICAL_FRAME_REQUIRED: Dossiê sem frame fotográfico autenticado.'
+          });
+        }
         continue;
       }
 
@@ -598,7 +614,9 @@ export class PipelineContractGate {
         if (resolvedVideo.includes(path.join('public', 'episodes')) || resolvedVideo.includes(path.join('editorial', 'execution', 'scenes'))) {
           const videoReceiptCandidates = [
             path.join(path.dirname(resolvedVideo), 'firefly_take_receipt.json'),
-            path.join(runDir, 'editorial', 'execution', 'scenes', scId, 'firefly_take_receipt.json')
+            path.join(runDir, 'editorial', 'execution', 'scenes', scId, 'firefly_take_receipt.json'),
+            path.join(process.cwd(), 'runs', contract?.episodeId || options.runId, 'scenes', scId, 'firefly_take_receipt.json'),
+            path.join(publicDir, 'editorial', 'execution', options.runId, 'scenes', scId, 'firefly_take_receipt.json')
           ];
           const videoReceipt = videoReceiptCandidates.find((candidate) => fs.existsSync(candidate)) || videoReceiptCandidates[0];
           if (!fs.existsSync(videoReceipt)) {

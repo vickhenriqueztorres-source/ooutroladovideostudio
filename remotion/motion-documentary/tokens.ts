@@ -18,10 +18,10 @@ export const DOCUMENTARY_MOTION_TOKENS = Object.freeze({
   typography: Object.freeze({
     editorial: "'Inter', 'Helvetica Neue', Arial, sans-serif",
     mono: "'JetBrains Mono', 'Courier New', monospace",
-    label: 24,
-    detail: 18,
-    source: 14,
-    value: 46,
+    label: 42,
+    detail: 26,
+    source: 18,
+    value: 88,
   }),
   timing: Object.freeze({
     enterFrames: 10,
@@ -29,10 +29,10 @@ export const DOCUMENTARY_MOTION_TOKENS = Object.freeze({
     lineDrawFrames: 16,
   }),
   geometry: Object.freeze({
-    markerRadius: 18,
-    lineWidth: 2,
-    panelRadius: 4,
-    panelMaxWidth: 440,
+    markerRadius: 28,
+    lineWidth: 3.5,
+    panelRadius: 6,
+    panelMaxWidth: 760,
   }),
 });
 
@@ -42,7 +42,7 @@ export function colorForRole(role: DocumentaryMotionColorRole): string {
   return DOCUMENTARY_MOTION_TOKENS.colors.white;
 }
 
-export function zoneStyle(zone: DocumentaryMotionZone, width = 420): CSSProperties {
+export function zoneStyle(zone: DocumentaryMotionZone, width = 640): CSSProperties {
   const margin = DOCUMENTARY_MOTION_TOKENS.safeMargin;
   const base: CSSProperties = {position: 'absolute', width};
   if (zone.includes('top')) base.top = margin;

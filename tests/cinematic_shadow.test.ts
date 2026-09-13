@@ -13,6 +13,7 @@ import {
   CinematicTelemetryPort
 } from '../hsl/cinematic/telemetry/cinematicTelemetry';
 import {CinematicScenePlanV1} from '../hsl/cinematic/types/cinematicPlans';
+import {tokenizeScriptWords} from '../hsl/cinematic/services/scriptWordSpans';
 import {
   CinematicValidationError,
   validateCinematicScenePlan
@@ -36,6 +37,11 @@ function fixture(): {root: string; packagePath: string} {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hsl-cinematic-shadow-'));
   tempRoots.push(root);
   const packagePath = path.join(root, 'episode-package.json');
+  const v1 = "Fuel does not move directly from a refinery to an aircraft. It first enters a regional distribution network.";
+  const v2 = "It reaches airport storage, passes through quality control, and only then moves toward the gate.";
+  const words1 = tokenizeScriptWords(v1);
+  const words2 = tokenizeScriptWords(v2);
+
   fs.writeFileSync(packagePath, JSON.stringify({
     episode_id: 'HSL_EP_TEST_001',
     human_approval_status: 'APPROVED',
@@ -50,7 +56,12 @@ function fixture(): {root: string; packagePath: string} {
         visual_mode: 'remotion_flow_trace',
         evidence_status: 'fact',
         review_status: 'APPROVED',
-        voiceover: "Fuel does not move directly from a refinery to an aircraft. It first enters a regional distribution network."
+        voiceover: v1,
+        narration_alignment: words1.map((w, i) => ({
+          word: w.text,
+          start_ms: 1000 + i * 120,
+          end_ms: 1100 + i * 120
+        }))
       },
       {
         scene_id: 'HSL_002',
@@ -59,7 +70,12 @@ function fixture(): {root: string; packagePath: string} {
         visual_mode: 'licensed_real',
         evidence_status: 'fact',
         review_status: 'APPROVED',
-        voiceover: 'It reaches airport storage, passes through quality control, and only then moves toward the gate.'
+        voiceover: v2,
+        narration_alignment: words2.map((w, i) => ({
+          word: w.text,
+          start_ms: 2000 + i * 120,
+          end_ms: 2100 + i * 120
+        }))
       }
     ]
   }, null, 2));

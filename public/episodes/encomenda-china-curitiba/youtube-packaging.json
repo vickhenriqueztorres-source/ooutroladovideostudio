@@ -1,0 +1,55 @@
+{
+  "episodeId": "encomenda-china-curitiba",
+  "topic": "O Outro Lado da Sua Encomenda de R$ 20 da China: A Rota dos 18.000 km",
+  "variants": [
+    {
+      "variantId": "VARIANT_A",
+      "profile": "Mecanismo / Escala Global (Corte X-Ray)",
+      "title": "O Outro Lado da Sua Encomenda de R$ 20 da China: A Rota dos 18.000 km",
+      "headline": "R$ 20. // 18.000 KM.",
+      "subheadline": "O SEGREDO DO FRETE GRÁTIS DA CHINA",
+      "thumbnail4kPath": "public/episodes/encomenda-china-curitiba/thumbnails/thumb_variant_a_with_text.png",
+      "testHypothesis": "Quebra de modelo mental: como um fone de R$ 20 viaja 18.000 km atravessando dois oceanos pelo preço de um café da manhã."
+    },
+    {
+      "variantId": "VARIANT_B",
+      "profile": "Ponto de Falha / Gargalo Crítico (Tensão de Irrevogabilidade)",
+      "title": "O Código de 1mm: Por Que o Seu Pacote da China Fica Preso em Curitiba?",
+      "headline": "1 MILÍMETRO. // SEM ENTREGA.",
+      "subheadline": "O CÓDIGO DE BARRAS QUE TRAVA EM CURITIBA",
+      "thumbnail4kPath": "public/episodes/encomenda-china-curitiba/thumbnails/thumb_variant_b_with_text.png",
+      "testHypothesis": "Tensão e dor coletiva: a vulnerabilidade de um leitor óptico que corre a 3,2 m/s e ejeta encomendas para a triagem manual por causa de uma rasura milimétrica."
+    },
+    {
+      "variantId": "VARIANT_C",
+      "profile": "Escala Monumental (Engenharia Oculta / Carga Marginal)",
+      "title": "Como Funciona o Monstro Mecânico que Separa 400.000 Pacotes por Dia",
+      "headline": "NO VÁCUO. // DO COMÉRCIO.",
+      "subheadline": "POR QUE ESSE PACOTE NÃO VIAJA SOZINHO",
+      "thumbnail4kPath": "public/episodes/encomenda-china-curitiba/thumbnails/thumb_variant_c_with_text.png",
+      "testHypothesis": "Fascínio industrial: a anatomia do Cross-Belt Sorter e dos scanners de raio-x de dupla energia da Receita Federal."
+    }
+  ],
+  "description": "Você comprou um fone de ouvido ou uma capa de celular por 20 reais com frete grátis do outro lado do planeta. O que ninguém te conta é que, para esse pacote chegar na sua mão por esse preço, ele teve que aproveitar os espaços ociosos de cargueiros transcontinentais e passar por um dos centros de triagem mais automatizados do mundo.\n\nNeste documentário investigativo, dissecamos a rota oculta dos 18.340 quilômetros entre Shenzhen e Curitiba. Descubra a matemática da carga marginal, a cabine pressurizada dos cargueiros Boeing 777F a 11.000 metros de altitude, os scanners tomográficos de dupla energia da Receita Federal e a esteira mecânica Cross-Belt Sorter que corre a 3,2 metros por segundo sem derrubar caixas — onde a única fronteira entre a entrega na sua porta ou a retenção no galpão é um código de barras de 1 milímetro.\n\nCapítulos:\n00:00 - O Clique de R$ 20 e o Paradoxo do Frete Grátis\n00:52 - A Unidade-Personagem: 150g de Carga Marginal\n01:45 - O Hub de Shenzhen e o Palete Aeronáutico ULD\n02:37 - A Travessia dos 18.340 km e o Pouso em Viracopos\n03:29 - O Túnel de Raio-X de Dupla Energia da Receita Federal\n04:22 - O Cross-Belt Sorter a 3,2 m/s e o Código de Barras\n04:53 - A Última Milha e o Veredito Causal\n\nFicha Técnica e Fontes Oficiais:\n- CEINT Curitiba (Centro Internacional dos Correios do Brasil)\n- Receita Federal do Brasil (Programa Remessa Conforme / Sistema SISCOMEX)\n- IATA (Associação Internacional de Transportes Aéreos - Diretrizes de Carga ULD)\n- União Postal Universal (UPU - Convenção Postal Mundial)\n- Aeroporto Internacional de Viracopos (Terminal de Carga Aérea Internacional)\n\nInscreva-se no canal O Outro Lado para entender o que acontece depois que você clica, compra, liga ou aperta.\nINVESTIGAR. REVELAR. COMPREENDER.",
+  "tags": [
+    "o outro lado",
+    "encomenda da china",
+    "curitiba correios",
+    "ceint curitiba",
+    "shein",
+    "shopee",
+    "aliexpress",
+    "remessa conforme",
+    "como funciona o frete gratis",
+    "receita federal",
+    "scanner raio x aeroporto",
+    "cross belt sorter",
+    "logistica internacional",
+    "cargueiro boeing 777",
+    "shenzhen",
+    "viracopos",
+    "codigo de barras",
+    "documentario investigativo",
+    "engenharia industrial"
+  ]
+}

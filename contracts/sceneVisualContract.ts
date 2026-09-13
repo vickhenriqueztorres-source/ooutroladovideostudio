@@ -14,6 +14,20 @@ export const VisualAssetClassSchema = z.enum([
 ]);
 export type VisualAssetClass = z.infer<typeof VisualAssetClassSchema>;
 
+export const GenerationPrioritySchema = z.enum([
+  'GENERATIVE_BESPOKE',  // Exclusivo Codex/Firefly (Cenas heroicas, mecanismos, revelações, explicações)
+  'ARCHIVE_SUPPORT'      // Pode usar banco documental/web com score >= 0.80 (Contexto amplo de infraestrutura)
+]);
+export type GenerationPriority = z.infer<typeof GenerationPrioritySchema>;
+
+export const NarrativeArchetypeSchema = z.enum([
+  'PHYSICAL_TRIGGER',     // Detalhe macro do objeto ou comando físico que inicia o processo
+  'INTERNAL_MECHANISM',   // Corte técnico ou mecanismo interno invisível em operação
+  'VULNERABILITY_NODE',   // Ponto crítico de risco, interceptação ou gargalo físico
+  'MONUMENTAL_SCALE'      // Escala monumental com atmosfera chiaroscuro Villeneuve
+]);
+export type NarrativeArchetype = z.infer<typeof NarrativeArchetypeSchema>;
+
 export const SceneVisualContractSchema = z.object({
   sceneId: z
     .string()
@@ -26,6 +40,15 @@ export const SceneVisualContractSchema = z.object({
   voiceover: z
     .string()
     .min(1, "O campo 'voiceover' não pode ser vazio."),
+
+  visualSubject: z.string().optional(),
+  visual_subject: z.string().optional(),
+
+  generation_priority: GenerationPrioritySchema.optional(),
+
+  narrative_archetype: NarrativeArchetypeSchema.optional(),
+
+  cinematic_shot: z.any().optional(),
 
   chapterId: z.string().min(1, "O campo 'chapterId' não pode ser vazio.").optional(),
   chapterTitle: z.string().min(1, "O campo 'chapterTitle' não pode ser vazio.").optional(),
@@ -64,7 +87,16 @@ export const SceneVisualContractSchema = z.object({
 
   targetSeconds: z
     .number()
-    .positive("O campo 'targetSeconds' deve ser um número positivo maior que zero.")
+    .positive("O campo 'targetSeconds' deve ser um número positivo maior que zero."),
+
+  claimId: z.string().optional(),
+  claim_id: z.string().optional(),
+  narration_alignment: z.array(z.object({
+    word: z.string(),
+    start_ms: z.number(),
+    end_ms: z.number(),
+    source: z.string().optional()
+  })).optional()
 });
 
 export type SceneVisualContract = z.infer<typeof SceneVisualContractSchema>;
@@ -77,5 +109,8 @@ export function parseSceneVisualContract(data: unknown): SceneVisualContract {
       .join('\n');
     throw new Error(`SCENE_VISUAL_CONTRACT_INVALID: O contrato visual de cena violou o schema Zod:\n${errorDetails}`);
   }
-  return result.data;
+  return {
+    ...result.data,
+    generation_priority: result.data.generation_priority || 'GENERATIVE_BESPOKE'
+  };
 }

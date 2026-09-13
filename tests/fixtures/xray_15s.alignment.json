@@ -1,0 +1,230 @@
+[
+  {
+    "word": "Quando",
+    "start_ms": 42,
+    "end_ms": 395,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "a",
+    "start_ms": 410,
+    "end_ms": 485,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "esteira",
+    "start_ms": 512,
+    "end_ms": 978,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "acelera",
+    "start_ms": 1015,
+    "end_ms": 1492,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "a",
+    "start_ms": 1520,
+    "end_ms": 1598,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "0,5",
+    "start_ms": 1625,
+    "end_ms": 2084,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "metros",
+    "start_ms": 2110,
+    "end_ms": 2490,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "por",
+    "start_ms": 2515,
+    "end_ms": 2730,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "segundo,",
+    "start_ms": 2755,
+    "end_ms": 3480,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "o",
+    "start_ms": 3610,
+    "end_ms": 3715,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "gerador",
+    "start_ms": 3740,
+    "end_ms": 4290,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "dispara",
+    "start_ms": 4315,
+    "end_ms": 4830,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "dois",
+    "start_ms": 4860,
+    "end_ms": 5175,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "feixes",
+    "start_ms": 5200,
+    "end_ms": 5645,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "de",
+    "start_ms": 5670,
+    "end_ms": 5785,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "raio-X",
+    "start_ms": 5810,
+    "end_ms": 6340,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "com",
+    "start_ms": 6365,
+    "end_ms": 6530,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "energias",
+    "start_ms": 6555,
+    "end_ms": 7090,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "diferentes.",
+    "start_ms": 7115,
+    "end_ms": 7740,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "Isso",
+    "start_ms": 7850,
+    "end_ms": 8120,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "faz",
+    "start_ms": 8145,
+    "end_ms": 8370,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "com",
+    "start_ms": 8395,
+    "end_ms": 8550,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "que",
+    "start_ms": 8575,
+    "end_ms": 8710,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "a",
+    "start_ms": 8735,
+    "end_ms": 8820,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "densidade",
+    "start_ms": 8845,
+    "end_ms": 9460,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "da",
+    "start_ms": 9485,
+    "end_ms": 9590,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "matéria",
+    "start_ms": 9615,
+    "end_ms": 10120,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "seja",
+    "start_ms": 10145,
+    "end_ms": 10430,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "calculada",
+    "start_ms": 10455,
+    "end_ms": 11080,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "instantaneamente,",
+    "start_ms": 11105,
+    "end_ms": 12240,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "antes",
+    "start_ms": 12380,
+    "end_ms": 12720,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "mesmo",
+    "start_ms": 12745,
+    "end_ms": 13110,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "da",
+    "start_ms": 13135,
+    "end_ms": 13240,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "mala",
+    "start_ms": 13265,
+    "end_ms": 13580,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "sair",
+    "start_ms": 13605,
+    "end_ms": 13950,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "do",
+    "start_ms": 13975,
+    "end_ms": 14090,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "túnel",
+    "start_ms": 14115,
+    "end_ms": 14470,
+    "source": "tts_word_timestamps"
+  },
+  {
+    "word": "blindado.",
+    "start_ms": 14495,
+    "end_ms": 15125,
+    "source": "tts_word_timestamps"
+  }
+]
