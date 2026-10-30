@@ -48,7 +48,7 @@ class Config:
     UNKNOWN_THRESHOLD: int = 3
 
     # Teto horário protege a conta e mantém a operação dentro de um ritmo controlado.
-    MAX_GENERATIONS_PER_HOUR: int = 20
+    MAX_GENERATIONS_PER_HOUR: int = 500
 
     # Arquivos menores que 100 KB são implausíveis para um vídeo exportado válido.
     MIN_FILE_SIZE_BYTES: int = 100_000

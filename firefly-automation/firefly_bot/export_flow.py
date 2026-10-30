@@ -22,6 +22,7 @@ from .selectors import locator_for
 
 MEDIA_SUFFIXES = {".mp4", ".mov", ".webm"}
 TEMP_SUFFIXES = {".part", ".crdownload", ".tmp", ".download"}
+_EXPORT_LOCK = asyncio.Lock()
 
 
 class ExportState(StrEnum):
@@ -64,6 +65,22 @@ async def export_video(
     job_id: int,
 ) -> ValidatedDownload:
     """Export the visible RESULT_READY media without relying only on download events."""
+    async with _EXPORT_LOCK:
+        try:
+            await page.bring_to_front()
+            await asyncio.sleep(0.3)
+        except Exception:
+            pass
+        return await _export_video_locked(page, human_input, config, logger, job_id)
+
+
+async def _export_video_locked(
+    page: object,
+    human_input: HumanInput,
+    config: Config,
+    logger: logging.Logger,
+    job_id: int,
+) -> ValidatedDownload:
     config.downloads_dir.mkdir(parents=True, exist_ok=True)
     state = ExportState.RESULT_READY
     await dismiss_overlays(page, human_input, logger, job_id)
@@ -174,18 +191,30 @@ async def _click_with_short_download_event(
 ) -> DownloadCandidate | None:
     try:
         async with page.expect_download(timeout=config.download_start_timeout_ms) as download_info:
-            await human_input.click(target)
+            try:
+                await human_input.click(target)
+            except Exception:
+                await page.evaluate(
+                    "() => document.querySelector('[data-testid=\"generate-video-download-button\"]')?.click()"
+                )
         download = await download_info.value
     except PatchrightTimeoutError:
-        event(
-            logger,
-            logging.WARNING,
-            "download_event_timeout",
-            job_id=job_id,
-            timeout_ms=config.download_start_timeout_ms,
-            click_description=click_description,
-        )
-        return None
+        try:
+            async with page.expect_download(timeout=config.download_start_timeout_ms) as download_info:
+                await page.evaluate(
+                    "() => document.querySelector('[data-testid=\"generate-video-download-button\"]')?.click()"
+                )
+            download = await download_info.value
+        except PatchrightTimeoutError:
+            event(
+                logger,
+                logging.WARNING,
+                "download_event_timeout",
+                job_id=job_id,
+                timeout_ms=config.download_start_timeout_ms,
+                click_description=click_description,
+            )
+            return None
     suggested = Path(download.suggested_filename).name or f"job_{job_id}.mp4"
     temp_path = config.downloads_dir / f".{job_id}_{suggested}.event.part"
     await download.save_as(str(temp_path))
@@ -245,7 +274,10 @@ async def _locator_text(locator: object) -> str:
 
 
 async def _confirm_download_button_ready(download_button: object, config: Config) -> None:
-    await download_button.wait_for(state="visible", timeout=config.ui_response_timeout_ms)
+    try:
+        await download_button.wait_for(state="visible", timeout=config.ui_response_timeout_ms)
+    except PatchrightTimeoutError:
+        await download_button.wait_for(state="attached", timeout=3000)
     disabled = await download_button.get_attribute("aria-disabled")
     if disabled == "true":
         raise ExportFlowError("RESULT_READY_DOWNLOAD_BUTTON_DISABLED")

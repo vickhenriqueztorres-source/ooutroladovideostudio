@@ -59,6 +59,7 @@ MODEL_PICKER_OPTIONS: dict[str, tuple[str, str]] = {
 
 MODEL_DEFAULT_DURATION_MODELS = {
     "firefly video",
+    "kling 2.5 turbo",
     "gemini omni flash",
     "runway gen-4.5",
     "ray3.14",
@@ -155,7 +156,7 @@ class Worker:
                         "--disable-backgrounding-occluded-windows",
                         "--disable-renderer-backgrounding",
                     ],
-                    ignore_default_args=["--enable-automation"],
+                    ignore_default_args=["--enable-automation", "--use-mock-keychain", "--password-store=basic"],
                 )
                 page = await context.new_page()
                 try:
@@ -217,7 +218,7 @@ class Worker:
                         "--disable-backgrounding-occluded-windows",
                         "--disable-renderer-backgrounding",
                     ],
-                    ignore_default_args=["--enable-automation"],
+                    ignore_default_args=["--enable-automation", "--use-mock-keychain", "--password-store=basic"],
                 )
                 try:
                     await context.add_init_script(

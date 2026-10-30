@@ -1,0 +1,100 @@
+{
+  "batch_name": "outrora_vila_rica_1750_restantes_18",
+  "model": "Kling 2.5 Turbo",
+  "resolution": "1080p",
+  "aspect_ratio": "16:9",
+  "duration_seconds": 5,
+  "fps": 24,
+  "items": [
+    {
+      "name": "vila_rica_02",
+      "image": "vila_rica_02.jpg",
+      "prompt": "Cinematic slow camera pan across the misty colonial valley of Vila Rica in 1750, soft morning fog drifting over the terracotta rooftops and Baroque church towers, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_03",
+      "image": "vila_rica_03.jpg",
+      "prompt": "Cinematic slow camera push-in down the steep cobblestone street of Vila Rica, the young brown-haired time-traveler in his beige tunic and leather backpack holds steady in the foreground looking down the slope, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_04",
+      "image": "vila_rica_04.jpg",
+      "prompt": "Cinematic slow camera push-in toward the colonial stone bridge of Vila Rica, gentle water rippling in the muddy creek below while townspeople walk in the distance, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_06",
+      "image": "vila_rica_06.jpg",
+      "prompt": "Cinematic slow camera push-in along the colonial street as the mule train stands loaded with leather trunks, the young brown-haired time-traveler holds steady on the sidewalk observing the tropeiros, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_07",
+      "image": "vila_rica_07.jpg",
+      "prompt": "Cinematic slow camera tilt up toward the ornate colonial balcony, subtle breeze moving the velvet curtains while the young time-traveler watches from the street below, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_08",
+      "image": "vila_rica_08.jpg",
+      "prompt": "Cinematic slow camera push-in toward the mounted royal dragoons in blue and red colonial uniforms on the cobblestone street, the young time-traveler holds steady in the foreground watching them pass, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_09",
+      "image": "vila_rica_09.jpg",
+      "prompt": "Cinematic slow camera push-in toward the rustic colonial tavern entrance, warm lantern light flickering gently and soft chimney smoke rising into the sky, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_11",
+      "image": "vila_rica_11.jpg",
+      "prompt": "Cinematic slow camera push-in toward the rustic wooden table loaded with colonial Minas food, warm white steam rising gently from the soapstone pot and plate of feijao tropeiro, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_12",
+      "image": "vila_rica_12.jpg",
+      "prompt": "Cinematic slow camera push-in toward the brass balance scale with glittering gold dust on the wooden counter, warm candle flame flickering softly while the young time-traveler watches closely, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_13",
+      "image": "vila_rica_13.jpg",
+      "prompt": "Cinematic slow camera push-in across the red-earth gold mining valley of Vila Rica, water flowing down the wooden sluice channels while the young time-traveler observes from the ridge, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_15",
+      "image": "vila_rica_15.jpg",
+      "prompt": "Cinematic slow camera push-in inside the torchlit underground mine tunnel, warm torch flames flickering against the wet quartz and gold veins on the rock wall, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_16",
+      "image": "vila_rica_16.jpg",
+      "prompt": "Cinematic slow camera push-in inside the Royal Foundry House, bright orange sparks and warm glow rising from the furnace crucible while the young time-traveler watches from the doorway, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_17",
+      "image": "vila_rica_17.jpg",
+      "prompt": "Cinematic slow camera push-in inside the sunlit colonial sculptor workshop, fine soapstone dust motes floating gently in the sunbeams while the young time-traveler watches the master carver, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_19",
+      "image": "vila_rica_19.jpg",
+      "prompt": "Cinematic slow camera push-in along the festive colonial street procession, colorful silk banners swaying gently in the breeze over the cobblestone slope, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_20",
+      "image": "vila_rica_20.jpg",
+      "prompt": "Cinematic slow camera push-in inside the candlelit colonial salon, warm chandelier flames flickering softly over the musicians and the young time-traveler listening by the doorway, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_21",
+      "image": "vila_rica_21.jpg",
+      "prompt": "Cinematic slow camera push-in down the foggy nighttime cobblestone alley of Vila Rica, warm amber light glowing from the iron street lantern through the drifting mist, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_22",
+      "image": "vila_rica_22.jpg",
+      "prompt": "Cinematic slow camera push-in toward the dimly lit stone archway, warm lantern light flickering softly as the young time-traveler watches from the shadows in the foreground, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    },
+    {
+      "name": "vila_rica_23",
+      "image": "vila_rica_23.jpg",
+      "prompt": "Cinematic slow camera push-in inside the candlelit colonial study, the single candle flame flickering warmly over the maps and books while the young time-traveler listens by the door, smooth motion, consistent 2D hand-drawn illustration linework, no warping, no morphing, no extra limbs, no flicker, preserve the original composition."
+    }
+  ]
+}

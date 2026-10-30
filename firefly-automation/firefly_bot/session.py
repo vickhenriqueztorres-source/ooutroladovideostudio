@@ -78,7 +78,7 @@ async def probe_session(config: Config) -> dict[str, Any]:
                     "--no-first-run",
                     "--no-default-browser-check"
                 ],
-                ignore_default_args=["--enable-automation"],
+                ignore_default_args=["--enable-automation", "--use-mock-keychain", "--password-store=basic"],
             )
             try:
                 page = context.pages[0] if context.pages else await context.new_page()

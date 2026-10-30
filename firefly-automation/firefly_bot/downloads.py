@@ -70,8 +70,10 @@ def _validate_container_signature(path: Path) -> None:
 
 
 def _ffprobe(path: Path) -> dict[str, object]:
+    import shutil
+    ffprobe_cmd = shutil.which("ffprobe") or "/Users/macmini/.local/bin/ffprobe"
     proc = subprocess.run(
-        ["ffprobe", "-v", "error", "-show_format", "-show_streams", "-of", "json", str(path)],
+        [ffprobe_cmd, "-v", "error", "-show_format", "-show_streams", "-of", "json", str(path)],
         capture_output=True,
         text=True,
         check=False,
